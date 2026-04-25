@@ -402,6 +402,49 @@
     color: var(--maroon);
   }
 
+  .chapter-title-wrap {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .locate-btn {
+    background: transparent;
+    border: 1px solid rgba(184, 137, 64, 0.3);
+    color: var(--gold);
+    border-radius: 100px;
+    padding: 2px 14px 4px 14px;
+    font-family: 'Cormorant Unicase', serif;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 14px;
+    flex-shrink: 0;
+  }
+
+  .locate-btn::after {
+    content: '↗';
+    font-family: system-ui, sans-serif;
+    font-size: 13px;
+    transition: transform 0.3s ease;
+  }
+
+  .locate-btn:hover {
+    background: rgba(184, 137, 64, 0.05);
+    border-color: var(--gold);
+    color: var(--maroon);
+    transform: translateY(-2px);
+  }
+
+  .locate-btn:hover::after {
+    transform: translate(2px, -2px);
+  }
+
   .chapter-subtitle {
     font-family: 'Cormorant Garamond', serif;
     font-style: italic;
