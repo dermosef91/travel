@@ -1,0 +1,1833 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Across the Roof of the World — A journey from Kathmandu to Kyrgyzstan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Crimson+Pro:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Cormorant+Unicase:wght@400;500;600&family=Caveat:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #f4ede0;
+    --paper-warm: #ede2cc;
+    --paper-deep: #e6d8be;
+    --ink: #1f1a14;
+    --ink-soft: #3a3127;
+    --ink-fade: #6a5d4a;
+    --gold: #b88940;
+    --gold-deep: #8c6328;
+    --maroon: #6e2a22;
+    --maroon-deep: #4c1c17;
+    --indigo: #1a2740;
+    --teal: #1f4754;
+    --rust: #a44a3f;
+    --sand: #d4a96a;
+    --jade: #4a7256;
+    --terracotta: #b96a4d;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Crimson Pro', Georgia, serif;
+    font-size: 18px;
+    line-height: 1.7;
+    color: var(--ink);
+    background: var(--paper);
+    background-image:
+      radial-gradient(ellipse at 20% 10%, rgba(184, 137, 64, 0.08), transparent 50%),
+      radial-gradient(ellipse at 80% 90%, rgba(110, 42, 34, 0.05), transparent 50%);
+    overflow-x: hidden;
+  }
+
+  /* Paper grain overlay */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.5;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.12 0 0 0 0 0.10 0 0 0 0 0.08 0 0 0 0.045 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 32px;
+    position: relative;
+    z-index: 2;
+  }
+
+  /* Typography */
+  .display { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 400; letter-spacing: 0.01em; }
+  .small-caps { font-family: 'Cormorant Unicase', serif; text-transform: uppercase; letter-spacing: 0.18em; font-size: 0.78em; }
+  .hand { font-family: 'Caveat', cursive; }
+
+  /* === HERO === */
+  .hero {
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+    padding: 80px 32px;
+    background:
+      radial-gradient(ellipse at 30% 20%, rgba(184, 137, 64, 0.18), transparent 60%),
+      radial-gradient(ellipse at 70% 80%, rgba(74, 114, 86, 0.12), transparent 60%),
+      linear-gradient(180deg, #f4ede0 0%, #e6d8be 100%);
+  }
+
+  .hero-mountains {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 50%;
+    z-index: 1;
+    opacity: 0.55;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 3;
+    max-width: 900px;
+  }
+
+  .hero-eyebrow {
+    font-family: 'Cormorant Unicase', serif;
+    text-transform: uppercase;
+    letter-spacing: 0.45em;
+    font-size: 13px;
+    color: var(--maroon);
+    margin-bottom: 32px;
+    opacity: 0;
+    animation: fadeUp 1s 0.2s forwards;
+  }
+
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: clamp(48px, 9vw, 110px);
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin-bottom: 12px;
+    opacity: 0;
+    animation: fadeUp 1.2s 0.4s forwards;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--maroon);
+  }
+
+  .hero-subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(18px, 2.4vw, 26px);
+    color: var(--ink-soft);
+    margin: 24px auto 0;
+    max-width: 720px;
+    opacity: 0;
+    animation: fadeUp 1.2s 0.7s forwards;
+  }
+
+  .hero-divider {
+    width: 60px;
+    height: 1px;
+    background: var(--gold);
+    margin: 56px auto 32px;
+    position: relative;
+    opacity: 0;
+    animation: fadeUp 1s 1s forwards;
+  }
+
+  .hero-divider::before,
+  .hero-divider::after {
+    content: "✦";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--gold);
+    font-size: 12px;
+  }
+  .hero-divider::before { left: -28px; }
+  .hero-divider::after { right: -28px; }
+
+  .hero-dedication {
+    font-family: 'Caveat', cursive;
+    font-size: 32px;
+    color: var(--maroon);
+    opacity: 0;
+    animation: fadeUp 1s 1.2s forwards;
+    margin-bottom: 60px;
+  }
+
+  .hero-meta {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    flex-wrap: wrap;
+    opacity: 0;
+    animation: fadeUp 1s 1.4s forwards;
+  }
+
+  .hero-meta-item {
+    text-align: center;
+  }
+
+  .hero-meta-label {
+    font-family: 'Cormorant Unicase', serif;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: 11px;
+    color: var(--ink-fade);
+    margin-bottom: 6px;
+  }
+
+  .hero-meta-value {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    color: var(--ink);
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* === ROUTE OVERVIEW === */
+  .route-overview {
+    padding: 120px 0 80px;
+    position: relative;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: clamp(36px, 5vw, 56px);
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    margin-bottom: 24px;
+    color: var(--ink);
+  }
+
+  .section-eyebrow {
+    font-family: 'Cormorant Unicase', serif;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    font-size: 12px;
+    color: var(--maroon);
+    margin-bottom: 16px;
+    display: block;
+  }
+
+  .route-list {
+    list-style: none;
+    counter-reset: stop;
+    border-top: 1px solid rgba(31, 26, 20, 0.15);
+    margin-top: 48px;
+  }
+
+  .route-list li {
+    counter-increment: stop;
+    display: grid;
+    grid-template-columns: 80px 1fr auto;
+    gap: 24px;
+    padding: 22px 0;
+    border-bottom: 1px solid rgba(31, 26, 20, 0.08);
+    align-items: baseline;
+    transition: padding-left 0.3s ease;
+  }
+
+  .route-list li:hover {
+    padding-left: 12px;
+    background: rgba(184, 137, 64, 0.05);
+  }
+
+  .route-list li::before {
+    content: counter(stop, decimal-leading-zero);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px;
+    color: var(--gold);
+    font-weight: 300;
+    font-style: italic;
+  }
+
+  .route-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    color: var(--ink);
+  }
+
+  .route-name span {
+    font-family: 'Crimson Pro', serif;
+    font-style: italic;
+    font-size: 16px;
+    color: var(--ink-fade);
+    margin-left: 10px;
+  }
+
+  .route-mode {
+    font-family: 'Cormorant Unicase', serif;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-size: 10px;
+    color: var(--ink-fade);
+    padding: 6px 14px;
+    border: 1px solid rgba(31, 26, 20, 0.2);
+    border-radius: 100px;
+    white-space: nowrap;
+  }
+
+  /* === CHAPTERS === */
+  .chapter {
+    position: relative;
+    padding: 140px 0 80px;
+    overflow: hidden;
+  }
+
+  .chapter::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1px;
+    height: 80px;
+    background: linear-gradient(to bottom, transparent, var(--gold), transparent);
+  }
+
+  .chapter-header {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 48px;
+    align-items: end;
+    margin-bottom: 72px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid rgba(31, 26, 20, 0.15);
+  }
+
+  .chapter-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 96px;
+    line-height: 1;
+    color: var(--gold);
+    opacity: 0.7;
+  }
+
+  .chapter-number span {
+    font-family: 'Cormorant Unicase', serif;
+    font-style: normal;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    font-size: 12px;
+    display: block;
+    color: var(--ink-fade);
+    margin-bottom: 12px;
+    opacity: 0.8;
+  }
+
+  .chapter-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: clamp(40px, 6vw, 76px);
+    line-height: 1;
+    letter-spacing: -0.015em;
+    color: var(--ink);
+  }
+
+  .chapter-title em {
+    font-style: italic;
+    color: var(--maroon);
+  }
+
+  .chapter-subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: clamp(18px, 2vw, 22px);
+    color: var(--ink-soft);
+    margin-top: 16px;
+    max-width: 700px;
+  }
+
+  /* Hero panel for each chapter */
+  .chapter-hero {
+    position: relative;
+    aspect-ratio: 16/7;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 72px;
+    border: 1px solid rgba(31, 26, 20, 0.1);
+    box-shadow: 0 30px 60px -20px rgba(31, 26, 20, 0.2);
+  }
+
+  .chapter-hero-quote {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 56px 64px;
+    color: var(--paper);
+    z-index: 2;
+  }
+
+  .chapter-hero-quote .quote-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: clamp(22px, 3.2vw, 36px);
+    line-height: 1.3;
+    max-width: 720px;
+    margin-bottom: 12px;
+  }
+
+  .chapter-hero-quote .quote-attr {
+    font-family: 'Cormorant Unicase', serif;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    font-size: 11px;
+    opacity: 0.85;
+  }
+
+  /* Body */
+  .chapter-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+  }
+
+  .chapter-body p {
+    font-size: 19px;
+    line-height: 1.75;
+    color: var(--ink-soft);
+    margin-bottom: 18px;
+  }
+
+  .chapter-body p:first-child::first-letter {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 72px;
+    float: left;
+    line-height: 0.85;
+    margin: 6px 10px 0 0;
+    color: var(--maroon);
+    font-weight: 400;
+  }
+
+  .why-worth-it {
+    background: var(--paper-warm);
+    border-left: 3px solid var(--gold);
+    padding: 28px 32px;
+    margin: 32px 0;
+    position: relative;
+  }
+
+  .why-worth-it h4 {
+    font-family: 'Cormorant Unicase', serif;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    font-size: 11px;
+    color: var(--maroon);
+    margin-bottom: 12px;
+  }
+
+  .why-worth-it p {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 22px;
+    line-height: 1.5;
+    color: var(--ink);
+    margin: 0;
+  }
+
+  .why-worth-it p::first-letter {
+    font-size: 22px;
+    float: none;
+    color: inherit;
+    margin: 0;
+    font-family: inherit;
+  }
+
+  /* Highlight grid */
+  .highlights {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-top: 12px;
+  }
+
+  .highlight {
+    background: rgba(255, 252, 245, 0.5);
+    border: 1px solid rgba(31, 26, 20, 0.08);
+    padding: 24px 24px 22px;
+    position: relative;
+  }
+
+  .highlight-icon {
+    font-family: 'Cormorant Unicase', serif;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    font-size: 10px;
+    color: var(--maroon);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .highlight-icon::before {
+    content: "";
+    width: 16px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  .highlight h5 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 500;
+    margin-bottom: 8px;
+    color: var(--ink);
+    line-height: 1.2;
+  }
+
+  .highlight p {
+    font-size: 15px;
+    line-height: 1.55;
+    color: var(--ink-soft);
+    margin: 0;
+  }
+
+  .highlight p::first-letter {
+    font-size: 15px;
+    float: none;
+    color: inherit;
+    margin: 0;
+    font-family: inherit;
+  }
+
+  /* Practical box */
+  .practical {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 40px 44px;
+    margin-top: 48px;
+    border-radius: 2px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .practical::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--gold), var(--rust), var(--gold));
+  }
+
+  .practical h4 {
+    font-family: 'Cormorant Unicase', serif;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    font-size: 12px;
+    color: var(--gold);
+    margin-bottom: 24px;
+  }
+
+  .practical-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 28px;
+  }
+
+  .practical-item dt {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 14px;
+    color: var(--gold);
+    margin-bottom: 4px;
+    letter-spacing: 0.02em;
+  }
+
+  .practical-item dd {
+    font-size: 16px;
+    line-height: 1.5;
+    color: rgba(244, 237, 224, 0.85);
+  }
+
+  /* Magic moment */
+  .magic-moment {
+    margin: 64px auto 0;
+    max-width: 800px;
+    text-align: center;
+    padding: 48px 32px;
+    border-top: 1px solid rgba(31, 26, 20, 0.15);
+    border-bottom: 1px solid rgba(31, 26, 20, 0.15);
+  }
+
+  .magic-moment-label {
+    font-family: 'Cormorant Unicase', serif;
+    text-transform: uppercase;
+    letter-spacing: 0.4em;
+    font-size: 10px;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+
+  .magic-moment-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: clamp(22px, 2.8vw, 32px);
+    line-height: 1.3;
+    color: var(--ink);
+  }
+
+  .magic-moment-text::before { content: "\201C"; color: var(--gold); margin-right: 4px; }
+  .magic-moment-text::after { content: "\201D"; color: var(--gold); margin-left: 4px; }
+
+  /* === GRADIENT BACKGROUNDS for chapter heroes === */
+  .gradient-kathmandu {
+    background:
+      radial-gradient(ellipse at 30% 70%, rgba(255, 200, 100, 0.6), transparent 50%),
+      radial-gradient(ellipse at 70% 30%, rgba(180, 60, 40, 0.5), transparent 60%),
+      linear-gradient(135deg, #5a1f1a 0%, #b8552f 50%, #d49a4c 100%);
+  }
+  .gradient-himalaya {
+    background:
+      radial-gradient(ellipse at 50% 80%, rgba(180, 200, 220, 0.5), transparent 60%),
+      linear-gradient(180deg, #2d4868 0%, #6c8aab 40%, #c8d6e4 75%, #e8e8e0 100%);
+  }
+  .gradient-lhasa {
+    background:
+      radial-gradient(ellipse at 50% 30%, rgba(255, 220, 140, 0.4), transparent 50%),
+      linear-gradient(180deg, #2c1818 0%, #6e2a22 40%, #b88940 80%, #e6d8be 100%);
+  }
+  .gradient-skytrain {
+    background:
+      radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.4), transparent 4%),
+      radial-gradient(circle at 60% 20%, rgba(255, 255, 255, 0.35), transparent 3%),
+      radial-gradient(circle at 80% 50%, rgba(255, 255, 255, 0.3), transparent 3%),
+      radial-gradient(circle at 35% 70%, rgba(255, 255, 255, 0.25), transparent 2%),
+      linear-gradient(180deg, #0a1525 0%, #1a2740 50%, #3a4868 80%, #6a7a92 100%);
+  }
+  .gradient-hexi {
+    background:
+      radial-gradient(ellipse at 30% 60%, rgba(212, 169, 106, 0.5), transparent 60%),
+      linear-gradient(180deg, #c9a66b 0%, #b96a4d 50%, #8c4029 100%);
+  }
+  .gradient-dunhuang {
+    background:
+      radial-gradient(ellipse at 50% 70%, rgba(255, 220, 160, 0.6), transparent 50%),
+      linear-gradient(180deg, #d49a4c 0%, #c87f3a 40%, #8c5a28 100%);
+  }
+  .gradient-turpan {
+    background:
+      radial-gradient(ellipse at 30% 40%, rgba(74, 114, 86, 0.5), transparent 50%),
+      radial-gradient(ellipse at 80% 70%, rgba(180, 60, 40, 0.4), transparent 50%),
+      linear-gradient(135deg, #b94a2f 0%, #a45a3f 50%, #4a7256 100%);
+  }
+  .gradient-kashgar {
+    background:
+      radial-gradient(ellipse at 30% 30%, rgba(31, 71, 84, 0.6), transparent 60%),
+      linear-gradient(180deg, #1f4754 0%, #b96a4d 70%, #d4a96a 100%);
+  }
+  .gradient-pamir {
+    background:
+      radial-gradient(ellipse at 40% 40%, rgba(255, 255, 255, 0.4), transparent 40%),
+      linear-gradient(180deg, #1a2740 0%, #2a4858 40%, #6a8aa0 75%, #d8e0e8 100%);
+  }
+  .gradient-osh {
+    background:
+      radial-gradient(ellipse at 60% 70%, rgba(212, 169, 106, 0.5), transparent 50%),
+      linear-gradient(180deg, #4a5a3a 0%, #8a7a4a 50%, #c8a868 100%);
+  }
+
+  /* Decorative SVG fills + photo background */
+  .scene {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+  }
+
+  img.scene {
+    filter: saturate(0.95) contrast(1.02);
+  }
+
+  /* Vignette */
+  .chapter-hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.15) 100%);
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  .chapter-hero-quote { z-index: 3; }
+
+  /* === EPILOGUE === */
+  .epilogue {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 120px 0;
+    margin-top: 100px;
+    position: relative;
+  }
+
+  .epilogue::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+
+  .epilogue .section-title { color: var(--paper); }
+  .epilogue .section-eyebrow { color: var(--gold); }
+
+  .ref-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+    margin-top: 60px;
+  }
+
+  .ref-card {
+    border-top: 1px solid rgba(244, 237, 224, 0.2);
+    padding-top: 28px;
+  }
+
+  .ref-card h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px;
+    font-weight: 400;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+
+  .ref-card ul {
+    list-style: none;
+  }
+
+  .ref-card li {
+    padding: 8px 0;
+    font-size: 15px;
+    line-height: 1.6;
+    color: rgba(244, 237, 224, 0.9);
+    border-bottom: 1px solid rgba(244, 237, 224, 0.08);
+  }
+
+  .ref-card li strong {
+    color: var(--paper);
+    font-weight: 500;
+    font-style: italic;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 17px;
+  }
+
+  /* Closing */
+  .closing {
+    background: var(--paper);
+    padding: 120px 32px;
+    text-align: center;
+  }
+
+  .closing-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: clamp(28px, 4vw, 48px);
+    line-height: 1.3;
+    max-width: 800px;
+    margin: 0 auto 40px;
+    color: var(--ink);
+  }
+
+  .closing-sig {
+    font-family: 'Caveat', cursive;
+    font-size: 28px;
+    color: var(--maroon);
+  }
+
+  /* === RESPONSIVE === */
+  @media (max-width: 880px) {
+    .chapter-header {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+    .chapter-number {
+      font-size: 64px;
+    }
+    .chapter-body {
+      grid-template-columns: 1fr;
+      gap: 48px;
+    }
+    .chapter-hero-quote {
+      padding: 40px 32px;
+    }
+    .highlights {
+      grid-template-columns: 1fr;
+    }
+    .route-list li {
+      grid-template-columns: 50px 1fr;
+      gap: 16px;
+    }
+    .route-mode {
+      grid-column: 2;
+      justify-self: start;
+      margin-top: 4px;
+    }
+    .route-list li::before {
+      font-size: 24px;
+    }
+    .route-name {
+      font-size: 22px;
+    }
+    .route-name span {
+      display: block;
+      margin-left: 0;
+      margin-top: 2px;
+    }
+    .hero-meta {
+      gap: 32px;
+    }
+    .practical {
+      padding: 32px 24px;
+    }
+  }
+
+  /* Scroll progress */
+  .progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 2px;
+    background: var(--gold);
+    z-index: 100;
+    transition: width 0.1s ease;
+    width: 0%;
+  }
+</style>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+
+<!-- ============= HERO ============= -->
+<section class="hero">
+  <svg class="hero-mountains" viewBox="0 0 1440 600" preserveAspectRatio="none">
+    <defs>
+      <linearGradient id="m1" x1="0" x2="0" y1="0" y2="1">
+        <stop offset="0%" stop-color="#6e2a22" stop-opacity="0.15"/>
+        <stop offset="100%" stop-color="#6e2a22" stop-opacity="0.4"/>
+      </linearGradient>
+      <linearGradient id="m2" x1="0" x2="0" y1="0" y2="1">
+        <stop offset="0%" stop-color="#1a2740" stop-opacity="0.2"/>
+        <stop offset="100%" stop-color="#1a2740" stop-opacity="0.55"/>
+      </linearGradient>
+      <linearGradient id="m3" x1="0" x2="0" y1="0" y2="1">
+        <stop offset="0%" stop-color="#1f1a14" stop-opacity="0.4"/>
+        <stop offset="100%" stop-color="#1f1a14" stop-opacity="0.85"/>
+      </linearGradient>
+    </defs>
+    <!-- Far range -->
+    <path d="M0,400 L80,340 L160,380 L240,300 L320,360 L400,280 L480,330 L560,260 L640,310 L720,240 L800,290 L880,250 L960,300 L1040,260 L1120,310 L1200,270 L1280,320 L1360,280 L1440,330 L1440,600 L0,600 Z" fill="url(#m1)"/>
+    <!-- Mid range -->
+    <path d="M0,460 L100,420 L200,450 L280,380 L360,440 L440,360 L520,420 L600,340 L680,400 L760,330 L840,390 L920,350 L1000,400 L1080,360 L1160,410 L1240,370 L1320,420 L1400,390 L1440,420 L1440,600 L0,600 Z" fill="url(#m2)"/>
+    <!-- Near range -->
+    <path d="M0,520 L120,490 L240,510 L360,470 L480,500 L600,460 L720,490 L840,450 L960,485 L1080,455 L1200,490 L1320,460 L1440,485 L1440,600 L0,600 Z" fill="url(#m3)"/>
+  </svg>
+
+  <div class="hero-content">
+    <div class="hero-eyebrow">A Six-Month Journey · Spring 2027</div>
+    <h1 class="hero-title">Across the<br><em>Roof of the World</em></h1>
+    <p class="hero-subtitle">From the prayer flags of Kathmandu, over the Himalayas to Lhasa, by the highest railway on earth, along the old Silk Road, and down through the Pamirs into Kyrgyzstan.</p>
+    <div class="hero-divider"></div>
+    <div class="hero-dedication">for Micky</div>
+    <div class="hero-meta">
+      <div class="hero-meta-item">
+        <div class="hero-meta-label">Distance</div>
+        <div class="hero-meta-value">~7,400 km</div>
+      </div>
+      <div class="hero-meta-item">
+        <div class="hero-meta-label">Borders</div>
+        <div class="hero-meta-value">Three</div>
+      </div>
+      <div class="hero-meta-item">
+        <div class="hero-meta-label">Duration</div>
+        <div class="hero-meta-value">~9 weeks</div>
+      </div>
+      <div class="hero-meta-item">
+        <div class="hero-meta-label">Highest point</div>
+        <div class="hero-meta-value">5,231 m</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============= ROUTE OVERVIEW ============= -->
+<section class="route-overview">
+  <div class="container">
+    <span class="section-eyebrow">The Route at a Glance</span>
+    <h2 class="section-title">Nine chapters, three countries,<br>one ribbon of road and rail.</h2>
+    <p style="max-width: 680px; font-size: 19px; color: var(--ink-soft); margin-top: 24px;">
+      The trip you've planned is essentially a single thread following the spine of Asia: down the Himalayas, across the Tibetan plateau, along the Silk Road's defile, and over the Pamirs into Central Asia. Every leg has its own colour, climate, and cuisine. Below is the shape of it.
+    </p>
+    <ol class="route-list">
+      <li><span class="route-name">Kathmandu <span>— prologue, Nepal</span></span><span class="route-mode">Foot</span></li>
+      <li><span class="route-name">Kathmandu → Lhasa <span>— Friendship Highway via Gyirong &amp; Everest</span></span><span class="route-mode">Overland Tour · 8 days</span></li>
+      <li><span class="route-name">Lhasa <span>— Potala, Jokhang, Barkhor</span></span><span class="route-mode">3–4 days</span></li>
+      <li><span class="route-name">Lhasa → Xining <span>— Qinghai-Tibet Railway, the Sky Train</span></span><span class="route-mode">Overnight train · 21h</span></li>
+      <li><span class="route-name">Xining → Zhangye → Jiayuguan <span>— along the Hexi Corridor</span></span><span class="route-mode">High-speed rail</span></li>
+      <li><span class="route-name">Dunhuang <span>— Mogao Caves, Crescent Lake, Singing Sands</span></span><span class="route-mode">Train + bus · 3 days</span></li>
+      <li><span class="route-name">Turpan &amp; Urumqi <span>— Flaming Mountains, Karez wells</span></span><span class="route-mode">Train · 2–3 days</span></li>
+      <li><span class="route-name">Kashgar <span>— Sunday bazaar, Old Town, Karakul Lake</span></span><span class="route-mode">Train + day trip · 4–5 days</span></li>
+      <li><span class="route-name">Kashgar → Osh <span>— Irkeshtam Pass into Kyrgyzstan</span></span><span class="route-mode">Border crossing · 1 day</span></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============= CHAPTER 1: KATHMANDU ============= -->
+<section class="chapter" id="ch1">
+  <div class="container">
+    <header class="chapter-header">
+      <div class="chapter-number">
+        <span>Prologue</span>I.
+      </div>
+      <div>
+        <h2 class="chapter-title">Kathmandu, the <em>threshold</em></h2>
+        <p class="chapter-subtitle">Where the trip stops being a plan and starts being a journey. Marigold-strewn alleys, butter-lamp dusk, and one last hot shower before the plateau.</p>
+      </div>
+    </header>
+
+    <div class="chapter-hero gradient-kathmandu">
+      <img class="scene" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Boudhanath_Stupa_1.JPG/1600px-Boudhanath_Stupa_1.JPG" alt="Boudhanath Stupa, Kathmandu" loading="lazy">
+      <div class="chapter-hero-quote">
+        <div class="quote-text">"You sit on a rooftop in Thamel, the sun goes red behind the hills, and you realise — this is where it begins."</div>
+        <div class="quote-attr">Day 0 · Kathmandu, 1,400 m</div>
+      </div>
+    </div>
+
+    <div class="chapter-body">
+      <div>
+        <p>Kathmandu is more than a launching pad. It is the threshold city — where the air is still warm and noisy and the streets smell of marigold, diesel and cardamom, and where every traveller before you has paused to gather themselves before walking up. Spend three or four days. Sleep late. Drink masala chai on rooftops. Watch the eyes of Bhairava blacken with smoke in Durbar Square at dusk. Walk the kora around Boudhanath — three times, slowly, with the grandmothers who have been doing it every evening for forty years.</p>
+
+        <p>This is also where the Tibet permit gets stamped, the Chinese group visa is issued at the embassy in town, and the agency briefs you on the road north. Use the time. Buy a down jacket if you don't have one. Get cash. Eat one last plate of crispy momo from a street vendor.</p>
+
+        <div class="why-worth-it">
+          <h4>Why this leg is worth it</h4>
+          <p>It calibrates you. Everything that follows — the rarefied air of the plateau, the silences of the desert, the rough comfort of an Osh chaikhana — will land harder because you started in the warm chaos of a Hindu-Buddhist capital where every alley is a shrine.</p>
+        </div>
+      </div>
+
+      <div>
+        <div class="highlights">
+          <div class="highlight">
+            <div class="highlight-icon">Cultural</div>
+            <h5>Boudhanath at dusk</h5>
+            <p>Largest stupa in Nepal, ringed by Tibetan refugee monasteries. The kora at sunset, with butter lamps lighting one by one, is one of the most quietly moving things you will see all year.</p>
+          </div>
+          <div class="highlight">
+            <div class="highlight-icon">Historical</div>
+            <h5>Patan Durbar Square</h5>
+            <p>The most beautiful of the three royal squares — Newari woodcarving, Krishna temples, the Royal Palace, and a museum that ranks among Asia's finest. Quieter than Kathmandu's Durbar.</p>
+          </div>
+          <div class="highlight">
+            <div class="highlight-icon">Landscape</div>
+            <h5>Nagarkot dawn</h5>
+            <p>An hour east of the city, a ridge that on a clear morning shows the entire Himalayan crest from Annapurna to Everest. Stay overnight, set the alarm for 5:30. It is worth losing the sleep.</p>
+          </div>
+          <div class="highlight">
+            <div class="highlight-icon">Culinary</div>
+            <h5>Momo, dal bhat, sel roti</h5>
+            <p>Buff momos at a Tibetan-run shop in Boudha. Dal bhat — the all-day Nepali plate. Newari food (chatamari, choila) at Bhojan Griha or Honacha. A tongba — millet beer drunk through a bamboo straw.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="practical">
+      <h4>Practical · Kathmandu</h4>
+      <div class="practical-grid">
+        <div class="practical-item">
+          <dt>When to be here</dt>
+          <dd>Late March or early April, just before heading north — visa processing takes 4 days at the Chinese embassy.</dd>
+        </div>
+        <div class="practical-item">
+          <dt>Stay in</dt>
+          <dd>Patan or Boudha, not Thamel. Quieter, more atmospheric, easier mornings.</dd>
+        </div>
+        <div class="practical-item">
+          <dt>Spend</dt>
+          <dd>~€40–70 per night in a charming guesthouse; €5–8 per meal.</dd>
+        </div>
+        <div class="practical-item">
+          <dt>Don't forget</dt>
+          <dd>Two full passport copies, six photos each (you'll need them in Tibet, Xinjiang and at borders).</dd>
+        </div>
+      </div>
+    </div>
+
+    <div class="magic-moment">
+      <div class="magic-moment-label">A moment to hold</div>
+      <p class="magic-moment-text">Sit at Boudhanath at the end of your last evening here. Hold each other's hand. The stupa's eyes are looking north — the same direction you are about to go.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============= CHAPTER 2: HIMALAYAS ============= -->
+<section class="chapter" id="ch2">
+  <div class="container">
+    <header class="chapter-header">
+      <div class="chapter-number">
+        <span>Chapter Two</span>II.
+      </div>
+      <div>
+        <h2 class="chapter-title">Across the <em>Himalayas</em></h2>
+        <p class="chapter-subtitle">Eight days on the Friendship Highway. Bhote Koshi gorges, Gyirong border, Tingri's high steppe, Everest's north face, and Yamdrok Lake's impossible turquoise.</p>
+      </div>
+    </header>
+
+    <div class="chapter-hero gradient-himalaya">
+      <img class="scene" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Everest_North_Face_toward_Base_Camp_Tibet_Luca_Galuzzi_2006_edit_1.jpg/1600px-Everest_North_Face_toward_Base_Camp_Tibet_Luca_Galuzzi_2006_edit_1.jpg" alt="Mount Everest North Face from Tibet" loading="lazy">
+      <div class="chapter-hero-quote">
+        <div class="quote-text">"On the third morning the air thins and the road begins climbing in earnest, and you don't speak much, because there is nothing to say."</div>
+        <div class="quote-attr">Day 3 · Tingri, 4,300 m</div>
+      </div>
+    </div>
+
+    <div class="chapter-body">
+      <div>
+        <p>This is the leg that earns the trip its title. Eight days from Kathmandu's heat and dust, up through the Bhote Koshi gorge to the Gyirong border, and then onto the great Tibetan plateau. The road climbs and the colours shift: green to brown, brown to ochre, ochre to white. By Tingri you are at 4,300 metres and your guesthouse will be cold and the stars will be brighter than you knew stars could be.</p>
+
+        <p>From Tingri you make the short detour to Rongbuk Monastery and the Tibetan side of Everest Base Camp — at 5,200 metres, the highest place either of you will probably ever stand. Then back onto the Friendship Highway: Shigatse, the Tashilhunpo Monastery (seat of the Panchen Lama), the gentle pilgrim town of Gyantse, and the high pass at Karo La where Yamdrok Lake suddenly opens below you, scorpion-shaped and the colour of melted glaciers.</p>
+
+        <div class="why-worth-it">
+          <h4>Why this leg is worth it</h4>
+          <p>You will never forget the moment Everest comes out of the cloud. That is reason enough. The ascent itself — slow, deliberate, at the pace of a four-wheel-drive on a high road — is also a kind of meditation that no plane can give you.</p>
+        </div>
+      </div>
+
+      <div>
+        <div class="highlights">
+          <div class="highlight">
+            <div class="highlight-icon">Landscape</div>
+            <h5>Everest North Face</h5>
+            <p>From Rongbuk, the north face stands directly in front of you with no foreground — a sheer 3,500 m wall. Sunrise is the time. The cold is brutal and worth it.</p>
+          </div>
+          <div class="highlight">
+            <div class="highlight-icon">Landscape</div>
+            <h5>Yamdrok Lake</h5>
+            <p>One of three sacred lakes of Tibet. The first sight from Karo La pass, with the lake the colour of a Florentine sky, is the single most photographed view in Tibet for good reason.</p>
+          </div>
+          <div class="highlight">
+            <div class="highlight-icon">Cultural</div>
+            <h5>Tashilhunpo Monastery</h5>
+            <p>The seat of the Panchen Lama, founded 1447. Best in the morning when monks debate in the courtyard — a centuries-old ritual of clapping, gesturing, sparring with logic.</p>
+          </div>
+          <div class="highlight">
+            <div class="highlight-icon">Culinary</div>
+            <h5>Tsampa, butter tea, tingmo</h5>
+            <p>Tsampa (roasted barley flour) kneaded with butter tea is the staple of the plateau. Tingmo are steamed bread rolls served with everything. A bowl of thukpa at altitude tastes better than it has any right to.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="practical">
+      <h4>Practical · The Crossing</h4>
+      <div class="practical-grid">
+        <div class="practical-item">
+          <dt>Tour cost</dt>
+          <dd>~€1,000–1,500 pp for the standard 8-day Kathmandu→Lhasa overland (private car, guide, hotels, all permits).</dd>
+        </div>
+        <div class="practical-item">
+          <dt>Altitude protocol</dt>
+          <dd>Slow ascent, lots of water, no alcohol nights 1–3. Diamox in your kit. Don't be heroic — listen to your body.</dd>
+        </div>
+        <div class="practical-item">
+          <dt>What to pack</dt>
+          <dd>Down jacket, thermals, sun protection (UV is brutal), lip balm, a wool buff. Layers above all.</dd>
+        </div>
+        <div class="practical-item">
+          <dt>Best window</dt>
+          <dd>April–early June. Tibet closes to foreigners February–March each year — plan around that.</dd>
+        </div>
+      </div>
+    </div>
+
+    <div class="magic-moment">
+      <div class="magic-moment-label">A moment to hold</div>
+      <p class="magic-moment-text">First light at Rongbuk, hands inside your sleeves, breath visible, Everest turning gold from the top down. No words.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============= CHAPTER 3: LHASA ============= -->
+<section class="chapter" id="ch3">
+  <div class="container">
+    <header class="chapter-header">
+      <div class="chapter-number">
+        <span>Chapter Three</span>III.
+      </div>
+      <div>
+        <h2 class="chapter-title">Lhasa, the <em>holy city</em></h2>
+        <p class="chapter-subtitle">Three or four days at 3,656 metres. The Potala on its hill, the Jokhang at dawn, the Barkhor in late afternoon, sweet tea-houses, and the way altitude makes every walk a little holy.</p>
+      </div>
+    </header>
+
+    <div class="chapter-hero gradient-lhasa">
+      <img class="scene" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/2005_Potala_Palace_Tibet.jpg/1600px-2005_Potala_Palace_Tibet.jpg" alt="Potala Palace, Lhasa" loading="lazy">
+      <div class="chapter-hero-quote">
+        <div class="quote-text">"At dawn the pilgrims circle the Jokhang, prayer wheels turning, robes burgundy in the rising sun, and you are entirely surplus to requirements — which is the point."</div>
+        <div class="quote-attr">Day 9 · Lhasa, 3,656 m</div>
+      </div>
+    </div>
+
+    <div class="chapter-body">
+      <div>
+        <p>Lhasa is the holy city, the destination of every Tibetan pilgrim's life. You arrive after eight days on the road already half-acclimatised, which is a kindness — most travellers fly in and spend their first 24 hours dizzy on a hotel bed. You will not. You will walk straight into the Barkhor, the ancient pilgrim circuit around the Jokhang, and you will join its slow clockwise current.</p>
+
+        <p>Three days is enough. The Potala Palace — the Dalai Lama's winter residence until 1959, now a museum-monument of impossible scale, thirteen stories of white-and-red mud-brick rising from the Red Hill — costs an entry slot booked the day before. The Jokhang at dawn, when it is full of prostrating pilgrims and the smell of butter lamps is overwhelming, is its own kind of sacrament. In the afternoons, drink sweet milk tea in a Barkhor tea-house and watch the city pass.</p>
+
+        <div class="why-worth-it">
+          <h4>Why this leg is worth it</h4>
+          <p>Almost no city on earth is still fundamentally organised around a single religious heart the way Lhasa is. Walking the Barkhor at any time of day, you are inside something living — not a museum, not a heritage site, but an actual practice that has been ongoing for thirteen centuries.</p>
+        </div>
+      </div>
+
+      <div>
+        <div class="highlights">
+          <div class="highlight">
+            <div class="highlight-icon">Cultural</div>
+            <h5>The Jokhang at dawn</h5>
+            <p>Tibet's most sacred temple. Founded 7th century. Go at 7am — outside it, hundreds of pilgrims will be doing full-body prostrations on the flagstones. Inside, the Jowo Shakyamuni statue, brought from Tang dynasty China.</p>
+          </div>
+          <div class="highlight">
+            <div class="highlight-icon">Cultural</div>
+            <h5>Sera Monastery debates</h5>
+            <p>Every afternoon (except Sundays), monks gather under the willow trees to debate Buddhist philosophy, with elaborate hand-claps to punctuate arguments. Free, riveting, theatrical.</p>
+          </div>
+          <div class="highlight">
+            <div class="highlight-icon">Historical</div>
+            <h5>The Potala</h5>
+            <p>13 stories, 1,000+ rooms, 200,000 statues. You walk it in a guided 90 minutes. It is more powerful from outside, at sunset, with butter lamps catching gold on the roof.</p>
+          </div>
+          <div class="highlight">
+            <div class="highlight-icon">Culinary</div>
+            <h5>Sweet tea &amp; momo</h5>
+            <p>Sweet milk tea (cha ngarmo) is the social drink of Lhasa — order a thermos at any tea-house and stay for hours. Eat at Tashi I or Makye Ame on Barkhor — yak burgers, momos, thenthuk, all good.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="practical">
+      <h4>Practical · Lhasa</h4>
+      <div class="practical-grid">
+        <div class="practical-item">
+          <dt>Days needed</dt>
+          <dd>3–4. More if you want Namtso Lake (a 6,000 m pass north of the city — overnight trip).</dd>
+        </div>
+        <div class="practical-item">
+          <dt>Guide rules</dt>
+          <dd>Officially required for tourist sites. In practice, free time in Barkhor and tea-houses is yours.</dd>
+        </div>
+        <div class="practical-item">
+          <dt>Stay near</dt>
+          <dd>Barkhor area — Yak Hotel or House of Shambhala for atmosphere. Walk everywhere.</dd>
+        </div>
+        <div class="practical-item">
+          <dt>Onward</dt>
+          <dd>Have your agency book the Lhasa→Xining train ticket as part of the tour. Don't try to do it solo.</dd>
+        </div>
+      </div>
+    </div>
+
+    <div class="magic-moment">
+      <div class="magic-moment-label">A moment to hold</div>
+      <p class="magic-moment-text">Late afternoon on the Barkhor. The sun catches the gold roofs of the Jokhang. Pilgrims, monks, soldiers, tourists, all moving clockwise. You go with them.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============= CHAPTER 4: SKY TRAIN ============= -->
+<section class="chapter" id="ch4">
+  <div class="container">
+    <header class="chapter-header">
+      <div class="chapter-number">
+        <span>Chapter Four</span>IV.
+      </div>
+      <div>
+        <h2 class="chapter-title">The <em>Sky Train</em></h2>
+        <p class="chapter-subtitle">21 hours on the highest railway in the world. Lhasa to Xining over the Tanggula Pass at 5,072 metres, through Hoh Xil, sleeping in oxygen-fed carriages while the plateau slides past.</p>
+      </div>
+    </header>
+
+    <div class="chapter-hero gradient-skytrain">
+      <img class="scene" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Pose_des_rails_-_ligne_Qinghai-Tibet_2005.jpg/1600px-Pose_des_rails_-_ligne_Qinghai-Tibet_2005.jpg" alt="Qinghai-Tibet Railway across the plateau" loading="lazy">
+      <div class="chapter-hero-quote">
+        <div class="quote-text">"You wake at 4am with the carriage gently rocking, look out the window, and there is the full moon over Hoh Xil with nothing else for two hundred kilometres in any direction."</div>
+        <div class="quote-attr">Lhasa → Xining · Train Z8982 · 1,956 km</div>
+      </div>
+    </div>
+
+    <div class="chapter-body">
+      <div>
+        <p>The Qinghai-Tibet Railway is the highest in the world and one of the great engineering feats of the last century — built on permafrost across some of the coldest, emptiest land on the planet. The carriages are pressurised. There is an oxygen outlet at every berth. You will not need it, but it is comforting to know it is there.</p>
+
+        <p>The Z8982 leaves Lhasa at 09:25. This is the train you want: it puts you across the Tanggula Pass — at 5,072 metres, the highest point of any railway anywhere — in late afternoon light. By dusk you are in Hoh Xil, the high cold desert where Tibetan antelope and wild yak still roam. You sleep through the gentle descent into Qinghai, and wake into the dry valleys around Golmud. By breakfast the landscape has become Central Asian. By 06:25 you are in Xining and on the Silk Road.</p>
+
+        <div class="why-worth-it">
+          <h4>Why this leg is worth it</h4>
+          <p>Trains like this do not exist elsewhere. It is not just transport — it is a long, low, panoramic farewell to the plateau. Take the soft sleeper. Buy the snacks. Open the curtain. Don't sleep until Hoh Xil is dark.</p>
+        </div>
+      </div>
+
+      <div>
+        <div class="highlights">
+          <div class="highlight">
+            <div class="highlight-icon">Landscape</div>
+            <h5>Tanggula Pass</h5>
+            <p>5,072 m. The highest railway point on earth. A single weather station, a few prayer flags, and absolutely nothing else. The train pauses; passengers crowd the windows.</p>
+          </div>
+          <div class="highlight">
+            <div class="highlight-icon">Landscape</div>
+            <h5>Hoh Xil &amp; Cona Lake</h5>
+            <p>UNESCO-listed wilderness. Watch for Tibetan antelope, wild ass, and the occasional bear. Cona Lake reflects the sky like polished steel.</p>
+          </div>
+          <div class="highlight">
+            <div class="highlight-icon">Practical</div>
+            <h5>Soft sleeper</h5>
+            <p>Four berths per compartment, a door that closes, plenty of space. ~€100 pp. Hard sleeper (six berths, open) is fine but social. Worth the upgrade for 21 hours.</p>
+          </div>
+          <div class="highlight">
+            <div class="highlight-icon">Culinary</div>
+            <h5>Train picnic</h5>
+            <p>Buy your supplies in Lhasa: dried yak jerky, tsampa biscuits, flask of butter tea, oranges, instant noodles. The dining car works but the picnic is the experience.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="practical">
+      <h4>Practical · The Sky Train</h4>
+      <div class="practical-grid">
+        <div class="practical-item">
+          <dt>The right train</dt>
+          <dd>Z8982 dep. Lhasa 09:25, arr. Xining 06:25. Daytime over Tanggula. Avoid Z8992 (evening departure — you sleep through the best scenery).</dd>
+        </div>
+        <div class="practical-item">
+          <dt>Booking</dt>
+          <dd>Through your Tibet agency at the same time as the tour. Foreign passports are clunky on 12306.cn. Service fee CNY 200–500 is normal.</dd>
+        </div>
+        <div class="practical-item">
+          <dt>Cost</dt>
+          <dd>Soft sleeper ~€100, hard sleeper ~€65. No Tibet permit needed to leave — only to enter.</dd>
+        </div>
+        <div class="practical-item">
+          <dt>Comfort</dt>
+          <dd>Carriages have Western and squat toilets, washbasins, hot water. No showers. Bring wet wipes and a small towel.</dd>
+        </div>
+      </div>
+    </div>
+
+    <div class="magic-moment">
+      <div class="magic-moment-label">A moment to hold</div>
+      <p class="magic-moment-text">Late afternoon, somewhere past Tanggula. You and Micky pressed against the window. The plateau gold under low light. A herd of wild ass running parallel to the tracks for half a minute, then gone.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============= CHAPTER 5: HEXI CORRIDOR ============= -->
+<section class="chapter" id="ch5">
+  <div class="container">
+    <header class="chapter-header">
+      <div class="chapter-number">
+        <span>Chapter Five</span>V.
+      </div>
+      <div>
+        <h2 class="chapter-title">The <em>Hexi Corridor</em></h2>
+        <p class="chapter-subtitle">A narrow defile between two deserts and two mountain ranges. The Silk Road's chokepoint, where every empire's caravans, monks, and exiles funnelled through. Now: bullet trains and rainbow mountains.</p>
+      </div>
+    </header>
+
+    <div class="chapter-hero gradient-hexi">
+      <img class="scene" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Zhangye_Danxia.JPG/1600px-Zhangye_Danxia.JPG" alt="Zhangye Danxia rainbow mountains" loading="lazy">
+      <div class="chapter-hero-quote">
+        <div class="quote-text">"This is the road every empire walked. The Han, the Tang, the Mongols, Marco Polo. You're walking it now, and it has not yet finished."</div>
+        <div class="quote-attr">Xining → Jiayuguan · ~1,500 km</div>
+      </div>
+    </div>
+
+    <div class="chapter-body">
+      <div>
+        <p>The Hexi Corridor is the Silk Road's defining geography — a narrow strip of habitable land squeezed between the Tibetan Plateau to the south and the Gobi to the north. For two thousand years, every caravan from Chang'an heading west had to thread this needle. The route still does that. So do you, but on a high-speed train at 250 km/h.</p>
+
+        <p>Xining is your launching pad — pause for a day at Kumbum Monastery (the great Tibetan Buddhist gompa, birthplace of Tsongkhapa) and try a bowl of Lanzhou-style hand-pulled beef noodles. Then west to Zhangye for the rainbow Danxia landforms — striped sandstone ridges that look impossibly painted, especially in late afternoon light. Onward to Jiayuguan: the western terminus of the Ming Great Wall, where exiles wept on their way out of China and where the desert genuinely begins.</p>
+
+        <div class="why-worth-it">
+          <h4>Why this leg is worth it</h4>
+          <p>Geography becomes legible here. You can finally see why this trip exists — why these particular cities, in this particular line, mattered. The Hexi Corridor turns the Silk Road from a metaphor into a route you are physically following.</p>
+        </div>
+      </div>
+
+      <div>
+        <div class="highlights">
+          <div class="highlight">
+            <div class="highlight-icon">Landscape</div>
+            <h5>Zhangye Danxia</h5>
+            <p>Striped sandstone the colours of a sunset. Layers of red, orange, ochre and white folded over each other across whole hillsides. Late afternoon, with the sun low — that's when it sings.</p>
+          </div>
+          <div class="highlight">
+            <div class="highlight-icon">Historical</div>
+            <h5>Jiayuguan Fort</h5>
+            <p>The "First and Greatest Pass under Heaven" — westernmost guard tower of the Ming Wall. Exiles tossed a stone at the wall as they left; if it bounced back, they'd return. Many didn't.</p>
+          </div>
+          <div class="highlight">
+            <div class="highlight-icon">Cultural</div>
+            <h5>Kumbum Monastery (Ta'er Si)</h5>
+            <p>One of Tibetan Buddhism's six great Gelug monasteries, near Xining. Famous for yak-butter sculptures of staggering intricacy, remade for the new year and then allowed to melt.</p>
+          </div>
+          <div class="highlight">
+            <div class="highlight-icon">Culinary</div>
+            <h5>Lanzhou beef noodles</h5>
+            <p>The dish. Hand-pulled to your specified thickness, in a clear bone broth with chilli oil, coriander, white radish, and tender beef. Eat one for breakfast. Eat one for lunch. Don't apologise.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="practical">
+      <h4>Practical · Hexi Corridor</h4>
+      <div class="practical-grid">
+        <div class="practical-item">
+          <dt>How to move</dt>
+          <dd>High-speed rail throughout. Xining → Zhangye 2.5h, Zhangye → Jiayuguan 2h, Jiayuguan → Dunhuang ~4h or overnight slow train.</dd>
+        </div>
+        <div class="practical-item">
+          <dt>Days</dt>
+          <dd>1 Xining, 1 Zhangye, 1 Jiayuguan, then onward — call it a week including travel days.</dd>
+        </div>
+        <div class="practical-item">
+          <dt>Booking trains</dt>
+          <dd>Trip.com app works for foreigners. Book 5–7 days ahead. Second-class seats are fine and cheap.</dd>
+        </div>
+        <div class="practical-item">
+          <dt>Pay</dt>
+          <dd>Set up Alipay's "TourPass" before arriving in China. Cards almost never work; cash is awkward.</dd>
+        </div>
+      </div>
+    </div>
+
+    <div class="magic-moment">
+      <div class="magic-moment-label">A moment to hold</div>
+      <p class="magic-moment-text">Last light on the striped hills outside Zhangye. The colours don't make sense and you stop trying to make them.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============= CHAPTER 6: DUNHUANG ============= -->
+<section class="chapter" id="ch6">
+  <div class="container">
+    <header class="chapter-header">
+      <div class="chapter-number">
+        <span>Chapter Six</span>VI.
+      </div>
+      <div>
+        <h2 class="chapter-title">Dunhuang, where the desert <em>meets the Buddha</em></h2>
+        <p class="chapter-subtitle">An oasis in the Gobi. A thousand years of Buddhist art carved into sandstone cliffs. A crescent-shaped lake against the dunes. Camels at sunset. The single most photogenic stop on the entire route.</p>
+      </div>
+    </header>
+
+    <div class="chapter-hero gradient-dunhuang">
+      <img class="scene" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/2015-09-20-132538_-_Mondsichelsee_und_D%C3%BCnen.jpg/1600px-2015-09-20-132538_-_Mondsichelsee_und_D%C3%BCnen.jpg" alt="Crescent Lake and Singing Sand Dunes, Dunhuang" loading="lazy">
+      <div class="chapter-hero-quote">
+        <div class="quote-text">"You climb the dune at sunset, the wind rises, and the lake below catches a ribbon of gold. The sand sings under your feet. This is what oasis means."</div>
+        <div class="quote-attr">Day 18 · Dunhuang</div>
+      </div>
+    </div>
+
+    <div class="chapter-body">
+      <div>
+        <p>Dunhuang is the heart of the Silk Road, and it does not disappoint. For a millennium it was the crossroads where Buddhist monks from India, traders from Persia, scholars from Chang'an, and Sogdian merchants all converged. They left behind one of the great cultural treasures of the world — the Mogao Caves: 492 sandstone grottoes carved into a cliff over a thousand years, every interior surface painted in mineral pigments still impossibly vivid.</p>
+
+        <p>And just outside the city, the Singing Sand Mountains — proper Saharan dunes — surround a tiny crescent-shaped freshwater lake that has not dried up in two thousand years. The contrast is deranged. Rent a camel at golden hour. Climb the highest dune. Watch the lake go from blue to gold to violet. This is the moment you will reach for when, two years from now, you try to remember why you took six months off.</p>
+
+        <div class="why-worth-it">
+          <h4>Why this leg is worth it</h4>
+          <p>Mogao alone is worth the trip — it is to Buddhist art what Sistine is to Renaissance painting. Add the Crescent Lake and dunes, the night markets, the apricot wine. Dunhuang earns its three days more easily than anywhere else on the route.</p>
+        </div>
+      </div>
+
+      <div>
+        <div class="highlights">
+          <div class="highlight">
+            <div class="highlight-icon">Cultural</div>
+            <h5>Mogao Caves</h5>
+            <p>492 grottoes, 45,000 m² of murals, 2,000 sculptures. You'll see 8 caves on a 2-hour guided tour with timed-entry. Book the English tour. The Library Cave's history (sealed 1000 years, opened 1900) is the subplot.</p>
+          </div>
+          <div class="highlight">
+            <div class="highlight-icon">Landscape</div>
+            <h5>Crescent Lake &amp; Mingsha</h5>
+            <p>A spring-fed lake against 100m sand dunes, kept liquid by aquifer for 2,000 years. Climb the dune at sunset; the sand "sings" (a low rumbling hum) when you slide down.</p>
+          </div>
+          <div class="highlight">
+            <div class="highlight-icon">Historical</div>
+            <h5>Yumen Pass &amp; the Jade Gate</h5>
+            <p>An afternoon's drive west — the actual western customs post of Han dynasty China. Mud-brick remnants on a windswept plain. Hauntingly empty. Where China ended.</p>
+          </div>
+          <div class="highlight">
+            <div class="highlight-icon">Culinary</div>
+            <h5>Shazhou Night Market</h5>
+            <p>Local apricot wine, donkey-meat dumplings (donkey is the local specialty — try them), lamb skewers, naan bread, hand-pulled noodles. Wander, eat small things, repeat.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="practical">
+      <h4>Practical · Dunhuang</h4>
+      <div class="practical-grid">
+        <div class="practical-item">
+          <dt>Days</dt>
+          <dd>3 minimum. One for Mogao. One for the dunes. One for Yumen Pass and the night market.</dd>
+        </div>
+        <div class="practical-item">
+          <dt>Mogao tickets</dt>
+          <dd>Book online 2–7 days ahead via the official site. Tickets are capped daily. English tours run twice a day.</dd>
+        </div>
+        <div class="practical-item">
+          <dt>Heat</dt>
+          <dd>April–May is gentle; by June it's 35°C+. Climb dunes at sunrise or after 5pm.</dd>
+        </div>
+        <div class="practical-item">
+          <dt>Onward</dt>
+          <dd>Train to Turpan (~10h overnight) or fly to Urumqi (1.5h) and slow-train down to Turpan.</dd>
+        </div>
+      </div>
+    </div>
+
+    <div class="magic-moment">
+      <div class="magic-moment-label">A moment to hold</div>
+      <p class="magic-moment-text">Top of the Mingsha dune. Light fading. Lake below already in shadow. Just the wind and the soft hum of the sand. Half the desert is silver. The other half is gold.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============= CHAPTER 7: TURPAN ============= -->
+<section class="chapter" id="ch7">
+  <div class="container">
+    <header class="chapter-header">
+      <div class="chapter-number">
+        <span>Chapter Seven</span>VII.
+      </div>
+      <div>
+        <h2 class="chapter-title">Turpan, the <em>oasis of fire</em></h2>
+        <p class="chapter-subtitle">A depression below sea level, the hottest place in China, ringed by red sandstone mountains. And yet — vines, raisins, sweet melons, two-thousand-year-old underground aqueducts, and a city built entirely of yellow earth.</p>
+      </div>
+    </header>
+
+    <div class="chapter-hero gradient-turpan">
+      <img class="scene" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Turpan-flaming-mountains-d02.jpg/1600px-Turpan-flaming-mountains-d02.jpg" alt="Flaming Mountains, Turpan" loading="lazy">
+      <div class="chapter-hero-quote">
+        <div class="quote-text">"In the shade of a vine trellis, with sweet melon and a bowl of cold yoghurt, you understand why every traveller for two thousand years stopped here."</div>
+        <div class="quote-attr">Day 22 · Turpan, −154 m below sea level</div>
+      </div>
+    </div>
+
+    <div class="chapter-body">
+      <div>
+        <p>Turpan is a small miracle. It sits in the Turfan Depression, the second-lowest point in the world, surrounded by the red sandstone Flaming Mountains — the very ones the Monkey King fought through in <em>Journey to the West</em>. It is the hottest place in China; in summer, 47°C is normal. And yet it has been a thriving oasis for two thousand years, sustained by a network of underground aqueducts called <em>karez</em> — engineered before Christ, dug by hand into the mountainside to bring meltwater from the Tian Shan without losing it to evaporation. Walk through one of the still-functioning karez. Touch the water. It is impossibly cold.</p>
+
+        <p>This is also where you cross a cultural threshold. Turpan is Uyghur — the language shifts from Mandarin to Turkic, the food changes from noodles in soup to lamb on flatbread, and the call to prayer suddenly punctuates the afternoon. You are not in inner China anymore. You are in Central Asia, even if the maps still say otherwise.</p>
+
+        <div class="why-worth-it">
+          <h4>Why this leg is worth it</h4>
+          <p>Turpan is the moment the trip changes character. After the Buddhist plateau and the Han Chinese desert, suddenly there are minarets, vine arbours, sweet melon, and the gentle Turkic vowels of Uyghur conversation in the bazaar. You can feel Central Asia beginning.</p>
+        </div>
+      </div>
+
+      <div>
+        <div class="highlights">
+          <div class="highlight">
+            <div class="highlight-icon">Historical</div>
+            <h5>Jiaohe Ruins</h5>
+            <p>An entire city carved from a single sandstone island between two rivers — no walls were needed, the cliffs were the walls. 2,300 years old, perfectly preserved by the dry air. Walk it at sunrise.</p>
+          </div>
+          <div class="highlight">
+            <div class="highlight-icon">Cultural</div>
+            <h5>Emin Minaret</h5>
+            <p>An 18th-century brick minaret in pale sand colour, decorated with fifteen different geometric patterns of dimensional brickwork. Adjacent mosque still active. Quiet, beautiful, one for the photo album.</p>
+          </div>
+          <div class="highlight">
+            <div class="highlight-icon">Landscape</div>
+            <h5>Grape Valley</h5>
+            <p>Long covered alleys of vines, laneways under green canopies, drying houses with adobe lattice walls where seedless raisins are made. Order the cold yoghurt with raisin honey.</p>
+          </div>
+          <div class="highlight">
+            <div class="highlight-icon">Culinary</div>
+            <h5>Laghman, polo, nan</h5>
+            <p>Hand-pulled noodles topped with stir-fried lamb and peppers (laghman). Saffron-coloured pilaf with mutton, carrots, raisins (polo). Round flatbread baked in clay tonurs (nan). The Uyghur trinity. Eat all three.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="practical">
+      <h4>Practical · Turpan &amp; Urumqi</h4>
+      <div class="practical-grid">
+        <div class="practical-item">
+          <dt>Days</dt>
+          <dd>2 in Turpan. Optionally 1 in Urumqi (Grand Bazaar, Tianchi Heavenly Lake) — but most travellers skip and go straight to Kashgar.</dd>
+        </div>
+        <div class="practical-item">
+          <dt>Heat</dt>
+          <dd>April–early June is bearable (25–35°C). Avoid July–August unless you enjoy actual furnaces.</dd>
+        </div>
+        <div class="practical-item">
+          <dt>Onward</dt>
+          <dd>Sleeper train Turpan → Kashgar overnight (~24h) is a journey in itself, or fly Urumqi → Kashgar (~1.5h, often cheaper than train sleeper).</dd>
+        </div>
+        <div class="practical-item">
+          <dt>Note</dt>
+          <dd>Xinjiang has more security checkpoints than rest of China. Carry passport always. Stay polite. Move on.</dd>
+        </div>
+      </div>
+    </div>
+
+    <div class="magic-moment">
+      <div class="magic-moment-label">A moment to hold</div>
+      <p class="magic-moment-text">Late afternoon under a vine trellis in Grape Valley. A bowl of cold yoghurt. The sun behind the Flaming Mountains is the same colour as the rocks. Nothing to do for an hour.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============= CHAPTER 8: KASHGAR ============= -->
+<section class="chapter" id="ch8">
+  <div class="container">
+    <header class="chapter-header">
+      <div class="chapter-number">
+        <span>Chapter Eight</span>VIII.
+      </div>
+      <div>
+        <h2 class="chapter-title">Kashgar, the <em>last city of China</em></h2>
+        <p class="chapter-subtitle">The Silk Road's southern hub for fifteen centuries. Adobe alleys, the largest mosque in China, a Sunday animal bazaar where sheep change hands by the thousand, and a day trip up the Karakoram Highway to Karakul Lake.</p>
+      </div>
+    </header>
+
+    <div class="chapter-hero gradient-kashgar">
+      <img class="scene" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Sunday_Livestock_Market_%2840687621185%29.jpg/1600px-Sunday_Livestock_Market_%2840687621185%29.jpg" alt="Sunday Livestock Market, Kashgar" loading="lazy">
+      <div class="chapter-hero-quote">
+        <div class="quote-text">"Kashgar is the place where the road forks: south through the Karakoram, west over the Pamirs, north toward Russia. Every empire in history has stopped here, and none of them has ever quite owned it."</div>
+        <div class="quote-attr">Day 26 · Kashgar, 1,289 m</div>
+      </div>
+    </div>
+
+    <div class="chapter-body">
+      <div>
+        <p>Kashgar is the end of the Chinese Silk Road and the beginning of something else. For fifteen hundred years it has been the meeting point of the southern and middle Silk Road branches — the place where a caravan coming from Kashmir met one coming from Samarkand, both restocked, ate, prayed, traded, and continued. It is geographically in China, culturally in Central Asia, and emotionally somewhere of its own.</p>
+
+        <p>Walk the Old Town in the early morning, before the bus tours arrive. The adobe houses, the carved wooden doors, the tiny bakery selling samsa hot from a tonur. Pray (or watch) at Id Kah Mosque, the largest in China. On Sunday, take a taxi to the livestock bazaar — it is everything you think a Silk Road bazaar should be: sheep being inspected, donkeys braying, men in <em>doppa</em> caps haggling in Uyghur, the smell of dust and lanolin, fistfuls of yuan changing hands. Old guidebooks were not romanticising; this is real.</p>
+
+        <p>Then on a separate day, drive south up the Karakoram Highway. Three and a half hours later you are at Karakul Lake — a high, black, glacier-fed body of water at 3,600 metres, with the 7,546-metre Muztagh Ata reflecting in it. Kyrgyz herders run yurt camps on the shore. Stay one night. Drink salty milk tea. Look at the stars.</p>
+
+        <div class="why-worth-it">
+          <h4>Why this leg is worth it</h4>
+          <p>Kashgar is one of perhaps a dozen cities on earth where you can still feel the ancient world in the present tense. The Sunday bazaar alone justifies the detour. And Karakul — well, Karakul is one of those landscapes that does not need a description. You will sit by the water and not say much.</p>
+        </div>
+      </div>
+
+      <div>
+        <div class="highlights">
+          <div class="highlight">
+            <div class="highlight-icon">Cultural</div>
+            <h5>Sunday Livestock Bazaar</h5>
+            <p>Weekly since the 10th century. Animals only — sheep, goats, donkeys, the occasional camel. Goes from 7am to early afternoon, peaks 10–11. The whole regional economy compressed into one chaotic field.</p>
+          </div>
+          <div class="highlight">
+            <div class="highlight-icon">Cultural</div>
+            <h5>Old Town &amp; Id Kah</h5>
+            <p>Adobe lanes, carved doors, tonur bakeries. Id Kah Mosque (1442) is the largest in China — visit Friday afternoon to see Kashgar's full Muslim community at prayer.</p>
+          </div>
+          <div class="highlight">
+            <div class="highlight-icon">Landscape</div>
+            <h5>Karakul Lake &amp; Muztagh Ata</h5>
+            <p>3.5h drive south on the Karakoram Highway. A high black lake at 3,600m reflecting a 7,546m peak. Yurt stays on the shore (~€25 pp). The drive itself is half the experience.</p>
+          </div>
+          <div class="highlight">
+            <div class="highlight-icon">Culinary</div>
+            <h5>Lamb everything</h5>
+            <p>Whole-roasted lamb (kawap), lamb laghman, polo, cumin-crusted skewers, samsa pastries. End the meal with sweet apricots, dried mulberries, and pomegranate juice. No fish here. Don't ask for it.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="practical">
+      <h4>Practical · Kashgar</h4>
+      <div class="practical-grid">
+        <div class="practical-item">
+          <dt>Days</dt>
+          <dd>4–5. Schedule arrival to include a Sunday for the bazaar. Plan one overnight at Karakul.</dd>
+        </div>
+        <div class="practical-item">
+          <dt>Stay</dt>
+          <dd>Old Town Youth Hostel or a boutique like Kashgar Old City Vintage Hotel. In Karakul, book a yurt through the Kyrgyz family at the lake's edge.</dd>
+        </div>
+        <div class="practical-item">
+          <dt>Karakul logistics</dt>
+          <dd>Hire a private driver (~€80 round trip) or join a shared minibus. Bring warm clothes; nights below freezing even in May. Border-zone permit is sometimes needed — your hotel handles it.</dd>
+        </div>
+        <div class="practical-item">
+          <dt>Checkpoints</dt>
+          <dd>Many in Xinjiang. Always carry passport. Be patient and polite. Photographing checkpoints, military, or police is a hard no.</dd>
+        </div>
+      </div>
+    </div>
+
+    <div class="magic-moment">
+      <div class="magic-moment-label">A moment to hold</div>
+      <p class="magic-moment-text">First light on Karakul. The lake is black glass. Muztagh Ata catches the sun first, turning gold from the summit down. Outside the yurt, a herder is already moving the yaks. You are the only ones awake.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============= CHAPTER 9: INTO KYRGYZSTAN ============= -->
+<section class="chapter" id="ch9">
+  <div class="container">
+    <header class="chapter-header">
+      <div class="chapter-number">
+        <span>Chapter Nine</span>IX.
+      </div>
+      <div>
+        <h2 class="chapter-title">Across the <em>Irkeshtam Pass</em></h2>
+        <p class="chapter-subtitle">One long day from Kashgar to Osh. A Chinese exit stamp at Ulugqat, a high empty no-man's-land, and then suddenly the Alay Valley opens beneath you and the Pamirs are at your back. Welcome to Central Asia.</p>
+      </div>
+    </header>
+
+    <div class="chapter-hero gradient-osh">
+      <img class="scene" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Mt_Kongur_Lake_Karakul_Xinjiang_China.jpg/1600px-Mt_Kongur_Lake_Karakul_Xinjiang_China.jpg" alt="Pamir mountains and lake" loading="lazy">
+      <div class="chapter-hero-quote">
+        <div class="quote-text">"You leave China at a windswept post in the morning and you arrive in Kyrgyzstan by the afternoon — and the world feels suddenly larger and quieter."</div>
+        <div class="quote-attr">Day 32 · Sary-Tash, 3,170 m</div>
+      </div>
+    </div>
+
+    <div class="chapter-body">
+      <div>
+        <p>The Irkeshtam Pass is the cleanest land border crossing between China and Central Asia, and it is one long, strange, beautiful day. Take a shared taxi from Kashgar's bus station to Ulugqat (Wuqia), about 130 km west — this is where you actually clear Chinese customs, well before the physical border. Have your phone unlocked. Have your bags accessible. Stay polite. The whole thing takes a few hours.</p>
+
+        <p>Then through no-man's-land — a windswept stretch where you'll need to find onward transport — and to the Kyrgyz post, where the formalities are blissfully short (Germans get visa-on-arrival, free, 60 days). You emerge into the Alay Valley: a wide, high, green grassland flanked by the Pamirs to the south and the Tian Shan to the north. Stop in Sary-Tash for a night if you can. Have <em>besh barmak</em> (literally "five fingers" — boiled lamb on noodles, eaten by hand) at a homestay. In the morning, the Pamir wall is the entire southern horizon. It is one of the great roadside views in the world.</p>
+
+        <p>From Sary-Tash, a shared 4WD descends through the Alay Valley to Osh — Kyrgyzstan's southern capital, three thousand years old, once the great Silk Road waystation between Samarkand and Kashgar. The Jayma Bazaar is still going. Sulaiman-Too — a sacred mountain in the centre of the city — was a place of pilgrimage long before Islam arrived. Climb it at sunset.</p>
+
+        <div class="why-worth-it">
+          <h4>Why this leg is worth it</h4>
+          <p>Borders should feel like something. Most don't. This one does. You will remember the Irkeshtam crossing the way some people remember a long flight — the in-between hours, the sense of moving from one civilisation to another, the slow exhalation when the Kyrgyz official hands back your passport with a smile.</p>
+        </div>
+      </div>
+
+      <div>
+        <div class="highlights">
+          <div class="highlight">
+            <div class="highlight-icon">Landscape</div>
+            <h5>The Alay Valley</h5>
+            <p>A high green corridor between the Pamirs and the Tian Shan. Wild horses, yurt camps, jagged 7,000 m peaks on the southern wall. Some of the highest pasture land on earth.</p>
+          </div>
+          <div class="highlight">
+            <div class="highlight-icon">Cultural</div>
+            <h5>Osh's Jayma Bazaar</h5>
+            <p>Three kilometres of covered market along the Ak-Buura river. Spices, dried fruits, bread, kumys (fermented mare's milk — try it once), traditional knives. Older than the city around it.</p>
+          </div>
+          <div class="highlight">
+            <div class="highlight-icon">Historical</div>
+            <h5>Sulaiman-Too</h5>
+            <p>The "throne of Solomon" — a 1,100m sacred mountain rising from Osh's centre. UNESCO-listed. Climbed by pilgrims for at least 1,500 years. Sunset from the top is the moment.</p>
+          </div>
+          <div class="highlight">
+            <div class="highlight-icon">Culinary</div>
+            <h5>Plov, manty, lagman</h5>
+            <p>Osh-style plov is the gold standard — saffron rice, lamb, carrots, garlic, raisins, slow-cooked in a kazan. Manty are giant steamed dumplings with lamb and onion. Lagman returns, but with a bolder, tomatoey Kyrgyz hand.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="practical">
+      <h4>Practical · The Crossing</h4>
+      <div class="practical-grid">
+        <div class="practical-item">
+          <dt>Border hours</dt>
+          <dd>Closed weekends and Chinese/Kyrgyz public holidays. Closed daily 13:00–16:00 Beijing time for lunch. Arrive at Ulugqat before 10am to be safe.</dd>
+        </div>
+        <div class="practical-item">
+          <dt>Logistics</dt>
+          <dd>Shared taxi Kashgar → Ulugqat ~CNY 35. Taxi or bus through no-man's-land. Onward shared 4WD to Sary-Tash on the Kyrgyz side. Some travellers prefer the once-weekly direct Kashgar → Osh bus.</dd>
+        </div>
+        <div class="practical-item">
+          <dt>Visas</dt>
+          <dd>Germans: visa-free 60 days for Kyrgyzstan. China side already covered if you used the 30-day visa-free entry, or you have your tourist visa.</dd>
+        </div>
+        <div class="practical-item">
+          <dt>Cash</dt>
+          <dd>No ATMs at the border. Have RMB for the Chinese side and USD/Som for Kyrgyzstan. First reliable ATM is in Sary-Tash or Osh.</dd>
+        </div>
+      </div>
+    </div>
+
+    <div class="magic-moment">
+      <div class="magic-moment-label">A moment to hold</div>
+      <p class="magic-moment-text">Standing in Sary-Tash at sunrise, coffee in hand, the entire Pamir wall lit up pink in front of you. China is behind you now. The trip is exactly half over. Everything is still possible.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============= EPILOGUE ============= -->
+<section class="epilogue">
+  <div class="container">
+    <span class="section-eyebrow" style="color: var(--gold);">Epilogue · A Practical Reference</span>
+    <h2 class="section-title">Everything you'll <em style="font-style: italic; color: var(--gold);">actually</em> need to know.</h2>
+    <p style="max-width: 720px; font-size: 19px; color: rgba(244, 237, 224, 0.85); margin-top: 24px;">
+      The romance is in the chapters above. The logistics are below. Permits, money, weather, packing, connectivity — the unglamorous backbone that lets the rest of the trip feel effortless.
+    </p>
+
+    <div class="ref-grid">
+      <div class="ref-card">
+        <h4>Timing</h4>
+        <ul>
+          <li><strong>Best window:</strong> Mid-April to mid-June. Tibet's clearest weather, mild temps in the desert, snow-free Pamir passes.</li>
+          <li><strong>Tibet closes</strong> to foreigners late February through March each year. Plan around it.</li>
+          <li><strong>Avoid July–August</strong> in Turpan (50°C is real) and during Chinese Golden Week (Oct 1–7) when domestic tourism explodes.</li>
+          <li><strong>Irkeshtam border:</strong> closed weekends and holidays year-round, often by snow Nov–April.</li>
+        </ul>
+      </div>
+
+      <div class="ref-card">
+        <h4>Visas &amp; Permits</h4>
+        <ul>
+          <li><strong>China:</strong> Germans get 30 days visa-free in 2026. For a longer stay, a regular L tourist visa is straightforward.</li>
+          <li><strong>Tibet Travel Permit:</strong> mandatory regardless of visa-free status. Only obtainable through a licensed agency, ~4–6 weeks lead time.</li>
+          <li><strong>Chinese Group Visa:</strong> required if entering Tibet from Kathmandu. Issued in Kathmandu, 4 working days.</li>
+          <li><strong>Kyrgyzstan:</strong> Germans visa-free 60 days. No paperwork.</li>
+        </ul>
+      </div>
+
+      <div class="ref-card">
+        <h4>Budget Estimate</h4>
+        <ul>
+          <li><strong>Tibet tour (8 days):</strong> €1,000–1,500 pp</li>
+          <li><strong>Lhasa (4 days):</strong> €300–500 for two</li>
+          <li><strong>Sky Train soft sleeper:</strong> €100 pp</li>
+          <li><strong>Silk Road China leg (2 weeks):</strong> €1,200–1,800 for two (transport, hotels, food)</li>
+          <li><strong>Kashgar + Karakul (5 days):</strong> €400–600 for two</li>
+          <li><strong>Border + Osh (3 days):</strong> €150–250 for two</li>
+          <li><strong>Total Kathmandu→Osh:</strong> roughly <strong>€4,000–5,500 for both of you</strong>, mid-range.</li>
+        </ul>
+      </div>
+
+      <div class="ref-card">
+        <h4>Money &amp; Payments</h4>
+        <ul>
+          <li><strong>China:</strong> set up Alipay or WeChat Pay <em>before</em> arriving. Foreign cards work for both via "TourPass." Cash and Visa are nearly useless.</li>
+          <li><strong>Tibet &amp; Xinjiang:</strong> bring some RMB cash for taxis and small vendors who haven't gone digital.</li>
+          <li><strong>Kyrgyzstan:</strong> ATMs in Osh, Bishkek; cash USD often accepted for big-ticket items. Som for everything else.</li>
+          <li><strong>Tip:</strong> not customary in any of these countries. Round up at most.</li>
+        </ul>
+      </div>
+
+      <div class="ref-card">
+        <h4>Connectivity</h4>
+        <ul>
+          <li><strong>VPN:</strong> install <em>before</em> arriving in China. NordVPN or Astrill have the most reliable performance. Without one: no Google, no WhatsApp, no Instagram.</li>
+          <li><strong>SIM cards:</strong> a Chinese SIM (China Unicom) works across the country. Switch to a Kyrgyz SIM (Beeline or O!) on arrival in Osh.</li>
+          <li><strong>eSIM alternative:</strong> Airalo regional eSIMs cover China + Central Asia and just work.</li>
+          <li><strong>On the train:</strong> no WiFi on the Sky Train, patchy signal. Bring downloaded books/films.</li>
+        </ul>
+      </div>
+
+      <div class="ref-card">
+        <h4>Health &amp; Altitude</h4>
+        <ul>
+          <li><strong>Altitude:</strong> the slow Kathmandu→Lhasa ascent acclimatises you well. Pack Diamox as backup.</li>
+          <li><strong>Vaccinations:</strong> standard travel jabs (Hep A&amp;B, typhoid, tetanus). Rabies if you'll be near animals at Karakul or Sary-Tash.</li>
+          <li><strong>Water:</strong> tap water unsafe everywhere on this route. Filter bottle (Grayl, LifeStraw) or boil.</li>
+          <li><strong>Insurance:</strong> needs to cover trekking to 5,500m and emergency evac. Most standard policies don't.</li>
+        </ul>
+      </div>
+
+      <div class="ref-card">
+        <h4>Pack Essentials</h4>
+        <ul>
+          <li><strong>One down jacket each.</strong> Tibet, Karakul and Sary-Tash are cold even in May.</li>
+          <li><strong>Layers:</strong> thermal base, mid-weight fleece, light shell. Mix-and-match across 0°C to 35°C.</li>
+          <li><strong>Sun:</strong> SPF 50, Cat. 4 sunglasses, wide-brim hat. UV at altitude is brutal.</li>
+          <li><strong>Footwear:</strong> one pair of broken-in trail shoes does it all. Leave the heavy boots.</li>
+          <li><strong>Tech:</strong> Kindle, offline maps (Maps.me + Organic Maps), portable battery, universal adapter.</li>
+          <li><strong>Documents:</strong> 6+ passport photos. Photocopies of every page. Backup copies on encrypted drive.</li>
+        </ul>
+      </div>
+
+      <div class="ref-card">
+        <h4>Three things nobody warns you</h4>
+        <ul>
+          <li><strong>Showers are rare</strong> on the road between Tingri and Lhasa. Wet wipes are gold.</li>
+          <li><strong>Photographing</strong> military, police, or checkpoints in Xinjiang: don't. Even casual.</li>
+          <li><strong>Tibetan dogs</strong> at high-altitude monasteries can be aggressive. Don't pat. Carry a small stick.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============= CLOSING ============= -->
+<section class="closing">
+  <p class="closing-text">"From a stupa in Kathmandu to a bazaar in Osh — five thousand kilometres, three borders, every kind of weather. And six months still ahead of us, somewhere west."</p>
+  <div class="closing-sig">— for Micky, who built the route ✦</div>
+</section>
+
+<script>
+  // Scroll progress
+  window.addEventListener('scroll', () => {
+    const scrolled = window.scrollY;
+    const total = document.documentElement.scrollHeight - window.innerHeight;
+    const pct = (scrolled / total) * 100;
+    document.getElementById('progress').style.width = pct + '%';
+  });
+
+  // Subtle parallax on hero mountains
+  const heroMountains = document.querySelector('.hero-mountains');
+  if (heroMountains) {
+    window.addEventListener('scroll', () => {
+      const offset = window.scrollY * 0.4;
+      if (window.scrollY < window.innerHeight) {
+        heroMountains.style.transform = `translateY(${offset}px)`;
+      }
+    });
+  }
+</script>
+
+</body>
+</html>
