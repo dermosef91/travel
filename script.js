@@ -847,3 +847,35 @@ function initClimateWidgets() {
   });
 }
 document.addEventListener("DOMContentLoaded", initClimateWidgets);
+
+// ===== FLY TO CHAPTER (LOCATE ON MAP) =====
+window.flyToChapter = function(targetId) {
+  var stop = stops.find(function(s) { return s.target === targetId; });
+  if (stop && window.overviewMap) {
+    // Scroll to the map container smoothly
+    var mapContainer = document.getElementById('overview-map');
+    if (mapContainer) {
+      // Calculate top position with some padding
+      var y = mapContainer.getBoundingClientRect().top + window.scrollY - 120;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+      
+      // Wait for scroll to somewhat finish, then fly map
+      setTimeout(function() {
+        overviewMap.flyTo([stop.lat, stop.lng], 7, {
+          animate: true,
+          duration: 1.5
+        });
+        
+        // Open the corresponding popup
+        overviewMap.eachLayer(function(layer) {
+          if (layer instanceof L.Marker) {
+            var latLng = layer.getLatLng();
+            if (latLng.lat === stop.lat && latLng.lng === stop.lng) {
+              layer.openPopup();
+            }
+          }
+        });
+      }, 500);
+    }
+  }
+};
