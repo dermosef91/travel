@@ -496,12 +496,6 @@ function initScrollTracker() {
   function setActiveRegion(regionKey) {
     if (regionKey === lastActiveRegion) return;
     lastActiveRegion = regionKey;
-    
-    // Update theme data attribute on HTML element
-    if (regionKey) {
-      document.documentElement.setAttribute('data-theme', regionKey);
-    }
-    
     regionBtns.forEach(function(btn) {
       var isActive = btn.getAttribute('data-region') === regionKey;
       btn.classList.toggle('active', isActive);

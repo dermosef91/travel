@@ -1,118 +1,25 @@
-@property --paper { syntax: '<color>'; initial-value: #f4ede0; inherits: true; }
-@property --paper-warm { syntax: '<color>'; initial-value: #ede2cc; inherits: true; }
-@property --paper-deep { syntax: '<color>'; initial-value: #e6d8be; inherits: true; }
-@property --ink { syntax: '<color>'; initial-value: #1f1a14; inherits: true; }
-@property --ink-soft { syntax: '<color>'; initial-value: #3a3127; inherits: true; }
-@property --ink-fade { syntax: '<color>'; initial-value: #6a5d4a; inherits: true; }
-@property --gold { syntax: '<color>'; initial-value: #b88940; inherits: true; }
-@property --gold-deep { syntax: '<color>'; initial-value: #8c6328; inherits: true; }
-@property --maroon { syntax: '<color>'; initial-value: #6e2a22; inherits: true; }
-@property --maroon-deep { syntax: '<color>'; initial-value: #4c1c17; inherits: true; }
-
 :root {
-  --paper: #f4ede0;
-  --paper-warm: #ede2cc;
-  --paper-deep: #e6d8be;
-  --ink: #1f1a14;
-  --ink-soft: #3a3127;
-  --ink-fade: #6a5d4a;
-  --gold: #b88940;
-  --gold-deep: #8c6328;
-  --maroon: #6e2a22;
-  --maroon-deep: #4c1c17;
-  
-  --indigo: #1a2740;
-  --teal: #1f4754;
-  --rust: #a44a3f;
-  --sand: #d4a96a;
-  --jade: #4a7256;
-  --terracotta: #b96a4d;
-}
+    --paper: #f4ede0;
+    --paper-warm: #ede2cc;
+    --paper-deep: #e6d8be;
+    --ink: #1f1a14;
+    --ink-soft: #3a3127;
+    --ink-fade: #6a5d4a;
+    --gold: #b88940;
+    --gold-deep: #8c6328;
+    --maroon: #6e2a22;
+    --maroon-deep: #4c1c17;
+    --indigo: #1a2740;
+    --teal: #1f4754;
+    --rust: #a44a3f;
+    --sand: #d4a96a;
+    --jade: #4a7256;
+    --terracotta: #b96a4d;
+  }
 
-html[data-theme="sri-lanka"] {
-  --paper: #f4ede0; --paper-warm: #ede2cc; --paper-deep: #e6d8be; 
-  --ink: #1f2a28; --ink-soft: #2e403d; --ink-fade: #4a635f; 
-  --gold: #c48b45; --gold-deep: #96652a; 
-  --maroon: #9c4936; --maroon-deep: #6e3022;
-}
+  * { box-sizing: border-box; margin: 0; padding: 0; }
 
-html[data-theme="south-india"] {
-  --paper: #f2f5ed; --paper-warm: #e6ebd9; --paper-deep: #d9e0ca;
-  --ink: #203625; --ink-soft: #304f38; --ink-fade: #497354;
-  --gold: #d49228; --gold-deep: #a36d18;
-  --maroon: #6e2622; --maroon-deep: #4d1815;
-}
-
-html[data-theme="central-india"] {
-  --paper: #f5e9e4; --paper-warm: #ebd5cc; --paper-deep: #dec1b6;
-  --ink: #33241d; --ink-soft: #4f392f; --ink-fade: #6e5246;
-  --gold: #c97834; --gold-deep: #9c5821;
-  --maroon: #8a3726; --maroon-deep: #632417;
-}
-
-html[data-theme="north-india"] {
-  --paper: #fbf5e6; --paper-warm: #f2e5c9; --paper-deep: #e8d5ae;
-  --ink: #262626; --ink-soft: #404040; --ink-fade: #666666;
-  --gold: #d98b1c; --gold-deep: #a86b11;
-  --maroon: #992525; --maroon-deep: #6e1919;
-}
-
-html[data-theme="nepal"] {
-  --paper: #f2f6f7; --paper-warm: #e0e9eb; --paper-deep: #cfdcde;
-  --ink: #263038; --ink-soft: #3f4e59; --ink-fade: #5a6d7a;
-  --gold: #b8823b; --gold-deep: #8c6129;
-  --maroon: #8c3128; --maroon-deep: #632019;
-}
-
-html[data-theme="tibet"] {
-  --paper: #eff2f5; --paper-warm: #dbe2e8; --paper-deep: #c6d0d9;
-  --ink: #1c2136; --ink-soft: #2e3552; --ink-fade: #465075;
-  --gold: #d19f36; --gold-deep: #a17822;
-  --maroon: #61151a; --maroon-deep: #420d11;
-}
-
-html[data-theme="china"] {
-  --paper: #f5efe6; --paper-warm: #ebdcc8; --paper-deep: #dec9ab;
-  --ink: #211a18; --ink-soft: #382d29; --ink-fade: #574640;
-  --gold: #d48f37; --gold-deep: #a36b25;
-  --maroon: #a63d2e; --maroon-deep: #7a2b1f;
-}
-
-html[data-theme="kyrgyzstan"] {
-  --paper: #f2f1ec; --paper-warm: #e6e3d5; --paper-deep: #d9d5bf;
-  --ink: #1a3328; --ink-soft: #284f3e; --ink-fade: #3c735c;
-  --gold: #b59a4c; --gold-deep: #8a7333;
-  --maroon: #7d2a2c; --maroon-deep: #591b1d;
-}
-
-html[data-theme="uzbekistan"] {
-  --paper: #ebf2f2; --paper-warm: #d3e6e6; --paper-deep: #bed9d9;
-  --ink: #132b4f; --ink-soft: #244473; --ink-fade: #38619e;
-  --gold: #bf973b; --gold-deep: #917027;
-  --maroon: #822b37; --maroon-deep: #5c1c25;
-}
-
-html[data-theme="georgia"] {
-  --paper: #f0ece9; --paper-warm: #e0d9d3; --paper-deep: #d1c5bc;
-  --ink: #241f22; --ink-soft: #3b3338; --ink-fade: #5c4f57;
-  --gold: #a87843; --gold-deep: #7a552c;
-  --maroon: #701625; --maroon-deep: #520e1a;
-}
-
-* { box-sizing: border-box; margin: 0; padding: 0; }
-
-html { 
-  scroll-behavior: smooth; 
-  transition: --paper 1.2s ease, --paper-warm 1.2s ease, --paper-deep 1.2s ease,
-              --ink 1.2s ease, --ink-soft 1.2s ease, --ink-fade 1.2s ease,
-              --gold 1.2s ease, --gold-deep 1.2s ease,
-              --maroon 1.2s ease, --maroon-deep 1.2s ease;
-}
-
-body, .practical, .highlight, .why-worth-it, .magic-moment, .route-list li a.route-link,
-.route-list li, .chapter-header, .chapter-hero-quote {
-  transition: background-color 1.2s ease, color 1.2s ease, border-color 1.2s ease, background 1.2s ease;
-}
+  html { scroll-behavior: smooth; }
 
   body {
     font-family: 'Crimson Pro', Georgia, serif;
@@ -162,20 +69,49 @@ body, .practical, .highlight, .why-worth-it, .magic-moment, .route-list li a.rou
     overflow: hidden;
     padding: 80px 32px;
     background:
-      radial-gradient(ellipse at 30% 20%, rgba(184, 137, 64, 0.18), transparent 60%),
-      radial-gradient(ellipse at 70% 80%, rgba(74, 114, 86, 0.12), transparent 60%),
-      linear-gradient(180deg, #f4ede0 0%, #e6d8be 100%);
+      radial-gradient(circle at 15% 30%, rgba(43, 162, 194, 0.1), transparent 45%),
+      radial-gradient(circle at 85% 20%, rgba(135, 155, 180, 0.15), transparent 40%),
+      radial-gradient(circle at 50% 60%, rgba(224, 168, 95, 0.1), transparent 60%),
+      linear-gradient(180deg, #f4ede0 0%, #ede2cc 60%, #e6d8be 100%);
   }
 
-  .hero-mountains {
+  .hero-journey-art {
     position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
     width: 100%;
-    height: 50%;
+    height: 60%;
     z-index: 1;
-    opacity: 0.55;
+    pointer-events: none;
+    opacity: 0.65;
+  }
+
+  /* Hero Animations */
+  @keyframes breatheMountain {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+  }
+  @keyframes breatheHills {
+    0%, 100% { transform: translateY(0) scaleY(1); }
+    50% { transform: translateY(-3px) scaleY(1.02); }
+  }
+  @keyframes breatheWaves {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(3px); }
+  }
+
+  .hero-path-mountain {
+    animation: breatheMountain 14s ease-in-out infinite;
+    transform-origin: bottom;
+  }
+  .hero-path-hills {
+    animation: breatheHills 10s ease-in-out infinite;
+    transform-origin: bottom;
+  }
+  .hero-path-waves {
+    animation: breatheWaves 12s ease-in-out infinite;
+    transform-origin: bottom;
   }
 
   .hero-content {
@@ -205,6 +141,7 @@ body, .practical, .highlight, .why-worth-it, .magic-moment, .route-list li a.rou
     margin-bottom: 12px;
     opacity: 0;
     animation: fadeUp 1.2s 0.4s forwards;
+    text-shadow: 0 10px 30px rgba(184, 137, 64, 0.15);
   }
 
   .hero-title em {
