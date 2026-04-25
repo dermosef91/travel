@@ -1,0 +1,2086 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Route for Silk, Soles and Souls — An Eight-Month Journey</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Crimson+Pro:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Cormorant+Unicase:wght@400;500;600&family=Caveat:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+<link rel="stylesheet" href="styles.css">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
+<script src="script.js" defer></script>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+
+<!-- Scroll tracker -->
+<div class="scroll-tracker" id="scroll-tracker">
+  <div class="tracker-top">
+    <div class="tracker-chapter" id="tracker-chapter">—</div>
+    <div class="tracker-sep"></div>
+    <div class="tracker-detail" id="tracker-detail"></div>
+    <div class="tracker-progress">
+      <div class="tracker-bar"><div class="tracker-bar-fill" id="tracker-fill"></div></div>
+      <div class="tracker-pct" id="tracker-pct">Day 1 / 240</div>
+    </div>
+  </div>
+  <nav class="region-nav" id="region-nav" aria-label="Region navigation">
+    <button class="region-btn" data-region="sri-lanka" data-target="ch1">Sri Lanka</button>
+    <button class="region-btn" data-region="south-india" data-target="ch3">South India</button>
+    <button class="region-btn" data-region="central-india" data-target="ch6">Central India</button>
+    <button class="region-btn" data-region="north-india" data-target="ch8">North India</button>
+    <button class="region-btn" data-region="nepal" data-target="ch10">Nepal</button>
+    <button class="region-btn" data-region="tibet" data-target="ch11">Tibet</button>
+    <button class="region-btn" data-region="china" data-target="ch13">China</button>
+    <button class="region-btn" data-region="kyrgyzstan" data-target="ch19">Kyrgyzstan</button>
+    <button class="region-btn" data-region="uzbekistan" data-target="ch20">Uzbekistan</button>
+    <button class="region-btn" data-region="georgia" data-target="ch21">Georgia</button>
+  </nav>
+</div>
+
+<!-- ============= HERO ============= -->
+<section class="hero">
+  <svg class="hero-journey-art" viewBox="0 0 1440 600" preserveAspectRatio="none">
+    <defs>
+      <!-- Far Range: High Mountains (Himalayas/Caucasus) -->
+      <linearGradient id="g-mountain" x1="0" x2="0" y1="0" y2="1">
+        <stop offset="0%" stop-color="#3a4868" stop-opacity="0.3"/>
+        <stop offset="100%" stop-color="#1a2740" stop-opacity="0.6"/>
+      </linearGradient>
+      <!-- Mid Range: Deserts/Hills (Silk Road/India) -->
+      <linearGradient id="g-desert" x1="0" x2="0" y1="0" y2="1">
+        <stop offset="0%" stop-color="#b88940" stop-opacity="0.4"/>
+        <stop offset="100%" stop-color="#8c4029" stop-opacity="0.75"/>
+      </linearGradient>
+      <!-- Near Range: Ocean/Tropics (Sri Lanka/Indian Ocean) -->
+      <linearGradient id="g-ocean" x1="0" x2="0" y1="0" y2="1">
+        <stop offset="0%" stop-color="#1f4754" stop-opacity="0.6"/>
+        <stop offset="100%" stop-color="#0a1525" stop-opacity="0.95"/>
+      </linearGradient>
+    </defs>
+    <!-- Far range (Himalayas/Caucasus: Sharp peaks) -->
+    <path class="hero-path-mountain" d="M0,380 L90,300 L180,350 L260,260 L350,330 L450,230 L550,310 L650,210 L750,290 L850,190 L950,270 L1050,200 L1150,280 L1250,220 L1350,290 L1440,240 L1440,600 L0,600 Z" fill="url(#g-mountain)"/>
+    <!-- Mid range (Silk Road/India: Smooth rolling dunes/hills) -->
+    <path class="hero-path-hills" d="M0,450 Q 120,400 240,430 T 480,420 T 720,440 T 960,410 T 1200,450 T 1440,420 L1440,600 L0,600 Z" fill="url(#g-desert)"/>
+    <!-- Near range (Indian Ocean: Sweeping waves) -->
+    <path class="hero-path-waves" d="M-100,530 C 50,490 150,560 300,530 C 450,500 550,550 700,530 C 850,510 950,560 1100,530 C 1250,510 1350,540 1440,520 L1540,520 L1540,600 L-100,600 Z" fill="url(#g-ocean)"/>
+  </svg>
+
+  <div class="hero-content">
+    <div class="hero-eyebrow">An Eight-Month Journey · Winter 2026 to Summer 2027</div>
+    <h1 class="hero-title">A Route for <br><em>Silk, Soles and Souls</em></h1>
+    <p class="hero-subtitle">From the tropical coasts of Sri Lanka, through the ashrams of India, over the Himalayas to Lhasa, along the old Silk Road, and down through the Pamirs to the Caucasus.</p>
+    <div class="hero-divider"></div>
+    <div class="hero-dedication">for Micky and Mo</div>
+    <div class="hero-meta">
+      <div class="hero-meta-item">
+        <div class="hero-meta-label">Distance</div>
+        <div class="hero-meta-value">~15,000 km</div>
+      </div>
+      <div class="hero-meta-item">
+        <div class="hero-meta-label">Duration</div>
+        <div class="hero-meta-value">240 days</div>
+      </div>
+      <div class="hero-meta-item">
+        <div class="hero-meta-label">Highest point</div>
+        <div class="hero-meta-value">5,416 m (Thorong La Pass)</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============= ROUTE OVERVIEW ============= -->
+<section class="route-overview">
+  <div class="container">
+    <span class="section-eyebrow">The Route at a Glance</span>
+    <h2 class="section-title">Twenty-one chapters, eight countries,<br>one ribbon of road and rail.</h2>
+    <p style="max-width: 680px; font-size: 19px; color: var(--ink-soft); margin-top: 24px;">
+      From the tropical coasts of Sri Lanka, through the ashrams of India, over the Himalayas to Lhasa, along the old Silk Road, and down through the Pamirs to the Caucasus. Every leg has its own colour, climate, and cuisine.
+    </p>
+
+    <!-- Full-route map -->
+    <div class="route-map-wrapper">
+      <div class="route-map-label">
+        <span>The Route</span>
+        <strong>Colombo → Tbilisi · ~15,500 km</strong>
+      </div>
+      <div id="overview-map" class="map-container"></div>
+    </div>
+
+    <!-- Elevation profile -->
+    <div class="elevation-section" id="elevation-section">
+      <div class="elevation-wrap">
+        <div class="elevation-label">Elevation Profile · Colombo to Tbilisi</div>
+        <div style="position:relative">
+          <svg id="elevation-svg" preserveAspectRatio="none"></svg>
+          <div class="elev-tooltip" id="elev-tooltip"></div>
+          <div class="elev-line" id="elev-line"></div>
+        </div>
+        <div class="elevation-legend">
+          <span>Colombo · 0 m</span>
+          <span>Tbilisi · 380 m</span>
+        </div>
+      </div>
+    </div>
+
+        <ol class="route-list">
+      <li><a class="route-link" href="#ch1"><span class="route-name">The Southern Coast <span>— Colombo, Galle, Mirissa</span></span><span class="route-mode">Sri Lanka · 10 days<span class="route-go">→</span></span></a></li>
+      <li><a class="route-link" href="#ch2"><span class="route-name">The Hill Country <span>— Ella, Kandy, Sigiriya</span></span><span class="route-mode">Sri Lanka · 9 days<span class="route-go">→</span></span></a></li>
+      <li><a class="route-link" href="#ch3"><span class="route-name">The Spice Coast <span>— Kochi & Munnar</span></span><span class="route-mode">South India · 7 days<span class="route-go">→</span></span></a></li>
+      <li><a class="route-link" href="#ch4"><span class="route-name">The Ashram <span>— Neyyar Dam</span></span><span class="route-mode">South India · 31 days<span class="route-go">→</span></span></a></li>
+      <li><a class="route-link" href="#ch5"><span class="route-name">The Backwaters <span>— Varkala & Alleppey</span></span><span class="route-mode">South India · 7 days<span class="route-go">→</span></span></a></li>
+      <li><a class="route-link" href="#ch6"><span class="route-name">Hampi <span>— the boulder kingdom</span></span><span class="route-mode">Central India · 8 days<span class="route-go">→</span></span></a></li>
+      <li><a class="route-link" href="#ch7"><span class="route-name">Goa <span>— the slow shore</span></span><span class="route-mode">Central India · 14 days<span class="route-go">→</span></span></a></li>
+      <li><a class="route-link" href="#ch8"><span class="route-name">The Holy Cities <span>— Varanasi, Rishikesh, Amritsar</span></span><span class="route-mode">North India · 18 days<span class="route-go">→</span></span></a></li>
+      <li><a class="route-link" href="#ch9"><span class="route-name">Diverging Paths <span>— Tapovan & Annapurna</span></span><span class="route-mode">Split Paths · 21 days<span class="route-go">→</span></span></a></li>
+      <li><a class="route-link" href="#ch10"><span class="route-name">Kathmandu <span>— the threshold</span></span><span class="route-mode">Nepal · 7 days<span class="route-go">→</span></span></a></li>
+      <li><a class="route-link" href="#ch11"><span class="route-name">Across the Himalayas <span>— Friendship Highway</span></span><span class="route-mode">Overland · 10 days<span class="route-go">→</span></span></a></li>
+      <li><a class="route-link" href="#ch12"><span class="route-name">Lhasa <span>— Potala, Jokhang, Barkhor</span></span><span class="route-mode">Tibet · 6 days<span class="route-go">→</span></span></a></li>
+      <li><a class="route-link" href="#ch13"><span class="route-name">The Sky Train <span>— Qinghai-Tibet Railway</span></span><span class="route-mode">China · 1 day<span class="route-go">→</span></span></a></li>
+      <li><a class="route-link" href="#ch14"><span class="route-name">The Hexi Corridor <span>— Xining, Zhangye, Jiayuguan</span></span><span class="route-mode">China · 12 days<span class="route-go">→</span></span></a></li>
+      <li><a class="route-link" href="#ch15"><span class="route-name">Dunhuang <span>— Mogao Caves, Crescent Lake</span></span><span class="route-mode">China · 5 days<span class="route-go">→</span></span></a></li>
+      <li><a class="route-link" href="#ch16"><span class="route-name">Turpan & Urumqi <span>— Flaming Mountains</span></span><span class="route-mode">China · 9 days<span class="route-go">→</span></span></a></li>
+      <li><a class="route-link" href="#ch17"><span class="route-name">Kashgar <span>— Sunday bazaar, Old Town</span></span><span class="route-mode">China · 7 days<span class="route-go">→</span></span></a></li>
+      <li><a class="route-link" href="#ch18"><span class="route-name">Across the Irkeshtam <span>— into Kyrgyzstan</span></span><span class="route-mode">Border · 1 day<span class="route-go">→</span></span></a></li>
+      <li><a class="route-link" href="#ch19"><span class="route-name">Kyrgyzstan <span>— Bishkek, Karakol, Song Kol</span></span><span class="route-mode">Central Asia · 18 days<span class="route-go">→</span></span></a></li>
+      <li><a class="route-link" href="#ch20"><span class="route-name">The Silk Road Cities <span>— Tashkent, Samarkand, Bukhara</span></span><span class="route-mode">Uzbekistan · 15 days<span class="route-go">→</span></span></a></li>
+      <li><a class="route-link" href="#ch21"><span class="route-name">Georgia <span>— the perfect finale</span></span><span class="route-mode">Georgia · 21 days<span class="route-go">→</span></span></a></li>
+      <li><a class="route-link" href="#epilogue"><span class="route-name">Epilogue <span>— A Practical Reference</span></span><span class="route-mode">Logistics & Tips<span class="route-go">→</span></span></a></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============= CHAPTER 1 ============= -->
+<section class="chapter" id="ch1">
+  <div class="container">
+    <header class="chapter-header">
+      <div class="chapter-number"><span>Chapter One</span>I.</div>
+      <div>
+        <h2 class="chapter-title">The <em>Southern Coast</em></h2>
+        <p class="chapter-subtitle">Colombo, Galle, Unawatuna, and Mirissa. Fort walls, coral reefs, and the start of a 240-day journey.</p>
+      </div>
+    </header>
+
+    <div class="chapter-hero gradient-southern-coast">
+      <img class="scene" src="images/southern_coast_galle.png" alt="Galle Fort at sunset, Sri Lanka" loading="lazy">
+      <div class="chapter-hero-quote">
+        <div class="quote-text">"You arrive in Colombo, the air is thick with humidity and cinnamon, and the winter you left behind is entirely gone."</div>
+        <div class="quote-attr">Days 1–10 · Sri Lanka Coast</div>
+      </div>
+    </div>
+
+    <div class="chapter-body">
+      <div>
+        <p>The journey begins not in the cold air of the Himalayas, but in the thick, salted humidity of the Indian Ocean. Sri Lanka's southern coast is a slow unfurling — a place to shed jetlag, put away the winter coats, and learn the rhythm of moving again.</p>
+        <p>From the colonial chaos of Colombo, take the coastal train south to the Dutch fort of Galle. Unawatuna is where you earn your PADI Open Water diving certification, breathing underwater for the first time. In Mirissa, watch blue whales cresting in the deep blue. This is a soft landing before the harder edges of the continent.</p>
+        
+        <div class="why-worth-it">
+          <h4>Why this leg is worth it</h4>
+          <p>It's the perfect transition. A warm, welcoming coast that lets you recalibrate from real life to road life. You leave this coast certified to dive and fully thawed out.</p>
+        </div>
+      </div>
+
+      <div>
+        <div class="highlights">
+          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Galle_Fort" target="_blank" rel="noopener">
+          <div class="highlight">
+            <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Galle_Fort.jpg/960px-Galle_Fort.jpg" alt="Galle Fort walls" loading="lazy">
+            <div class="highlight-icon">Historical</div>
+            <h5>Galle Fort walls</h5>
+            <p>Walk the 16th-century ramparts at sunset. Half colonial ghost town, half thriving community holding back the sea.</p>
+          </div>
+          </a>
+          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Unawatuna" target="_blank" rel="noopener">
+          <div class="highlight">
+            <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Unawatuna.jpg/960px-Unawatuna.jpg" alt="PADI Open Water" loading="lazy">
+            <div class="highlight-icon">Experience</div>
+            <h5>PADI Open Water</h5>
+            <p>Four days in the reefs of Unawatuna learning to breathe underwater. An entirely new biome added to your world.</p>
+          </div>
+          </a>
+          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Mirissa" target="_blank" rel="noopener">
+          <div class="highlight">
+            <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Mirissa-Plage_%283%29.jpg/960px-Mirissa-Plage_%283%29.jpg" alt="Blue whales in Mirissa" loading="lazy">
+            <div class="highlight-icon">Wildlife</div>
+            <h5>Blue whales in Mirissa</h5>
+            <p>Taking a boat off the continental shelf to see the largest animal that has ever lived surfacing just off the bow.</p>
+          </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="practical">
+      <h4>Practical · Southern Coast</h4>
+      <div class="practical-grid">
+        <div class="practical-item">
+          <dt>Transport</dt>
+          <dd>The coastal train from Colombo to Galle (sit on the right). Tuk-tuks for short hops.</dd>
+        </div>
+        <div class="practical-item">
+          <dt>PADI Course</dt>
+          <dd>Takes 3-4 days. Pick a dive center with small class sizes. Do the theory online beforehand.</dd>
+        </div>
+        <div class="practical-item">
+          <dt>Weather</dt>
+          <dd>The sun is intense. Pack reef-safe sunscreen and a reliable hat; midday heat easily exceeds 30°C.</dd>
+        </div>
+      </div>
+    </div>
+
+    <div class="magic-moment">
+      <div class="magic-moment-label">A moment to hold</div>
+      <p class="magic-moment-text">Kneeling on the ocean floor in Unawatuna. Only the sound of your own breathing. The surface world disappearing entirely.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============= CHAPTER 2 ============= -->
+<section class="chapter" id="ch2">
+  <div class="container">
+    <header class="chapter-header">
+      <div class="chapter-number"><span>Chapter Two</span>II.</div>
+      <div>
+        <h2 class="chapter-title">The <em>Hill Country</em></h2>
+        <p class="chapter-subtitle">Ella, Kandy, Sigiriya. Taking the slow train into the emerald tea estates of the interior.</p>
+      </div>
+    </header>
+
+    <div class="chapter-hero gradient-hill-country">
+      <img class="scene" src="images/hill_country_ella.png" alt="Nine Arch Bridge train, Ella, Sri Lanka" loading="lazy">
+      <div class="chapter-hero-quote">
+        <div class="quote-text">"The train crawls up into the clouds. The air cools, the jungle turns to neat rows of tea, and you pull on a sweater for the first time."</div>
+        <div class="quote-attr">Days 11–19 · Sri Lanka Interior</div>
+      </div>
+    </div>
+
+    <div class="chapter-body">
+      <div>
+        <p>Leaving the coast, you ride the famous blue train rattling slowly up into the central highlands. It's one of the great railway journeys of the world — hanging out the open doors as the track sweeps through pine forests and infinite green carpets of tea.</p>
+        <p>In Ella, the air is crisp. Hike up to Ella Rock and the Nine Arch Bridge. Further north lies Kandy and the Temple of the Tooth Relic, the spiritual heart of the island. Finally, climb the vertiginous stairs of Sigiriya — the Lion Rock — a palace built atop a sheer column of stone rising from the jungle floor.</p>
+        
+        <div class="why-worth-it">
+          <h4>Why this leg is worth it</h4>
+          <p>The contrast. You swap the sticky coastal heat for mist and mountain shadows. It's an atmospheric palette cleanser before crossing to India.</p>
+        </div>
+      </div>
+
+      <div>
+        <div class="highlights">
+          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Main_Line_(Sri_Lanka)" target="_blank" rel="noopener">
+          <div class="highlight">
+            <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Udarate_Menike_train_on_the_Colombo-Badulla_route.JPG/960px-Udarate_Menike_train_on_the_Colombo-Badulla_route.JPG" alt="The Hill Country Train" loading="lazy">
+            <div class="highlight-icon">Experience</div>
+            <h5>The Hill Country Train</h5>
+            <p>Hours with your feet dangling out the door. The definitive Sri Lanka backpacker experience. Book 2nd class unreserved if 1st is sold out.</p>
+          </div>
+          </a>
+          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Temple_of_the_Tooth" target="_blank" rel="noopener">
+          <div class="highlight">
+            <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/SL_Kandy_asv2020-01_img33_Sacred_Tooth_Temple.jpg/960px-SL_Kandy_asv2020-01_img33_Sacred_Tooth_Temple.jpg" alt="Temple of the Tooth" loading="lazy">
+            <div class="highlight-icon">Historical</div>
+            <h5>Temple of the Tooth</h5>
+            <p>Kandy's sacred shrine housing a tooth of the Buddha. Go during the evening puja when drums echo through the golden-roofed halls.</p>
+          </div>
+          </a>
+          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Sigiriya" target="_blank" rel="noopener">
+          <div class="highlight">
+            <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Sigiriya_%28141688197%29.jpeg/960px-Sigiriya_%28141688197%29.jpeg" alt="Sigiriya Rock" loading="lazy">
+            <div class="highlight-icon">Historical</div>
+            <h5>Sigiriya Rock</h5>
+            <p>1,200 steps to the sky. A 5th-century fortress built by a paranoid king. The views from the top across the flat jungle are staggering.</p>
+          </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="practical">
+      <h4>Practical · Hill Country</h4>
+      <div class="practical-grid">
+        <div class="practical-item">
+          <dt>Train tickets</dt>
+          <dd>Book Ella-Kandy 30 days in advance via agency, or buy unreserved at the station and stand.</dd>
+        </div>
+        <div class="practical-item">
+          <dt>Sigiriya</dt>
+          <dd>Arrive at 06:30 when gates open to beat the heat and the bus tours.</dd>
+        </div>
+        <div class="practical-item">
+          <dt>Clothing</dt>
+          <dd>Temperatures drop significantly in the evenings here. Bring a fleece or light sweater for the misty mornings.</dd>
+        </div>
+      </div>
+    </div>
+
+    <div class="magic-moment">
+      <div class="magic-moment-label">A moment to hold</div>
+      <p class="magic-moment-text">Sitting in an open train doorway as it rounds a curve, the mist breaking just enough to reveal a valley of tea a thousand feet below.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============= CHAPTER 3 ============= -->
+<section class="chapter" id="ch3">
+  <div class="container">
+    <header class="chapter-header">
+      <div class="chapter-number"><span>Chapter Three</span>III.</div>
+      <div>
+        <h2 class="chapter-title">The <em>Spice Coast</em></h2>
+        <p class="chapter-subtitle">Kochi and Munnar. Chinese fishing nets, cardamom hills, and the shock of arriving in India.</p>
+      </div>
+    </header>
+
+    <div class="chapter-hero gradient-spice-coast">
+      <img class="scene" src="images/spice_coast_kochi.png" alt="Chinese fishing nets at sunset, Fort Kochi" loading="lazy">
+      <div class="chapter-hero-quote">
+        <div class="quote-text">"You step off the plane in Kerala, and the volume on everything is suddenly turned all the way to maximum."</div>
+        <div class="quote-attr">Days 20–26 · South India</div>
+      </div>
+    </div>
+
+    <div class="chapter-body">
+      <div>
+        <p>A short flight drops you onto a new landmass. India. No matter how much you prepare, it hits you like a physical wave — the noise, the colors, the sheer density of humanity. You start softly in Kerala, the lush, communist-run state in the south.</p>
+        <p>Fort Kochi is a mosaic of Portuguese churches, Dutch mansions, and massive cantilevered Chinese fishing nets catching the sunset over the Arabian Sea. From the coast, you climb inland to Munnar in the Western Ghats: the spice mountains, smelling of cardamom, pepper, and sprawling, manicured tea estates.</p>
+        
+        <div class="why-worth-it">
+          <h4>Why this leg is worth it</h4>
+          <p>It's the gentlest possible introduction to India. Kerala's high literacy and relaxed pace make the culture shock manageable before you dive deeper.</p>
+        </div>
+      </div>
+
+      <div>
+        <div class="highlights">
+          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Kochi" target="_blank" rel="noopener">
+          <div class="highlight">
+            <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Kochi_Skyline.jpg/960px-Kochi_Skyline.jpg" alt="Fort Kochi" loading="lazy">
+            <div class="highlight-icon">Cultural</div>
+            <h5>Fort Kochi</h5>
+            <p>Narrow streets of peeling colonial paint, art cafes, and the heavy scent of drying spices. An antique trader's labyrinth.</p>
+          </div>
+          </a>
+          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Munnar" target="_blank" rel="noopener">
+          <div class="highlight">
+            <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Munnar_Overview.jpg/960px-Munnar_Overview.jpg" alt="The Cardamom Hills" loading="lazy">
+            <div class="highlight-icon">Landscape</div>
+            <h5>The Cardamom Hills</h5>
+            <p>Trekking through the heavy, fragrant air of the Western Ghats. The landscape shifts dramatically between manicured, impossibly green tea estates and wild, dense jungle hanging with untamed pepper vines and orchids.</p>
+          </div>
+          </a>
+          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Kathakali" target="_blank" rel="noopener">
+          <div class="highlight">
+            <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Kathakali_-Play_with_Kaurava.jpg/960px-Kathakali_-Play_with_Kaurava.jpg" alt="Kathakali Theatre" loading="lazy">
+            <div class="highlight-icon">Cultural</div>
+            <h5>Kathakali Theatre</h5>
+            <p>The classical dance-drama of Kerala. Elaborate makeup rituals, intricate eye movements, and a story told entirely without speech.</p>
+          </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="practical">
+      <h4>Practical · Spice Coast</h4>
+      <div class="practical-grid">
+        <div class="practical-item">
+          <dt>Getting to Munnar</dt>
+          <dd>Local bus from Kochi takes ~4 hours. The hairpin bends are intense.</dd>
+        </div>
+        <div class="practical-item">
+          <dt>Food</dt>
+          <dd>Fish molly (coconut curry), appam (rice pancakes), and filter coffee.</dd>
+        </div>
+        <div class="practical-item">
+          <dt>Mosquitoes</dt>
+          <dd>The tropical climate makes mosquitoes prevalent. Use a strong repellent and ensure your accommodation has a net.</dd>
+        </div>
+      </div>
+    </div>
+
+    <div class="magic-moment">
+      <div class="magic-moment-label">A moment to hold</div>
+      <p class="magic-moment-text">Watching the silhouette of the Chinese fishing nets being lowered into the Arabian Sea just as the sun drops off the edge of the world.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============= CHAPTER 4 ============= -->
+<section class="chapter" id="ch4">
+  <div class="container">
+    <header class="chapter-header">
+      <div class="chapter-number"><span>Chapter Four</span>IV.</div>
+      <div>
+        <h2 class="chapter-title">The <em>Ashram</em></h2>
+        <p class="chapter-subtitle">Neyyar Dam. 31 days of silence, satsang, and discipline. The journey inwards.</p>
+      </div>
+    </header>
+
+    <div class="chapter-hero gradient-ashram">
+      <img class="scene" src="images/ashram_neyyar.png" alt="Sivananda Ashram at dawn, Neyyar Dam" loading="lazy">
+      <div class="chapter-hero-quote">
+        <div class="quote-text">"The bell rings at 05:20. You wake in the dark, put on white clothes, and go to sit in silence. And you do this for thirty-one days."</div>
+        <div class="quote-attr">Days 27–57 · Sivananda Ashram</div>
+      </div>
+    </div>
+
+    <div class="chapter-body">
+      <div>
+        <p>The road stops entirely for a month. Deep in the jungle at Neyyar Dam lies the Sivananda Yoga Vedanta Dhanwantari Ashram. This isn't a retreat; it's an education. You trade the freedom of backpacker life for absolute, structured discipline.</p>
+        <p>Awake at dawn for meditation and chanting (satsang), followed by two hours of intensive asana practice, karma yoga (selfless service), and lectures on Vedanta philosophy. No meat, no alcohol, no leaving the grounds, and minimal talking. It breaks you down and puts you back together differently.</p>
+        
+        <div class="why-worth-it">
+          <h4>Why this leg is worth it</h4>
+          <p>It's the spiritual anchor of the eight-month journey. A radical shift from consumption (seeing, moving, eating) to complete stillness. You learn that the mind is the hardest landscape to cross.</p>
+        </div>
+      </div>
+
+      <div>
+        <div class="highlights">
+          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Ashram" target="_blank" rel="noopener">
+          <div class="highlight">
+            <img class="highlight-image" src="images/morning_satsang_highlight.png" alt="Morning Satsang" loading="lazy">
+            <div class="highlight-icon">Experience</div>
+            <h5>Morning Satsang</h5>
+            <p>Sitting cross-legged while the jungle wakes up around you. Chanting Sanskrit mantras as the first light hits the Neyyar reservoir.</p>
+          </div>
+          </a>
+          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Yoga" target="_blank" rel="noopener">
+          <div class="highlight">
+            <img class="highlight-image" src="images/asana_practice_highlight.png" alt="The Asana Practice" loading="lazy">
+            <div class="highlight-icon">Experience</div>
+            <h5>The Asana Practice</h5>
+            <p>Two 120-minute physical classes daily. By week three, poses that seemed impossible begin to feel like resting.</p>
+          </div>
+          </a>
+          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Karma_yoga" target="_blank" rel="noopener">
+          <div class="highlight">
+            <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Ashrams_on_the_banks_of_Ganges%2C_Rishikesh.jpg/960px-Ashrams_on_the_banks_of_Ganges%2C_Rishikesh.jpg" alt="Karma Yoga" loading="lazy">
+            <div class="highlight-icon">Cultural</div>
+            <h5>Karma Yoga</h5>
+            <p>An hour a day of selfless service — sweeping paths, washing pots, chopping vegetables. Working without attachment to the outcome.</p>
+          </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="practical">
+      <h4>Practical · The Ashram</h4>
+      <div class="practical-grid">
+        <div class="practical-item">
+          <dt>Dress Code</dt>
+          <dd>Strictly white and yellow. Shoulders and knees covered always.</dd>
+        </div>
+        <div class="practical-item">
+          <dt>Accommodation</dt>
+          <dd>Book the rare 'couples room' months in advance. Otherwise, dormitories.</dd>
+        </div>
+        <div class="practical-item">
+          <dt>Daily Schedule</dt>
+          <dd>Life starts early with 5:30 AM meditation. Embrace the structured routine and periods of mandated silence.</dd>
+        </div>
+      </div>
+    </div>
+
+    <div class="magic-moment">
+      <div class="magic-moment-label">A moment to hold</div>
+      <p class="magic-moment-text">Day twenty-eight. The resistance is gone. You hear the 5am bell and your body simply stands up and walks to the meditation hall without a single thought.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============= CHAPTER 5 ============= -->
+<section class="chapter" id="ch5">
+  <div class="container">
+    <header class="chapter-header">
+      <div class="chapter-number"><span>Chapter Five</span>V.</div>
+      <div>
+        <h2 class="chapter-title">The <em>Backwaters</em></h2>
+        <p class="chapter-subtitle">Varkala and Alleppey. Emerging from silence to red cliffs and palm-fringed waterways.</p>
+      </div>
+    </header>
+
+    <div class="chapter-hero gradient-backwaters">
+      <img class="scene" src="images/backwaters_alleppey.png" alt="Kerala backwaters houseboat, Alleppey" loading="lazy">
+      <div class="chapter-hero-quote">
+        <div class="quote-text">"You step out of the ashram gates. The world is too loud, too bright, and you are starving for a cup of real coffee."</div>
+        <div class="quote-attr">Days 58–64 · Kerala Coast</div>
+      </div>
+    </div>
+
+    <div class="chapter-body">
+      <div>
+        <p>After a month of monastic discipline, re-entering the world is jarring. You head straight to Varkala, where red laterite cliffs drop into the Arabian Sea. For a few days, you do nothing but eat fish, drink coffee, and watch the waves — letting the ashram's lessons settle in.</p>
+        <p>Then north to the Kerala backwaters. In Alleppey, you board a thatched-roof houseboat. The engine cuts out, and you drift along a vast labyrinth of palm-fringed canals, past children waving from the banks and dugout canoes carrying coconuts. A slow fade out of the south.</p>
+        
+        <div class="why-worth-it">
+          <h4>Why this leg is worth it</h4>
+          <p>Decompression. The houseboat is total isolated luxury, and Varkala's cliff-top cafes are the perfect transition back to secular backpacker life.</p>
+        </div>
+      </div>
+
+      <div>
+        <div class="highlights">
+          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Varkala" target="_blank" rel="noopener">
+          <div class="highlight">
+            <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Varkala_Beach%2C_Varkala%2C_Kerala.jpg/960px-Varkala_Beach%2C_Varkala%2C_Kerala.jpg" alt="Varkala Cliffs" loading="lazy">
+            <div class="highlight-icon">Landscape</div>
+            <h5>Varkala Cliffs</h5>
+            <p>The only place in southern Kerala where cliffs are found adjacent to the Arabian Sea. Walk the coastal path at golden hour.</p>
+          </div>
+          </a>
+          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Kerala_backwaters" target="_blank" rel="noopener">
+          <div class="highlight">
+            <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/House_Boat_DSW.jpg/960px-House_Boat_DSW.jpg" alt="The Alleppey Houseboat" loading="lazy">
+            <div class="highlight-icon">Experience</div>
+            <h5>The Alleppey Houseboat</h5>
+            <p>Overnight on a Kettuvallam. The crew cooks fresh prawn curry while you watch village life spool past on the canal banks.</p>
+          </div>
+          </a>
+          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Ayurveda" target="_blank" rel="noopener">
+          <div class="highlight">
+            <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Dhanvantari-at-Ayurveda-expo.jpg/960px-Dhanvantari-at-Ayurveda-expo.jpg" alt="Ayurveda" loading="lazy">
+            <div class="highlight-icon">Cultural</div>
+            <h5>Ayurveda</h5>
+            <p>Kerala is the home of Ayurvedic medicine. End your time in the south with a heavy, oil-soaked massage to clear the ashram stiffness.</p>
+          </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="practical">
+      <h4>Practical · The Backwaters</h4>
+      <div class="practical-grid">
+        <div class="practical-item">
+          <dt>Houseboats</dt>
+          <dd>Book in person in Alleppey, not online, to inspect the boat and negotiate. Go private.</dd>
+        </div>
+        <div class="practical-item">
+          <dt>Varkala safely</dt>
+          <dd>The ocean currents under the cliffs are famously treacherous. Swim cautiously.</dd>
+        </div>
+        <div class="practical-item">
+          <dt>Connectivity</dt>
+          <dd>Network coverage can be spotty on the water. Download maps or entertainment before boarding.</dd>
+        </div>
+      </div>
+    </div>
+
+    <div class="magic-moment">
+      <div class="magic-moment-label">A moment to hold</div>
+      <p class="magic-moment-text">Eating prawn curry on the deck of a houseboat, the motor off, moored under a palm tree in the absolute black of a moonless tropical night.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============= CHAPTER 6 ============= -->
+<section class="chapter" id="ch6">
+  <div class="container">
+    <header class="chapter-header">
+      <div class="chapter-number"><span>Chapter Six</span>VI.</div>
+      <div>
+        <h2 class="chapter-title">Hampi, the <em>boulder kingdom</em></h2>
+        <p class="chapter-subtitle">A ruined empire scattered across surreal, Martian geography. Bicycles, temples, and red rock.</p>
+      </div>
+    </header>
+
+    <div class="chapter-hero gradient-hampi">
+      <img class="scene" src="images/hampi_boulders.png" alt="Hampi boulder landscape and temple ruins" loading="lazy">
+      <div class="chapter-hero-quote">
+        <div class="quote-text">"You wake up on the night train, look out the window, and assume you have somehow been transported to another planet."</div>
+        <div class="quote-attr">Days 65–72 · Karnataka</div>
+      </div>
+    </div>
+
+    <div class="chapter-body">
+      <div>
+        <p>A long overnight train inland from the coast brings you to Karnataka. Hampi is incomprehensible. A landscape of massive, gravity-defying granite boulders stretching to the horizon, intersected by a bright green river and the ruins of the Vijayanagara Empire.</p>
+        <p>Rent a bicycle and spend a week getting lost. Ride between 14th-century temples, royal enclosures, and bizarre rock formations. Cross the river on a small coracle boat to the 'hippie island' side for rice paddies and sunset drum circles up on the rock faces. This is a place where time has stopped.</p>
+        
+        <div class="why-worth-it">
+          <h4>Why this leg is worth it</h4>
+          <p>It's geographically one of the most unique places on earth. It forces you to slow down entirely. The heat dictates that you rest mid-day and only explore at dawn and dusk.</p>
+        </div>
+      </div>
+
+      <div>
+        <div class="highlights">
+          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Hampi" target="_blank" rel="noopener">
+          <div class="highlight">
+            <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Wide_angle_of_Galigopuram_of_Virupaksha_Temple%2C_Hampi_%2804%29_%28cropped%29.jpg/960px-Wide_angle_of_Galigopuram_of_Virupaksha_Temple%2C_Hampi_%2804%29_%28cropped%29.jpg" alt="Vijayanagara Ruins" loading="lazy">
+            <div class="highlight-icon">Historical</div>
+            <h5>Vijayanagara Ruins</h5>
+            <p>Once the world's second-largest medieval city. The Vittala Temple's stone chariot and the musical pillars are masterpieces of basalt carving.</p>
+          </div>
+          </a>
+          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Tungabhadra_River" target="_blank" rel="noopener">
+          <div class="highlight">
+            <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Hampi%2C_Tungabhadra_River%2C_India.jpg/960px-Hampi%2C_Tungabhadra_River%2C_India.jpg" alt="Coracle River Crossing" loading="lazy">
+            <div class="highlight-icon">Landscape</div>
+            <h5>Coracle River Crossing</h5>
+            <p>Crossing the Tungabhadra River in a round, woven-basket boat. The current spins you gently as you navigate past half-submerged Shiva lingams.</p>
+          </div>
+          </a>
+          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Matanga_Hill" target="_blank" rel="noopener">
+          <div class="highlight">
+            <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Enroute_to_Matanga_hills%2C_Hampi.jpg/960px-Enroute_to_Matanga_hills%2C_Hampi.jpg" alt="Matanga Hill Sunset" loading="lazy">
+            <div class="highlight-icon">Landscape</div>
+            <h5>Matanga Hill Sunset</h5>
+            <p>A scramble up the boulders. From the top, you see the entire rippling sea of rock and ruin turning orange as the sun drops.</p>
+          </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="practical">
+      <h4>Practical · Hampi</h4>
+      <div class="practical-grid">
+        <div class="practical-item">
+          <dt>Transport</dt>
+          <dd>Overnight train to Hospet, then a short rickshaw ride into Hampi.</dd>
+        </div>
+        <div class="practical-item">
+          <dt>Cash</dt>
+          <dd>Bring enough rupees. ATMs in Hampi are frequently empty or broken.</dd>
+        </div>
+        <div class="practical-item">
+          <dt>Sun &amp; Heat</dt>
+          <dd>The boulder landscape offers zero shade. Explore ruins early in the morning or late afternoon to avoid heatstroke.</dd>
+        </div>
+      </div>
+    </div>
+
+    <div class="magic-moment">
+      <div class="magic-moment-label">A moment to hold</div>
+      <p class="magic-moment-text">Cycling along a dirt path at dawn before anyone else is up, weaving through boulders the size of apartment buildings, entirely alone with the ruins.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============= CHAPTER 7 ============= -->
+<section class="chapter" id="ch7">
+  <div class="container">
+    <header class="chapter-header">
+      <div class="chapter-number"><span>Chapter Seven</span>VII.</div>
+      <div>
+        <h2 class="chapter-title">Goa, the <em>slow shore</em></h2>
+        <p class="chapter-subtitle">Palolem and the quiet south. Two weeks of beach huts, scooters, and doing absolutely nothing on purpose.</p>
+      </div>
+    </header>
+
+    <div class="chapter-hero gradient-goa">
+      <img class="scene" src="images/goa_palolem.png" alt="Palolem Beach at sunset, South Goa" loading="lazy">
+      <div class="chapter-hero-quote">
+        <div class="quote-text">"You arrive intending to stay three days. You rent a scooter, find a shack on the sand, and suddenly two weeks have vanished."</div>
+        <div class="quote-attr">Days 73–86 · South Goa</div>
+      </div>
+    </div>
+
+    <div class="chapter-body">
+      <div>
+        <p>Goa is not quite India. The Portuguese influence, the cheap beer, the tropical languor — it functions as a pressure valve for the subcontinent. Avoid the noisy, trance-party beaches of the north and head deep south to Palolem and Agonda.</p>
+        <p>Rent a bamboo hut directly on the sand. The routine becomes violently simple: wake up, swim in the warm sea, eat fish curry, read a book under a palm tree. Hire a scooter and drift along narrow roads through impossibly green paddy fields to find empty, unnamed coves. It's the ultimate pit-stop.</p>
+        
+        <div class="why-worth-it">
+          <h4>Why this leg is worth it</h4>
+          <p>It's the necessary rest before the intense, visceral chaos of North India. A strategic battery recharge. You need to be fully rested before Varanasi.</p>
+        </div>
+      </div>
+
+      <div>
+        <div class="highlights">
+          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Palolem_Beach" target="_blank" rel="noopener">
+          <div class="highlight">
+            <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Palolem_Beach%2C_South_Goa.jpg/960px-Palolem_Beach%2C_South_Goa.jpg" alt="South Goan Beach Shacks" loading="lazy">
+            <div class="highlight-icon">Cultural</div>
+            <h5>South Goan Beach Shacks</h5>
+            <p>Living directly on the sand under a palm-thatch roof. The days dissolve into swimming in the bathtub-warm Arabian Sea, reading under the shade of coconut palms, and eating fresh kingfish as the evening tides roll in.</p>
+          </div>
+          </a>
+          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Portuguese_Goa" target="_blank" rel="noopener">
+          <div class="highlight">
+            <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Donna_Paula%2C_Goa.jpg/960px-Donna_Paula%2C_Goa.jpg" alt="The Goan Hinterland" loading="lazy">
+            <div class="highlight-icon">Cultural</div>
+            <h5>The Goan Hinterland</h5>
+            <p>Ride a scooter deep inland, shedding the coast for the quiet jungle. Navigate past towering, whitewashed Portuguese cathedrals sitting incongruously in the humid heat, stopping only for fresh sugarcane juice by the roadside.</p>
+          </div>
+          </a>
+          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Goan_cuisine" target="_blank" rel="noopener">
+          <div class="highlight">
+            <img class="highlight-image" src="images/goan_fish_curry_highlight.png" alt="Goan Fish Curry" loading="lazy">
+            <div class="highlight-icon">Culinary</div>
+            <h5>Goan Fish Curry</h5>
+            <p>Red mackerel curry soured with kokum, eaten with red rice looking out at the water it was caught from that morning.</p>
+          </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="practical">
+      <h4>Practical · Goa</h4>
+      <div class="practical-grid">
+        <div class="practical-item">
+          <dt>Scooter Hire</dt>
+          <dd>~€4 a day. Wear a helmet. The police do check international licenses here.</dd>
+        </div>
+        <div class="practical-item">
+          <dt>Huts</dt>
+          <dd>Beach shacks are rebuilt every season. Don't book online — just turn up and walk the beach to find the best deal.</dd>
+        </div>
+        <div class="practical-item">
+          <dt>Safety</dt>
+          <dd>While usually relaxed, avoid walking alone on unlit beaches at night, and keep a sharp eye on your bags.</dd>
+        </div>
+      </div>
+    </div>
+
+    <div class="magic-moment">
+      <div class="magic-moment-label">A moment to hold</div>
+      <p class="magic-moment-text">Driving the scooter back 'home' to your beach hut as it gets dark, the hot wind on your face, feeling completely unmoored in the best possible way.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============= CHAPTER 8 ============= -->
+<section class="chapter" id="ch8">
+  <div class="container">
+    <header class="chapter-header">
+      <div class="chapter-number"><span>Chapter Eight</span>VIII.</div>
+      <div>
+        <h2 class="chapter-title">The <em>Holy Cities</em></h2>
+        <p class="chapter-subtitle">Varanasi, Rishikesh, Amritsar. The burning ghats of the Ganges, the birthplace of yoga, and the Golden Temple. India at maximum intensity.</p>
+      </div>
+    </header>
+
+    <div class="chapter-hero gradient-holy-cities">
+      <img class="scene" src="images/varanasi_ghats.png" alt="Varanasi ghats at dawn from the Ganges" loading="lazy">
+      <div class="chapter-hero-quote">
+        <div class="quote-text">"Varanasi does not ease you in. It hands you life and death, side by side on a marble step, burning in the open air."</div>
+        <div class="quote-attr">Days 87–104 · North India</div>
+      </div>
+    </div>
+
+    <div class="chapter-body">
+      <div>
+        <p>You fly north and the reality shifts entirely. Varanasi is the oldest living city on earth. Sitting on the ghats of the Ganges, you watch funeral pyres burn constantly at Manikarnika, while fifty meters away boys play cricket and sadhus bathe in the river. It is completely overwhelming and absolutely essential.</p>
+        <p>From there, deeper north to Rishikesh, where the Ganges leaves the Himalayas. The air is cooler, the water is dangerously fast and ice-blue, and the hills are thick with ashrams. Finally, to Amritsar in Punjab: standing before the Golden Temple at midnight, surrounded by fifty thousand Sikh pilgrims, eating free dal in the world's largest community kitchen.</p>
+        
+        <div class="why-worth-it">
+          <h4>Why this leg is worth it</h4>
+          <p>This is the spiritual heavy-lifting of the trip. North India is exhausting, loud, and relentless, but it offers visions — of faith, mortality, and scale — that you cannot find anywhere else on the planet.</p>
+        </div>
+      </div>
+
+      <div>
+        <div class="highlights">
+          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Manikarnika_Ghat" target="_blank" rel="noopener">
+          <div class="highlight">
+            <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Manikarnika_Ghat%2C_Varanasi%2C_Uttar_Pradesh%2C_India_%282011%29_5.jpg/960px-Manikarnika_Ghat%2C_Varanasi%2C_Uttar_Pradesh%2C_India_%282011%29_5.jpg" alt="Manikarnika Ghat" loading="lazy">
+            <div class="highlight-icon">Cultural</div>
+            <h5>Manikarnika Ghat</h5>
+            <p>Varanasi's main cremation ghat. Watch silently from a boat. A profound, unflinching look at human mortality.</p>
+          </div>
+          </a>
+          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Rishikesh" target="_blank" rel="noopener">
+          <div class="highlight">
+            <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Trayambakeshwar_Temple_VK.jpg/960px-Trayambakeshwar_Temple_VK.jpg" alt="The Upper Ganges" loading="lazy">
+            <div class="highlight-icon">Experience</div>
+            <h5>The Upper Ganges</h5>
+            <p>In Rishikesh, the Ganges is clean enough to swim in. White-water raft down it, or just sit on the white sand banks watching the sadhus.</p>
+          </div>
+          </a>
+          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Golden_Temple" target="_blank" rel="noopener">
+          <div class="highlight">
+            <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/The_Golden_Temple_of_Amrithsar_7.jpg/960px-The_Golden_Temple_of_Amrithsar_7.jpg" alt="The Golden Temple" loading="lazy">
+            <div class="highlight-icon">Historical</div>
+            <h5>The Golden Temple</h5>
+            <p>Amritsar's Sikh holiest shrine. The Langar (kitchen) feeds 100,000 people a day for free. Volunteer to sit and peel garlic for an hour.</p>
+          </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="practical">
+      <h4>Practical · North India</h4>
+      <div class="practical-grid">
+        <div class="practical-item">
+          <dt>Trains</dt>
+          <dd>Varanasi to Amritsar is a very long journey. Book 2AC or 1AC class tickets 60 days in advance via IRCTC.</dd>
+        </div>
+        <div class="practical-item">
+          <dt>Respect</dt>
+          <dd>Do not photograph cremations in Varanasi under any circumstances. Cover your head fully in Amritsar.</dd>
+        </div>
+        <div class="practical-item">
+          <dt>Stomach Health</dt>
+          <dd>Stick to hot cooked meals, avoid tap water for brushing teeth, and pick busy stalls with high turnover.</dd>
+        </div>
+      </div>
+    </div>
+
+    <div class="magic-moment">
+      <div class="magic-moment-label">A moment to hold</div>
+      <p class="magic-moment-text">Dawn in Varanasi. A wooden rowboat in the middle of the quiet river. Looking back at the city rising up in pink and gold mist, eternal and unending.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============= CHAPTER 9 ============= -->
+<section class="chapter" id="ch9">
+  <div class="container">
+    <header class="chapter-header">
+      <div class="chapter-number"><span>Chapter Nine</span>IX.</div>
+      <div>
+        <h2 class="chapter-title"><em>Diverging Paths</em></h2>
+        <p class="chapter-subtitle">Three weeks apart. A breathwork certification in Rishikesh. The Annapurna Circuit in Nepal. Two different ways to cross a mountain range.</p>
+      </div>
+    </header>
+
+    <div class="chapter-hero gradient-diverging">
+      <img class="scene" src="images/annapurna_diverging.png" alt="Annapurna trek with prayer flags, Nepal" loading="lazy">
+      <div class="chapter-hero-quote">
+        <div class="quote-text">"Sometimes the journey requires absolute solitude. You go up the river; I go up the mountain. We'll meet in Kathmandu."</div>
+        <div class="quote-attr">Days 105–125 · India & Nepal</div>
+      </div>
+    </div>
+
+    <div class="chapter-body">
+      <div>
+        <p>After three months side-by-side, the route splits. It is a necessary divergence. Micky remains in the foothills of Rishikesh, in the quiet enclave of Tapovan, undertaking a three-week immersion into conscious connected breathing. Going inwards, holding space, learning the physical weight of air.</p>
+        <p>Moritz crosses the border into Nepal alone. A bus to Pokhara, a jeep to Chame, and then the Annapurna Circuit. Two weeks walking around the tenth highest mountain in the world. Carrying a pack across suspension bridges, fighting altitude sickness, and finally pushing over the Thorong La pass at 5,416 metres in a blizzard.</p>
+        
+        <div class="why-worth-it">
+          <h4>Why this leg is worth it</h4>
+          <p>Long-term travel with a partner requires space. This split allows two distinct dreams to be realized. You return to each other changed, with new stories to tell at the rendezvous in Kathmandu.</p>
+        </div>
+      </div>
+
+      <div>
+        <div class="highlights">
+          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Rishikesh" target="_blank" rel="noopener">
+          <div class="highlight">
+            <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Trayambakeshwar_Temple_VK.jpg/960px-Trayambakeshwar_Temple_VK.jpg" alt="Breathwork in Tapovan" loading="lazy">
+            <div class="highlight-icon">Experience</div>
+            <h5>Breathwork in Tapovan</h5>
+            <p>Three weeks exploring altered states of consciousness through conscious connected breathing. An internal summit.</p>
+          </div>
+          </a>
+          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Annapurna_Circuit" target="_blank" rel="noopener">
+          <div class="highlight">
+            <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Under_stars_and_snows.jpg/960px-Under_stars_and_snows.jpg" alt="The Annapurna Circuit" loading="lazy">
+            <div class="highlight-icon">Landscape</div>
+            <h5>The Annapurna Circuit</h5>
+            <p>Fourteen days of walking. Teahouse to teahouse. Watching the landscape shift from subtropical jungle to alpine desert to glacial ice.</p>
+          </div>
+          </a>
+          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Thorong_La" target="_blank" rel="noopener">
+          <div class="highlight">
+            <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Muktinath_Valley%2C_View_of_Thorong_La_Pass%2C_Mountains%2C_Nepal.jpg/960px-Muktinath_Valley%2C_View_of_Thorong_La_Pass%2C_Mountains%2C_Nepal.jpg" alt="Thorong La Pass" loading="lazy">
+            <div class="highlight-icon">Milestone</div>
+            <h5>Thorong La Pass</h5>
+            <p>5,416 metres. Starting the climb at 4am by headlamp. The physical limit of the entire eight-month journey.</p>
+          </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="practical">
+      <h4>Practical · Diverging Paths</h4>
+      <div class="practical-grid">
+        <div class="practical-item">
+          <dt>Nepal Trekking</dt>
+          <dd>Hire a porter in Pokhara. It injects money straight into the local economy and saves your knees on the descent.</dd>
+        </div>
+        <div class="practical-item">
+          <dt>Reconnecting</dt>
+          <dd>A flight from Delhi to Kathmandu is the most efficient way to rendezvous before the Tibet overland section.</dd>
+        </div>
+        <div class="practical-item">
+          <dt>Visas</dt>
+          <dd>Nepal offers visa-on-arrival, but bringing exact US dollars in cash will speed up the process immensely.</dd>
+        </div>
+      </div>
+    </div>
+
+    <div class="magic-moment">
+      <div class="magic-moment-label">A moment to hold</div>
+      <p class="magic-moment-text">Meeting at a cafe in Thamel, Kathmandu, after three weeks apart. Dropping a heavy backpack. Ordering two coffees and realizing you both crossed a summit.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============= CHAPTER 10 ============= -->
+<section class="chapter" id="ch10">
+  <div class="container">
+    <header class="chapter-header">
+      <div class="chapter-number"><span>Chapter Ten</span>X.</div>
+      <div>
+        <h2 class="chapter-title">Kathmandu, the <em>threshold</em></h2>
+        <p class="chapter-subtitle">Where the plan becomes a journey. Marigold alleys, butter-lamp dusk, one last hot shower before the plateau.</p>
+      </div>
+    </header>
+
+
+    <div class="chapter-hero gradient-kathmandu">
+      <img class="scene" src="images/kathmandu_stupa.png" alt="Boudhanath Stupa, Kathmandu" loading="lazy">
+      <div class="chapter-hero-quote">
+        <div class="quote-text">"You sit on a rooftop in Thamel, the sun goes red behind the hills, and you realise — this is where the next chapter begins. Everything before was prologue."</div>
+        <div class="quote-attr">Days 126–132 · Kathmandu, 1,400 m</div>
+      </div>
+    </div>
+
+    <div class="chapter-body">
+      <div>
+        <p>Kathmandu is the threshold city — warm, noisy, smelling of marigold and cardamom, where every traveller pauses before walking up. Spend three or four days. Drink masala chai on rooftops. Walk the kora around Boudhanath — three times, slowly, with the grandmothers who have done it every evening for forty years.</p>
+
+        <p>This is the waiting room before the roof of the world. While agencies process the vital Tibet permits in the background, you use the time to prepare. Buy a down jacket. Pull cash from the ATMs. Eat one last plate of crispy momo, knowing the air and the food are about to change entirely.</p>
+
+        <div class="why-worth-it">
+          <h4>Why this leg is worth it</h4>
+          <p>It calibrates you. Everything that follows — the plateau's thin air, the desert silences, the rough comfort of an Osh chaikhana — lands harder because you started in the warm chaos where every alley is a shrine.</p>
+        </div>
+      </div>
+
+      <div>
+        <div class="highlights">
+          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Boudhanath" target="_blank" rel="noopener">
+          <div class="highlight">
+            <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Boudhanath_stupa_%2C_Kathmandu%2C_Nepal.jpg/960px-Boudhanath_stupa_%2C_Kathmandu%2C_Nepal.jpg" alt="Boudhanath at dusk" loading="lazy">
+            <div class="highlight-icon">Cultural</div>
+            <h5>Boudhanath at dusk</h5>
+            <p>Nepal's largest stupa, ringed by Tibetan monasteries. The kora at sunset, butter lamps lighting one by one, is one of the most quietly moving things you'll see all year.</p>
+          </div>
+          </a>
+          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Patan_Durbar_Square" target="_blank" rel="noopener">
+          <div class="highlight">
+            <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/8/89/Patan_durbar_square.jpg" alt="Patan Durbar Square" loading="lazy">
+            <div class="highlight-icon">Historical</div>
+            <h5>Patan Durbar Square</h5>
+            <p>Most beautiful of the three royal squares — Newari woodcarving, Krishna temples, and a museum among Asia's finest. Quieter than Kathmandu's Durbar.</p>
+          </div>
+          </a>
+          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Nagarkot" target="_blank" rel="noopener">
+          <div class="highlight">
+            <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/2/22/Prithu.jpg" alt="Nagarkot dawn" loading="lazy">
+            <div class="highlight-icon">Landscape</div>
+            <h5>Nagarkot dawn</h5>
+            <p>An hour east, a ridge showing the entire Himalayan crest from Annapurna to Everest on clear mornings. Stay overnight, alarm at 5:30. Worth losing the sleep.</p>
+          </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="practical">
+      <h4>Practical · Kathmandu</h4>
+      <div class="practical-grid">
+        <div class="practical-item">
+          <dt>Visas &amp; Timing</dt>
+          <dd>Late March or early April. Group visa rules for Tibet fluctuate; confirm with your agency 6-8 weeks prior as it may cancel existing Chinese visas. Processing in Kathmandu takes ~4 days.</dd>
+        </div>
+        <div class="practical-item">
+          <dt>Stay & Spend</dt>
+          <dd>~€40–70/night for a guesthouse in Patan or Boudha (not Thamel); €5–8/meal.</dd>
+        </div>
+        <div class="practical-item">
+          <dt>Air Quality</dt>
+          <dd>Dust and smog in the valley can be severe. Bring a good face mask for walking the busy streets.</dd>
+        </div>
+      </div>
+    </div>
+
+    <div class="magic-moment">
+      <div class="magic-moment-label">A moment to hold</div>
+      <p class="magic-moment-text">Last evening at Boudhanath. The stupa's eyes are looking north — the same direction you are about to go.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============= CHAPTER 11 ============= -->
+<section class="chapter" id="ch11">
+  <div class="container">
+    <header class="chapter-header">
+      <div class="chapter-number"><span>Chapter Eleven</span>XI.</div>
+      <div>
+        <h2 class="chapter-title">Across the <em>Himalayas</em></h2>
+        <p class="chapter-subtitle">Eight days on the Friendship Highway. The Nepal-Tibet border, Tingri's high steppe, Everest's north face, and Yamdrok Lake's impossible turquoise.</p>
+      </div>
+    </header>
+
+
+    <div class="chapter-hero gradient-himalaya">
+      <img class="scene" src="images/everest_north_face.png" alt="Mount Everest North Face from Tibet" loading="lazy">
+      <div class="chapter-hero-quote">
+        <div class="quote-text">"On the third morning the air thins and the road begins climbing in earnest, and you don't speak much, because there is nothing to say."</div>
+        <div class="quote-attr">Days 133–142 · Tingri, 4,300 m</div>
+      </div>
+    </div>
+
+    <div class="chapter-body">
+      <div>
+        <p>This is the leg that earns the trip its title. Eight days from Kathmandu, up through the Bhote Koshi gorge to the Tibet border (subject to current border status after the 2025 bridge washouts, you may route via Zhangmu, Gyirong, or fly Kathmandu→Lhasa), then onto the Tibetan plateau. The colours shift: green to brown, brown to ochre, ochre to white. By Tingri you are at 4,300 metres and the stars are brighter than you knew stars could be.</p>
+
+        <p>From Tingri, detour to Rongbuk Monastery and the Tibetan side of Everest Base Camp — at 5,200 metres, the highest you'll probably ever stand. Then back onto the Friendship Highway: Shigatse, Tashilhunpo Monastery, Gyantse, and the high pass at Karo La where Yamdrok Lake opens below, scorpion-shaped and the colour of melted glaciers.</p>
+
+        <div class="why-worth-it">
+          <h4>Why this leg is worth it</h4>
+          <p>You will never forget the moment Everest comes out of the cloud. The slow ascent at the pace of a four-wheel-drive is a meditation no plane can give you.</p>
+        </div>
+      </div>
+
+      <div>
+        <div class="highlights">
+          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Mount_Everest" target="_blank" rel="noopener">
+          <div class="highlight">
+            <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Mount_Everest_North_Face.jpg/960px-Mount_Everest_North_Face.jpg" alt="Everest North Face" loading="lazy">
+            <div class="highlight-icon">Landscape</div>
+            <h5>Everest North Face</h5>
+            <p>From Rongbuk, the north face stands directly before you — a sheer 3,500 m wall. Sunrise is the time. The cold is brutal and worth it.</p>
+          </div>
+          </a>
+          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Yamdrok_Lake" target="_blank" rel="noopener">
+          <div class="highlight">
+            <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Yamzho_Yumco.jpg/960px-Yamzho_Yumco.jpg" alt="Yamdrok Lake" loading="lazy">
+            <div class="highlight-icon">Landscape</div>
+            <h5>Yamdrok Lake</h5>
+            <p>One of Tibet's three sacred lakes. The first sight from Karo La pass — the colour of a Florentine sky — is the most photographed view in Tibet for good reason.</p>
+          </div>
+          </a>
+          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Tashilhunpo_Monastery" target="_blank" rel="noopener">
+          <div class="highlight">
+            <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/4/4b/Entrance_to_Tashilhunpo_Monastery.jpg" alt="The Maitreya Chapel" loading="lazy">
+            <div class="highlight-icon">Cultural</div>
+            <h5>The Maitreya Chapel</h5>
+            <p>Seat of the Panchen Lama. Wander the labyrinth of cobbled alleys, but don't miss the 26-metre-tall gilded statue of the Future Buddha, draped in heavy silks and surrounded by thousands of flickering butter lamps.</p>
+          </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="practical">
+      <h4>Practical · Friendship Highway</h4>
+      <div class="practical-grid">
+        <div class="practical-item">
+          <dt>Tour cost</dt>
+          <dd>~€1,000–1,500 pp for the 8-day overland (private car, guide, hotels, all permits).</dd>
+        </div>
+        <div class="practical-item">
+          <dt>Altitude & Gear</dt>
+          <dd>Slow ascent, lots of water. Diamox in your kit. Pack down jacket, thermals, and UV sun protection.</dd>
+        </div>
+        <div class="practical-item">
+          <dt>Hydration</dt>
+          <dd>The dry, high-altitude air dehydrates you incredibly fast. Aim to drink at least 3-4 liters of water a day.</dd>
+        </div>
+      </div>
+    </div>
+
+    <div class="magic-moment">
+      <div class="magic-moment-label">A moment to hold</div>
+      <p class="magic-moment-text">First light at Rongbuk, hands inside your sleeves, breath visible, Everest turning gold from the top down. No words.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============= CHAPTER 12 ============= -->
+<section class="chapter" id="ch12">
+  <div class="container">
+    <header class="chapter-header">
+      <div class="chapter-number"><span>Chapter Twelve</span>XII.</div>
+      <div>
+        <h2 class="chapter-title">Lhasa, the <em>holy city</em></h2>
+        <p class="chapter-subtitle">Four days at 3,656 metres. The Potala on its hill, the Jokhang at dawn, the Barkhor in late afternoon, and the way altitude makes every walk a little holy.</p>
+      </div>
+    </header>
+
+
+    <div class="chapter-hero gradient-lhasa">
+      <img class="scene" src="images/potala_palace.png" alt="Potala Palace, Lhasa" loading="lazy">
+      <div class="chapter-hero-quote">
+        <div class="quote-text">"At dawn the pilgrims circle the Jokhang, prayer wheels turning, robes burgundy in the rising sun, and you are entirely surplus to requirements — which is the point."</div>
+        <div class="quote-attr">Days 143–148 · Lhasa, 3,656 m</div>
+      </div>
+    </div>
+
+    <div class="chapter-body">
+      <div>
+        <p>Lhasa is the holy city, the destination of every Tibetan pilgrim's life. You arrive after eight days on the Friendship Highway already half-acclimatised — most travellers fly in and spend their first 24 hours dizzy on a hotel bed. You walk straight into the Barkhor, the pilgrim circuit around the Jokhang, and join its slow clockwise current.</p>
+
+        <p>Three days is enough. The Potala Palace — thirteen stories of white-and-red mud-brick rising from the Red Hill — costs an entry slot booked the day before. The Jokhang at dawn, full of prostrating pilgrims and the smell of butter lamps, is its own sacrament. In the afternoons, drink sweet milk tea in a Barkhor tea-house.</p>
+
+        <div class="why-worth-it">
+          <h4>Why this leg is worth it</h4>
+          <p>Almost no city on earth is still organised around a single religious heart the way Lhasa is. Walking the Barkhor, you are inside something living — not a museum but a practice ongoing for thirteen centuries.</p>
+        </div>
+      </div>
+
+      <div>
+        <div class="highlights">
+          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Jokhang" target="_blank" rel="noopener">
+          <div class="highlight">
+            <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/a/ab/Jokhang_Temple_in_Tibet.jpg" alt="The Jokhang at dawn" loading="lazy">
+            <div class="highlight-icon">Cultural</div>
+            <h5>The Jokhang at dawn</h5>
+            <p>Tibet's most sacred temple, founded 7th century. Go at 7am — hundreds of pilgrims doing full-body prostrations on the flagstones. Inside, the Jowo Shakyamuni statue from Tang dynasty China.</p>
+          </div>
+          </a>
+          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Sera_Monastery" target="_blank" rel="noopener">
+          <div class="highlight">
+            <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Sera_Mey.jpg/960px-Sera_Mey.jpg" alt="Sera Monastery debates" loading="lazy">
+            <div class="highlight-icon">Cultural</div>
+            <h5>Sera Monastery debates</h5>
+            <p>Every afternoon (except Sundays), monks debate Buddhist philosophy under the willows, with elaborate hand-claps to punctuate arguments. Free, riveting, theatrical.</p>
+          </div>
+          </a>
+          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Potala_Palace" target="_blank" rel="noopener">
+          <div class="highlight">
+            <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Potala_Palace_HQ.jpg/960px-Potala_Palace_HQ.jpg" alt="The Potala" loading="lazy">
+            <div class="highlight-icon">Historical</div>
+            <h5>The Potala</h5>
+            <p>13 stories, 1,000+ rooms, 200,000 statues. More powerful from outside, at sunset, with butter lamps catching gold on the roof.</p>
+          </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="practical">
+      <h4>Practical · Lhasa</h4>
+      <div class="practical-grid">
+        <div class="practical-item">
+          <dt>Days & Guides</dt>
+          <dd>3–4 days. Guides are officially required for tourist sites. Free time in Barkhor and tea-houses is yours.</dd>
+        </div>
+        <div class="practical-item">
+          <dt>Stay near</dt>
+          <dd>Barkhor area — Yak Hotel or House of Shambhala. Walk everywhere.</dd>
+        </div>
+        <div class="practical-item">
+          <dt>Acclimatization</dt>
+          <dd>Lhasa sits at 3,656m. Take the first two days slowly, avoiding alcohol and strenuous movement.</dd>
+        </div>
+      </div>
+    </div>
+
+    <div class="magic-moment">
+      <div class="magic-moment-label">A moment to hold</div>
+      <p class="magic-moment-text">Late afternoon on the Barkhor. The sun catches the gold roofs of the Jokhang. Pilgrims, monks, soldiers, tourists, all moving clockwise. You go with them.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============= CHAPTER 13 ============= -->
+<section class="chapter" id="ch13">
+  <div class="container">
+    <header class="chapter-header">
+      <div class="chapter-number"><span>Chapter Thirteen</span>XIII.</div>
+      <div>
+        <h2 class="chapter-title">The <em>Sky Train</em></h2>
+        <p class="chapter-subtitle">21 hours on the highest railway in the world. Lhasa to Xining over the Tanggula Pass at 5,072 metres, through Hoh Xil, in oxygen-fed carriages while the plateau slides past.</p>
+      </div>
+    </header>
+
+
+    <div class="chapter-hero gradient-skytrain">
+      <img class="scene" src="https://upload.wikimedia.org/wikipedia/commons/c/c5/Qingzang_railway_Train_01.jpg" alt="Qinghai-Tibet Railway across the plateau" loading="lazy">
+      <div class="chapter-hero-quote">
+        <div class="quote-text">"You wake at 4am with the carriage gently rocking, look out the window, and there is the full moon over Hoh Xil with nothing else for two hundred kilometres in any direction."</div>
+        <div class="quote-attr">Days 149–150 · Lhasa → Xining · Train Z8982 · 1,956 km</div>
+      </div>
+    </div>
+
+    <div class="chapter-body">
+      <div>
+        <p>The Qinghai-Tibet Railway is the highest in the world — an engineering marvel built on permafrost across the coldest, emptiest land on the planet. The carriages are pressurised with an oxygen outlet at every berth.</p>
+
+        <p>Leaving Lhasa in the morning, the train slowly weaves up across the Tanggula Pass — 5,072 metres, the highest railway point anywhere — catching the late afternoon light. By dusk you are rolling through Hoh Xil, where Tibetan antelope and wild yak quietly roam the plains. You sleep through the midnight descent, waking up to the dry valleys of Xining and the start of the ancient Silk Road.</p>
+
+        <div class="why-worth-it">
+          <h4>Why this leg is worth it</h4>
+          <p>Trains like this don't exist elsewhere. Not just transport — a long, panoramic farewell to the plateau. Take the soft sleeper. Don't sleep until Hoh Xil is dark.</p>
+        </div>
+      </div>
+
+      <div>
+        <div class="highlights">
+          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Tanggula_Mountain_Pass" target="_blank" rel="noopener">
+          <div class="highlight">
+            <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Amdo%2C_Nagqu%2C_Tibet%2C_China_-_panoramio.jpg/960px-Amdo%2C_Nagqu%2C_Tibet%2C_China_-_panoramio.jpg" alt="Tanggula Pass" loading="lazy">
+            <div class="highlight-icon">Landscape</div>
+            <h5>Tanggula Pass</h5>
+            <p>5,072 m — the highest railway point on earth. A weather station, prayer flags, and nothing else. The train pauses; passengers crowd the windows.</p>
+          </div>
+          </a>
+          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Hoh_Xil" target="_blank" rel="noopener">
+          <div class="highlight">
+            <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Tsonag_Lake%2C_Tibet.jpg/960px-Tsonag_Lake%2C_Tibet.jpg" alt="Hoh Xil &amp; Cona Lake" loading="lazy">
+            <div class="highlight-icon">Landscape</div>
+            <h5>Hoh Xil &amp; Cona Lake</h5>
+            <p>UNESCO-listed wilderness. Watch for Tibetan antelope, wild ass, and the occasional bear. Cona Lake reflects the sky like polished steel.</p>
+          </div>
+          </a>
+          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Qiangtang" target="_blank" rel="noopener">
+          <div class="highlight">
+            <img class="highlight-image" src="images/qiangtang_grasslands_highlight.png" alt="Qiangtang Grasslands" loading="lazy">
+            <div class="highlight-icon">Landscape</div>
+            <h5>Qiangtang Grasslands</h5>
+            <p>The vast, treeless alpine steppe of the northern Tibetan plateau. Rolling green hills under an impossibly huge sky, dotted with nomadic yak hair tents.</p>
+          </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="practical">
+      <h4>Practical · The Sky Train</h4>
+      <div class="practical-grid">
+        <div class="practical-item">
+          <dt>The right train</dt>
+          <dd>Z8982 dep. 09:25, arr. Xining 06:25. Daytime over Tanggula. Avoid Z8992 (you sleep through the best scenery).</dd>
+        </div>
+        <div class="practical-item">
+          <dt>Ticketing</dt>
+          <dd>Book via Trip.com. Soft sleeper (~€100) has four berths and a locking door; highly recommended for the 21-hour journey. Hard sleeper (~€65) is open and social.</dd>
+        </div>
+        <div class="practical-item">
+          <dt>Provisions</dt>
+          <dd>Bring your own instant noodles, fruit, and snacks. Hot water dispensers are available in every carriage.</dd>
+        </div>
+      </div>
+    </div>
+
+    <div class="magic-moment">
+      <div class="magic-moment-label">A moment to hold</div>
+      <p class="magic-moment-text">Late afternoon, somewhere past Tanggula. You and Micky pressed against the window. The plateau gold under low light. A herd of wild ass running parallel to the tracks for half a minute, then gone.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============= CHAPTER 14 ============= -->
+<section class="chapter" id="ch14">
+  <div class="container">
+    <header class="chapter-header">
+      <div class="chapter-number"><span>Chapter Fourteen</span>XIV.</div>
+      <div>
+        <h2 class="chapter-title">The <em>Hexi Corridor</em></h2>
+        <p class="chapter-subtitle">The Silk Road's chokepoint between two deserts and two mountain ranges. Bullet trains and rainbow mountains.</p>
+      </div>
+    </header>
+
+
+    <div class="chapter-hero gradient-hexi">
+      <img class="scene" src="images/zhangye_danxia.png" alt="Zhangye Danxia rainbow mountains" loading="lazy">
+      <div class="chapter-hero-quote">
+        <div class="quote-text">"This is the road every empire walked. The Han, the Tang, the Mongols, Marco Polo. You're walking it now, and it has not yet finished."</div>
+        <div class="quote-attr">Days 151–162 · Xining → Jiayuguan · ~1,500 km</div>
+      </div>
+    </div>
+
+    <div class="chapter-body">
+      <div>
+        <p>The Hexi Corridor is the Silk Road's defining geography — a narrow strip squeezed between the Tibetan Plateau and the Gobi. For two thousand years, every caravan heading west threaded this needle. So do you, but at 250 km/h.</p>
+
+        <p>Pause in Xining for Kumbum Monastery and a bowl of hand-pulled beef noodles. Then west to Zhangye for the rainbow Danxia landforms — striped sandstone ridges impossibly painted in late afternoon light. Onward to Jiayuguan: the western terminus of the Ming Great Wall, where the desert begins.</p>
+
+        <div class="why-worth-it">
+          <h4>Why this leg is worth it</h4>
+          <p>Geography becomes legible. You can see why these cities, in this line, mattered. The Hexi Corridor turns the Silk Road from a metaphor into the route you're physically following.</p>
+        </div>
+      </div>
+
+      <div>
+        <div class="highlights">
+          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Zhangye_National_Geopark" target="_blank" rel="noopener">
+          <div class="highlight">
+            <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Zhangye_National_Geopark_5.jpg/960px-Zhangye_National_Geopark_5.jpg" alt="Zhangye Danxia" loading="lazy">
+            <div class="highlight-icon">Landscape</div>
+            <h5>Zhangye Danxia</h5>
+            <p>Striped sandstone the colours of a sunset. Layers of red, orange, ochre and white folded over each other across whole hillsides. Late afternoon, with the sun low — that's when it sings.</p>
+          </div>
+          </a>
+          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Jiayu_Pass" target="_blank" rel="noopener">
+          <div class="highlight">
+            <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Jiayu_Guan_2014.01.01_11-03-14.jpg/960px-Jiayu_Guan_2014.01.01_11-03-14.jpg" alt="Jiayuguan Fort" loading="lazy">
+            <div class="highlight-icon">Historical</div>
+            <h5>Jiayuguan Fort</h5>
+            <p>The "First and Greatest Pass under Heaven" — westernmost guard tower of the Ming Wall. Exiles tossed a stone at the wall as they left; if it bounced back, they'd return. Many didn't.</p>
+          </div>
+          </a>
+          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Kumbum" target="_blank" rel="noopener">
+          <div class="highlight">
+            <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Qinghai_Tibet_Railway_Tibet_China_%E8%A5%BF%E8%97%8F_%E9%9D%92%E8%97%8F%E9%93%81%E8%B7%AF_-_panoramio_%284%29.jpg/960px-Qinghai_Tibet_Railway_Tibet_China_%E8%A5%BF%E8%97%8F_%E9%9D%92%E8%97%8F%E9%93%81%E8%B7%AF_-_panoramio_%284%29.jpg" alt="Kumbum Monastery (Ta'er Si)" loading="lazy">
+            <div class="highlight-icon">Cultural</div>
+            <h5>Kumbum Monastery (Ta'er Si)</h5>
+            <p>One of Tibetan Buddhism's six great Gelug monasteries, near Xining. Famous for yak-butter sculptures of staggering intricacy, remade yearly and allowed to melt.</p>
+          </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="practical">
+      <h4>Practical · Hexi Corridor</h4>
+      <div class="practical-grid">
+        <div class="practical-item">
+          <dt>Itinerary & Movement</dt>
+          <dd>A week total: 1d Xining, 1d Zhangye, 1d Jiayuguan. High-speed rail throughout (e.g., Xining → Zhangye 2.5h).</dd>
+        </div>
+        <div class="practical-item">
+          <dt>Booking trains</dt>
+          <dd>Trip.com app works cleanly for foreign passports. Book 5–7 days ahead. Second-class seats are fine.</dd>
+        </div>
+        <div class="practical-item">
+          <dt>Language</dt>
+          <dd>English is rarely spoken. Have offline translation apps and your hotel addresses written in Chinese.</dd>
+        </div>
+      </div>
+    </div>
+
+    <div class="magic-moment">
+      <div class="magic-moment-label">A moment to hold</div>
+      <p class="magic-moment-text">Last light on the striped hills outside Zhangye. The colours don't make sense and you stop trying to make them.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============= CHAPTER 15 ============= -->
+<section class="chapter" id="ch15">
+  <div class="container">
+    <header class="chapter-header">
+      <div class="chapter-number"><span>Chapter Fifteen</span>XV.</div>
+      <div>
+        <h2 class="chapter-title">Dunhuang, where the desert <em>meets the Buddha</em></h2>
+        <p class="chapter-subtitle">An oasis in the Gobi. A thousand years of Buddhist art in sandstone cliffs. A crescent lake against the dunes. The most photogenic stop on the route.</p>
+      </div>
+    </header>
+
+
+    <div class="chapter-hero gradient-dunhuang">
+      <img class="scene" src="images/dunhuang_crescent_lake.png" alt="Crescent Lake and Singing Sand Dunes, Dunhuang" loading="lazy">
+      <div class="chapter-hero-quote">
+        <div class="quote-text">"You climb the dune at sunset, the wind rises, and the lake below catches a ribbon of gold. The sand sings under your feet. This is what oasis means."</div>
+        <div class="quote-attr">Days 163–167 · Dunhuang</div>
+      </div>
+    </div>
+
+    <div class="chapter-body">
+      <div>
+        <p>Dunhuang is the heart of the Silk Road. For a millennium it was the crossroads where Buddhist monks, Persian traders, and Sogdian merchants converged. They left behind the Mogao Caves: 492 grottoes carved over a thousand years, every surface painted in mineral pigments still impossibly vivid.</p>
+
+        <p>Just outside the city, the Singing Sand Mountains surround a crescent freshwater lake that has not dried up in two thousand years. Rent a camel at golden hour. Climb the highest dune. Watch the lake go from blue to gold to violet.</p>
+
+        <div class="why-worth-it">
+          <h4>Why this leg is worth it</h4>
+          <p>Mogao alone is worth the trip — to Buddhist art what Sistine is to Renaissance painting. Add the Crescent Lake, the night market, the apricot wine. Dunhuang earns its three days more easily than anywhere else.</p>
+        </div>
+      </div>
+
+      <div>
+        <div class="highlights">
+          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Mogao_Caves" target="_blank" rel="noopener">
+          <div class="highlight">
+            <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Mogao_Caves_%2854376969262%29.jpg/960px-Mogao_Caves_%2854376969262%29.jpg" alt="Mogao Caves" loading="lazy">
+            <div class="highlight-icon">Cultural</div>
+            <h5>Mogao Caves</h5>
+            <p>492 grottoes, 45,000 m² of murals, 2,000 sculptures. You'll see 8 caves on a 2-hour guided tour with timed-entry. Book the English tour. The Library Cave's history (sealed 1000 years, opened 1900) is the subplot.</p>
+          </div>
+          </a>
+          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Crescent_Lake_(Dunhuang)" target="_blank" rel="noopener">
+          <div class="highlight">
+            <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Crescent_Lake_from_the_Singing_Sand_Dunes_%2820230918101214%29.jpg/960px-Crescent_Lake_from_the_Singing_Sand_Dunes_%2820230918101214%29.jpg" alt="Crescent Lake &amp; Mingsha" loading="lazy">
+            <div class="highlight-icon">Landscape</div>
+            <h5>Crescent Lake &amp; Mingsha</h5>
+            <p>A spring-fed lake against 100m sand dunes, kept liquid by aquifer for 2,000 years. Climb the dune at sunset; the sand "sings" (a low rumbling hum) when you slide down.</p>
+          </div>
+          </a>
+          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Yumen_Pass" target="_blank" rel="noopener">
+          <div class="highlight">
+            <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Dunhuang.yumenguan.jpg/1280px-Dunhuang.yumenguan.jpg" alt="Yumen Pass &amp; the Jade Gate" loading="lazy">
+            <div class="highlight-icon">Historical</div>
+            <h5>Yumen Pass &amp; the Jade Gate</h5>
+            <p>An afternoon's drive west — the western customs post of Han dynasty China. Mud-brick remnants on a windswept plain. Where China ended.</p>
+          </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="practical">
+      <h4>Practical · Dunhuang</h4>
+      <div class="practical-grid">
+        <div class="practical-item">
+          <dt>Itinerary & Tickets</dt>
+          <dd>3 days minimum. Book Mogao online 2–7 days ahead for English tours.</dd>
+        </div>
+        <div class="practical-item">
+          <dt>Heat</dt>
+          <dd>April–May is gentle; June 35°C+. Climb dunes at sunrise or after 5pm.</dd>
+        </div>
+        <div class="practical-item">
+          <dt>Desert Sands</dt>
+          <dd>Fine sand gets into everything. Bring a protective bag for your camera and wear a buff in the wind.</dd>
+        </div>
+      </div>
+    </div>
+
+    <div class="magic-moment">
+      <div class="magic-moment-label">A moment to hold</div>
+      <p class="magic-moment-text">Top of the Mingsha dune. Light fading. Lake below already in shadow. Just the wind and the soft hum of the sand. Half the desert is silver. The other half is gold.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============= CHAPTER 16 ============= -->
+<section class="chapter" id="ch16">
+  <div class="container">
+    <header class="chapter-header">
+      <div class="chapter-number"><span>Chapter Sixteen</span>XVI.</div>
+      <div>
+        <h2 class="chapter-title">Turpan, the <em>oasis of fire</em></h2>
+        <p class="chapter-subtitle">Below sea level, the hottest place in China, ringed by red sandstone mountains. And yet — vines, sweet melons, and two-thousand-year-old underground aqueducts.</p>
+      </div>
+    </header>
+
+
+    <div class="chapter-hero gradient-turpan">
+      <img class="scene" src="images/turpan_flaming_mountains.png" alt="Flaming Mountains, Turpan" loading="lazy">
+      <div class="chapter-hero-quote">
+        <div class="quote-text">"In the shade of a vine trellis, with sweet melon and a bowl of cold yoghurt, you understand why every traveller for two thousand years stopped here."</div>
+        <div class="quote-attr">Days 168–176 · Turpan, −154 m below sea level</div>
+      </div>
+    </div>
+
+    <div class="chapter-body">
+      <div>
+        <p>Turpan sits in the Turfan Depression, one of the lowest points on Earth, surrounded by the red Flaming Mountains from <em>Journey to the West</em>. In summer, 47°C is normal. And yet it has thrived for two thousand years, sustained by <em>karez</em> — underground aqueducts dug by hand to bring Tian Shan meltwater without losing it to evaporation. Walk through one. Touch the water. Impossibly cold.</p>
+
+        <p>This is where you cross a cultural threshold. Turpan is Uyghur — the language shifts to Turkic, the food to lamb on flatbread, the call to prayer punctuates the afternoon. You are in Central Asia now, even if the maps say otherwise.</p>
+
+        <div class="why-worth-it">
+          <h4>Why this leg is worth it</h4>
+          <p>The moment the trip changes character. After the Buddhist plateau and Han Chinese desert, suddenly: minarets, vine arbours, sweet melon, and the gentle Turkic vowels of the bazaar. Central Asia beginning.</p>
+        </div>
+      </div>
+
+      <div>
+        <div class="highlights">
+          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Jiaohe_ruins" target="_blank" rel="noopener">
+          <div class="highlight">
+            <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Turpan-jiaohe-ruinas-d28.jpg/960px-Turpan-jiaohe-ruinas-d28.jpg" alt="Jiaohe Ruins" loading="lazy">
+            <div class="highlight-icon">Historical</div>
+            <h5>Jiaohe Ruins</h5>
+            <p>An entire city carved from a single sandstone island between two rivers — no walls were needed, the cliffs were the walls. 2,300 years old, perfectly preserved by the dry air. Walk it at sunrise.</p>
+          </div>
+          </a>
+          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Grape_Valley" target="_blank" rel="noopener">
+          <div class="highlight">
+            <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Valley_of_Grapes_Turpan_%2810%29.jpg/960px-Valley_of_Grapes_Turpan_%2810%29.jpg" alt="Grape Valley" loading="lazy">
+            <div class="highlight-icon">Landscape</div>
+            <h5>Grape Valley</h5>
+            <p>Covered alleys of vines, drying houses with adobe lattice walls where seedless raisins are made. Order the cold yoghurt with raisin honey.</p>
+          </div>
+          </a>
+          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Laghman_(food)" target="_blank" rel="noopener">
+          <div class="highlight">
+            <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/7/74/%D0%9B%D0%B0%D0%B3%D0%BC%D0%B0%D0%BD.jpg" alt="Laghman, polo, nan" loading="lazy">
+            <div class="highlight-icon">Culinary</div>
+            <h5>Laghman, polo, nan</h5>
+            <p>Hand-pulled noodles with lamb and peppers (laghman). Saffron pilaf with mutton, carrots, raisins (polo). Flatbread from clay tonurs (nan). The Uyghur trinity.</p>
+          </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="practical">
+      <h4>Practical · Turpan &amp; Urumqi</h4>
+      <div class="practical-grid">
+        <div class="practical-item">
+          <dt>Planning</dt>
+          <dd>2 days in Turpan. Visit April–early June (25–35°C) and avoid July–August heat.</dd>
+        </div>
+        <div class="practical-item">
+          <dt>Note</dt>
+          <dd>Xinjiang has more checkpoints. Carry passport always. Book foreigner-licensed hotels ahead.</dd>
+        </div>
+        <div class="practical-item">
+          <dt>Time Zones</dt>
+          <dd>Locals often use Xinjiang Time (2 hours behind Beijing). Always verify which time zone a schedule uses.</dd>
+        </div>
+      </div>
+    </div>
+
+    <div class="magic-moment">
+      <div class="magic-moment-label">A moment to hold</div>
+      <p class="magic-moment-text">Late afternoon under a vine trellis in Grape Valley. A bowl of cold yoghurt. The sun behind the Flaming Mountains is the same colour as the rocks. Nothing to do for an hour.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============= CHAPTER 17 ============= -->
+<section class="chapter" id="ch17">
+  <div class="container">
+    <header class="chapter-header">
+      <div class="chapter-number"><span>Chapter Seventeen</span>XVII.</div>
+      <div>
+        <h2 class="chapter-title">Kashgar, the <em>last city of China</em></h2>
+        <p class="chapter-subtitle">The Silk Road's southern hub for fifteen centuries. Adobe alleys, the largest mosque in China, a Sunday animal bazaar, and Karakul Lake up the Karakoram Highway.</p>
+      </div>
+    </header>
+
+
+    <div class="chapter-hero gradient-kashgar">
+      <img class="scene" src="images/kashgar_market.png" alt="Sunday Livestock Market, Kashgar" loading="lazy">
+      <div class="chapter-hero-quote">
+        <div class="quote-text">"Kashgar is the place where the road forks: south through the Karakoram, west over the Pamirs, north toward Russia. Every empire in history has stopped here, and none of them has ever quite owned it."</div>
+        <div class="quote-attr">Days 177–183 · Kashgar, 1,289 m</div>
+      </div>
+    </div>
+
+    <div class="chapter-body">
+      <div>
+        <p>Kashgar is the end of the Chinese Silk Road and the beginning of something else. For fifteen hundred years it has been where the southern and middle Silk Road branches met — where caravans from Kashmir and Samarkand restocked, traded, and continued. Geographically Chinese, culturally Central Asian, emotionally somewhere of its own.</p>
+
+        <p>Walk the Old Town in the early morning for hot samsa from a tonur. On Sunday, the livestock bazaar is everything a Silk Road bazaar should be: sheep, dust, and haggling. Later, drive south up the Karakoram Highway to Karakul Lake — a high, black, glacier-fed body of water at 3,600 m reflecting 7,546-metre Muztagh Ata. Yurt camp on the shore. Salty milk tea. Stars.</p>
+
+        <div class="why-worth-it">
+          <h4>Why this leg is worth it</h4>
+          <p>One of perhaps a dozen cities where you can still feel the ancient world in the present tense. The Sunday bazaar alone justifies the detour. And Karakul doesn't need a description — you'll sit by the water and not say much.</p>
+        </div>
+      </div>
+
+      <div>
+        <div class="highlights">
+          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Kashgar" target="_blank" rel="noopener">
+          <div class="highlight">
+            <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/5/57/The_Moorish_Bazaar.jpg" alt="Sunday Livestock Bazaar" loading="lazy">
+            <div class="highlight-icon">Cultural</div>
+            <h5>Sunday Livestock Bazaar</h5>
+            <p>Weekly since the 10th century. Animals only — sheep, goats, donkeys, the occasional camel. Goes from 7am to early afternoon, peaks 10–11. The whole regional economy compressed into one chaotic field.</p>
+          </div>
+          </a>
+          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Id_Kah_Mosque" target="_blank" rel="noopener">
+          <div class="highlight">
+            <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/7/7d/H%C3%ABytgah_Mosque%2C_Kashi_%2820230923100109%29.jpg" alt="Old Town &amp; Id Kah" loading="lazy">
+            <div class="highlight-icon">Cultural</div>
+            <h5>Old Town &amp; Id Kah</h5>
+            <p>Adobe lanes, carved doors, tonur bakeries. Id Kah Mosque (1442) is the largest in China — visit Friday afternoon to see Kashgar's full Muslim community at prayer.</p>
+          </div>
+          </a>
+          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Karakul_(China)" target="_blank" rel="noopener">
+          <div class="highlight">
+            <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/c/c5/Mt_Kongur_Lake_Karakul_Xinjiang_China.jpg" alt="Karakul Lake &amp; Muztagh Ata" loading="lazy">
+            <div class="highlight-icon">Landscape</div>
+            <h5>Karakul Lake &amp; Muztagh Ata</h5>
+            <p>3.5h drive south on the Karakoram Highway. A high black lake at 3,600m reflecting a 7,546m peak. Yurt stays on the shore (~€25 pp). The drive itself is half the experience.</p>
+          </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="practical">
+      <h4>Practical · Kashgar</h4>
+      <div class="practical-grid">
+        <div class="practical-item">
+          <dt>Days</dt>
+          <dd>4–5. Arrive to include a Sunday for the bazaar. Plan one overnight at Karakul.</dd>
+        </div>
+        <div class="practical-item">
+          <dt>Accommodation & Karakul</dt>
+          <dd>Stay in Old Town. For Karakul, take a private driver (~€80 RT) and book a yurt. Pack warmly!</dd>
+        </div>
+        <div class="practical-item">
+          <dt>Bazaar Navigation</dt>
+          <dd>The Sunday market is massive. Keep valuables secure in a money belt and prepare to respectfully haggle.</dd>
+        </div>
+      </div>
+    </div>
+
+    <div class="magic-moment">
+      <div class="magic-moment-label">A moment to hold</div>
+      <p class="magic-moment-text">First light on Karakul. The lake is black glass. Muztagh Ata catches the sun first, turning gold from the summit down. Outside the yurt, a herder is already moving the yaks. You are the only ones awake.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============= CHAPTER 18 ============= -->
+<section class="chapter" id="ch18">
+  <div class="container">
+    <header class="chapter-header">
+      <div class="chapter-number"><span>Chapter Eighteen</span>XVIII.</div>
+      <div>
+        <h2 class="chapter-title">Across the <em>Irkeshtam</em></h2>
+        <p class="chapter-subtitle">Overnighting in Sary-Tash between Kashgar and Osh. Exit stamp at Ulugqat, no-man's-land, then the Alay Valley opens and the Pamirs are at your back.</p>
+      </div>
+    </header>
+
+
+    <div class="chapter-hero gradient-osh">
+      <img class="scene" src="images/pamir_mountains.png" alt="Pamir mountains and lake" loading="lazy">
+      <div class="chapter-hero-quote">
+        <div class="quote-text">"You leave China at a windswept post in the morning and you arrive in Kyrgyzstan by the afternoon — and the world feels suddenly larger and quieter."</div>
+        <div class="quote-attr">Days 184–186 · Sary-Tash, 3,170 m</div>
+      </div>
+    </div>
+
+    <div class="chapter-body">
+      <div>
+        <p>The Irkeshtam Pass is the quietest, most dramatic land border between China and Central Asia. After clearing the austere Chinese customs post far down in the valley, the shared taxi grinds its way up through a stark, high-altitude no-man's-land toward the snowlines.</p>
+
+        <p>Crossing into the Kyrgyz post feels like a sudden release of pressure. You emerge into the Alay Valley: violently wide, green, and completely open, flanked by the Pamirs. Stop in Sary-Tash for a cold night and warm <em>besh barmak</em>. Then, a shared 4WD descends to Osh — Kyrgyzstan's three-thousand-year-old southern capital. Climb Sulaiman-Too, the sacred mountain in the city centre, at sunset.</p>
+
+        <div class="why-worth-it">
+          <h4>Why this leg is worth it</h4>
+          <p>Borders should feel like something. This one does — the in-between hours, the sense of moving from one civilisation to another, the slow exhalation when the Kyrgyz official hands back your passport with a smile.</p>
+        </div>
+      </div>
+
+      <div>
+        <div class="highlights">
+          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Alay_Valley" target="_blank" rel="noopener">
+          <div class="highlight">
+            <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Alai_Valley_1.jpg/960px-Alai_Valley_1.jpg" alt="The Alay Valley" loading="lazy">
+            <div class="highlight-icon">Landscape</div>
+            <h5>The Alay Valley</h5>
+            <p>A high green corridor between the Pamirs and the Tian Shan. Wild horses, yurt camps, jagged 7,000 m peaks on the southern wall. Some of the highest pasture land on earth.</p>
+          </div>
+          </a>
+          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Osh" target="_blank" rel="noopener">
+            <div class="highlight">
+            <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Osh_03-2016_img27_view_from_Sulayman_Mountain.jpg/960px-Osh_03-2016_img27_view_from_Sulayman_Mountain.jpg" alt="Osh's Jayma Bazaar" loading="lazy">
+            <div class="highlight-icon">Cultural</div>
+            <h5>Osh's Jayma Bazaar</h5>
+            <p>Eight kilometres of covered market along the Ak-Buura river. Spices, dried fruits, bread, kumys (fermented mare's milk — try it once), traditional knives. Older than the city around it.</p>
+          </div>
+          </a>
+          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Sulaiman-Too" target="_blank" rel="noopener">
+          <div class="highlight">
+            <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Osh_03-2016_img06_Sulayman_Mountain.jpg/960px-Osh_03-2016_img06_Sulayman_Mountain.jpg" alt="Sulaiman-Too" loading="lazy">
+            <div class="highlight-icon">Historical</div>
+            <h5>Sulaiman-Too</h5>
+            <p>The "throne of Solomon" — a 1,100m sacred mountain rising from Osh's centre. UNESCO-listed. Climbed by pilgrims for at least 1,500 years. Sunset from the top is the moment.</p>
+          </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="practical">
+      <h4>Practical · Irkeshtam Pass</h4>
+      <div class="practical-grid">
+        <div class="practical-item">
+          <dt>Border hours</dt>
+          <dd>Closed weekends and public holidays. Closed 13:30–16:30 Beijing time, with travelers reporting earlier cutoffs in practice — aim to clear by 11am.</dd>
+        </div>
+        <div class="practical-item">
+          <dt>Logistics & Visas</dt>
+          <dd>Shared taxi to Ulugqat (~CNY 35). Ensure valid China exit/entry and prepare for Kyrgyz visa-free (if applicable).</dd>
+        </div>
+        <div class="practical-item">
+          <dt>Patience</dt>
+          <dd>Checks on both sides can be thorough and slow. Bring snacks, warm layers, and expect it to take hours.</dd>
+        </div>
+      </div>
+    </div>
+
+    <div class="magic-moment">
+      <div class="magic-moment-label">A moment to hold</div>
+      <p class="magic-moment-text">Standing in Sary-Tash at sunrise, coffee in hand, the entire Pamir wall lit up pink in front of you. China is behind you now. The trip is exactly half over. Everything is still possible.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============= CHAPTER 19 ============= -->
+<section class="chapter" id="ch19">
+  <div class="container">
+    <header class="chapter-header">
+      <div class="chapter-number"><span>Chapter Nineteen</span>XIX.</div>
+      <div>
+        <h2 class="chapter-title"><em>Kyrgyzstan</em></h2>
+        <p class="chapter-subtitle">Bishkek, Karakol, and Song Kol Lake. Trading the desert for alpine meadows, yurts, and fermented mare's milk.</p>
+      </div>
+    </header>
+
+    <div class="chapter-hero gradient-kyrgyzstan">
+      <img class="scene" src="images/kyrgyzstan_song_kol.png" alt="Song Kol Lake with yurts and horses, Kyrgyzstan" loading="lazy">
+      <div class="chapter-hero-quote">
+        <div class="quote-text">"You cross the border and the landscape exhales. Suddenly everything is green, the horses outnumber the cars, and the air smells like wet grass and woodsmoke."</div>
+        <div class="quote-attr">Days 187–204 · Central Asia</div>
+      </div>
+    </div>
+
+    <div class="chapter-body">
+      <div>
+        <p>After weeks of checkpoints and surveillance, crossing into Kyrgyzstan is like stepping out of a locked room into open air. The valleys are violently wide. Nomadic herders move across them at the pace of weather. The alpine lakes don't reflect the sky — they <em>are</em> the sky, pulled down and pinned to the grass.</p>
+        <p>With an entire two weeks here, you can finally slow your pace. Take your time in the brutalist Soviet avenues of Bishkek before heading east to Karakol, the gateway to the Tien Shan. The climax is reaching Song Kol: an alpine lake at 3,016 metres, accessible only in summer. You do a multi-day horse trek, sleep in a felt yurt, drink hot tea, and watch thunderstorms roll across plains that look exactly as they did five centuries ago.</p>
+        
+        <div class="why-worth-it">
+          <h4>Why this leg is worth it</h4>
+          <p>It is the wildest part of the entire route. True, untethered nature. The hospitality of the Kyrgyz nomads in their yurt camps is legendary and deeply genuine.</p>
+        </div>
+      </div>
+
+      <div>
+        <div class="highlights">
+          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Altyn_Arashan" target="_blank" rel="noopener">
+          <div class="highlight">
+            <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Altyn_Arashan_resort%2C_Kyrgyzstan_2.jpg/960px-Altyn_Arashan_resort%2C_Kyrgyzstan_2.jpg" alt="Altyn Arashan Hot Springs" loading="lazy">
+            <div class="highlight-icon">Landscape</div>
+            <h5>Altyn Arashan Hot Springs</h5>
+            <p>A grueling hike (or a bone-rattling Soviet truck ride) up a heavy alpine river valley. The reward at the top is steaming, sulfurous natural hot springs surrounded by snow-capped 5,000-metre peaks.</p>
+          </div>
+          </a>
+          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Song_Kol_Lake" target="_blank" rel="noopener">
+          <div class="highlight">
+            <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Song-K%C3%B6l.jpg/960px-Song-K%C3%B6l.jpg" alt="Song Kol Lake" loading="lazy">
+            <div class="highlight-icon">Landscape</div>
+            <h5>Song Kol Lake</h5>
+            <p>A massive, crystal-clear lake high in the mountains. Surrounded by rolling jailoos (summer pastures). Accessible only by 4x4 or horseback over rough mountain passes.</p>
+          </div>
+          </a>
+          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Yurt" target="_blank" rel="noopener">
+          <div class="highlight">
+            <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/SK_yurt_camp_%281_of_1%29-8.jpg/960px-SK_yurt_camp_%281_of_1%29-8.jpg" alt="Yurt Camp Nights" loading="lazy">
+            <div class="highlight-icon">Cultural</div>
+            <h5>Yurt Camp Nights</h5>
+            <p>Sleeping on thick blankets on the floor of a heavy felt tent. The iron stove is stoked with dung to keep the bitter mountain cold at bay.</p>
+          </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="practical">
+      <h4>Practical · Kyrgyzstan</h4>
+      <div class="practical-grid">
+        <div class="practical-item">
+          <dt>Transport</dt>
+          <dd>Marshrutkas (shared minibuses) are the backbone of local travel. Cheap, fast, and driven with terrifying confidence.</dd>
+        </div>
+        <div class="practical-item">
+          <dt>Kumys</dt>
+          <dd>Fermented mare's milk. You will be offered it. It tastes like smoky, fizzy, sour yoghurt. Try it once.</dd>
+        </div>
+        <div class="practical-item">
+          <dt>Cash Economy</dt>
+          <dd>Cards are rare outside cities. Carry enough smaller denomination Som for rural homestays and transport.</dd>
+        </div>
+      </div>
+    </div>
+
+    <div class="magic-moment">
+      <div class="magic-moment-label">A moment to hold</div>
+      <p class="magic-moment-text">Stepping out of the yurt at 2am at Song Kol. No moon. An absolute canopy of stars reflecting in the black water of the alpine lake.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============= CHAPTER 20 ============= -->
+<section class="chapter" id="ch20">
+  <div class="container">
+    <header class="chapter-header">
+      <div class="chapter-number"><span>Chapter Twenty</span>XX.</div>
+      <div>
+        <h2 class="chapter-title">The <em>Silk Road Cities</em></h2>
+        <p class="chapter-subtitle">Tashkent, Samarkand, Bukhara. The golden age of transcontinental trade. Domes of pure turquoise tile.</p>
+      </div>
+    </header>
+
+    <div class="chapter-hero gradient-uzbekistan">
+      <img class="scene" src="images/uzbekistan_samarkand.png" alt="Registan Square at golden hour, Samarkand" loading="lazy">
+      <div class="chapter-hero-quote">
+        <div class="quote-text">"You stand in the Registan and try to comprehend that a millennium ago, this was the center of the world."</div>
+        <div class="quote-attr">Days 205–219 · Uzbekistan</div>
+      </div>
+    </div>
+
+    <div class="chapter-body">
+      <div>
+        <p>If Kyrgyzstan was the Silk Road's wild steppe, Uzbekistan is its architectural treasury. You travel the country primarily by the modern Afrosiyob high-speed train, connecting cities whose names are synonymous with ancient wealth: Tashkent, Samarkand, and Bukhara.</p>
+        <p>In Samarkand, the Registan square is a masterpiece of Islamic architecture—three massive madrasas covered in millions of intricate blue tiles. In Bukhara, the entire old city is a working museum of sandstone and mosaic. You wander through covered trading domes, drink green tea by the Lyab-i-Hauz pool, and feel the weight of empires.</p>
+        
+        <div class="why-worth-it">
+          <h4>Why this leg is worth it</h4>
+          <p>It is the architectural reward of the journey. The geometric perfection of the tilework against the stark blue sky is visually staggering.</p>
+        </div>
+      </div>
+
+      <div>
+        <div class="highlights">
+          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Registan" target="_blank" rel="noopener">
+          <div class="highlight">
+            <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Registan_square_Samarkand.jpg/960px-Registan_square_Samarkand.jpg" alt="The Registan, Samarkand" loading="lazy">
+            <div class="highlight-icon">Historical</div>
+            <h5>The Registan, Samarkand</h5>
+            <p>Go at 6am before the crowds. Three massive, heavily tiled madrasas framing a central square. It is the architectural peak of Central Asia.</p>
+          </div>
+          </a>
+          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Shah-i-Zinda" target="_blank" rel="noopener">
+          <div class="highlight">
+            <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Shah-i-Zinda%2C_Samarkand_%28Shohi-Zinda_majmuasi%2C_Samarqand%2C_%D0%A8%D0%B0%D1%85%D0%B8_%D0%97%D0%B8%D0%BD%D0%B4%D0%B0%29.jpg/960px-Shah-i-Zinda%2C_Samarkand_%28Shohi-Zinda_majmuasi%2C_Samarqand%2C_%D0%A8%D0%B0%D1%85%D0%B8_%D0%97%D0%B8%D0%BD%D0%B4%D0%B0%29.jpg" alt="Shah-i-Zinda Necropolis" loading="lazy">
+            <div class="highlight-icon">Historical</div>
+            <h5>Shah-i-Zinda Necropolis</h5>
+            <p>An avenue of mausoleums near Samarkand featuring the most vibrant turquoise and cobalt majolica tilework you will ever see.</p>
+          </div>
+          </a>
+          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Bukhara" target="_blank" rel="noopener">
+          <div class="highlight">
+            <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/2012_Bukhara_7515821196_cropped.jpg/960px-2012_Bukhara_7515821196_cropped.jpg" alt="Bukhara Old City" loading="lazy">
+            <div class="highlight-icon">Cultural</div>
+            <h5>Bukhara Old City</h5>
+            <p>Walk the trading domes (Toki Sarrofon, Toki Telpak Furushon) where money changers and hat makers have worked since the 16th century.</p>
+          </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="practical">
+      <h4>Practical · Uzbekistan</h4>
+      <div class="practical-grid">
+        <div class="practical-item">
+          <dt>Trains</dt>
+          <dd>The Afrosiyob is brilliant but sells out fast. Book 60 days ahead via e-ticket.railway.uz.</dd>
+        </div>
+        <div class="practical-item">
+          <dt>Accommodation</dt>
+          <dd>Stay in family-run B&Bs located within the old town boundaries for the best experience.</dd>
+        </div>
+        <div class="practical-item">
+          <dt>Dress Modestly</dt>
+          <dd>Opt for loose-fitting clothing that covers your shoulders and knees, especially in madrasas.</dd>
+        </div>
+      </div>
+    </div>
+
+    <div class="magic-moment">
+      <div class="magic-moment-label">A moment to hold</div>
+      <p class="magic-moment-text">Sitting by the reflecting pool at Lyab-i-Hauz in Bukhara at dusk, drinking tea under mulberry trees as the massive mud-brick walls turn deep orange.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============= CHAPTER 21 ============= -->
+<section class="chapter" id="ch21">
+  <div class="container">
+    <header class="chapter-header">
+      <div class="chapter-number"><span>Chapter Twenty-One</span>XXI.</div>
+      <div>
+        <h2 class="chapter-title">Georgia, <em>wine and the Caucasus</em></h2>
+        <p class="chapter-subtitle">Tbilisi, Kazbegi, and the Kakheti wine region. Sulfur baths, Caucasus peaks, and European cafes.</p>
+      </div>
+    </header>
+
+    <div class="chapter-hero gradient-georgia">
+      <img class="scene" src="images/georgia_tbilisi.png" alt="Tbilisi old town at dusk, Georgia" loading="lazy">
+      <div class="chapter-hero-quote">
+        <div class="quote-text">"You arrive in Tbilisi and suddenly there is wine, there is a pulse of European energy, and there is the realization that the road has ended."</div>
+        <div class="quote-attr">Days 220–240 · Caucasus</div>
+      </div>
+    </div>
+
+    <div class="chapter-body">
+      <div>
+        <p>After nearly eight months tracing the spine of Asia, Georgia is the reward at the end of the road. In Tbilisi, you wash off the dust of half a year in the ancient subterranean sulfur baths under Narikala fortress. You walk out into a city where crumbling 19th-century wooden balconies hang over hip cafes, and the chaotic beauty of Rustaveli Avenue buzzes with a distinctly European energy.</p>
+        <p>The final weeks are spent celebrating. Take a marshrutka north up the military highway to Kazbegi, where the Gergeti Trinity Church sits perfectly framed against the 5,000-metre Mount Kazbek. Then head east to Kakheti, the continuously oldest wine-producing region on earth. You sit down to a massive, traditional Georgian <em>supra</em> (feast) — pouring amber wine from clay qvevri that have been used to ferment grapes for eight thousand years — to toast the journey's end.</p>
+        
+        <div class="why-worth-it">
+          <h4>Why this leg is worth it</h4>
+          <p>It provides total closure. Instead of flying home from the heat and intensity of the silk road, you get two weeks of unparalleled hospitality, incredible food, and wine, allowing the monumental scale of the journey to finally settle.</p>
+        </div>
+      </div>
+
+      <div>
+        <div class="highlights">
+          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Abanotubani" target="_blank" rel="noopener">
+          <div class="highlight">
+            <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/2014_Tbilisi%2C_%C5%81a%C5%BAnie_siarkowe_w_Abanotubani_%2804%29.jpg/960px-2014_Tbilisi%2C_%C5%81a%C5%BAnie_siarkowe_w_Abanotubani_%2804%29.jpg" alt="Tbilisi Sulfur Baths" loading="lazy">
+            <div class="highlight-icon">Experience</div>
+            <h5>Tbilisi Sulfur Baths</h5>
+            <p>Rent a private dome in the Abanotubani district. The hot, sulfur-heavy water and a traditional scrub is the best way to physically end the journey.</p>
+          </div>
+          </a>
+          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Gergeti_Trinity_Church" target="_blank" rel="noopener">
+          <div class="highlight">
+            <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Gergeti_Trinity_Church_09.23.jpg/960px-Gergeti_Trinity_Church_09.23.jpg" alt="Gergeti Trinity Church" loading="lazy">
+            <div class="highlight-icon">Landscape</div>
+            <h5>Gergeti Trinity Church</h5>
+            <p>A stark 14th-century church perched alone on a steep hill above the village of Stepantsminda. The definitive image of the Caucasus.</p>
+          </div>
+          </a>
+          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Supra_(feast)" target="_blank" rel="noopener">
+          <div class="highlight">
+            <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Dinner_at_Kopala%2C_Tbilisi.jpg/960px-Dinner_at_Kopala%2C_Tbilisi.jpg" alt="A Georgian Supra" loading="lazy">
+            <div class="highlight-icon">Culinary</div>
+            <h5>A Georgian Supra</h5>
+            <p>The traditional feast. Endless plates of khachapuri (cheese bread), khinkali (soup dumplings), and pitchers of amber wine poured from traditional clay qvevri.</p>
+          </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="practical">
+      <h4>Practical · Georgia</h4>
+      <div class="practical-grid">
+        <div class="practical-item">
+          <dt>Budget</dt>
+          <dd>Highly affordable. You can manage comfortably on $30-40 a day here.</dd>
+        </div>
+        <div class="practical-item">
+          <dt>Transport</dt>
+          <dd>Use the Bolt app for cheap, safe rides within Tbilisi. Use GoTrip for private inter-city drivers if marshrutkas feel too chaotic.</dd>
+        </div>
+        <div class="practical-item">
+          <dt>Wine Culture</dt>
+          <dd>Georgian hospitality involves extensive toasting. Pace yourself; refusing a drink can sometimes seem impolite.</dd>
+        </div>
+      </div>
+    </div>
+
+    <div class="magic-moment">
+      <div class="magic-moment-label">A moment to hold</div>
+      <p class="magic-moment-text">The final night in Tbilisi. A glass of amber wine. Looking at a map of Asia, tracing the line from Sri Lanka all the way here, and realizing you did it.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============= EPILOGUE ============= -->
+<section class="epilogue" id="epilogue">
+  <div class="container">
+    <span class="section-eyebrow" style="color: var(--gold);">Epilogue · A Practical Reference</span>
+    <h2 class="section-title">Everything you'll <em style="font-style: italic; color: var(--gold);">actually</em> need to know.</h2>
+    <p style="max-width: 720px; font-size: 19px; color: rgba(244, 237, 224, 0.85); margin-top: 24px;">
+      The romance is in the chapters above. The logistics are below. Permits, money, weather, packing, connectivity — the unglamorous backbone that lets the rest of the trip feel effortless.
+    </p>
+
+    <div class="ref-grid">
+      <div class="ref-card">
+        <h4>Timing</h4>
+        <ul>
+          <li><strong>Pacing the seasons:</strong> Start in Sri Lanka in winter (November–January). This times your arrival in Nepal for the spring trekking season (March/April), enters Tibet in May, and reaches Central Asia for summer.</li>
+          <li><strong>Tibet closes</strong> to foreigners late February through mid-March; permits typically resume around March 20. Plan around it.</li>
+          <li><strong>Avoid July–August</strong> in Turpan (50°C is real) and during Chinese Golden Week (Oct 1–7) when domestic tourism explodes.</li>
+          <li><strong>High passes:</strong> The Annapurna and Irkeshtam passes are often blocked by snow between November and April.</li>
+        </ul>
+      </div>
+
+      <div class="ref-card">
+        <h4>Visas &amp; Permits</h4>
+        <ul>
+          <li><strong>South Asia:</strong> India requires an e-Visa in advance. Sri Lanka requires a simple ETA. Nepal issues visas on arrival.</li>
+          <li><strong>China:</strong> Germans currently get 30 days visa-free, but this policy expires Dec 31, 2026. For a 2027 trip, assume an L tourist visa may be required unless the policy is extended.</li>
+          <li><strong>Tibet Travel Permit:</strong> mandatory. Obtainable only through a licensed agency. <strong style="color: salmon;">Warning:</strong> Entering Tibet from Nepal often triggers a "Group Visa" requirement, which can cancel any existing Chinese L-Visa in your passport. Consult your agency extensively to avoid being stranded when continuing independently into mainland China.</li>
+          <li><strong>Central Asia &amp; Caucasus:</strong> Kyrgyzstan, Uzbekistan, and Georgia are entirely visa-free for most European passports (Georgia allows up to 365 days).</li>
+        </ul>
+      </div>
+
+      <div class="ref-card">
+        <h4>Budget Estimate</h4>
+        <ul>
+          <li><strong>Sri Lanka (19 days):</strong> €1,700–2,500 for two</li>
+          <li><strong>India (~3 months):</strong> €6,200–9,300 for two</li>
+          <li><strong>Nepal (28 days):</strong> €2,100–3,250 for two</li>
+          <li><strong>Tibet tour &amp; Lhasa (16 days):</strong> €3,000–4,400 for two (mandated private tour)</li>
+          <li><strong>Sky Train soft sleeper:</strong> €200–300 for two</li>
+          <li><strong>Silk Road China leg (33 days):</strong> €2,300–3,200 for two</li>
+          <li><strong>Central Asia (36 days):</strong> €1,700–2,400 for two</li>
+          <li><strong>Georgia (21 days):</strong> €1,700–2,600 for two</li>
+          <li><strong>Contingency Buffer (15%):</strong> €2,800–4,200</li>
+          <li><strong>Total 8 Months (240 days):</strong> roughly <strong>€21,700–32,150 for two</strong> (true mid-range).</li>
+        </ul>
+      </div>
+
+      <div class="ref-card">
+        <h4>Money &amp; Payments</h4>
+        <ul>
+          <li><strong>South Asia:</strong> Cash is king. ATMs are everywhere, but carry backup currency (USD/EUR) just in case.</li>
+          <li><strong>China:</strong> Set up Alipay or WeChat Pay <em>before</em> arriving ("TourPass" links foreign cards). Cash is nearly extinct and Visa is rarely accepted natively.</li>
+          <li><strong>Central Asia/Georgia:</strong> A mix. Cards work well in Tbilisi and Tashkent; carry local cash (Som/Lari) for bazaars and marshrutkas.</li>
+          <li><strong>Tip:</strong> Tipping culture varies widely. 10% is polite in Indian/Georgian restaurants; unheard of in China.</li>
+        </ul>
+      </div>
+
+      <div class="ref-card">
+        <h4>Connectivity</h4>
+        <ul>
+          <li><strong>VPN:</strong> Install <em>before</em> arriving in China. ExpressVPN or Astrill have the most reliable performance. Without one: no Google, WhatsApp, or Instagram.</li>
+          <li><strong>SIM cards:</strong> Buying local physical SIMs in India is notoriously bureaucratic. Use Airalo regional eSIMs for instant data across borders.</li>
+          <li><strong>On the train:</strong> No WiFi on the Sky Train or Afrosiyob, and patchy 4G. Bring downloaded books and films.</li>
+          <li><strong>Remote areas:</strong> Expect total digital disconnection in Tibet, Annapurna, and the Pamirs. Let family know beforehand.</li>
+        </ul>
+      </div>
+
+      <div class="ref-card">
+        <h4>Health &amp; Altitude</h4>
+        <ul>
+          <li><strong>Altitude:</strong> the slow Kathmandu→Lhasa ascent acclimatises you well. Pack Diamox as backup (prescription required in Germany, get it from your Hausarzt).</li>
+          <li><strong>Vaccinations:</strong> standard travel jabs (Hep A&amp;B, typhoid, tetanus). Rabies if you'll be near animals at Karakul or Sary-Tash.</li>
+          <li><strong>Water:</strong> tap water unsafe everywhere on this route. Filter bottle (Grayl, LifeStraw) or boil.</li>
+          <li><strong>Insurance:</strong> needs to cover trekking to 5,500m and helicopter evac from Tibet/Pamirs. Standard policies (incl. World Nomads Explorer) often don't — look into Global Rescue or equivalent.</li>
+        </ul>
+      </div>
+
+      <div class="ref-card">
+        <h4>Pack Essentials</h4>
+        <ul>
+          <li><strong>Climate spectrum:</strong> You will experience 40°C in Turpan and -15°C in Tibet. Bring a down jacket, thermal mid-layers, and light linen for the heat.</li>
+          <li><strong>Modest clothing:</strong> A necessity for mosques, ashrams, and temples across six of these countries. Covering shoulders and knees is usually the baseline.</li>
+          <li><strong>Sun:</strong> SPF 50, polarised sunglasses, wide-brim hat. UV at altitude or in the desert is brutal.</li>
+          <li><strong>Footwear:</strong> One pair of broken-in trail running shoes and one pair of sandals does it all. Leave the heavy boots.</li>
+          <li><strong>Tech:</strong> Kindle, offline maps (Organic Maps), portable power bank, universal adapter.</li>
+          <li><strong>Documents:</strong> 6+ passport photos for random visas/permits. Photocopies of every page. Backup copies on cloud.</li>
+        </ul>
+      </div>
+
+      <div class="ref-card">
+        <h4>Eight things nobody warns you</h4>
+        <ul>
+          <li><strong>1. Indian Trains:</strong> They sell out 60 days in advance. Book via 12go.asia or set up an IRCTC account months early.</li>
+          <li><strong>2. Photography rules:</strong> In Xinjiang, never casually photograph military, police, or checkpoints.</li>
+          <li><strong>3. Georgian Khinkali:</strong> Don't eat the doughy knob at the top of the dumpling—leave it on your plate to count how many you've eaten.</li>
+          <li><strong>4. Altitude logic:</strong> High altitude (Lhasa, Thorong La) lowers your alcohol tolerance dramatically. One beer hits like three.</li>
+          <li><strong>5. Temple fatigue:</strong> Around month four, the grandest stupa or mosque might suddenly look totally unremarkable. This is normal. Take a rest day in a coffee shop.</li>
+          <li><strong>6. Altitude showers:</strong> Showers are rare in Tibet and at altitude. Wet wipes are gold. Don't shower on your first night at 4,000m anyway (cold increases sickness risk).</li>
+          <li><strong>7. Tibetan dogs:</strong> The strays near monasteries are fiercely territorial. Carry a walking stick.</li>
+          <li><strong>8. ATM redundancy:</strong> Bring at least three physical cards from different banks. One will inevitably be swallowed, blocked for fraud, or just rejected.</li>
+        </ul>
+      </div>
+
+      <div class="ref-card">
+        <h4>What to Read</h4>
+        <ul>
+          <li><strong>India:</strong> <em>Shantaram</em> (Gregory David Roberts) — A sprawling, visceral immersion into Indian street life.</li>
+          <li><strong>Nepal:</strong> <em>Into Thin Air</em> (Jon Krakauer) — The definitive modern Himalayan account. Read it on the Annapurna Circuit.</li>
+          <li><strong>Tibet:</strong> <em>The Snow Leopard</em> (Peter Matthiessen) — Part travelogue, part Zen meditation on the plateau.</li>
+          <li><strong>Central Asia:</strong> <em>The Lost Heart of Asia</em> (Colin Thubron) &amp; <em>Sovietistan</em> (Erika Fatland) — Essential context for the Silk Road's post-Soviet reality.</li>
+        </ul>
+      </div>
+
+
+    </div>
+  </div>
+</section>
+
+<!-- ============= CLOSING ============= -->
+<section class="closing">
+  <p class="closing-text">"From a red-eye landing in Colombo to a glass of amber wine in Tbilisi — fifteen thousand kilometres, eight borders, every kind of weather. One hundred and eighty-two days of being in motion."</p>
+  <div class="closing-sig">— for Micky and Mo, who said yes ✦</div>
+</section>
+
+
+
+</body>
+</html>
