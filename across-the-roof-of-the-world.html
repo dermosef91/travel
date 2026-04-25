@@ -544,6 +544,53 @@
     font-family: inherit;
   }
 
+  /* Clickable highlight links */
+  a.highlight-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                box-shadow 0.25s ease;
+    border-radius: 2px;
+  }
+
+  a.highlight-link:hover,
+  a.highlight-link:focus-visible {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px -6px rgba(31, 26, 20, 0.15);
+  }
+
+  a.highlight-link:hover .highlight {
+    border-color: var(--gold);
+    background: rgba(255, 252, 245, 0.75);
+  }
+
+  a.highlight-link:hover .highlight h5 {
+    color: var(--maroon);
+  }
+
+  a.highlight-link::after {
+    content: '↗';
+    position: absolute;
+    top: 12px;
+    right: 14px;
+    font-size: 14px;
+    color: var(--gold);
+    opacity: 0;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+    transform: translate(-4px, 4px);
+    font-family: system-ui, sans-serif;
+  }
+
+  a.highlight-link {
+    position: relative;
+  }
+
+  a.highlight-link:hover::after {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+
   /* Practical box */
   .practical {
     background: var(--ink);
@@ -1150,6 +1197,312 @@
     transform: translateY(0);
   }
 
+  /* === ELEVATION PROFILE === */
+  .elevation-section {
+    margin-top: 48px;
+    position: relative;
+  }
+
+  .elevation-wrap {
+    position: relative;
+    background: var(--paper-warm);
+    border: 1px solid rgba(31, 26, 20, 0.1);
+    border-radius: 4px;
+    padding: 28px 28px 16px;
+    overflow: hidden;
+  }
+
+  .elevation-label {
+    font-family: 'Cormorant Unicase', serif;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    font-size: 10px;
+    color: var(--ink-fade);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .elevation-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(31, 26, 20, 0.12);
+  }
+
+  #elevation-svg {
+    width: 100%;
+    height: 180px;
+    display: block;
+    cursor: crosshair;
+  }
+
+  .elev-tooltip {
+    position: absolute;
+    pointer-events: none;
+    background: rgba(31, 26, 20, 0.92);
+    color: var(--paper);
+    padding: 8px 14px;
+    border-radius: 2px;
+    font-family: 'Crimson Pro', serif;
+    font-size: 14px;
+    line-height: 1.4;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.15s ease;
+    z-index: 10;
+    transform: translateX(-50%);
+    box-shadow: 0 4px 12px rgba(31, 26, 20, 0.3);
+  }
+
+  .elev-tooltip.show { opacity: 1; }
+
+  .elev-tooltip strong {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+    font-size: 16px;
+    display: block;
+    color: var(--gold);
+  }
+
+  .elev-line {
+    position: absolute;
+    width: 1px;
+    background: var(--gold);
+    opacity: 0;
+    transition: opacity 0.15s ease;
+    pointer-events: none;
+    z-index: 5;
+  }
+
+  .elev-line.show { opacity: 0.6; }
+
+  .elevation-legend {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 8px;
+    font-family: 'Cormorant Unicase', serif;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-size: 9px;
+    color: var(--ink-fade);
+  }
+
+  /* === SCROLL TRACKER === */
+  .scroll-tracker {
+    position: fixed;
+    top: 2px;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    background: rgba(31, 26, 20, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    color: var(--paper);
+    padding: 0 28px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    font-family: 'Crimson Pro', serif;
+    font-size: 14px;
+    transform: translateY(-100%);
+    opacity: 0;
+    transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                opacity 0.35s ease;
+    border-bottom: 1px solid rgba(184, 137, 64, 0.25);
+  }
+
+  .scroll-tracker.visible {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  .tracker-chapter {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 17px;
+    font-weight: 500;
+    color: var(--paper);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 320px;
+  }
+
+  .tracker-sep {
+    width: 1px;
+    height: 18px;
+    background: rgba(244, 237, 224, 0.2);
+    flex-shrink: 0;
+  }
+
+  .tracker-detail {
+    font-family: 'Cormorant Unicase', serif;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-size: 10px;
+    color: var(--gold);
+    white-space: nowrap;
+  }
+
+  .tracker-progress {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+  }
+
+  .tracker-bar {
+    width: 100px;
+    height: 3px;
+    background: rgba(244, 237, 224, 0.15);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .tracker-bar-fill {
+    height: 100%;
+    background: var(--gold);
+    border-radius: 2px;
+    transition: width 0.3s ease;
+    width: 0%;
+  }
+
+  .tracker-pct {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 14px;
+    color: rgba(244, 237, 224, 0.7);
+    min-width: 32px;
+    text-align: right;
+  }
+
+  /* === CLIMATE WIDGET === */
+  .climate-row {
+    grid-column: 1 / -1;
+    border-top: 1px solid rgba(244, 237, 224, 0.12);
+    padding-top: 20px;
+    margin-top: 8px;
+  }
+
+  .climate-toggle {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: var(--gold);
+    font-family: 'Cormorant Unicase', serif;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: 11px;
+    padding: 0;
+    width: 100%;
+    text-align: left;
+  }
+
+  .climate-toggle::before {
+    content: '▸';
+    font-size: 12px;
+    transition: transform 0.25s ease;
+    display: inline-block;
+  }
+
+  .climate-toggle.open::before {
+    transform: rotate(90deg);
+  }
+
+  .climate-toggle::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(244, 237, 224, 0.1);
+  }
+
+  .climate-panel {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 16px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                padding 0.4s ease;
+    padding-top: 0;
+  }
+
+  .climate-panel.open {
+    max-height: 300px;
+    padding-top: 16px;
+  }
+
+  .climate-item {
+    text-align: center;
+  }
+
+  .climate-icon {
+    font-size: 22px;
+    margin-bottom: 4px;
+    line-height: 1;
+  }
+
+  .climate-val {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    color: var(--paper);
+    font-weight: 500;
+  }
+
+  .climate-label {
+    font-family: 'Crimson Pro', serif;
+    font-size: 12px;
+    color: rgba(244, 237, 224, 0.55);
+    margin-top: 2px;
+  }
+
+  @media (max-width: 880px) {
+    .scroll-tracker {
+      padding: 0 16px;
+      gap: 14px;
+    }
+    .tracker-chapter {
+      max-width: 180px;
+      font-size: 15px;
+    }
+    .tracker-bar {
+      width: 60px;
+    }
+    #elevation-svg {
+      height: 140px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .scroll-tracker {
+      height: 38px;
+      padding: 0 12px;
+      gap: 10px;
+      font-size: 12px;
+    }
+    .tracker-chapter {
+      max-width: 120px;
+      font-size: 13px;
+    }
+    .tracker-detail {
+      display: none;
+    }
+    .tracker-bar {
+      width: 48px;
+    }
+    .elevation-wrap {
+      padding: 20px 16px 12px;
+    }
+    #elevation-svg {
+      height: 110px;
+    }
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .reveal,
     .magic-word {
@@ -1163,6 +1516,17 @@
 </head>
 <body>
 <div class="progress" id="progress"></div>
+
+<!-- Scroll tracker -->
+<div class="scroll-tracker" id="scroll-tracker">
+  <div class="tracker-chapter" id="tracker-chapter">—</div>
+  <div class="tracker-sep"></div>
+  <div class="tracker-detail" id="tracker-detail"></div>
+  <div class="tracker-progress">
+    <div class="tracker-bar"><div class="tracker-bar-fill" id="tracker-fill"></div></div>
+    <div class="tracker-pct" id="tracker-pct">0%</div>
+  </div>
+</div>
 
 <!-- ============= HERO ============= -->
 <section class="hero">
@@ -1234,6 +1598,22 @@
       <div id="overview-map" class="map-container"></div>
     </div>
 
+    <!-- Elevation profile -->
+    <div class="elevation-section" id="elevation-section">
+      <div class="elevation-wrap">
+        <div class="elevation-label">Elevation Profile · Kathmandu to Osh</div>
+        <div style="position:relative">
+          <svg id="elevation-svg" preserveAspectRatio="none"></svg>
+          <div class="elev-tooltip" id="elev-tooltip"></div>
+          <div class="elev-line" id="elev-line"></div>
+        </div>
+        <div class="elevation-legend">
+          <span>Kathmandu · 1,400 m</span>
+          <span>Osh · 965 m</span>
+        </div>
+      </div>
+    </div>
+
     <ol class="route-list">
       <li><span class="route-name">Kathmandu <span>— prologue, Nepal</span></span><span class="route-mode">Foot</span></li>
       <li><span class="route-name">Kathmandu → Lhasa <span>— Friendship Highway via Gyirong &amp; Everest</span></span><span class="route-mode">Overland Tour · 8 days</span></li>
@@ -1284,24 +1664,30 @@
 
       <div>
         <div class="highlights">
+          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Boudhanath" target="_blank" rel="noopener">
           <div class="highlight">
             <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Boudhanath_stupa_%2C_Kathmandu%2C_Nepal.jpg/960px-Boudhanath_stupa_%2C_Kathmandu%2C_Nepal.jpg" alt="Boudhanath at dusk" loading="lazy">
             <div class="highlight-icon">Cultural</div>
             <h5>Boudhanath at dusk</h5>
             <p>Nepal's largest stupa, ringed by Tibetan monasteries. The kora at sunset, butter lamps lighting one by one, is one of the most quietly moving things you'll see all year.</p>
           </div>
+          </a>
+          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Patan_Durbar_Square" target="_blank" rel="noopener">
           <div class="highlight">
             <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/8/89/Patan_durbar_square.jpg" alt="Patan Durbar Square" loading="lazy">
             <div class="highlight-icon">Historical</div>
             <h5>Patan Durbar Square</h5>
             <p>Most beautiful of the three royal squares — Newari woodcarving, Krishna temples, and a museum among Asia's finest. Quieter than Kathmandu's Durbar.</p>
           </div>
+          </a>
+          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Nagarkot" target="_blank" rel="noopener">
           <div class="highlight">
             <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/2/22/Prithu.jpg" alt="Nagarkot dawn" loading="lazy">
             <div class="highlight-icon">Landscape</div>
             <h5>Nagarkot dawn</h5>
             <p>An hour east, a ridge showing the entire Himalayan crest from Annapurna to Everest on clear mornings. Stay overnight, alarm at 5:30. Worth losing the sleep.</p>
           </div>
+          </a>
         </div>
       </div>
     </div>
@@ -1367,24 +1753,30 @@
 
       <div>
         <div class="highlights">
+          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Mount_Everest" target="_blank" rel="noopener">
           <div class="highlight">
             <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Mount_Everest_North_Face.jpg/960px-Mount_Everest_North_Face.jpg" alt="Everest North Face" loading="lazy">
             <div class="highlight-icon">Landscape</div>
             <h5>Everest North Face</h5>
             <p>From Rongbuk, the north face stands directly before you — a sheer 3,500 m wall. Sunrise is the time. The cold is brutal and worth it.</p>
           </div>
+          </a>
+          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Yamdrok_Lake" target="_blank" rel="noopener">
           <div class="highlight">
             <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Yamzho_Yumco.jpg/960px-Yamzho_Yumco.jpg" alt="Yamdrok Lake" loading="lazy">
             <div class="highlight-icon">Landscape</div>
             <h5>Yamdrok Lake</h5>
             <p>One of Tibet's three sacred lakes. The first sight from Karo La pass — the colour of a Florentine sky — is the most photographed view in Tibet for good reason.</p>
           </div>
+          </a>
+          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Tashilhunpo_Monastery" target="_blank" rel="noopener">
           <div class="highlight">
             <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/4/4b/Entrance_to_Tashilhunpo_Monastery.jpg" alt="Tashilhunpo Monastery" loading="lazy">
             <div class="highlight-icon">Cultural</div>
             <h5>Tashilhunpo Monastery</h5>
             <p>Seat of the Panchen Lama, founded 1447. Best in the morning when monks debate in the courtyard — clapping, gesturing, sparring with logic.</p>
           </div>
+          </a>
         </div>
       </div>
     </div>
@@ -1450,24 +1842,30 @@
 
       <div>
         <div class="highlights">
+          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Jokhang" target="_blank" rel="noopener">
           <div class="highlight">
             <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/a/ab/Jokhang_Temple_in_Tibet.jpg" alt="The Jokhang at dawn" loading="lazy">
             <div class="highlight-icon">Cultural</div>
             <h5>The Jokhang at dawn</h5>
             <p>Tibet's most sacred temple, founded 7th century. Go at 7am — hundreds of pilgrims doing full-body prostrations on the flagstones. Inside, the Jowo Shakyamuni statue from Tang dynasty China.</p>
           </div>
+          </a>
+          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Sera_Monastery" target="_blank" rel="noopener">
           <div class="highlight">
             <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Sera_Mey.jpg/960px-Sera_Mey.jpg" alt="Sera Monastery debates" loading="lazy">
             <div class="highlight-icon">Cultural</div>
             <h5>Sera Monastery debates</h5>
             <p>Every afternoon (except Sundays), monks debate Buddhist philosophy under the willows, with elaborate hand-claps to punctuate arguments. Free, riveting, theatrical.</p>
           </div>
+          </a>
+          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Potala_Palace" target="_blank" rel="noopener">
           <div class="highlight">
             <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Potala_Palace_HQ.jpg/960px-Potala_Palace_HQ.jpg" alt="The Potala" loading="lazy">
             <div class="highlight-icon">Historical</div>
             <h5>The Potala</h5>
             <p>13 stories, 1,000+ rooms, 200,000 statues. More powerful from outside, at sunset, with butter lamps catching gold on the roof.</p>
           </div>
+          </a>
         </div>
       </div>
     </div>
@@ -1533,24 +1931,30 @@
 
       <div>
         <div class="highlights">
+          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Tanggula_Mountain_Pass" target="_blank" rel="noopener">
           <div class="highlight">
             <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Amdo%2C_Nagqu%2C_Tibet%2C_China_-_panoramio.jpg/960px-Amdo%2C_Nagqu%2C_Tibet%2C_China_-_panoramio.jpg" alt="Tanggula Pass" loading="lazy">
             <div class="highlight-icon">Landscape</div>
             <h5>Tanggula Pass</h5>
             <p>5,072 m — the highest railway point on earth. A weather station, prayer flags, and nothing else. The train pauses; passengers crowd the windows.</p>
           </div>
+          </a>
+          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Hoh_Xil" target="_blank" rel="noopener">
           <div class="highlight">
             <img class="highlight-image" src="images/hoh_xil_cona_lake.png" alt="Hoh Xil &amp; Cona Lake" loading="lazy">
             <div class="highlight-icon">Landscape</div>
             <h5>Hoh Xil &amp; Cona Lake</h5>
             <p>UNESCO-listed wilderness. Watch for Tibetan antelope, wild ass, and the occasional bear. Cona Lake reflects the sky like polished steel.</p>
           </div>
+          </a>
+          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Qinghai%E2%80%93Tibet_railway" target="_blank" rel="noopener">
           <div class="highlight">
             <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/T99_100_Soft_Sleeper_Car.jpg/960px-T99_100_Soft_Sleeper_Car.jpg" alt="Soft sleeper" loading="lazy">
             <div class="highlight-icon">Practical</div>
             <h5>Soft sleeper</h5>
             <p>Four berths per compartment, a door that closes. ~€100 pp. Hard sleeper (six berths, open) is fine but social. Worth the upgrade for 21 hours.</p>
           </div>
+          </a>
         </div>
       </div>
     </div>
@@ -1616,24 +2020,30 @@
 
       <div>
         <div class="highlights">
+          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Zhangye_National_Geopark" target="_blank" rel="noopener">
           <div class="highlight">
             <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Zhangye_National_Geopark_5.jpg/960px-Zhangye_National_Geopark_5.jpg" alt="Zhangye Danxia" loading="lazy">
             <div class="highlight-icon">Landscape</div>
             <h5>Zhangye Danxia</h5>
             <p>Striped sandstone the colours of a sunset. Layers of red, orange, ochre and white folded over each other across whole hillsides. Late afternoon, with the sun low — that's when it sings.</p>
           </div>
+          </a>
+          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Jiayu_Pass" target="_blank" rel="noopener">
           <div class="highlight">
             <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Jiayu_Guan_2014.01.01_11-03-14.jpg/960px-Jiayu_Guan_2014.01.01_11-03-14.jpg" alt="Jiayuguan Fort" loading="lazy">
             <div class="highlight-icon">Historical</div>
             <h5>Jiayuguan Fort</h5>
             <p>The "First and Greatest Pass under Heaven" — westernmost guard tower of the Ming Wall. Exiles tossed a stone at the wall as they left; if it bounced back, they'd return. Many didn't.</p>
           </div>
+          </a>
+          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Kumbum" target="_blank" rel="noopener">
           <div class="highlight">
             <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Qinghai_Tibet_Railway_Tibet_China_%E8%A5%BF%E8%97%8F_%E9%9D%92%E8%97%8F%E9%93%81%E8%B7%AF_-_panoramio_%284%29.jpg/960px-Qinghai_Tibet_Railway_Tibet_China_%E8%A5%BF%E8%97%8F_%E9%9D%92%E8%97%8F%E9%93%81%E8%B7%AF_-_panoramio_%284%29.jpg" alt="Kumbum Monastery (Ta'er Si)" loading="lazy">
             <div class="highlight-icon">Cultural</div>
             <h5>Kumbum Monastery (Ta'er Si)</h5>
             <p>One of Tibetan Buddhism's six great Gelug monasteries, near Xining. Famous for yak-butter sculptures of staggering intricacy, remade yearly and allowed to melt.</p>
           </div>
+          </a>
         </div>
       </div>
     </div>
@@ -1699,24 +2109,30 @@
 
       <div>
         <div class="highlights">
+          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Mogao_Caves" target="_blank" rel="noopener">
           <div class="highlight">
             <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Mogao_Caves_%2854376969262%29.jpg/960px-Mogao_Caves_%2854376969262%29.jpg" alt="Mogao Caves" loading="lazy">
             <div class="highlight-icon">Cultural</div>
             <h5>Mogao Caves</h5>
             <p>492 grottoes, 45,000 m² of murals, 2,000 sculptures. You'll see 8 caves on a 2-hour guided tour with timed-entry. Book the English tour. The Library Cave's history (sealed 1000 years, opened 1900) is the subplot.</p>
           </div>
+          </a>
+          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Crescent_Moon_Spring" target="_blank" rel="noopener">
           <div class="highlight">
             <img class="highlight-image" src="images/crescent_lake_highlight.png" alt="Crescent Lake &amp; Mingsha" loading="lazy">
             <div class="highlight-icon">Landscape</div>
             <h5>Crescent Lake &amp; Mingsha</h5>
             <p>A spring-fed lake against 100m sand dunes, kept liquid by aquifer for 2,000 years. Climb the dune at sunset; the sand "sings" (a low rumbling hum) when you slide down.</p>
           </div>
+          </a>
+          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Yumen_Pass" target="_blank" rel="noopener">
           <div class="highlight">
             <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Dunhuang.yumenguan.jpg/1280px-Dunhuang.yumenguan.jpg" alt="Yumen Pass &amp; the Jade Gate" loading="lazy">
             <div class="highlight-icon">Historical</div>
             <h5>Yumen Pass &amp; the Jade Gate</h5>
             <p>An afternoon's drive west — the western customs post of Han dynasty China. Mud-brick remnants on a windswept plain. Where China ended.</p>
           </div>
+          </a>
         </div>
       </div>
     </div>
@@ -1782,24 +2198,30 @@
 
       <div>
         <div class="highlights">
+          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Jiaohe_ruins" target="_blank" rel="noopener">
           <div class="highlight">
             <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Turpan-jiaohe-ruinas-d28.jpg/960px-Turpan-jiaohe-ruinas-d28.jpg" alt="Jiaohe Ruins" loading="lazy">
             <div class="highlight-icon">Historical</div>
             <h5>Jiaohe Ruins</h5>
             <p>An entire city carved from a single sandstone island between two rivers — no walls were needed, the cliffs were the walls. 2,300 years old, perfectly preserved by the dry air. Walk it at sunrise.</p>
           </div>
+          </a>
+          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Grape_Valley" target="_blank" rel="noopener">
           <div class="highlight">
             <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Valley_of_Grapes_Turpan_%2810%29.jpg/960px-Valley_of_Grapes_Turpan_%2810%29.jpg" alt="Grape Valley" loading="lazy">
             <div class="highlight-icon">Landscape</div>
             <h5>Grape Valley</h5>
             <p>Covered alleys of vines, drying houses with adobe lattice walls where seedless raisins are made. Order the cold yoghurt with raisin honey.</p>
           </div>
+          </a>
+          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Laghman_(dish)" target="_blank" rel="noopener">
           <div class="highlight">
             <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/d/dd/Afghan_Palo.jpg" alt="Laghman, polo, nan" loading="lazy">
             <div class="highlight-icon">Culinary</div>
             <h5>Laghman, polo, nan</h5>
             <p>Hand-pulled noodles with lamb and peppers (laghman). Saffron pilaf with mutton, carrots, raisins (polo). Flatbread from clay tonurs (nan). The Uyghur trinity.</p>
           </div>
+          </a>
         </div>
       </div>
     </div>
@@ -2354,6 +2776,247 @@
 
     magicTexts.forEach(function(el) {
       magicObserver.observe(el);
+    });
+  })();
+
+  // ===== ELEVATION PROFILE =====
+  (function() {
+    var svg = document.getElementById('elevation-svg');
+    var tooltip = document.getElementById('elev-tooltip');
+    var vline = document.getElementById('elev-line');
+    if (!svg) return;
+
+    // Elevation data points along the route
+    var elevData = [
+      { name: 'Kathmandu', alt: 1400, km: 0 },
+      { name: 'Gyirong Border', alt: 2800, km: 150 },
+      { name: 'Tingri', alt: 4300, km: 400 },
+      { name: 'Everest BC (N)', alt: 5200, km: 500 },
+      { name: 'Shigatse', alt: 3840, km: 750 },
+      { name: 'Gyantse', alt: 3977, km: 900 },
+      { name: 'Karo La Pass', alt: 5039, km: 980 },
+      { name: 'Yamdrok Lake', alt: 4441, km: 1020 },
+      { name: 'Lhasa', alt: 3656, km: 1200 },
+      { name: 'Tanggula Pass', alt: 5072, km: 2000 },
+      { name: 'Hoh Xil', alt: 4600, km: 2400 },
+      { name: 'Xining', alt: 2275, km: 3156 },
+      { name: 'Zhangye', alt: 1474, km: 3600 },
+      { name: 'Jiayuguan', alt: 1735, km: 3850 },
+      { name: 'Dunhuang', alt: 1139, km: 4200 },
+      { name: 'Turpan', alt: -154, km: 5100 },
+      { name: 'Urumqi', alt: 800, km: 5400 },
+      { name: 'Kashgar', alt: 1289, km: 6500 },
+      { name: 'Karakul Lake', alt: 3600, km: 6800 },
+      { name: 'Irkeshtam Pass', alt: 3200, km: 7050 },
+      { name: 'Sary-Tash', alt: 3170, km: 7150 },
+      { name: 'Osh', alt: 965, km: 7400 }
+    ];
+
+    var maxKm = 7400;
+    var minAlt = -300;
+    var maxAlt = 5500;
+    var padTop = 20;
+    var padBot = 10;
+
+    function render() {
+      var rect = svg.getBoundingClientRect();
+      var w = rect.width;
+      var h = rect.height;
+      var drawH = h - padTop - padBot;
+
+      function x(km) { return (km / maxKm) * w; }
+      function y(alt) { return padTop + drawH - ((alt - minAlt) / (maxAlt - minAlt)) * drawH; }
+
+      // Build smooth path
+      var points = elevData.map(function(d) { return x(d.km) + ',' + y(d.alt); });
+      var pathD = 'M' + points.join(' L');
+      var areaD = pathD + ' L' + x(maxKm) + ',' + (h - padBot) + ' L0,' + (h - padBot) + ' Z';
+
+      // Altitude gridlines
+      var gridAlts = [0, 1000, 2000, 3000, 4000, 5000];
+      var gridLines = gridAlts.map(function(a) {
+        var yy = y(a);
+        return '<line x1="0" y1="' + yy + '" x2="' + w + '" y2="' + yy + '" stroke="rgba(31,26,20,0.08)" stroke-width="1" stroke-dasharray="4,4"/>'
+          + '<text x="4" y="' + (yy - 4) + '" fill="rgba(31,26,20,0.3)" font-family="Cormorant Unicase, serif" font-size="9" letter-spacing="0.1em">' + (a > 0 ? a/1000 + 'k' : a) + 'm</text>';
+      }).join('');
+
+      // Stop dots
+      var dots = elevData.map(function(d, i) {
+        var isMajor = [0,3,8,9,11,14,15,17,21].indexOf(i) > -1;
+        var r = isMajor ? 4 : 2.5;
+        var fill = isMajor ? '#6e2a22' : '#b88940';
+        return '<circle cx="' + x(d.km) + '" cy="' + y(d.alt) + '" r="' + r + '" fill="' + fill + '" stroke="#f4ede0" stroke-width="1.5"/>';
+      }).join('');
+
+      // Country zones
+      var zones = [
+        { label: 'Nepal', start: 0, end: 150, color: 'rgba(74,114,86,0.06)' },
+        { label: 'Tibet / China', start: 150, end: 7050, color: 'rgba(184,137,64,0.04)' },
+        { label: 'KGZ', start: 7050, end: 7400, color: 'rgba(31,71,84,0.06)' }
+      ];
+      var zoneBg = zones.map(function(z) {
+        return '<rect x="' + x(z.start) + '" y="0" width="' + (x(z.end) - x(z.start)) + '" height="' + h + '" fill="' + z.color + '"/>';
+      }).join('');
+
+      svg.innerHTML = zoneBg + gridLines
+        + '<path d="' + areaD + '" fill="url(#elevGrad)" />'
+        + '<path d="' + pathD + '" fill="none" stroke="#6e2a22" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>'
+        + '<defs><linearGradient id="elevGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#b88940" stop-opacity="0.25"/><stop offset="100%" stop-color="#b88940" stop-opacity="0.02"/></linearGradient></defs>'
+        + dots;
+    }
+
+    render();
+    window.addEventListener('resize', render);
+
+    // Hover interaction
+    svg.addEventListener('mousemove', function(e) {
+      var rect = svg.getBoundingClientRect();
+      var mx = e.clientX - rect.left;
+      var w = rect.width;
+      var h = rect.height;
+      var drawH = h - padTop - padBot;
+      var hoverKm = (mx / w) * maxKm;
+
+      // Find nearest point
+      var nearest = elevData.reduce(function(best, d) {
+        var dist = Math.abs(d.km - hoverKm);
+        return dist < best.dist ? { d: d, dist: dist } : best;
+      }, { d: elevData[0], dist: Infinity });
+
+      var d = nearest.d;
+      var px = (d.km / maxKm) * w;
+      var py = padTop + drawH - ((d.alt - minAlt) / (maxAlt - minAlt)) * drawH;
+
+      tooltip.innerHTML = '<strong>' + d.name + '</strong>' + d.alt.toLocaleString() + ' m · km ' + d.km.toLocaleString();
+      tooltip.classList.add('show');
+      tooltip.style.left = px + 'px';
+      tooltip.style.bottom = (h - py + 12) + 'px';
+
+      vline.classList.add('show');
+      vline.style.left = px + 'px';
+      vline.style.top = py + 'px';
+      vline.style.height = (h - padBot - py) + 'px';
+    });
+
+    svg.addEventListener('mouseleave', function() {
+      tooltip.classList.remove('show');
+      vline.classList.remove('show');
+    });
+  })();
+
+  // ===== SCROLL TRACKER =====
+  (function() {
+    var tracker = document.getElementById('scroll-tracker');
+    var trackerChapter = document.getElementById('tracker-chapter');
+    var trackerDetail = document.getElementById('tracker-detail');
+    var trackerFill = document.getElementById('tracker-fill');
+    var trackerPct = document.getElementById('tracker-pct');
+    if (!tracker) return;
+
+    // Chapter metadata for the tracker
+    var chapters = [
+      { id: 'ch1', title: 'Kathmandu', day: '0', alt: '1,400 m', num: 'I' },
+      { id: 'ch2', title: 'Across the Himalayas', day: '3–10', alt: '4,300–5,200 m', num: 'II' },
+      { id: 'ch3', title: 'Lhasa', day: '9–12', alt: '3,656 m', num: 'III' },
+      { id: 'ch4', title: 'The Sky Train', day: '13', alt: '5,072 m', num: 'IV' },
+      { id: 'ch5', title: 'The Hexi Corridor', day: '14–18', alt: '1,474–2,275 m', num: 'V' },
+      { id: 'ch6', title: 'Dunhuang', day: '18–21', alt: '1,139 m', num: 'VI' },
+      { id: 'ch7', title: 'Turpan', day: '22–24', alt: '−154 m', num: 'VII' },
+      { id: 'ch8', title: 'Kashgar', day: '26–30', alt: '1,289 m', num: 'VIII' },
+      { id: 'ch9', title: 'Across the Irkeshtam', day: '32–35', alt: '3,170 m', num: 'IX' }
+    ];
+
+    var chapterEls = chapters.map(function(ch) {
+      return { data: ch, el: document.getElementById(ch.id) };
+    }).filter(function(c) { return c.el; });
+
+    var heroSection = document.querySelector('.hero');
+    var lastActive = null;
+
+    function updateTracker() {
+      var scrollY = window.scrollY;
+      var total = document.documentElement.scrollHeight - window.innerHeight;
+      var pct = Math.round((scrollY / total) * 100);
+
+      trackerFill.style.width = pct + '%';
+      trackerPct.textContent = pct + '%';
+
+      // Show tracker only after scrolling past hero
+      if (heroSection) {
+        var heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
+        if (scrollY > heroBottom - 100) {
+          tracker.classList.add('visible');
+        } else {
+          tracker.classList.remove('visible');
+        }
+      }
+
+      // Find current chapter
+      var current = null;
+      var windowMid = scrollY + window.innerHeight * 0.35;
+      for (var i = chapterEls.length - 1; i >= 0; i--) {
+        if (chapterEls[i].el.offsetTop <= windowMid) {
+          current = chapterEls[i].data;
+          break;
+        }
+      }
+
+      if (current && current.id !== lastActive) {
+        lastActive = current.id;
+        trackerChapter.textContent = current.num + '. ' + current.title;
+        trackerDetail.textContent = 'Day ' + current.day + '  ·  ' + current.alt;
+      }
+    }
+
+    window.addEventListener('scroll', updateTracker, { passive: true });
+    updateTracker();
+  })();
+
+  // ===== CLIMATE / GEAR WIDGET =====
+  (function() {
+    var climateData = {
+      ch1: { temp: '15–28°C', weather: 'Warm, humid', uv: 'Moderate', gear: 'Light layers', icon_temp: '☀️', icon_weather: '🌤', icon_uv: '🕶', icon_gear: '👕' },
+      ch2: { temp: '−10–15°C', weather: 'Cold, thin air', uv: 'Extreme', gear: 'Down jacket, thermals', icon_temp: '🏔', icon_weather: '❄️', icon_uv: '☀️', icon_gear: '🧥' },
+      ch3: { temp: '2–18°C', weather: 'Dry, sunny', uv: 'Very high', gear: 'Layers, sun hat', icon_temp: '🌡', icon_weather: '🌤', icon_uv: '☀️', icon_gear: '🧣' },
+      ch4: { temp: '−15–8°C', weather: 'Cold, pressurised', uv: 'N/A (train)', gear: 'Warm sleepwear', icon_temp: '🥶', icon_weather: '🌨', icon_uv: '—', icon_gear: '🛏' },
+      ch5: { temp: '8–25°C', weather: 'Dry, clear', uv: 'High', gear: 'Mid layers, sunscreen', icon_temp: '🌡', icon_weather: '☀️', icon_uv: '☀️', icon_gear: '🧴' },
+      ch6: { temp: '12–32°C', weather: 'Hot, desert dry', uv: 'Very high', gear: 'Hat, water, sunblock', icon_temp: '🔥', icon_weather: '☀️', icon_uv: '☀️', icon_gear: '🎒' },
+      ch7: { temp: '18–42°C', weather: 'Extreme heat', uv: 'Extreme', gear: 'Light clothes, shade', icon_temp: '🌡', icon_weather: '🔥', icon_uv: '☀️', icon_gear: '👒' },
+      ch8: { temp: '5–25°C', weather: 'Warm days, cold nights', uv: 'High', gear: 'Layers + down for Karakul', icon_temp: '🌤', icon_weather: '🌙', icon_uv: '☀️', icon_gear: '🧥' },
+      ch9: { temp: '−5–18°C', weather: 'Cold, windy', uv: 'High', gear: 'Full cold gear', icon_temp: '🏔', icon_weather: '💨', icon_uv: '☀️', icon_gear: '🧥' }
+    };
+
+    // Find each chapter's practical box and inject the climate widget
+    Object.keys(climateData).forEach(function(chId) {
+      var chapter = document.getElementById(chId);
+      if (!chapter) return;
+      var practical = chapter.querySelector('.practical');
+      if (!practical) return;
+      var grid = practical.querySelector('.practical-grid');
+      if (!grid) return;
+
+      var cd = climateData[chId];
+
+      var row = document.createElement('div');
+      row.className = 'climate-row';
+      row.innerHTML = '<button class="climate-toggle" aria-expanded="false">Climate & Gear</button>'
+        + '<div class="climate-panel">'
+        + '<div class="climate-item"><div class="climate-icon">' + cd.icon_temp + '</div><div class="climate-val">' + cd.temp + '</div><div class="climate-label">Temperature</div></div>'
+        + '<div class="climate-item"><div class="climate-icon">' + cd.icon_weather + '</div><div class="climate-val">' + cd.weather + '</div><div class="climate-label">Conditions</div></div>'
+        + '<div class="climate-item"><div class="climate-icon">' + cd.icon_uv + '</div><div class="climate-val">' + cd.uv + '</div><div class="climate-label">UV Index</div></div>'
+        + '<div class="climate-item"><div class="climate-icon">' + cd.icon_gear + '</div><div class="climate-val">' + cd.gear + '</div><div class="climate-label">Key Gear</div></div>'
+        + '</div>';
+
+      grid.parentNode.insertBefore(row, grid.nextSibling);
+
+      // Toggle
+      var btn = row.querySelector('.climate-toggle');
+      var panel = row.querySelector('.climate-panel');
+      btn.addEventListener('click', function() {
+        var isOpen = panel.classList.toggle('open');
+        btn.classList.toggle('open', isOpen);
+        btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      });
     });
   })();
 
