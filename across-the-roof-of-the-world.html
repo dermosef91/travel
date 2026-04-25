@@ -1433,7 +1433,7 @@
   }
 
   .climate-panel.open {
-    max-height: 300px;
+    max-height: 900px;
     padding-top: 16px;
   }
 
@@ -1459,6 +1459,84 @@
     font-size: 12px;
     color: rgba(244, 237, 224, 0.55);
     margin-top: 2px;
+  }
+
+  /* Backpacker tips within climate panel */
+  .backpacker-tips {
+    grid-column: 1 / -1;
+    margin-top: 12px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(244, 237, 224, 0.1);
+  }
+
+  .backpacker-tips-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+
+  .backpacker-tips-header span {
+    font-family: 'Cormorant Unicase', serif;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: 10px;
+    color: var(--gold);
+  }
+
+  .backpacker-tips-header::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(244, 237, 224, 0.1);
+  }
+
+  .backpacker-tip-text {
+    font-family: 'Crimson Pro', serif;
+    font-size: 14px;
+    line-height: 1.65;
+    color: rgba(244, 237, 224, 0.8);
+    margin: 0 0 14px;
+  }
+
+  .backpacker-tip-text strong {
+    color: var(--paper);
+    font-weight: 500;
+  }
+
+  .climate-links {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 4px;
+  }
+
+  .climate-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 12px;
+    border: 1px solid rgba(184, 137, 64, 0.3);
+    border-radius: 100px;
+    font-family: 'Crimson Pro', serif;
+    font-size: 12px;
+    color: var(--gold);
+    text-decoration: none;
+    transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+    white-space: nowrap;
+  }
+
+  .climate-link:hover {
+    background: rgba(184, 137, 64, 0.15);
+    border-color: var(--gold);
+    color: var(--paper);
+  }
+
+  .climate-link::after {
+    content: '↗';
+    font-size: 10px;
+    opacity: 0.7;
   }
 
   @media (max-width: 880px) {
@@ -2117,7 +2195,7 @@
             <p>492 grottoes, 45,000 m² of murals, 2,000 sculptures. You'll see 8 caves on a 2-hour guided tour with timed-entry. Book the English tour. The Library Cave's history (sealed 1000 years, opened 1900) is the subplot.</p>
           </div>
           </a>
-          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Crescent_Moon_Spring" target="_blank" rel="noopener">
+          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Crescent_Lake_(Dunhuang)" target="_blank" rel="noopener">
           <div class="highlight">
             <img class="highlight-image" src="images/crescent_lake_highlight.png" alt="Crescent Lake &amp; Mingsha" loading="lazy">
             <div class="highlight-icon">Landscape</div>
@@ -2289,24 +2367,30 @@
 
       <div>
         <div class="highlights">
+          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Kashgar" target="_blank" rel="noopener">
           <div class="highlight">
             <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/5/57/The_Moorish_Bazaar.jpg" alt="Sunday Livestock Bazaar" loading="lazy">
             <div class="highlight-icon">Cultural</div>
             <h5>Sunday Livestock Bazaar</h5>
             <p>Weekly since the 10th century. Animals only — sheep, goats, donkeys, the occasional camel. Goes from 7am to early afternoon, peaks 10–11. The whole regional economy compressed into one chaotic field.</p>
           </div>
+          </a>
+          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Id_Kah_Mosque" target="_blank" rel="noopener">
           <div class="highlight">
             <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/7/7d/H%C3%ABytgah_Mosque%2C_Kashi_%2820230923100109%29.jpg" alt="Old Town &amp; Id Kah" loading="lazy">
             <div class="highlight-icon">Cultural</div>
             <h5>Old Town &amp; Id Kah</h5>
             <p>Adobe lanes, carved doors, tonur bakeries. Id Kah Mosque (1442) is the largest in China — visit Friday afternoon to see Kashgar's full Muslim community at prayer.</p>
           </div>
+          </a>
+          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Karakul_(China)" target="_blank" rel="noopener">
           <div class="highlight">
             <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Karakul_sheep_in_Akron_Zoo.jpg/960px-Karakul_sheep_in_Akron_Zoo.jpg" alt="Karakul Lake &amp; Muztagh Ata" loading="lazy">
             <div class="highlight-icon">Landscape</div>
             <h5>Karakul Lake &amp; Muztagh Ata</h5>
             <p>3.5h drive south on the Karakoram Highway. A high black lake at 3,600m reflecting a 7,546m peak. Yurt stays on the shore (~€25 pp). The drive itself is half the experience.</p>
           </div>
+          </a>
         </div>
       </div>
     </div>
@@ -2374,24 +2458,30 @@
 
       <div>
         <div class="highlights">
+          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Alay_Valley" target="_blank" rel="noopener">
           <div class="highlight">
             <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Alai_Valley_1.jpg/960px-Alai_Valley_1.jpg" alt="The Alay Valley" loading="lazy">
             <div class="highlight-icon">Landscape</div>
             <h5>The Alay Valley</h5>
             <p>A high green corridor between the Pamirs and the Tian Shan. Wild horses, yurt camps, jagged 7,000 m peaks on the southern wall. Some of the highest pasture land on earth.</p>
           </div>
+          </a>
+          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Jayma_Bazaar" target="_blank" rel="noopener">
           <div class="highlight">
             <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Osh_03-2016_img27_view_from_Sulayman_Mountain.jpg/960px-Osh_03-2016_img27_view_from_Sulayman_Mountain.jpg" alt="Osh's Jayma Bazaar" loading="lazy">
             <div class="highlight-icon">Cultural</div>
             <h5>Osh's Jayma Bazaar</h5>
             <p>Three kilometres of covered market along the Ak-Buura river. Spices, dried fruits, bread, kumys (fermented mare's milk — try it once), traditional knives. Older than the city around it.</p>
           </div>
+          </a>
+          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Sulaiman-Too" target="_blank" rel="noopener">
           <div class="highlight">
             <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Osh_03-2016_img06_Sulayman_Mountain.jpg/960px-Osh_03-2016_img06_Sulayman_Mountain.jpg" alt="Sulaiman-Too" loading="lazy">
             <div class="highlight-icon">Historical</div>
             <h5>Sulaiman-Too</h5>
             <p>The "throne of Solomon" — a 1,100m sacred mountain rising from Osh's centre. UNESCO-listed. Climbed by pilgrims for at least 1,500 years. Sunset from the top is the moment.</p>
           </div>
+          </a>
         </div>
       </div>
     </div>
@@ -2975,15 +3065,96 @@
   // ===== CLIMATE / GEAR WIDGET =====
   (function() {
     var climateData = {
-      ch1: { temp: '15–28°C', weather: 'Warm, humid', uv: 'Moderate', gear: 'Light layers', icon_temp: '☀️', icon_weather: '🌤', icon_uv: '🕶', icon_gear: '👕' },
-      ch2: { temp: '−10–15°C', weather: 'Cold, thin air', uv: 'Extreme', gear: 'Down jacket, thermals', icon_temp: '🏔', icon_weather: '❄️', icon_uv: '☀️', icon_gear: '🧥' },
-      ch3: { temp: '2–18°C', weather: 'Dry, sunny', uv: 'Very high', gear: 'Layers, sun hat', icon_temp: '🌡', icon_weather: '🌤', icon_uv: '☀️', icon_gear: '🧣' },
-      ch4: { temp: '−15–8°C', weather: 'Cold, pressurised', uv: 'N/A (train)', gear: 'Warm sleepwear', icon_temp: '🥶', icon_weather: '🌨', icon_uv: '—', icon_gear: '🛏' },
-      ch5: { temp: '8–25°C', weather: 'Dry, clear', uv: 'High', gear: 'Mid layers, sunscreen', icon_temp: '🌡', icon_weather: '☀️', icon_uv: '☀️', icon_gear: '🧴' },
-      ch6: { temp: '12–32°C', weather: 'Hot, desert dry', uv: 'Very high', gear: 'Hat, water, sunblock', icon_temp: '🔥', icon_weather: '☀️', icon_uv: '☀️', icon_gear: '🎒' },
-      ch7: { temp: '18–42°C', weather: 'Extreme heat', uv: 'Extreme', gear: 'Light clothes, shade', icon_temp: '🌡', icon_weather: '🔥', icon_uv: '☀️', icon_gear: '👒' },
-      ch8: { temp: '5–25°C', weather: 'Warm days, cold nights', uv: 'High', gear: 'Layers + down for Karakul', icon_temp: '🌤', icon_weather: '🌙', icon_uv: '☀️', icon_gear: '🧥' },
-      ch9: { temp: '−5–18°C', weather: 'Cold, windy', uv: 'High', gear: 'Full cold gear', icon_temp: '🏔', icon_weather: '💨', icon_uv: '☀️', icon_gear: '🧥' }
+      ch1: {
+        temp: '15–28°C', weather: 'Warm, humid', uv: 'Moderate', gear: 'Light layers',
+        icon_temp: '☀️', icon_weather: '🌤', icon_uv: '🕶', icon_gear: '👕',
+        tips: '<strong>Cover shoulders & knees</strong> at temples — carry a light scarf in your daypack (doubles as sun cover & warmth). Stock up on feminine hygiene products in Kathmandu; brands you know won\'t be available after the border. Thamel hostels are social but noisy — <strong>Patan or Boudha</strong> are safer, quieter bases for solo women.',
+        links: [
+          { text: 'Solo Female Guide to Nepal', url: 'https://www.thesolofemaletravelernetwork.com/post/solo-female-travel-nepal-tips' },
+          { text: 'What to Pack for Nepal', url: 'https://www.travelfashiongirl.com/what-to-pack-for-nepal/' },
+          { text: 'Nepal Safety Tips (Lonely Planet)', url: 'https://www.lonelyplanet.com/articles/is-nepal-safe' }
+        ]
+      },
+      ch2: {
+        temp: '−10–15°C', weather: 'Cold, thin air', uv: 'Extreme', gear: 'Down jacket, thermals',
+        icon_temp: '🏔', icon_weather: '❄️', icon_uv: '☀️', icon_gear: '🧥',
+        tips: 'Altitude hits everyone — <strong>Diamox can affect your menstrual cycle</strong>, so carry extra supplies and talk to a doctor before the trip. A pee funnel (e.g. SheWee) saves misery at freezing roadside stops. UV through thin atmosphere is brutal: SPF 50+ lip balm, polarised sunglasses, and a buff for your face are non-negotiable. Sleep in <strong>merino thermals</strong> — they regulate temperature and stay fresh for days.',
+        links: [
+          { text: 'Tibet Overland Guide', url: 'https://www.lonelyplanet.com/china/tibet' },
+          { text: 'Altitude & Women\'s Health', url: 'https://www.womenshealthmag.com/health/a60388028/altitude-sickness/' },
+          { text: 'Friendship Highway Tips', url: 'https://www.seat61.com/Tibet.htm' }
+        ]
+      },
+      ch3: {
+        temp: '2–18°C', weather: 'Dry, sunny', uv: 'Very high', gear: 'Layers, sun hat',
+        icon_temp: '🌡', icon_weather: '🌤', icon_uv: '☀️', icon_gear: '🧣',
+        tips: 'Lhasa is safer and calmer than most Chinese cities, but you\'ll always be with a guide for official sites. <strong>Dress modestly at monasteries</strong> — no shorts, no bare shoulders. The dry altitude dehydrates fast: drink 3+ litres/day and bring a good moisturiser. For the Barkhor, a <strong>crossbody anti-theft bag</strong> is better than a backpack in crowded pilgrim circuits.',
+        links: [
+          { text: 'Tibet Travel Guide (tibettravel.org)', url: 'https://www.tibettravel.org/tibet-travel-tips/female-travel-to-tibet.html' },
+          { text: 'Lhasa Solo Travel Tips', url: 'https://www.nomadicmatt.com/travel-guides/china-travel-tips/lhasa/' },
+          { text: 'Packing for High-Altitude Travel', url: 'https://www.rei.com/learn/expert-advice/high-altitude-travel.html' }
+        ]
+      },
+      ch4: {
+        temp: '−15–8°C', weather: 'Cold, pressurised', uv: 'N/A (train)', gear: 'Warm sleepwear',
+        icon_temp: '🥶', icon_weather: '🌨', icon_uv: '—', icon_gear: '🛏',
+        tips: 'Book a <strong>soft sleeper</strong> (4-berth compartment with a door that locks) — much better for privacy and security than shared open bunks. Pack a sarong for added privacy when changing. Bring your own snacks, wet wipes, and a refillable water bottle — the hot water dispenser at the end of the carriage is free. <strong>Earplugs + sleep mask</strong> are essential for the 21-hour journey.',
+        links: [
+          { text: 'Qinghai-Tibet Railway Guide (Seat 61)', url: 'https://www.seat61.com/Tibet.htm' },
+          { text: 'China Train Travel Tips', url: 'https://www.travelchinaguide.com/china-trains/tips.htm' },
+          { text: 'Solo Female Train Travel in China', url: 'https://www.thechinaguide.com/blog/solo-female-travel-china' }
+        ]
+      },
+      ch5: {
+        temp: '8–25°C', weather: 'Dry, clear', uv: 'High', gear: 'Mid layers, sunscreen',
+        icon_temp: '🌡', icon_weather: '☀️', icon_uv: '☀️', icon_gear: '🧴',
+        tips: 'This corridor feels like mainstream China — <strong>WeChat Pay is essential</strong> (have a travel companion help you set up if needed). High-speed trains are safe and clean; pick aisle seats for easy bathroom access. Hostels in Zhangye and Xining are backpacker-friendly with female-only dorms. <strong>Sunscreen goes fast</strong> at this altitude — reapply every 2 hours at Danxia.',
+        links: [
+          { text: 'China Solo Female Travel Tips', url: 'https://www.thechinaguide.com/blog/solo-female-travel-china' },
+          { text: 'Zhangye Danxia Visitor Guide', url: 'https://www.chinahighlights.com/zhangye/danxia-landform.htm' },
+          { text: 'Hexi Corridor History', url: 'https://www.britannica.com/place/Gansu-Corridor' }
+        ]
+      },
+      ch6: {
+        temp: '12–32°C', weather: 'Hot, desert dry', uv: 'Very high', gear: 'Hat, water, sunblock',
+        icon_temp: '🔥', icon_weather: '☀️', icon_uv: '☀️', icon_gear: '🎒',
+        tips: 'Desert sun is merciless — a <strong>wide-brim hat, SPF 50 sunscreen, and UV-blocking long sleeves</strong> (loose linen is ideal) matter more here than anywhere. Climb dunes at sunrise to avoid the heat; carry 2+ litres of water. The night market is safe and lively for solo wandering. Dunhuang is small and walkable — <strong>shared e-bikes</strong> are cheap to rent for the Crescent Lake trip.',
+        links: [
+          { text: 'Dunhuang Travel Guide', url: 'https://www.chinahighlights.com/dunhuang/' },
+          { text: 'Mogao Caves Visitor Info', url: 'https://www.e-dunhuang.com/index.htm' },
+          { text: 'Desert Travel Tips for Women', url: 'https://www.lonelyplanet.com/china/gansu/dunhuang' }
+        ]
+      },
+      ch7: {
+        temp: '18–42°C', weather: 'Extreme heat', uv: 'Extreme', gear: 'Light clothes, shade',
+        icon_temp: '🌡', icon_weather: '🔥', icon_uv: '☀️', icon_gear: '👒',
+        tips: 'You\'re now in Uyghur-majority Xinjiang. <strong>Dress modestly</strong> — loose trousers and covering shoulders is both culturally respectful and practical in extreme heat. Expect frequent ID checks; <strong>always carry your passport</strong>. Turpan is quiet and safe but internet access is patchy — download offline maps beforehand. Carry cash (WeChat Pay is less reliable here). Stay hydrated: <strong>electrolyte sachets</strong> are a lifesaver in 40°C+ heat.',
+        links: [
+          { text: 'Xinjiang Travel Guide', url: 'https://www.farwestchina.com/travel-guide/' },
+          { text: 'Solo Female Travel in Xinjiang', url: 'https://www.lonelyplanet.com/china/xinjiang' },
+          { text: 'Turpan Practical Info', url: 'https://www.chinahighlights.com/turpan/' }
+        ]
+      },
+      ch8: {
+        temp: '5–25°C', weather: 'Warm days, cold nights', uv: 'High', gear: 'Layers + down for Karakul',
+        icon_temp: '🌤', icon_weather: '🌙', icon_uv: '☀️', icon_gear: '🧥',
+        tips: 'Kashgar\'s Old Town is welcoming but conservative — <strong>a headscarf isn\'t required but is appreciated</strong> when visiting Id Kah or talking with local women (it opens conversations). At Karakul Lake\'s yurt camps, <strong>bring a sleeping bag liner</strong> for hygiene and warmth. The Sunday market is crowded — keep valuables in a front crossbody bag. For the Karakoram Highway, layers are everything: warm in the car, freezing outside.',
+        links: [
+          { text: 'Kashgar Old Town Guide', url: 'https://www.farwestchina.com/travel/kashgar/' },
+          { text: 'Karakoram Highway Tips', url: 'https://www.dangerousroads.org/asia/china/99-karakoram-highway-china.html' },
+          { text: 'Women in Xinjiang — Cultural Tips', url: 'https://www.nomadicmatt.com/travel-guides/china-travel-tips/xinjiang/' }
+        ]
+      },
+      ch9: {
+        temp: '−5–18°C', weather: 'Cold, windy', uv: 'High', gear: 'Full cold gear',
+        icon_temp: '🏔', icon_weather: '💨', icon_uv: '☀️', icon_gear: '🧥',
+        tips: 'Kyrgyzstan is one of Central Asia\'s <strong>safest countries for solo women</strong> — warm, welcoming, visa-free for many nationalities. At Sary-Tash homestays, you\'ll sleep on floor mats: bring a <strong>silk liner and warm socks</strong>. Osh\'s Jayma Bazaar is safe by day; avoid wandering alone after dark. Stock up on essentials in Osh if continuing onward — it\'s the last big city for a while. <strong>Kumys (fermented mare\'s milk)</strong> will be offered: try it once, decline politely if it\'s not for you.',
+        links: [
+          { text: 'Solo Female Travel Kyrgyzstan', url: 'https://www.lostwiththepurpose.com/solo-female-travel-kyrgyzstan/' },
+          { text: 'Irkeshtam Border Crossing Guide', url: 'https://caravanistan.com/border-crossings/china/kyrgyzstan/irkeshtam/' },
+          { text: 'Kyrgyzstan Backpacking Tips', url: 'https://www.advantour.com/kyrgyzstan/travel-tips.htm' }
+        ]
+      }
     };
 
     // Find each chapter's practical box and inject the climate widget
@@ -2997,6 +3168,26 @@
 
       var cd = climateData[chId];
 
+      // Build links HTML
+      var linksHtml = '';
+      if (cd.links && cd.links.length) {
+        linksHtml = '<div class="climate-links">';
+        cd.links.forEach(function(link) {
+          linksHtml += '<a class="climate-link" href="' + link.url + '" target="_blank" rel="noopener">' + link.text + '</a>';
+        });
+        linksHtml += '</div>';
+      }
+
+      // Build tips HTML
+      var tipsHtml = '';
+      if (cd.tips) {
+        tipsHtml = '<div class="backpacker-tips">'
+          + '<div class="backpacker-tips-header"><span>🎒 Backpacker Tips · Women</span></div>'
+          + '<p class="backpacker-tip-text">' + cd.tips + '</p>'
+          + linksHtml
+          + '</div>';
+      }
+
       var row = document.createElement('div');
       row.className = 'climate-row';
       row.innerHTML = '<button class="climate-toggle" aria-expanded="false">Climate & Gear</button>'
@@ -3005,6 +3196,7 @@
         + '<div class="climate-item"><div class="climate-icon">' + cd.icon_weather + '</div><div class="climate-val">' + cd.weather + '</div><div class="climate-label">Conditions</div></div>'
         + '<div class="climate-item"><div class="climate-icon">' + cd.icon_uv + '</div><div class="climate-val">' + cd.uv + '</div><div class="climate-label">UV Index</div></div>'
         + '<div class="climate-item"><div class="climate-icon">' + cd.icon_gear + '</div><div class="climate-val">' + cd.gear + '</div><div class="climate-label">Key Gear</div></div>'
+        + tipsHtml
         + '</div>';
 
       grid.parentNode.insertBefore(row, grid.nextSibling);
