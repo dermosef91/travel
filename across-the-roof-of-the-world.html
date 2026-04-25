@@ -243,21 +243,36 @@
 
   .route-list li {
     counter-increment: stop;
+    border-bottom: 1px solid rgba(31, 26, 20, 0.08);
+  }
+
+  .route-list li a.route-link {
     display: grid;
     grid-template-columns: 80px 1fr auto;
     gap: 24px;
     padding: 22px 0;
-    border-bottom: 1px solid rgba(31, 26, 20, 0.08);
     align-items: baseline;
-    transition: padding-left 0.3s ease;
+    text-decoration: none;
+    color: inherit;
+    transition: padding-left 0.3s ease, background 0.3s ease;
+    cursor: pointer;
   }
 
-  .route-list li:hover {
+  .route-list li a.route-link:hover {
     padding-left: 12px;
     background: rgba(184, 137, 64, 0.05);
   }
 
-  .route-list li::before {
+  .route-list li a.route-link:hover .route-name {
+    color: var(--maroon);
+  }
+
+  .route-list li a.route-link:hover .route-go {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .route-list li a.route-link::before {
     content: counter(stop, decimal-leading-zero);
     font-family: 'Cormorant Garamond', serif;
     font-size: 32px;
@@ -270,6 +285,7 @@
     font-family: 'Cormorant Garamond', serif;
     font-size: 28px;
     color: var(--ink);
+    transition: color 0.3s ease;
   }
 
   .route-name span {
@@ -290,6 +306,18 @@
     border: 1px solid rgba(31, 26, 20, 0.2);
     border-radius: 100px;
     white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .route-go {
+    display: inline-block;
+    font-size: 14px;
+    color: var(--gold);
+    opacity: 0;
+    transform: translateX(-6px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
   }
 
   /* === CHAPTERS === */
@@ -1086,6 +1114,22 @@
     box-shadow: none;
   }
 
+  .map-popup-link {
+    display: inline-block;
+    margin-top: 8px;
+    font-family: 'Cormorant Unicase', serif;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-size: 11px;
+    color: #6e2a22;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .map-popup-link:hover {
+    color: #b88940;
+  }
+
   @media (max-width: 880px) {
     .route-map-wrapper .map-container {
       height: 380px;
@@ -1693,15 +1737,15 @@
     </div>
 
     <ol class="route-list">
-      <li><span class="route-name">Kathmandu <span>— prologue, Nepal</span></span><span class="route-mode">Foot</span></li>
-      <li><span class="route-name">Kathmandu → Lhasa <span>— Friendship Highway via Gyirong &amp; Everest</span></span><span class="route-mode">Overland Tour · 8 days</span></li>
-      <li><span class="route-name">Lhasa <span>— Potala, Jokhang, Barkhor</span></span><span class="route-mode">3–4 days</span></li>
-      <li><span class="route-name">Lhasa → Xining <span>— Qinghai-Tibet Railway, the Sky Train</span></span><span class="route-mode">Overnight train · 21h</span></li>
-      <li><span class="route-name">Xining → Zhangye → Jiayuguan <span>— along the Hexi Corridor</span></span><span class="route-mode">High-speed rail</span></li>
-      <li><span class="route-name">Dunhuang <span>— Mogao Caves, Crescent Lake, Singing Sands</span></span><span class="route-mode">Train + bus · 3 days</span></li>
-      <li><span class="route-name">Turpan &amp; Urumqi <span>— Flaming Mountains, Karez wells</span></span><span class="route-mode">Train · 2–3 days</span></li>
-      <li><span class="route-name">Kashgar <span>— Sunday bazaar, Old Town, Karakul Lake</span></span><span class="route-mode">Train + day trip · 4–5 days</span></li>
-      <li><span class="route-name">Kashgar → Osh <span>— Irkeshtam Pass into Kyrgyzstan</span></span><span class="route-mode">Border crossing · 1 day</span></li>
+      <li><a class="route-link" href="#ch1"><span class="route-name">Kathmandu <span>— prologue, Nepal</span></span><span class="route-mode">Foot<span class="route-go">→</span></span></a></li>
+      <li><a class="route-link" href="#ch2"><span class="route-name">Kathmandu → Lhasa <span>— Friendship Highway via Gyirong &amp; Everest</span></span><span class="route-mode">Overland Tour · 8 days<span class="route-go">→</span></span></a></li>
+      <li><a class="route-link" href="#ch3"><span class="route-name">Lhasa <span>— Potala, Jokhang, Barkhor</span></span><span class="route-mode">3–4 days<span class="route-go">→</span></span></a></li>
+      <li><a class="route-link" href="#ch4"><span class="route-name">Lhasa → Xining <span>— Qinghai-Tibet Railway, the Sky Train</span></span><span class="route-mode">Overnight train · 21h<span class="route-go">→</span></span></a></li>
+      <li><a class="route-link" href="#ch5"><span class="route-name">Xining → Zhangye → Jiayuguan <span>— along the Hexi Corridor</span></span><span class="route-mode">High-speed rail<span class="route-go">→</span></span></a></li>
+      <li><a class="route-link" href="#ch6"><span class="route-name">Dunhuang <span>— Mogao Caves, Crescent Lake, Singing Sands</span></span><span class="route-mode">Train + bus · 3 days<span class="route-go">→</span></span></a></li>
+      <li><a class="route-link" href="#ch7"><span class="route-name">Turpan &amp; Urumqi <span>— Flaming Mountains, Karez wells</span></span><span class="route-mode">Train · 2–3 days<span class="route-go">→</span></span></a></li>
+      <li><a class="route-link" href="#ch8"><span class="route-name">Kashgar <span>— Sunday bazaar, Old Town, Karakul Lake</span></span><span class="route-mode">Train + day trip · 4–5 days<span class="route-go">→</span></span></a></li>
+      <li><a class="route-link" href="#ch9"><span class="route-name">Kashgar → Osh <span>— Irkeshtam Pass into Kyrgyzstan</span></span><span class="route-mode">Border crossing · 1 day<span class="route-go">→</span></span></a></li>
     </ol>
   </div>
 </section>
@@ -2675,25 +2719,25 @@
 
   // Route stop data
   const stops = [
-    { lat: 27.7172, lng: 85.3240, name: 'Kathmandu', sub: 'Prologue · Nepal · 1,400 m', ch: 'I' },
-    { lat: 28.6506, lng: 85.3678, name: 'Gyirong Border', sub: 'Nepal–Tibet crossing', ch: '' },
-    { lat: 28.3532, lng: 86.8582, name: 'Tingri', sub: 'Friendship Highway · 4,300 m', ch: '' },
-    { lat: 28.0025, lng: 86.8528, name: 'Everest Base Camp (N)', sub: 'Rongbuk · 5,200 m', ch: '' },
-    { lat: 29.2644, lng: 88.8877, name: 'Shigatse', sub: 'Tashilhunpo Monastery', ch: '' },
-    { lat: 28.9108, lng: 89.6000, name: 'Gyantse', sub: 'Kumbum Stupa', ch: '' },
-    { lat: 29.2583, lng: 90.5833, name: 'Yamdrok Lake', sub: 'Sacred lake · Karo La Pass', ch: '' },
-    { lat: 29.6500, lng: 91.1000, name: 'Lhasa', sub: 'The holy city · 3,656 m', ch: 'III' },
-    { lat: 33.0000, lng: 91.7300, name: 'Tanggula Pass', sub: 'Highest railway · 5,072 m', ch: '' },
-    { lat: 35.6147, lng: 94.9162, name: 'Hoh Xil', sub: 'High cold desert', ch: '' },
-    { lat: 36.6200, lng: 101.7770, name: 'Xining', sub: 'Gateway to the Silk Road', ch: '' },
-    { lat: 38.9260, lng: 100.4500, name: 'Zhangye', sub: 'Rainbow Danxia', ch: '' },
-    { lat: 39.7700, lng: 98.2900, name: 'Jiayuguan', sub: 'End of the Great Wall', ch: '' },
-    { lat: 40.1420, lng: 94.6620, name: 'Dunhuang', sub: 'Mogao Caves · Crescent Lake', ch: 'VI' },
-    { lat: 42.9476, lng: 89.1896, name: 'Turpan', sub: 'Oasis of fire · −154 m', ch: 'VII' },
-    { lat: 39.4697, lng: 75.9899, name: 'Kashgar', sub: 'Last city of China · 1,289 m', ch: 'VIII' },
-    { lat: 39.7200, lng: 73.8500, name: 'Irkeshtam Pass', sub: 'China–Kyrgyzstan border', ch: '' },
-    { lat: 39.7252, lng: 73.2428, name: 'Sary-Tash', sub: 'Alay Valley · 3,170 m', ch: '' },
-    { lat: 40.5283, lng: 72.7985, name: 'Osh', sub: 'Kyrgyzstan · Jayma Bazaar', ch: 'IX' }
+    { lat: 27.7172, lng: 85.3240, name: 'Kathmandu', sub: 'Prologue · Nepal · 1,400 m', ch: 'I', target: 'ch1' },
+    { lat: 28.6506, lng: 85.3678, name: 'Gyirong Border', sub: 'Nepal–Tibet crossing', ch: '', target: 'ch2' },
+    { lat: 28.3532, lng: 86.8582, name: 'Tingri', sub: 'Friendship Highway · 4,300 m', ch: '', target: 'ch2' },
+    { lat: 28.0025, lng: 86.8528, name: 'Everest Base Camp (N)', sub: 'Rongbuk · 5,200 m', ch: '', target: 'ch2' },
+    { lat: 29.2644, lng: 88.8877, name: 'Shigatse', sub: 'Tashilhunpo Monastery', ch: '', target: 'ch2' },
+    { lat: 28.9108, lng: 89.6000, name: 'Gyantse', sub: 'Kumbum Stupa', ch: '', target: 'ch2' },
+    { lat: 29.2583, lng: 90.5833, name: 'Yamdrok Lake', sub: 'Sacred lake · Karo La Pass', ch: '', target: 'ch2' },
+    { lat: 29.6500, lng: 91.1000, name: 'Lhasa', sub: 'The holy city · 3,656 m', ch: 'III', target: 'ch3' },
+    { lat: 33.0000, lng: 91.7300, name: 'Tanggula Pass', sub: 'Highest railway · 5,072 m', ch: '', target: 'ch4' },
+    { lat: 35.6147, lng: 94.9162, name: 'Hoh Xil', sub: 'High cold desert', ch: '', target: 'ch4' },
+    { lat: 36.6200, lng: 101.7770, name: 'Xining', sub: 'Gateway to the Silk Road', ch: '', target: 'ch5' },
+    { lat: 38.9260, lng: 100.4500, name: 'Zhangye', sub: 'Rainbow Danxia', ch: '', target: 'ch5' },
+    { lat: 39.7700, lng: 98.2900, name: 'Jiayuguan', sub: 'End of the Great Wall', ch: '', target: 'ch5' },
+    { lat: 40.1420, lng: 94.6620, name: 'Dunhuang', sub: 'Mogao Caves · Crescent Lake', ch: 'VI', target: 'ch6' },
+    { lat: 42.9476, lng: 89.1896, name: 'Turpan', sub: 'Oasis of fire · −154 m', ch: 'VII', target: 'ch7' },
+    { lat: 39.4697, lng: 75.9899, name: 'Kashgar', sub: 'Last city of China · 1,289 m', ch: 'VIII', target: 'ch8' },
+    { lat: 39.7200, lng: 73.8500, name: 'Irkeshtam Pass', sub: 'China–Kyrgyzstan border', ch: '', target: 'ch9' },
+    { lat: 39.7252, lng: 73.2428, name: 'Sary-Tash', sub: 'Alay Valley · 3,170 m', ch: '', target: 'ch9' },
+    { lat: 40.5283, lng: 72.7985, name: 'Osh', sub: 'Kyrgyzstan · Jayma Bazaar', ch: 'IX', target: 'ch9' }
   ];
 
   // Route polyline coordinates (simplified path)
@@ -2721,9 +2765,20 @@
   stops.forEach((s, i) => {
     const isMajor = majorStops.includes(i);
     const icon = isMajor ? stopIcon(s.ch || '●', '#6e2a22') : smallIcon('#b88940');
-    L.marker([s.lat, s.lng], { icon })
-      .bindPopup(`<strong>${s.name}</strong><em>${s.sub}</em>`)
+    const marker = L.marker([s.lat, s.lng], { icon })
+      .bindPopup(`<strong>${s.name}</strong><em>${s.sub}</em><br><a href="#${s.target}" class="map-popup-link" onclick="event.preventDefault(); document.getElementById('${s.target}').scrollIntoView({behavior:'smooth', block:'start'});">Read chapter →</a>`)
       .addTo(overviewMap);
+
+    // Make marker itself clickable for navigation
+    marker.on('click', function(e) {
+      // The popup opens on click by default; we keep that behavior
+      // but also add cursor styling via the icon
+    });
+  });
+
+  // Add cursor pointer to all map markers
+  document.querySelectorAll('#overview-map .leaflet-marker-icon').forEach(el => {
+    el.style.cursor = 'pointer';
   });
 
   overviewMap.fitBounds(routeCoords, { padding: [40, 40] });
