@@ -799,9 +799,14 @@
 
   /* === RESPONSIVE === */
   @media (max-width: 880px) {
+    .container {
+      padding: 0 24px;
+    }
     .chapter-header {
       grid-template-columns: 1fr;
       gap: 16px;
+      margin-bottom: 32px;
+      padding-bottom: 24px;
     }
     .chapter-number {
       font-size: 64px;
@@ -817,30 +822,135 @@
       grid-template-columns: 1fr;
     }
     .route-list li {
-      grid-template-columns: 50px 1fr;
+      grid-template-columns: 40px 1fr;
       gap: 16px;
     }
     .route-mode {
       grid-column: 2;
       justify-self: start;
-      margin-top: 4px;
+      margin-top: 6px;
     }
     .route-list li::before {
       font-size: 24px;
     }
     .route-name {
-      font-size: 22px;
+      font-size: 24px;
     }
     .route-name span {
       display: block;
       margin-left: 0;
-      margin-top: 2px;
+      margin-top: 4px;
     }
     .hero-meta {
       gap: 32px;
     }
     .practical {
       padding: 32px 24px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .container {
+      padding: 0 16px;
+    }
+    .hero {
+      padding: 60px 16px;
+    }
+    .hero-meta {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px 16px;
+    }
+    .route-overview {
+      padding: 80px 0 60px;
+    }
+    .route-list {
+      margin-top: 32px;
+    }
+    .route-list li {
+      grid-template-columns: 32px 1fr;
+      gap: 12px;
+      padding: 16px 0;
+    }
+    .route-list li::before {
+      font-size: 20px;
+    }
+    .route-name {
+      font-size: 20px;
+    }
+    .chapter {
+      padding: 64px 0 48px;
+    }
+    .chapter-hero {
+      aspect-ratio: 4/3;
+      margin-bottom: 32px;
+    }
+    .chapter-hero-quote {
+      padding: 24px 16px;
+    }
+    .chapter-hero-quote .quote-text {
+      font-size: 20px;
+    }
+    .why-worth-it {
+      padding: 24px 20px;
+      margin: 24px 0;
+    }
+    .why-worth-it p {
+      font-size: 19px;
+    }
+    .highlight {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto auto auto auto;
+      gap: 12px;
+      padding: 16px;
+    }
+    .highlight-image {
+      grid-column: 1;
+      grid-row: 1;
+      aspect-ratio: 16/9;
+    }
+    .highlight-icon {
+      grid-column: 1;
+      grid-row: 2;
+    }
+    .highlight h5 {
+      grid-column: 1;
+      grid-row: 3;
+    }
+    .highlight p {
+      grid-column: 1;
+      grid-row: 4;
+      margin-top: 0;
+    }
+    .practical {
+      padding: 24px 16px;
+      margin-top: 32px;
+    }
+    .practical-grid {
+      gap: 20px;
+    }
+    .magic-moment {
+      padding: 32px 16px;
+      margin: 32px auto 0;
+    }
+    .magic-moment-text {
+      font-size: 20px;
+    }
+    .epilogue {
+      padding: 80px 0;
+      margin-top: 64px;
+    }
+    .ref-grid {
+      grid-template-columns: 1fr;
+      gap: 32px;
+      margin-top: 40px;
+    }
+    .closing {
+      padding: 80px 16px;
+    }
+    .closing-text {
+      font-size: 24px;
+      margin-bottom: 24px;
     }
   }
 
@@ -932,6 +1042,20 @@
   @media (max-width: 880px) {
     .route-map-wrapper .map-container {
       height: 380px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .route-map-wrapper .map-container {
+      height: 300px;
+    }
+    .route-map-label {
+      padding: 8px 12px;
+      top: 12px;
+      left: 12px;
+    }
+    .route-map-label strong {
+      font-size: 15px;
     }
   }
 
