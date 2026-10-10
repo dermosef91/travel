@@ -430,12 +430,12 @@ function initElevation() {
     var grid = (w < 600 ? [0, 2500, 5000] : [0, 1000, 2000, 3000, 4000, 5000]).map(function(a) {
       var yy = y(a);
       return '<line x1="0" y1="' + yy + '" x2="' + w + '" y2="' + yy + '" stroke="rgba(31,26,20,0.08)" stroke-dasharray="4,4"/>' +
-        '<text x="4" y="' + (yy - 4) + '" fill="rgba(31,26,20,0.45)" font-family="Cormorant Unicase, serif" font-size="10" letter-spacing="0.08em">' + (a ? a.toLocaleString('en') + ' m' : 'sea level') + '</text>';
+        '<text x="4" y="' + (yy - 4) + '" fill="rgba(31,26,20,0.45)" font-family="Instrument Sans, sans-serif" font-size="10">' + (a ? a.toLocaleString('en') + ' m' : 'sea level') + '</text>';
     }).join('');
     var mticks = months.map(function(m) {
       var xx = x(m[1]);
       return '<line x1="' + xx + '" y1="' + padTop + '" x2="' + xx + '" y2="' + (h - padBot + 4) + '" stroke="rgba(31,26,20,0.10)"/>' +
-        '<text x="' + (xx + 4) + '" y="' + (h - 3) + '" fill="rgba(31,26,20,0.55)" font-family="Cormorant Unicase, serif" font-size="10" letter-spacing="0.12em">' + m[0].toUpperCase() + '</text>';
+        '<text x="' + (xx + 4) + '" y="' + (h - 3) + '" fill="rgba(31,26,20,0.55)" font-family="Instrument Sans, sans-serif" font-size="11">' + m[0] + '</text>';
     }).join('');
     var mainD = path(main);
     var area = mainD + ' L' + x(maxDay) + ',' + (h - padBot) + ' L0,' + (h - padBot) + ' Z';

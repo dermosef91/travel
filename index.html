@@ -6,11 +6,12 @@
 <title>A Route for Silk, Soles and Souls — An Eight-Month Journey</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Crimson+Pro:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Cormorant+Unicase:wght@400;500;600&family=Caveat:wght@500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Crimson+Pro:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Cormorant+Unicase:wght@400;500;600&family=Caveat:wght@500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="improvements.css">
+<link rel="stylesheet" href="journal.css">
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
 <script src="script.js" defer></script>
 </head>
@@ -43,55 +44,20 @@
 </div>
 
 <!-- ============= HERO ============= -->
-<section class="hero">
-  <svg class="hero-journey-art" viewBox="0 0 1440 600" preserveAspectRatio="none">
-    <defs>
-      <linearGradient id="m1" x1="0" x2="0" y1="0" y2="1">
-        <stop offset="0%" stop-color="#6e2a22" stop-opacity="0.15"/>
-        <stop offset="100%" stop-color="#6e2a22" stop-opacity="0.4"/>
-      </linearGradient>
-      <linearGradient id="m2" x1="0" x2="0" y1="0" y2="1">
-        <stop offset="0%" stop-color="#1a2740" stop-opacity="0.2"/>
-        <stop offset="100%" stop-color="#1a2740" stop-opacity="0.55"/>
-      </linearGradient>
-      <linearGradient id="m3" x1="0" x2="0" y1="0" y2="1">
-        <stop offset="0%" stop-color="#1f1a14" stop-opacity="0.4"/>
-        <stop offset="100%" stop-color="#1f1a14" stop-opacity="0.85"/>
-      </linearGradient>
-    </defs>
-    <!-- Far range -->
-    <path class="hero-path-mountain" d="M0,400 L80,340 L160,380 L240,300 L320,360 L400,280 L480,330 L560,260 L640,310 L720,240 L800,290 L880,250 L960,300 L1040,260 L1120,310 L1200,270 L1280,320 L1360,280 L1440,330 L1440,600 L0,600 Z" fill="url(#m1)"/>
-    <!-- Mid range -->
-    <path class="hero-path-hills" d="M0,460 L100,420 L200,450 L280,380 L360,440 L440,360 L520,420 L600,340 L680,400 L760,330 L840,390 L920,350 L1000,400 L1080,360 L1160,410 L1240,370 L1320,420 L1400,390 L1440,420 L1440,600 L0,600 Z" fill="url(#m2)"/>
-    <!-- Near range -->
-    <path class="hero-path-waves" d="M0,520 L120,490 L240,510 L360,470 L480,500 L600,460 L720,490 L840,450 L960,485 L1080,455 L1200,490 L1320,460 L1440,485 L1440,600 L0,600 Z" fill="url(#m3)"/>
-  </svg>
-
-  <div class="hero-content">
-    <div class="hero-eyebrow">An Eight-Month Journey · 31 December 2026 to 27 August 2027</div>
-    <h1 class="hero-title">A Route for <br><em>Silk, Soles and Souls</em></h1>
-    <p class="hero-subtitle">From the tropical coasts of Sri Lanka, through the ashrams of India and over the Himalayas, up to Lhasa and Everest, along the old Silk Road, and down through the Pamirs to the Caucasus.</p>
-    <div class="hero-divider"></div>
-    <div class="hero-dedication">for Micky and Mo</div>
-    <div class="hero-meta">
-      <div class="hero-meta-item">
-        <div class="hero-meta-label">Distance</div>
-        <div class="hero-meta-value">~18,000 km</div>
-      </div>
-      <div class="hero-meta-item">
-        <div class="hero-meta-label">Duration</div>
-        <div class="hero-meta-value">240 days</div>
-      </div>
-      <div class="hero-meta-item">
-        <div class="hero-meta-label">Countries</div>
-        <div class="hero-meta-value">7</div>
-      </div>
-      <div class="hero-meta-item">
-        <div class="hero-meta-label">Highest point</div>
-        <div class="hero-meta-value">5,416 m</div>
-      </div>
-    </div>
+<section class="hero jr-hero">
+  <div class="jr-hero-inner">
+    <p class="jr-eyebrow">An eight-month journey · 31 December 2026 to 27 August 2027</p>
+    <h1 class="jr-title">A Route for<br><em>Silk, Soles and Souls</em></h1>
+    <p class="jr-sub">From the tropical coasts of Sri Lanka, through the ashrams of India and over the Himalayas, up to Lhasa and Everest, along the old Silk Road, and down through the Pamirs to the Caucasus.</p>
+    <p class="jr-for">for Micky and Mo</p>
+    <dl class="jr-stats">
+      <div><dt>Distance</dt><dd>~18,000 km</dd></div>
+      <div><dt>Duration</dt><dd>240 days</dd></div>
+      <div><dt>Countries</dt><dd>7</dd></div>
+      <div><dt>Highest point</dt><dd>5,416 m</dd></div>
+    </dl>
   </div>
+  <figure class="jr-bleed"><img src="images/everest_north_face.jpg" alt="Everest's north face at first light"></figure>
 </section>
 
 <!-- ============= ROUTE OVERVIEW ============= -->
@@ -168,1431 +134,1122 @@
 </section>
 
 <!-- ============= CHAPTER 1 ============= -->
-<section class="chapter" id="ch1">
+<section class="chapter jr-chapter" id="ch1">
   <div class="container">
-    <header class="chapter-header">
-      <div class="chapter-number"><span>Chapter One</span>I.</div>
-      <div>
+    <header class="chapter-header jr-head">
+      <div class="chapter-number" aria-hidden="true">I</div>
+      <div class="jr-titles">
+        <p class="jr-meta">Chapter one · Sri Lanka · Days 1–10 · 31 December – 9 January</p>
         <div class="chapter-title-wrap">
-          <h2 class="chapter-title">The <em>Southern Coast</em></h2>
-          <button class="locate-btn" onclick="flyToChapter('ch1')"><span>Map</span></button>
+          <h2 class="chapter-title">The Southern Coast</h2>
+          <button class="locate-btn" type="button" onclick="flyToChapter('ch1')"><span>Map</span></button>
         </div>
-        <p class="chapter-subtitle">Colombo, Galle, Unawatuna, Mirissa. Fort walls, a dive licence and the first blue whales.</p>
+        <p class="chapter-subtitle">Colombo, Galle, Unawatuna, Mirissa · sea level</p>
       </div>
     </header>
+  </div>
 
-    <div class="chapter-hero gradient-southern-coast">
-      <img class="scene" src="images/southern_coast_galle.jpg" alt="Galle Fort at sunset, Sri Lanka" loading="lazy">
-      <div class="chapter-hero-quote">
-        <div class="quote-text">“Kneeling on the sand at twelve metres, hearing nothing but your own breath.”</div>
-        <div class="quote-attr">Days 1–10 · 31 December – 9 January · sea level</div>
+  <figure class="jr-photo">
+    <div class="jr-photo-frame"><img src="images/southern_coast_galle.jpg" alt="Galle Fort at sunset, Sri Lanka" loading="lazy"></div>
+    <figcaption>“Kneeling on the sand at twelve metres, hearing nothing but your own breath.”</figcaption>
+  </figure>
+
+  <div class="container">
+    <div class="jr-cols">
+      <div class="jr-text">
+        <p class="jr-lede">Shake off the winter. Take the coastal train from Colombo to Galle, spend four days learning to dive in Unawatuna, and go out one morning from Mirissa to look for blue whales.</p>
+      </div>
+      <div class="practical jr-prac">
+        <h4>Practical</h4>
+        <dl class="practical-grid">
+          <div class="practical-item"><dt>Transport</dt><dd>Sit on the right of the train for the sea.</dd></div>
+          <div class="practical-item"><dt>PADI course</dt><dd>Do the dive theory online before you fly.</dd></div>
+          <div class="practical-item"><dt>Visa</dt><dd>Sri Lanka&#x27;s visa is currently free for Germans, but you still need the online ETA.</dd></div>
+        </dl>
       </div>
     </div>
 
-    <div class="chapter-body chapter-body--stacked">
-      <div class="chapter-text">
-        <p>Shake off the winter. Take the coastal train from Colombo to Galle, spend four days learning to dive in Unawatuna, and go out one morning from Mirissa to look for blue whales.</p>
-      </div>
-      <div class="highlights highlights--row">
-          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Galle_Fort" target="_blank" rel="noopener">
-          <div class="highlight">
-            <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Galle_Fort.jpg/500px-Galle_Fort.jpg" alt="Galle Fort walls" loading="lazy">
-            <div class="highlight-icon">Historical</div>
-            <h5>Galle Fort ramparts at sunset</h5>
-          </div>
-          </a>
-          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Unawatuna" target="_blank" rel="noopener">
-          <div class="highlight">
-            <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Unawatuna.jpg/500px-Unawatuna.jpg" alt="PADI Open Water" loading="lazy">
-            <div class="highlight-icon">Experience</div>
-            <h5>PADI Open Water in Unawatuna, 3–4 days</h5>
-          </div>
-          </a>
-          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Mirissa" target="_blank" rel="noopener">
-          <div class="highlight">
-            <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Mirissa-Plage_%283%29.jpg/500px-Mirissa-Plage_%283%29.jpg" alt="Blue whales in Mirissa" loading="lazy">
-            <div class="highlight-icon">Wildlife</div>
-            <h5>Blue whales off Mirissa, in season until April</h5>
-          </div>
-          </a>
-      </div>
+    <div class="jr-hls" aria-label="Don't miss">
+      <a class="jr-hl" href="https://en.wikipedia.org/wiki/Galle_Fort" target="_blank" rel="noopener">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Galle_Fort.jpg/500px-Galle_Fort.jpg" alt="Galle Fort walls" loading="lazy">
+        <span class="jr-hl-kind">Historical</span>
+        <span class="jr-hl-title">Galle Fort ramparts at sunset</span>
+      </a>
+      <a class="jr-hl" href="https://en.wikipedia.org/wiki/Unawatuna" target="_blank" rel="noopener">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Unawatuna.jpg/500px-Unawatuna.jpg" alt="PADI Open Water" loading="lazy">
+        <span class="jr-hl-kind">Experience</span>
+        <span class="jr-hl-title">PADI Open Water in Unawatuna, 3–4 days</span>
+      </a>
+      <a class="jr-hl" href="https://en.wikipedia.org/wiki/Mirissa" target="_blank" rel="noopener">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Mirissa-Plage_%283%29.jpg/500px-Mirissa-Plage_%283%29.jpg" alt="Blue whales in Mirissa" loading="lazy">
+        <span class="jr-hl-kind">Wildlife</span>
+        <span class="jr-hl-title">Blue whales off Mirissa, in season until April</span>
+      </a>
     </div>
-
-    <div class="practical">
-      <h4>Practical · The Southern Coast</h4>
-      <div class="practical-grid">
-        <div class="practical-item">
-          <dt>Transport</dt>
-          <dd>Sit on the right of the train for the sea.</dd>
-        </div>
-        <div class="practical-item">
-          <dt>PADI course</dt>
-          <dd>Do the dive theory online before you fly.</dd>
-        </div>
-        <div class="practical-item">
-          <dt>Visa</dt>
-          <dd>Sri Lanka&#x27;s visa is currently free for Germans, but you still need the online ETA.</dd>
-        </div>
-      </div>
-    </div>
-
   </div>
 </section>
 
 <!-- ============= CHAPTER 2 ============= -->
-<section class="chapter" id="ch2">
+<section class="chapter jr-chapter" id="ch2">
   <div class="container">
-    <header class="chapter-header">
-      <div class="chapter-number"><span>Chapter Two</span>II.</div>
-      <div>
+    <header class="chapter-header jr-head">
+      <div class="chapter-number" aria-hidden="true">II</div>
+      <div class="jr-titles">
+        <p class="jr-meta">Chapter two · Sri Lanka · Days 11–19 · 10–18 January</p>
         <div class="chapter-title-wrap">
-          <h2 class="chapter-title">The <em>Hill Country</em></h2>
-          <button class="locate-btn" onclick="flyToChapter('ch2')"><span>Map</span></button>
+          <h2 class="chapter-title">The Hill Country</h2>
+          <button class="locate-btn" type="button" onclick="flyToChapter('ch2')"><span>Map</span></button>
         </div>
-        <p class="chapter-subtitle">Kandy, Ella, Sigiriya. The slow train into the tea estates.</p>
+        <p class="chapter-subtitle">Kandy, Ella, Sigiriya · up to 1,040 m</p>
       </div>
     </header>
+  </div>
 
-    <div class="chapter-hero gradient-hill-country">
-      <img class="scene" src="images/hill_country_ella.jpg" alt="Nine Arch Bridge train, Ella, Sri Lanka" loading="lazy">
-      <div class="chapter-hero-quote">
-        <div class="quote-text">“An open train door on a bend, the mist lifting off a valley of tea.”</div>
-        <div class="quote-attr">Days 11–19 · 10–18 January · up to 1,040 m</div>
+  <figure class="jr-photo">
+    <div class="jr-photo-frame"><img src="images/hill_country_ella.jpg" alt="Nine Arch Bridge train, Ella, Sri Lanka" loading="lazy"></div>
+    <figcaption>“An open train door on a bend, the mist lifting off a valley of tea.”</figcaption>
+  </figure>
+
+  <div class="container">
+    <div class="jr-cols">
+      <div class="jr-text">
+        <p class="jr-lede">The slow blue train climbs into tea country and you need a sweater for the first time in weeks. Ella for walking, Kandy for the Temple of the Tooth, Sigiriya for the fortress on its rock.</p>
+        <aside class="jr-note"><b>Checked in October 2026</b>Cyclone Ditwah damaged the rail network. The hill line has run again since June 2026; Colombo to Kandy was due back in October. Recheck in December and take a car if needed.</aside>
+      </div>
+      <div class="practical jr-prac">
+        <h4>Practical</h4>
+        <dl class="practical-grid">
+          <div class="practical-item"><dt>Train tickets</dt><dd>Reserved seats sell out; book 30 days ahead or ride unreserved.</dd></div>
+          <div class="practical-item"><dt>Clothing</dt><dd>Bring a fleece for misty mornings.</dd></div>
+        </dl>
       </div>
     </div>
 
-    <div class="chapter-body chapter-body--stacked">
-      <div class="chapter-text">
-        <p>The slow blue train climbs into tea country and you need a sweater for the first time in weeks. Ella for walking, Kandy for the Temple of the Tooth, Sigiriya for the fortress on its rock.</p>
-        <div class="check-note">
-          <span class="check-note-mark" aria-hidden="true">!</span>
-          <div><span class="check-note-label">Checked in October 2026</span>
-          <p>Cyclone Ditwah damaged the rail network. The hill line has run again since June 2026; Colombo to Kandy was due back in October. Recheck in December and take a car if needed.</p></div>
-        </div>
-      </div>
-      <div class="highlights highlights--row">
-          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Main_Line_(Sri_Lanka)" target="_blank" rel="noopener">
-          <div class="highlight">
-            <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Udarate_Menike_train_on_the_Colombo-Badulla_route.JPG/500px-Udarate_Menike_train_on_the_Colombo-Badulla_route.JPG" alt="The Hill Country Train" loading="lazy">
-            <div class="highlight-icon">Experience</div>
-            <h5>Kandy to Ella by train, doors open</h5>
-          </div>
-          </a>
-          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Temple_of_the_Tooth" target="_blank" rel="noopener">
-          <div class="highlight">
-            <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/SL_Kandy_asv2020-01_img33_Sacred_Tooth_Temple.jpg/500px-SL_Kandy_asv2020-01_img33_Sacred_Tooth_Temple.jpg" alt="Temple of the Tooth" loading="lazy">
-            <div class="highlight-icon">Historical</div>
-            <h5>Evening puja at the Temple of the Tooth</h5>
-          </div>
-          </a>
-          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Sigiriya" target="_blank" rel="noopener">
-          <div class="highlight">
-            <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Sigiriya_%28141688197%29.jpeg/500px-Sigiriya_%28141688197%29.jpeg" alt="Sigiriya Rock" loading="lazy">
-            <div class="highlight-icon">Historical</div>
-            <h5>Sigiriya at 06:30, before the heat and the buses</h5>
-          </div>
-          </a>
-      </div>
+    <div class="jr-hls" aria-label="Don't miss">
+      <a class="jr-hl" href="https://en.wikipedia.org/wiki/Main_Line_(Sri_Lanka)" target="_blank" rel="noopener">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Udarate_Menike_train_on_the_Colombo-Badulla_route.JPG/500px-Udarate_Menike_train_on_the_Colombo-Badulla_route.JPG" alt="The Hill Country Train" loading="lazy">
+        <span class="jr-hl-kind">Experience</span>
+        <span class="jr-hl-title">Kandy to Ella by train, doors open</span>
+      </a>
+      <a class="jr-hl" href="https://en.wikipedia.org/wiki/Temple_of_the_Tooth" target="_blank" rel="noopener">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/SL_Kandy_asv2020-01_img33_Sacred_Tooth_Temple.jpg/500px-SL_Kandy_asv2020-01_img33_Sacred_Tooth_Temple.jpg" alt="Temple of the Tooth" loading="lazy">
+        <span class="jr-hl-kind">Historical</span>
+        <span class="jr-hl-title">Evening puja at the Temple of the Tooth</span>
+      </a>
+      <a class="jr-hl" href="https://en.wikipedia.org/wiki/Sigiriya" target="_blank" rel="noopener">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Sigiriya_%28141688197%29.jpeg/500px-Sigiriya_%28141688197%29.jpeg" alt="Sigiriya Rock" loading="lazy">
+        <span class="jr-hl-kind">Historical</span>
+        <span class="jr-hl-title">Sigiriya at 06:30, before the heat and the buses</span>
+      </a>
     </div>
-
-    <div class="practical">
-      <h4>Practical · The Hill Country</h4>
-      <div class="practical-grid">
-        <div class="practical-item">
-          <dt>Train tickets</dt>
-          <dd>Reserved seats sell out; book 30 days ahead or ride unreserved.</dd>
-        </div>
-        <div class="practical-item">
-          <dt>Clothing</dt>
-          <dd>Bring a fleece for misty mornings.</dd>
-        </div>
-      </div>
-    </div>
-
   </div>
 </section>
 
 <!-- ============= CHAPTER 3 ============= -->
-<section class="chapter" id="ch3">
+<section class="chapter jr-chapter" id="ch3">
   <div class="container">
-    <header class="chapter-header">
-      <div class="chapter-number"><span>Chapter Three</span>III.</div>
-      <div>
+    <header class="chapter-header jr-head">
+      <div class="chapter-number" aria-hidden="true">III</div>
+      <div class="jr-titles">
+        <p class="jr-meta">Chapter three · South India · Days 20–26 · 19–25 January</p>
         <div class="chapter-title-wrap">
-          <h2 class="chapter-title">The <em>Spice Coast</em></h2>
-          <button class="locate-btn" onclick="flyToChapter('ch3')"><span>Map</span></button>
+          <h2 class="chapter-title">The Spice Coast</h2>
+          <button class="locate-btn" type="button" onclick="flyToChapter('ch3')"><span>Map</span></button>
         </div>
-        <p class="chapter-subtitle">Kochi, Munnar. Fishing nets, cardamom hills and the first rush of India.</p>
+        <p class="chapter-subtitle">Kochi, Munnar · up to 1,600 m</p>
       </div>
     </header>
+  </div>
 
-    <div class="chapter-hero gradient-spice-coast">
-      <img class="scene" src="images/spice_coast_kochi.jpg" alt="Chinese fishing nets at sunset, Fort Kochi" loading="lazy">
-      <div class="chapter-hero-quote">
-        <div class="quote-text">“The fishing nets dipping into the Arabian Sea as the sun goes.”</div>
-        <div class="quote-attr">Days 20–26 · 19–25 January · up to 1,600 m</div>
+  <figure class="jr-photo">
+    <div class="jr-photo-frame"><img src="images/spice_coast_kochi.jpg" alt="Chinese fishing nets at sunset, Fort Kochi" loading="lazy"></div>
+    <figcaption>“The fishing nets dipping into the Arabian Sea as the sun goes.”</figcaption>
+  </figure>
+
+  <div class="container">
+    <div class="jr-cols">
+      <div class="jr-text">
+        <p class="jr-lede">A short flight and India arrives all at once. Start gently in Fort Kochi, with its Portuguese churches, Dutch houses and Chinese fishing nets, then climb into the cardamom and tea hills of Munnar.</p>
+      </div>
+      <div class="practical jr-prac">
+        <h4>Practical</h4>
+        <dl class="practical-grid">
+          <div class="practical-item"><dt>Getting to Munnar</dt><dd>Bus Kochi to Munnar takes about four hours of hairpins.</dd></div>
+          <div class="practical-item"><dt>Season</dt><dd>Late January is peak season in Kerala; book rooms a few days ahead.</dd></div>
+        </dl>
       </div>
     </div>
 
-    <div class="chapter-body chapter-body--stacked">
-      <div class="chapter-text">
-        <p>A short flight and India arrives all at once. Start gently in Fort Kochi, with its Portuguese churches, Dutch houses and Chinese fishing nets, then climb into the cardamom and tea hills of Munnar.</p>
-      </div>
-      <div class="highlights highlights--row">
-          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Kochi" target="_blank" rel="noopener">
-          <div class="highlight">
-            <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Kochi_Skyline.jpg/500px-Kochi_Skyline.jpg" alt="Fort Kochi" loading="lazy">
-            <div class="highlight-icon">Cultural</div>
-            <h5>The fishing nets lowered at dusk</h5>
-          </div>
-          </a>
-          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Kathakali" target="_blank" rel="noopener">
-          <div class="highlight">
-            <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Kathakali_-Play_with_Kaurava.jpg/500px-Kathakali_-Play_with_Kaurava.jpg" alt="Kathakali Theatre" loading="lazy">
-            <div class="highlight-icon">Cultural</div>
-            <h5>Kathakali; come early for the make-up</h5>
-          </div>
-          </a>
-          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Munnar" target="_blank" rel="noopener">
-          <div class="highlight">
-            <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Munnar_Overview.jpg/500px-Munnar_Overview.jpg" alt="The Cardamom Hills" loading="lazy">
-            <div class="highlight-icon">Landscape</div>
-            <h5>Walks through Munnar&#x27;s tea estates</h5>
-          </div>
-          </a>
-      </div>
+    <div class="jr-hls" aria-label="Don't miss">
+      <a class="jr-hl" href="https://en.wikipedia.org/wiki/Kochi" target="_blank" rel="noopener">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Kochi_Skyline.jpg/500px-Kochi_Skyline.jpg" alt="Fort Kochi" loading="lazy">
+        <span class="jr-hl-kind">Cultural</span>
+        <span class="jr-hl-title">The fishing nets lowered at dusk</span>
+      </a>
+      <a class="jr-hl" href="https://en.wikipedia.org/wiki/Kathakali" target="_blank" rel="noopener">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Kathakali_-Play_with_Kaurava.jpg/500px-Kathakali_-Play_with_Kaurava.jpg" alt="Kathakali Theatre" loading="lazy">
+        <span class="jr-hl-kind">Cultural</span>
+        <span class="jr-hl-title">Kathakali; come early for the make-up</span>
+      </a>
+      <a class="jr-hl" href="https://en.wikipedia.org/wiki/Munnar" target="_blank" rel="noopener">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Munnar_Overview.jpg/500px-Munnar_Overview.jpg" alt="The Cardamom Hills" loading="lazy">
+        <span class="jr-hl-kind">Landscape</span>
+        <span class="jr-hl-title">Walks through Munnar&#x27;s tea estates</span>
+      </a>
     </div>
-
-    <div class="practical">
-      <h4>Practical · The Spice Coast</h4>
-      <div class="practical-grid">
-        <div class="practical-item">
-          <dt>Getting to Munnar</dt>
-          <dd>Bus Kochi to Munnar takes about four hours of hairpins.</dd>
-        </div>
-        <div class="practical-item">
-          <dt>Season</dt>
-          <dd>Late January is peak season in Kerala; book rooms a few days ahead.</dd>
-        </div>
-      </div>
-    </div>
-
   </div>
 </section>
 
 <!-- ============= CHAPTER 4 ============= -->
-<section class="chapter" id="ch4">
+<section class="chapter jr-chapter" id="ch4">
   <div class="container">
-    <header class="chapter-header">
-      <div class="chapter-number"><span>Chapter Four</span>IV.</div>
-      <div>
+    <header class="chapter-header jr-head">
+      <div class="chapter-number" aria-hidden="true">IV</div>
+      <div class="jr-titles">
+        <p class="jr-meta">Chapter four · South India · Days 27–57 · 26 January – 25 February</p>
         <div class="chapter-title-wrap">
-          <h2 class="chapter-title">The <em>Ashram</em></h2>
-          <button class="locate-btn" onclick="flyToChapter('ch4')"><span>Map</span></button>
+          <h2 class="chapter-title">The Ashram</h2>
+          <button class="locate-btn" type="button" onclick="flyToChapter('ch4')"><span>Map</span></button>
         </div>
-        <p class="chapter-subtitle">Sivananda ashram, Neyyar Dam. A month of silence, satsang and discipline.</p>
+        <p class="chapter-subtitle">Sivananda ashram, Neyyar Dam · 100 m</p>
       </div>
     </header>
+  </div>
 
-    <div class="chapter-hero gradient-ashram">
-      <img class="scene" src="images/ashram_neyyar.jpg" alt="Sivananda Ashram at dawn, Neyyar Dam" loading="lazy">
-      <div class="chapter-hero-quote">
-        <div class="quote-text">“Day twenty-eight. The bell goes and your body is already walking to the hall.”</div>
-        <div class="quote-attr">Days 27–57 · 26 January – 25 February · 100 m</div>
+  <figure class="jr-photo">
+    <div class="jr-photo-frame"><img src="images/ashram_neyyar.jpg" alt="Sivananda Ashram at dawn, Neyyar Dam" loading="lazy"></div>
+    <figcaption>“Day twenty-eight. The bell goes and your body is already walking to the hall.”</figcaption>
+  </figure>
+
+  <div class="container">
+    <div class="jr-cols">
+      <div class="jr-text">
+        <p class="jr-lede">A month at the Sivananda Yoga Vedanta Dhanwantari Ashram. Bell at 05:20, meditation and chanting, two asana classes a day, karma yoga, Vedanta lectures. No meat, no alcohol, no leaving the grounds.</p>
+        <aside class="jr-note"><b>Open decision</b>Still to decide: yoga vacation or teacher training. With a 31 December start, the January course falls during Sri Lanka; the next one begins 14 February.</aside>
+      </div>
+      <div class="practical jr-prac">
+        <h4>Practical</h4>
+        <dl class="practical-grid">
+          <div class="practical-item"><dt>Which programme</dt><dd>The year-round yoga vacation fits these dates (26 Jan–25 Feb), at roughly $20 a night each; check Neyyar&#x27;s current rate. The teacher training runs 14 Feb–13 Mar for $1,466–2,635 each and would mean doing Goa and Hampi before the ashram.</dd></div>
+          <div class="practical-item"><dt>Rooms</dt><dd>Ask whether a couple may share a room; other Sivananda ashrams don&#x27;t allow it.</dd></div>
+          <div class="practical-item"><dt>Dress code</dt><dd>White or yellow clothes, shoulders and knees covered.</dd></div>
+        </dl>
       </div>
     </div>
 
-    <div class="chapter-body chapter-body--stacked">
-      <div class="chapter-text">
-        <p>A month at the Sivananda Yoga Vedanta Dhanwantari Ashram. Bell at 05:20, meditation and chanting, two asana classes a day, karma yoga, Vedanta lectures. No meat, no alcohol, no leaving the grounds.</p>
-        <div class="check-note">
-          <span class="check-note-mark" aria-hidden="true">!</span>
-          <div><span class="check-note-label">Checked in October 2026</span>
-          <p>Still to decide: yoga vacation or teacher training. With a 31 December start, the January course falls during Sri Lanka; the next one begins 14 February.</p></div>
-        </div>
-      </div>
-      <div class="highlights highlights--row">
-          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Ashram" target="_blank" rel="noopener">
-          <div class="highlight">
-            <img class="highlight-image" src="images/morning_satsang_highlight.jpg" alt="Morning Satsang" loading="lazy">
-            <div class="highlight-icon">Experience</div>
-            <h5>Morning satsang as light reaches the reservoir</h5>
-          </div>
-          </a>
-          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Yoga" target="_blank" rel="noopener">
-          <div class="highlight">
-            <img class="highlight-image" src="images/asana_practice_highlight.jpg" alt="The Asana Practice" loading="lazy">
-            <div class="highlight-icon">Experience</div>
-            <h5>Week three, when the poses stop hurting</h5>
-          </div>
-          </a>
-          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Karma_yoga" target="_blank" rel="noopener">
-          <div class="highlight">
-            <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Ashrams_on_the_banks_of_Ganges%2C_Rishikesh.jpg/500px-Ashrams_on_the_banks_of_Ganges%2C_Rishikesh.jpg" alt="Karma Yoga" loading="lazy">
-            <div class="highlight-icon">Cultural</div>
-            <h5>An hour of karma yoga each day</h5>
-          </div>
-          </a>
-      </div>
+    <div class="jr-hls" aria-label="Don't miss">
+      <a class="jr-hl" href="https://en.wikipedia.org/wiki/Ashram" target="_blank" rel="noopener">
+        <img src="images/morning_satsang_highlight.jpg" alt="Morning Satsang" loading="lazy">
+        <span class="jr-hl-kind">Experience</span>
+        <span class="jr-hl-title">Morning satsang as light reaches the reservoir</span>
+      </a>
+      <a class="jr-hl" href="https://en.wikipedia.org/wiki/Yoga" target="_blank" rel="noopener">
+        <img src="images/asana_practice_highlight.jpg" alt="The Asana Practice" loading="lazy">
+        <span class="jr-hl-kind">Experience</span>
+        <span class="jr-hl-title">Week three, when the poses stop hurting</span>
+      </a>
+      <a class="jr-hl" href="https://en.wikipedia.org/wiki/Karma_yoga" target="_blank" rel="noopener">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Ashrams_on_the_banks_of_Ganges%2C_Rishikesh.jpg/500px-Ashrams_on_the_banks_of_Ganges%2C_Rishikesh.jpg" alt="Karma Yoga" loading="lazy">
+        <span class="jr-hl-kind">Cultural</span>
+        <span class="jr-hl-title">An hour of karma yoga each day</span>
+      </a>
     </div>
-
-    <div class="practical">
-      <h4>Practical · The Ashram</h4>
-      <div class="practical-grid">
-        <div class="practical-item">
-          <dt>Which programme</dt>
-          <dd>The year-round yoga vacation fits these dates (26 Jan–25 Feb), at roughly $20 a night each; check Neyyar&#x27;s current rate. The teacher training runs 14 Feb–13 Mar for $1,466–2,635 each and would mean doing Goa and Hampi before the ashram.</dd>
-        </div>
-        <div class="practical-item">
-          <dt>Rooms</dt>
-          <dd>Ask whether a couple may share a room; other Sivananda ashrams don&#x27;t allow it.</dd>
-        </div>
-        <div class="practical-item">
-          <dt>Dress code</dt>
-          <dd>White or yellow clothes, shoulders and knees covered.</dd>
-        </div>
-      </div>
-    </div>
-
   </div>
 </section>
 
 <!-- ============= CHAPTER 5 ============= -->
-<section class="chapter" id="ch5">
+<section class="chapter jr-chapter" id="ch5">
   <div class="container">
-    <header class="chapter-header">
-      <div class="chapter-number"><span>Chapter Five</span>V.</div>
-      <div>
+    <header class="chapter-header jr-head">
+      <div class="chapter-number" aria-hidden="true">V</div>
+      <div class="jr-titles">
+        <p class="jr-meta">Chapter five · South India · Days 58–64 · 26 February – 4 March</p>
         <div class="chapter-title-wrap">
-          <h2 class="chapter-title">The <em>Backwaters</em></h2>
-          <button class="locate-btn" onclick="flyToChapter('ch5')"><span>Map</span></button>
+          <h2 class="chapter-title">The Backwaters</h2>
+          <button class="locate-btn" type="button" onclick="flyToChapter('ch5')"><span>Map</span></button>
         </div>
-        <p class="chapter-subtitle">Varkala, Alleppey. Red cliffs and a houseboat, the slow way back into the world.</p>
+        <p class="chapter-subtitle">Varkala, Alleppey · sea level</p>
       </div>
     </header>
+  </div>
 
-    <div class="chapter-hero gradient-backwaters">
-      <img class="scene" src="images/backwaters_alleppey.jpg" alt="Kerala backwaters houseboat, Alleppey" loading="lazy">
-      <div class="chapter-hero-quote">
-        <div class="quote-text">“Prawn curry on deck, engine off, moored under a palm on a moonless night.”</div>
-        <div class="quote-attr">Days 58–64 · 26 February – 4 March · sea level</div>
+  <figure class="jr-photo">
+    <div class="jr-photo-frame"><img src="images/backwaters_alleppey.jpg" alt="Kerala backwaters houseboat, Alleppey" loading="lazy"></div>
+    <figcaption>“Prawn curry on deck, engine off, moored under a palm on a moonless night.”</figcaption>
+  </figure>
+
+  <div class="container">
+    <div class="jr-cols">
+      <div class="jr-text">
+        <p class="jr-lede">Out of the ashram gates and straight to Varkala&#x27;s red cliffs over the Arabian Sea, then one night on a private houseboat in Alleppey with the canals sliding past. A slow way back into the world.</p>
+      </div>
+      <div class="practical jr-prac">
+        <h4>Practical</h4>
+        <dl class="practical-grid">
+          <div class="practical-item"><dt>Houseboats</dt><dd>Book the houseboat in person in Alleppey so you can see the boat first.</dd></div>
+          <div class="practical-item"><dt>Swimming</dt><dd>The currents under the cliffs are strong.</dd></div>
+        </dl>
       </div>
     </div>
 
-    <div class="chapter-body chapter-body--stacked">
-      <div class="chapter-text">
-        <p>Out of the ashram gates and straight to Varkala&#x27;s red cliffs over the Arabian Sea, then one night on a private houseboat in Alleppey with the canals sliding past. A slow way back into the world.</p>
-      </div>
-      <div class="highlights highlights--row">
-          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Kerala_backwaters" target="_blank" rel="noopener">
-          <div class="highlight">
-            <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/House_Boat_DSW.jpg/500px-House_Boat_DSW.jpg" alt="The Alleppey Houseboat" loading="lazy">
-            <div class="highlight-icon">Experience</div>
-            <h5>Overnight on a kettuvallam houseboat</h5>
-          </div>
-          </a>
-          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Varkala" target="_blank" rel="noopener">
-          <div class="highlight">
-            <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Varkala_Beach%2C_Varkala%2C_Kerala.jpg/500px-Varkala_Beach%2C_Varkala%2C_Kerala.jpg" alt="Varkala Cliffs" loading="lazy">
-            <div class="highlight-icon">Landscape</div>
-            <h5>Varkala&#x27;s cliff path at golden hour</h5>
-          </div>
-          </a>
-          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Ayurveda" target="_blank" rel="noopener">
-          <div class="highlight">
-            <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Dhanvantari-at-Ayurveda-expo.jpg/500px-Dhanvantari-at-Ayurveda-expo.jpg" alt="Ayurveda" loading="lazy">
-            <div class="highlight-icon">Cultural</div>
-            <h5>An Ayurvedic massage for the ashram stiffness</h5>
-          </div>
-          </a>
-      </div>
+    <div class="jr-hls" aria-label="Don't miss">
+      <a class="jr-hl" href="https://en.wikipedia.org/wiki/Kerala_backwaters" target="_blank" rel="noopener">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/House_Boat_DSW.jpg/500px-House_Boat_DSW.jpg" alt="The Alleppey Houseboat" loading="lazy">
+        <span class="jr-hl-kind">Experience</span>
+        <span class="jr-hl-title">Overnight on a kettuvallam houseboat</span>
+      </a>
+      <a class="jr-hl" href="https://en.wikipedia.org/wiki/Varkala" target="_blank" rel="noopener">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Varkala_Beach%2C_Varkala%2C_Kerala.jpg/500px-Varkala_Beach%2C_Varkala%2C_Kerala.jpg" alt="Varkala Cliffs" loading="lazy">
+        <span class="jr-hl-kind">Landscape</span>
+        <span class="jr-hl-title">Varkala&#x27;s cliff path at golden hour</span>
+      </a>
+      <a class="jr-hl" href="https://en.wikipedia.org/wiki/Ayurveda" target="_blank" rel="noopener">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Dhanvantari-at-Ayurveda-expo.jpg/500px-Dhanvantari-at-Ayurveda-expo.jpg" alt="Ayurveda" loading="lazy">
+        <span class="jr-hl-kind">Cultural</span>
+        <span class="jr-hl-title">An Ayurvedic massage for the ashram stiffness</span>
+      </a>
     </div>
-
-    <div class="practical">
-      <h4>Practical · The Backwaters</h4>
-      <div class="practical-grid">
-        <div class="practical-item">
-          <dt>Houseboats</dt>
-          <dd>Book the houseboat in person in Alleppey so you can see the boat first.</dd>
-        </div>
-        <div class="practical-item">
-          <dt>Swimming</dt>
-          <dd>The currents under the cliffs are strong.</dd>
-        </div>
-      </div>
-    </div>
-
   </div>
 </section>
 
 <!-- ============= CHAPTER 6 ============= -->
-<section class="chapter" id="ch6">
+<section class="chapter jr-chapter" id="ch6">
   <div class="container">
-    <header class="chapter-header">
-      <div class="chapter-number"><span>Chapter Six</span>VI.</div>
-      <div>
+    <header class="chapter-header jr-head">
+      <div class="chapter-number" aria-hidden="true">VI</div>
+      <div class="jr-titles">
+        <p class="jr-meta">Chapter six · Central India · Days 65–72 · 5–12 March</p>
         <div class="chapter-title-wrap">
-          <h2 class="chapter-title">Hampi, the <em>boulder kingdom</em></h2>
-          <button class="locate-btn" onclick="flyToChapter('ch6')"><span>Map</span></button>
+          <h2 class="chapter-title">Hampi, the boulder kingdom</h2>
+          <button class="locate-btn" type="button" onclick="flyToChapter('ch6')"><span>Map</span></button>
         </div>
-        <p class="chapter-subtitle">Hospet, Hampi. Ruins and granite, explored by bicycle at dawn.</p>
+        <p class="chapter-subtitle">Hospet, Hampi · 470 m</p>
       </div>
     </header>
+  </div>
 
-    <div class="chapter-hero gradient-hampi">
-      <img class="scene" src="images/hampi_boulders.jpg" alt="Hampi boulder landscape and temple ruins" loading="lazy">
-      <div class="chapter-hero-quote">
-        <div class="quote-text">“Cycling at dawn between boulders the size of houses, alone with the ruins.”</div>
-        <div class="quote-attr">Days 65–72 · 5–12 March · 470 m</div>
+  <figure class="jr-photo">
+    <div class="jr-photo-frame"><img src="images/hampi_boulders.jpg" alt="Hampi boulder landscape and temple ruins" loading="lazy"></div>
+    <figcaption>“Cycling at dawn between boulders the size of houses, alone with the ruins.”</figcaption>
+  </figure>
+
+  <div class="container">
+    <div class="jr-cols">
+      <div class="jr-text">
+        <p class="jr-lede">An overnight train to Hospet and into a landscape of stacked granite and the ruins of the Vijayanagara capital. Rent bicycles, ride at dawn and dusk, hide at midday.</p>
+      </div>
+      <div class="practical jr-prac">
+        <h4>Practical</h4>
+        <dl class="practical-grid">
+          <div class="practical-item"><dt>Cash</dt><dd>Bring cash; Hampi&#x27;s ATMs are often empty.</dd></div>
+          <div class="practical-item"><dt>Sun &amp; heat</dt><dd>There is no shade on the boulders.</dd></div>
+        </dl>
       </div>
     </div>
 
-    <div class="chapter-body chapter-body--stacked">
-      <div class="chapter-text">
-        <p>An overnight train to Hospet and into a landscape of stacked granite and the ruins of the Vijayanagara capital. Rent bicycles, ride at dawn and dusk, hide at midday.</p>
-      </div>
-      <div class="highlights highlights--row">
-          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Hampi" target="_blank" rel="noopener">
-          <div class="highlight">
-            <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Wide_angle_of_Galigopuram_of_Virupaksha_Temple%2C_Hampi_%2804%29_%28cropped%29.jpg/500px-Wide_angle_of_Galigopuram_of_Virupaksha_Temple%2C_Hampi_%2804%29_%28cropped%29.jpg" alt="Vijayanagara Ruins" loading="lazy">
-            <div class="highlight-icon">Historical</div>
-            <h5>The stone chariot at Vittala temple</h5>
-          </div>
-          </a>
-          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Tungabhadra_River" target="_blank" rel="noopener">
-          <div class="highlight">
-            <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Hampi%2C_Tungabhadra_River%2C_India.jpg/500px-Hampi%2C_Tungabhadra_River%2C_India.jpg" alt="Coracle River Crossing" loading="lazy">
-            <div class="highlight-icon">Landscape</div>
-            <h5>A coracle across the Tungabhadra</h5>
-          </div>
-          </a>
-          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Matanga_Hill" target="_blank" rel="noopener">
-          <div class="highlight">
-            <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Enroute_to_Matanga_hills%2C_Hampi.jpg/500px-Enroute_to_Matanga_hills%2C_Hampi.jpg" alt="Matanga Hill Sunset" loading="lazy">
-            <div class="highlight-icon">Landscape</div>
-            <h5>Sunset from Matanga Hill</h5>
-          </div>
-          </a>
-      </div>
+    <div class="jr-hls" aria-label="Don't miss">
+      <a class="jr-hl" href="https://en.wikipedia.org/wiki/Hampi" target="_blank" rel="noopener">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Wide_angle_of_Galigopuram_of_Virupaksha_Temple%2C_Hampi_%2804%29_%28cropped%29.jpg/500px-Wide_angle_of_Galigopuram_of_Virupaksha_Temple%2C_Hampi_%2804%29_%28cropped%29.jpg" alt="Vijayanagara Ruins" loading="lazy">
+        <span class="jr-hl-kind">Historical</span>
+        <span class="jr-hl-title">The stone chariot at Vittala temple</span>
+      </a>
+      <a class="jr-hl" href="https://en.wikipedia.org/wiki/Tungabhadra_River" target="_blank" rel="noopener">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Hampi%2C_Tungabhadra_River%2C_India.jpg/500px-Hampi%2C_Tungabhadra_River%2C_India.jpg" alt="Coracle River Crossing" loading="lazy">
+        <span class="jr-hl-kind">Landscape</span>
+        <span class="jr-hl-title">A coracle across the Tungabhadra</span>
+      </a>
+      <a class="jr-hl" href="https://en.wikipedia.org/wiki/Matanga_Hill" target="_blank" rel="noopener">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Enroute_to_Matanga_hills%2C_Hampi.jpg/500px-Enroute_to_Matanga_hills%2C_Hampi.jpg" alt="Matanga Hill Sunset" loading="lazy">
+        <span class="jr-hl-kind">Landscape</span>
+        <span class="jr-hl-title">Sunset from Matanga Hill</span>
+      </a>
     </div>
-
-    <div class="practical">
-      <h4>Practical · Hampi</h4>
-      <div class="practical-grid">
-        <div class="practical-item">
-          <dt>Cash</dt>
-          <dd>Bring cash; Hampi&#x27;s ATMs are often empty.</dd>
-        </div>
-        <div class="practical-item">
-          <dt>Sun &amp; heat</dt>
-          <dd>There is no shade on the boulders.</dd>
-        </div>
-      </div>
-    </div>
-
   </div>
 </section>
 
 <!-- ============= CHAPTER 7 ============= -->
-<section class="chapter" id="ch7">
+<section class="chapter jr-chapter" id="ch7">
   <div class="container">
-    <header class="chapter-header">
-      <div class="chapter-number"><span>Chapter Seven</span>VII.</div>
-      <div>
+    <header class="chapter-header jr-head">
+      <div class="chapter-number" aria-hidden="true">VII</div>
+      <div class="jr-titles">
+        <p class="jr-meta">Chapter seven · Central India · Days 73–86 · 13–26 March</p>
         <div class="chapter-title-wrap">
-          <h2 class="chapter-title">Goa, the <em>slow shore</em></h2>
-          <button class="locate-btn" onclick="flyToChapter('ch7')"><span>Map</span></button>
+          <h2 class="chapter-title">Goa, the slow shore</h2>
+          <button class="locate-btn" type="button" onclick="flyToChapter('ch7')"><span>Map</span></button>
         </div>
-        <p class="chapter-subtitle">Palolem, Agonda. Two weeks of beach huts and doing nothing on purpose.</p>
+        <p class="chapter-subtitle">Palolem, Agonda · sea level</p>
       </div>
     </header>
+  </div>
 
-    <div class="chapter-hero gradient-goa">
-      <img class="scene" src="images/goa_palolem.jpg" alt="Palolem Beach at sunset, South Goa" loading="lazy">
-      <div class="chapter-hero-quote">
-        <div class="quote-text">“Riding home to the hut at dusk, hot wind on your face.”</div>
-        <div class="quote-attr">Days 73–86 · 13–26 March · sea level</div>
+  <figure class="jr-photo">
+    <div class="jr-photo-frame"><img src="images/goa_palolem.jpg" alt="Palolem Beach at sunset, South Goa" loading="lazy"></div>
+    <figcaption>“Riding home to the hut at dusk, hot wind on your face.”</figcaption>
+  </figure>
+
+  <div class="container">
+    <div class="jr-cols">
+      <div class="jr-text">
+        <p class="jr-lede">Two weeks of doing nothing on purpose before North India. Skip the party beaches of the north, find a hut in Palolem or Agonda by walking the sand, and rent a scooter.</p>
+      </div>
+      <div class="practical jr-prac">
+        <h4>Practical</h4>
+        <dl class="practical-grid">
+          <div class="practical-item"><dt>Scooter hire</dt><dd>Scooters cost about €4 a day; carry an International Driving Permit.</dd></div>
+          <div class="practical-item"><dt>Huts</dt><dd>Beach huts are rebuilt each season, so don&#x27;t prebook.</dd></div>
+          <div class="practical-item"><dt>Onward</dt><dd>Fly Goa to Varanasi.</dd></div>
+        </dl>
       </div>
     </div>
 
-    <div class="chapter-body chapter-body--stacked">
-      <div class="chapter-text">
-        <p>Two weeks of doing nothing on purpose before North India. Skip the party beaches of the north, find a hut in Palolem or Agonda by walking the sand, and rent a scooter.</p>
-      </div>
-      <div class="highlights highlights--row">
-          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Palolem_Beach" target="_blank" rel="noopener">
-          <div class="highlight">
-            <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Palolem_Beach%2C_South_Goa.jpg/500px-Palolem_Beach%2C_South_Goa.jpg" alt="South Goan Beach Shacks" loading="lazy">
-            <div class="highlight-icon">Cultural</div>
-            <h5>A swim before breakfast</h5>
-          </div>
-          </a>
-          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Portuguese_Goa" target="_blank" rel="noopener">
-          <div class="highlight">
-            <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Donna_Paula%2C_Goa.jpg/500px-Donna_Paula%2C_Goa.jpg" alt="The Goan Hinterland" loading="lazy">
-            <div class="highlight-icon">Cultural</div>
-            <h5>Scooter rides through paddy fields to empty coves</h5>
-          </div>
-          </a>
-          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Goan_cuisine" target="_blank" rel="noopener">
-          <div class="highlight">
-            <img class="highlight-image" src="images/goan_fish_curry_highlight.jpg" alt="Goan Fish Curry" loading="lazy">
-            <div class="highlight-icon">Culinary</div>
-            <h5>Fish curry soured with kokum</h5>
-          </div>
-          </a>
-      </div>
+    <div class="jr-hls" aria-label="Don't miss">
+      <a class="jr-hl" href="https://en.wikipedia.org/wiki/Palolem_Beach" target="_blank" rel="noopener">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Palolem_Beach%2C_South_Goa.jpg/500px-Palolem_Beach%2C_South_Goa.jpg" alt="South Goan Beach Shacks" loading="lazy">
+        <span class="jr-hl-kind">Cultural</span>
+        <span class="jr-hl-title">A swim before breakfast</span>
+      </a>
+      <a class="jr-hl" href="https://en.wikipedia.org/wiki/Portuguese_Goa" target="_blank" rel="noopener">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Donna_Paula%2C_Goa.jpg/500px-Donna_Paula%2C_Goa.jpg" alt="The Goan Hinterland" loading="lazy">
+        <span class="jr-hl-kind">Cultural</span>
+        <span class="jr-hl-title">Scooter rides through paddy fields to empty coves</span>
+      </a>
+      <a class="jr-hl" href="https://en.wikipedia.org/wiki/Goan_cuisine" target="_blank" rel="noopener">
+        <img src="images/goan_fish_curry_highlight.jpg" alt="Goan Fish Curry" loading="lazy">
+        <span class="jr-hl-kind">Culinary</span>
+        <span class="jr-hl-title">Fish curry soured with kokum</span>
+      </a>
     </div>
-
-    <div class="practical">
-      <h4>Practical · Goa</h4>
-      <div class="practical-grid">
-        <div class="practical-item">
-          <dt>Scooter hire</dt>
-          <dd>Scooters cost about €4 a day; carry an International Driving Permit.</dd>
-        </div>
-        <div class="practical-item">
-          <dt>Huts</dt>
-          <dd>Beach huts are rebuilt each season, so don&#x27;t prebook.</dd>
-        </div>
-        <div class="practical-item">
-          <dt>Onward</dt>
-          <dd>Fly Goa to Varanasi.</dd>
-        </div>
-      </div>
-    </div>
-
   </div>
 </section>
 
 <!-- ============= CHAPTER 8 ============= -->
-<section class="chapter" id="ch8">
+<section class="chapter jr-chapter" id="ch8">
   <div class="container">
-    <header class="chapter-header">
-      <div class="chapter-number"><span>Chapter Eight</span>VIII.</div>
-      <div>
+    <header class="chapter-header jr-head">
+      <div class="chapter-number" aria-hidden="true">VIII</div>
+      <div class="jr-titles">
+        <p class="jr-meta">Chapter eight · North India · Days 87–104 · 27 March – 13 April</p>
         <div class="chapter-title-wrap">
-          <h2 class="chapter-title">The <em>Holy Cities</em></h2>
-          <button class="locate-btn" onclick="flyToChapter('ch8')"><span>Map</span></button>
+          <h2 class="chapter-title">The Holy Cities</h2>
+          <button class="locate-btn" type="button" onclick="flyToChapter('ch8')"><span>Map</span></button>
         </div>
-        <p class="chapter-subtitle">Varanasi, Rishikesh, Amritsar. The ghats, the upper Ganges and the Golden Temple.</p>
+        <p class="chapter-subtitle">Varanasi, Rishikesh, Amritsar · 80–370 m</p>
       </div>
     </header>
+  </div>
 
-    <div class="chapter-hero gradient-holy-cities">
-      <img class="scene" src="images/varanasi_ghats.jpg" alt="Varanasi ghats at dawn from the Ganges" loading="lazy">
-      <div class="chapter-hero-quote">
-        <div class="quote-text">“Varanasi rising out of pink mist, seen from the middle of the river.”</div>
-        <div class="quote-attr">Days 87–104 · 27 March – 13 April · 80–370 m</div>
+  <figure class="jr-photo">
+    <div class="jr-photo-frame"><img src="images/varanasi_ghats.jpg" alt="Varanasi ghats at dawn from the Ganges" loading="lazy"></div>
+    <figcaption>“Varanasi rising out of pink mist, seen from the middle of the river.”</figcaption>
+  </figure>
+
+  <div class="container">
+    <div class="jr-cols">
+      <div class="jr-text">
+        <p class="jr-lede">India at full volume. The burning ghats of Varanasi, the cold green Ganges at Rishikesh, and the Golden Temple at Amritsar, whose free kitchen feeds tens of thousands every day.</p>
+      </div>
+      <div class="practical jr-prac">
+        <h4>Practical</h4>
+        <dl class="practical-grid">
+          <div class="practical-item"><dt>Trains</dt><dd>Train bookings open 60 days ahead. The first 15 minutes are reserved for Aadhaar holders, so book after that or use the foreign tourist quota.</dd></div>
+          <div class="practical-item"><dt>Respect</dt><dd>Never photograph cremations. Cover your head at the Golden Temple.</dd></div>
+        </dl>
       </div>
     </div>
 
-    <div class="chapter-body chapter-body--stacked">
-      <div class="chapter-text">
-        <p>India at full volume. The burning ghats of Varanasi, the cold green Ganges at Rishikesh, and the Golden Temple at Amritsar, whose free kitchen feeds tens of thousands every day.</p>
-      </div>
-      <div class="highlights highlights--row">
-          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Manikarnika_Ghat" target="_blank" rel="noopener">
-          <div class="highlight">
-            <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Manikarnika_Ghat%2C_Varanasi%2C_Uttar_Pradesh%2C_India_%282011%29_5.jpg/500px-Manikarnika_Ghat%2C_Varanasi%2C_Uttar_Pradesh%2C_India_%282011%29_5.jpg" alt="Manikarnika Ghat" loading="lazy">
-            <div class="highlight-icon">Cultural</div>
-            <h5>A rowing boat past Manikarnika ghat at dawn</h5>
-          </div>
-          </a>
-          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Rishikesh" target="_blank" rel="noopener">
-          <div class="highlight">
-            <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Trayambakeshwar_Temple_VK.jpg/500px-Trayambakeshwar_Temple_VK.jpg" alt="The Upper Ganges" loading="lazy">
-            <div class="highlight-icon">Experience</div>
-            <h5>Swimming or rafting the upper Ganges</h5>
-          </div>
-          </a>
-          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Golden_Temple" target="_blank" rel="noopener">
-          <div class="highlight">
-            <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/The_Golden_Temple_of_Amrithsar_7.jpg/500px-The_Golden_Temple_of_Amrithsar_7.jpg" alt="The Golden Temple" loading="lazy">
-            <div class="highlight-icon">Historical</div>
-            <h5>An hour peeling garlic in the Golden Temple kitchen</h5>
-          </div>
-          </a>
-      </div>
+    <div class="jr-hls" aria-label="Don't miss">
+      <a class="jr-hl" href="https://en.wikipedia.org/wiki/Manikarnika_Ghat" target="_blank" rel="noopener">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Manikarnika_Ghat%2C_Varanasi%2C_Uttar_Pradesh%2C_India_%282011%29_5.jpg/500px-Manikarnika_Ghat%2C_Varanasi%2C_Uttar_Pradesh%2C_India_%282011%29_5.jpg" alt="Manikarnika Ghat" loading="lazy">
+        <span class="jr-hl-kind">Cultural</span>
+        <span class="jr-hl-title">A rowing boat past Manikarnika ghat at dawn</span>
+      </a>
+      <a class="jr-hl" href="https://en.wikipedia.org/wiki/Rishikesh" target="_blank" rel="noopener">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Trayambakeshwar_Temple_VK.jpg/500px-Trayambakeshwar_Temple_VK.jpg" alt="The Upper Ganges" loading="lazy">
+        <span class="jr-hl-kind">Experience</span>
+        <span class="jr-hl-title">Swimming or rafting the upper Ganges</span>
+      </a>
+      <a class="jr-hl" href="https://en.wikipedia.org/wiki/Golden_Temple" target="_blank" rel="noopener">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/The_Golden_Temple_of_Amrithsar_7.jpg/500px-The_Golden_Temple_of_Amrithsar_7.jpg" alt="The Golden Temple" loading="lazy">
+        <span class="jr-hl-kind">Historical</span>
+        <span class="jr-hl-title">An hour peeling garlic in the Golden Temple kitchen</span>
+      </a>
     </div>
-
-    <div class="practical">
-      <h4>Practical · The Holy Cities</h4>
-      <div class="practical-grid">
-        <div class="practical-item">
-          <dt>Trains</dt>
-          <dd>Train bookings open 60 days ahead. The first 15 minutes are reserved for Aadhaar holders, so book after that or use the foreign tourist quota.</dd>
-        </div>
-        <div class="practical-item">
-          <dt>Respect</dt>
-          <dd>Never photograph cremations. Cover your head at the Golden Temple.</dd>
-        </div>
-      </div>
-    </div>
-
   </div>
 </section>
 
 <!-- ============= CHAPTER 9 ============= -->
-<section class="chapter" id="ch9">
+<section class="chapter jr-chapter" id="ch9">
   <div class="container">
-    <header class="chapter-header">
-      <div class="chapter-number"><span>Chapter Nine</span>IX.</div>
-      <div>
+    <header class="chapter-header jr-head">
+      <div class="chapter-number" aria-hidden="true">IX</div>
+      <div class="jr-titles">
+        <p class="jr-meta">Chapter nine · Split paths · Days 105–125 · 14 April – 4 May</p>
         <div class="chapter-title-wrap">
-          <h2 class="chapter-title">Diverging <em>Paths</em></h2>
-          <button class="locate-btn" onclick="flyToChapter('ch9')"><span>Map</span></button>
+          <h2 class="chapter-title">Diverging Paths</h2>
+          <button class="locate-btn" type="button" onclick="flyToChapter('ch9')"><span>Map</span></button>
         </div>
-        <p class="chapter-subtitle">Tapovan for Micky, the Annapurna Circuit for Mo. Breathwork in Rishikesh, the Annapurna Circuit in Nepal.</p>
+        <p class="chapter-subtitle">Tapovan for Micky, the Annapurna Circuit for Mo · up to 5,416 m</p>
       </div>
     </header>
+  </div>
 
-    <div class="chapter-hero gradient-diverging">
-      <img class="scene" src="images/annapurna_diverging.jpg" alt="Annapurna trek with prayer flags, Nepal" loading="lazy">
-      <div class="chapter-hero-quote">
-        <div class="quote-text">“A café in Kathmandu after three weeks apart. Two coffees, two summits.”</div>
-        <div class="quote-attr">Days 105–125 · 14 April – 4 May · up to 5,416 m</div>
+  <figure class="jr-photo">
+    <div class="jr-photo-frame"><img src="images/annapurna_diverging.jpg" alt="Annapurna trek with prayer flags, Nepal" loading="lazy"></div>
+    <figcaption>“A café in Kathmandu after three weeks apart. Two coffees, two summits.”</figcaption>
+  </figure>
+
+  <div class="container">
+    <div class="jr-cols">
+      <div class="jr-text">
+        <p class="jr-lede">Three weeks apart. Micky stays in Tapovan above Rishikesh for a breathwork training. Mo flies to Kathmandu, takes the bus to Besisahar and a jeep to Chame, and walks the Annapurna Circuit over the Thorong La to Jomsom and Pokhara.</p>
+        <aside class="jr-note"><b>Open decision</b>India allows 90 days per visit on an e-visa. Micky would be in India about 105 days, so she has to leave once before 18 April (day 109), for example a long weekend in Nepal, on a multiple-entry e-visa.</aside>
+      </div>
+      <div class="practical jr-prac">
+        <h4>Practical</h4>
+        <dl class="practical-grid">
+          <div class="practical-item"><dt>Guide &amp; permits</dt><dd>A licensed guide has officially been required in the Annapurna area since 2023. Book one through an agency, which also sorts the permits.</dd></div>
+          <div class="practical-item"><dt>Thorong La</dt><dd>Mid-April is peak season, so book early. The pass is still far below freezing before dawn, and new snow can close it for a day or two. Keep two buffer days.</dd></div>
+          <div class="practical-item"><dt>Nepal visa</dt><dd>Mo: 30-day Nepal visa on arrival, $50.</dd></div>
+        </dl>
       </div>
     </div>
 
-    <div class="chapter-body chapter-body--stacked">
-      <div class="chapter-text">
-        <p>Three weeks apart. Micky stays in Tapovan above Rishikesh for a breathwork training. Mo flies to Kathmandu, takes the bus to Besisahar and a jeep to Chame, and walks the Annapurna Circuit over the Thorong La to Jomsom and Pokhara.</p>
-        <div class="check-note">
-          <span class="check-note-mark" aria-hidden="true">!</span>
-          <div><span class="check-note-label">Checked in October 2026</span>
-          <p>India allows 90 days per visit on an e-visa. Micky would be in India about 105 days, so she has to leave once before 18 April (day 109), for example a long weekend in Nepal, on a multiple-entry e-visa.</p></div>
-        </div>
-      </div>
-      <div class="highlights highlights--row">
-          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Rishikesh" target="_blank" rel="noopener">
-          <div class="highlight">
-            <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Trayambakeshwar_Temple_VK.jpg/500px-Trayambakeshwar_Temple_VK.jpg" alt="Breathwork in Tapovan" loading="lazy">
-            <div class="highlight-icon">Experience</div>
-            <h5>Breathwork in Tapovan</h5>
-          </div>
-          </a>
-          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Annapurna_Circuit" target="_blank" rel="noopener">
-          <div class="highlight">
-            <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Under_stars_and_snows.jpg/500px-Under_stars_and_snows.jpg" alt="The Annapurna Circuit" loading="lazy">
-            <div class="highlight-icon">Landscape</div>
-            <h5>Teahouse to teahouse round the Annapurna massif</h5>
-          </div>
-          </a>
-          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Thorong_La" target="_blank" rel="noopener">
-          <div class="highlight">
-            <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Muktinath_Valley%2C_View_of_Thorong_La_Pass%2C_Mountains%2C_Nepal.jpg/500px-Muktinath_Valley%2C_View_of_Thorong_La_Pass%2C_Mountains%2C_Nepal.jpg" alt="Thorong La Pass" loading="lazy">
-            <div class="highlight-icon">Milestone</div>
-            <h5>Thorong La, 5,416 m, by headlamp at 4 a.m.</h5>
-          </div>
-          </a>
-      </div>
+    <div class="jr-hls" aria-label="Don't miss">
+      <a class="jr-hl" href="https://en.wikipedia.org/wiki/Rishikesh" target="_blank" rel="noopener">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Trayambakeshwar_Temple_VK.jpg/500px-Trayambakeshwar_Temple_VK.jpg" alt="Breathwork in Tapovan" loading="lazy">
+        <span class="jr-hl-kind">Experience</span>
+        <span class="jr-hl-title">Breathwork in Tapovan</span>
+      </a>
+      <a class="jr-hl" href="https://en.wikipedia.org/wiki/Annapurna_Circuit" target="_blank" rel="noopener">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Under_stars_and_snows.jpg/500px-Under_stars_and_snows.jpg" alt="The Annapurna Circuit" loading="lazy">
+        <span class="jr-hl-kind">Landscape</span>
+        <span class="jr-hl-title">Teahouse to teahouse round the Annapurna massif</span>
+      </a>
+      <a class="jr-hl" href="https://en.wikipedia.org/wiki/Thorong_La" target="_blank" rel="noopener">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Muktinath_Valley%2C_View_of_Thorong_La_Pass%2C_Mountains%2C_Nepal.jpg/500px-Muktinath_Valley%2C_View_of_Thorong_La_Pass%2C_Mountains%2C_Nepal.jpg" alt="Thorong La Pass" loading="lazy">
+        <span class="jr-hl-kind">Milestone</span>
+        <span class="jr-hl-title">Thorong La, 5,416 m, by headlamp at 4 a.m.</span>
+      </a>
     </div>
-
-    <div class="practical">
-      <h4>Practical · Diverging Paths</h4>
-      <div class="practical-grid">
-        <div class="practical-item">
-          <dt>Guide &amp; permits</dt>
-          <dd>A licensed guide has officially been required in the Annapurna area since 2023. Book one through an agency, which also sorts the permits.</dd>
-        </div>
-        <div class="practical-item">
-          <dt>Thorong La</dt>
-          <dd>Mid-April is peak season, so book early. The pass is still far below freezing before dawn, and new snow can close it for a day or two. Keep two buffer days.</dd>
-        </div>
-        <div class="practical-item">
-          <dt>Nepal visa</dt>
-          <dd>Mo: 30-day Nepal visa on arrival, $50.</dd>
-        </div>
-      </div>
-    </div>
-
   </div>
 </section>
 
 <!-- ============= CHAPTER 10 ============= -->
-<section class="chapter" id="ch10">
+<section class="chapter jr-chapter" id="ch10">
   <div class="container">
-    <header class="chapter-header">
-      <div class="chapter-number"><span>Chapter Ten</span>X.</div>
-      <div>
+    <header class="chapter-header jr-head">
+      <div class="chapter-number" aria-hidden="true">X</div>
+      <div class="jr-titles">
+        <p class="jr-meta">Chapter ten · Nepal · Days 126–132 · 5–11 May</p>
         <div class="chapter-title-wrap">
-          <h2 class="chapter-title">Kathmandu, <em>the threshold</em></h2>
-          <button class="locate-btn" onclick="flyToChapter('ch10')"><span>Map</span></button>
+          <h2 class="chapter-title">Kathmandu, the threshold</h2>
+          <button class="locate-btn" type="button" onclick="flyToChapter('ch10')"><span>Map</span></button>
         </div>
-        <p class="chapter-subtitle">Patan, Boudhanath, Nagarkot. A calm week before China.</p>
+        <p class="chapter-subtitle">Patan, Boudhanath, Nagarkot · 1,400 m</p>
       </div>
     </header>
+  </div>
 
-    <div class="chapter-hero gradient-kathmandu">
-      <img class="scene" src="images/kathmandu_stupa.jpg" alt="Boudhanath Stupa, Kathmandu" loading="lazy">
-      <div class="chapter-hero-quote">
-        <div class="quote-text">“The stupa&#x27;s eyes look north, the way you are about to go.”</div>
-        <div class="quote-attr">Days 126–132 · 5–11 May · 1,400 m</div>
+  <figure class="jr-photo">
+    <div class="jr-photo-frame"><img src="images/kathmandu_stupa.jpg" alt="Boudhanath Stupa, Kathmandu" loading="lazy"></div>
+    <figcaption>“The stupa&#x27;s eyes look north, the way you are about to go.”</figcaption>
+  </figure>
+
+  <div class="container">
+    <div class="jr-cols">
+      <div class="jr-text">
+        <p class="jr-lede">Back together, and a calm week before China. Rooftop tea in Patan, the walk around Boudhanath at dusk, one night at Nagarkot for the whole Himalayan crest. Buy down jackets.</p>
+      </div>
+      <div class="practical jr-prac">
+        <h4>Practical</h4>
+        <dl class="practical-grid">
+          <div class="practical-item"><dt>Where to stay</dt><dd>Stay in Patan or Boudha rather than Thamel.</dd></div>
+          <div class="practical-item"><dt>Air quality</dt><dd>Bring a mask; the valley air is poor in spring.</dd></div>
+        </dl>
       </div>
     </div>
 
-    <div class="chapter-body chapter-body--stacked">
-      <div class="chapter-text">
-        <p>Back together, and a calm week before China. Rooftop tea in Patan, the walk around Boudhanath at dusk, one night at Nagarkot for the whole Himalayan crest. Buy down jackets.</p>
-      </div>
-      <div class="highlights highlights--row">
-          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Boudhanath" target="_blank" rel="noopener">
-          <div class="highlight">
-            <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Boudhanath_stupa_%2C_Kathmandu%2C_Nepal.jpg/500px-Boudhanath_stupa_%2C_Kathmandu%2C_Nepal.jpg" alt="Boudhanath at dusk" loading="lazy">
-            <div class="highlight-icon">Cultural</div>
-            <h5>The kora around Boudhanath as the lamps are lit</h5>
-          </div>
-          </a>
-          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Patan_Durbar_Square" target="_blank" rel="noopener">
-          <div class="highlight">
-            <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/8/89/Patan_durbar_square.jpg" alt="Patan Durbar Square" loading="lazy">
-            <div class="highlight-icon">Historical</div>
-            <h5>Patan Durbar Square</h5>
-          </div>
-          </a>
-          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Nagarkot" target="_blank" rel="noopener">
-          <div class="highlight">
-            <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/2/22/Prithu.jpg" alt="Nagarkot dawn" loading="lazy">
-            <div class="highlight-icon">Landscape</div>
-            <h5>Sunrise over the Himalaya from Nagarkot</h5>
-          </div>
-          </a>
-      </div>
+    <div class="jr-hls" aria-label="Don't miss">
+      <a class="jr-hl" href="https://en.wikipedia.org/wiki/Boudhanath" target="_blank" rel="noopener">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Boudhanath_stupa_%2C_Kathmandu%2C_Nepal.jpg/500px-Boudhanath_stupa_%2C_Kathmandu%2C_Nepal.jpg" alt="Boudhanath at dusk" loading="lazy">
+        <span class="jr-hl-kind">Cultural</span>
+        <span class="jr-hl-title">The kora around Boudhanath as the lamps are lit</span>
+      </a>
+      <a class="jr-hl" href="https://en.wikipedia.org/wiki/Patan_Durbar_Square" target="_blank" rel="noopener">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Patan_durbar_square.jpg" alt="Patan Durbar Square" loading="lazy">
+        <span class="jr-hl-kind">Historical</span>
+        <span class="jr-hl-title">Patan Durbar Square</span>
+      </a>
+      <a class="jr-hl" href="https://en.wikipedia.org/wiki/Nagarkot" target="_blank" rel="noopener">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/2/22/Prithu.jpg" alt="Nagarkot dawn" loading="lazy">
+        <span class="jr-hl-kind">Landscape</span>
+        <span class="jr-hl-title">Sunrise over the Himalaya from Nagarkot</span>
+      </a>
     </div>
-
-    <div class="practical">
-      <h4>Practical · Kathmandu</h4>
-      <div class="practical-grid">
-        <div class="practical-item">
-          <dt>Where to stay</dt>
-          <dd>Stay in Patan or Boudha rather than Thamel.</dd>
-        </div>
-        <div class="practical-item">
-          <dt>Air quality</dt>
-          <dd>Bring a mask; the valley air is poor in spring.</dd>
-        </div>
-      </div>
-    </div>
-
   </div>
 </section>
 
 <!-- ============= CHAPTER 11 ============= -->
-<section class="chapter" id="ch11">
+<section class="chapter jr-chapter" id="ch11">
   <div class="container">
-    <header class="chapter-header">
-      <div class="chapter-number"><span>Chapter Eleven</span>XI.</div>
-      <div>
+    <header class="chapter-header jr-head">
+      <div class="chapter-number" aria-hidden="true">XI</div>
+      <div class="jr-titles">
+        <p class="jr-meta">Chapter eleven · Tibet · Days 133–148 · 12–27 May</p>
         <div class="chapter-title-wrap">
-          <h2 class="chapter-title">Lhasa and <em>Everest</em></h2>
-          <button class="locate-btn" onclick="flyToChapter('ch11')"><span>Map</span></button>
+          <h2 class="chapter-title">Lhasa and Everest</h2>
+          <button class="locate-btn" type="button" onclick="flyToChapter('ch11')"><span>Map</span></button>
         </div>
-        <p class="chapter-subtitle">Chengdu, Lhasa, Gyantse, Shigatse, Everest. In via Chengdu, then a loop to Everest&#x27;s north face.</p>
+        <p class="chapter-subtitle">Chengdu, Lhasa, Gyantse, Shigatse, Everest · 3,656 m, up to 5,000 m</p>
       </div>
     </header>
+  </div>
 
-    <div class="chapter-hero gradient-lhasa">
-      <img class="scene" src="images/potala_palace.jpg" alt="Potala Palace, Lhasa" loading="lazy">
-      <div class="chapter-hero-quote">
-        <div class="quote-text">“Everest turning gold from the top down, hands inside your sleeves.”</div>
-        <div class="quote-attr">Days 133–148 · 12–27 May · 3,656 m, up to 5,000 m</div>
+  <figure class="jr-photo">
+    <div class="jr-photo-frame"><img src="images/potala_palace.jpg" alt="Potala Palace, Lhasa" loading="lazy"></div>
+    <figcaption>“Everest turning gold from the top down, hands inside your sleeves.”</figcaption>
+  </figure>
+
+  <div class="container">
+    <div class="jr-cols">
+      <div class="jr-text">
+        <p class="jr-lede">The road from Kathmandu is closed, so you come in from the other side: fly to Chengdu and on to Lhasa. Four days acclimatising around the Jokhang and the Barkhor, then a six-day loop by car through Yamdrok, Gyantse and Shigatse to Rongbuk under Everest&#x27;s north face, and back to Lhasa.</p>
+      </div>
+      <div class="practical jr-prac">
+        <h4>Practical</h4>
+        <dl class="practical-grid">
+          <div class="practical-item"><dt>Tour &amp; permit</dt><dd>A guide and a booked tour are required the whole time. The agency needs your passports at least 20 days ahead and delivers the permit to your Chengdu hotel.</dd></div>
+          <div class="practical-item"><dt>Closures</dt><dd>Tibet usually closes to foreigners in February and March. By mid-May it should be open again, but confirm before paying.</dd></div>
+          <div class="practical-item"><dt>Altitude</dt><dd>Pack Diamox; get it from your Hausarzt.</dd></div>
+        </dl>
       </div>
     </div>
 
-    <div class="chapter-body chapter-body--stacked">
-      <div class="chapter-text">
-        <p>The road from Kathmandu is closed, so you come in from the other side: fly to Chengdu and on to Lhasa. Four days acclimatising around the Jokhang and the Barkhor, then a six-day loop by car through Yamdrok, Gyantse and Shigatse to Rongbuk under Everest&#x27;s north face, and back to Lhasa.</p>
-      </div>
-      <div class="highlights highlights--row">
-          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Jokhang" target="_blank" rel="noopener">
-          <div class="highlight">
-            <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/a/ab/Jokhang_Temple_in_Tibet.jpg" alt="The Jokhang at dawn" loading="lazy">
-            <div class="highlight-icon">Cultural</div>
-            <h5>The Jokhang at dawn with the pilgrims</h5>
-          </div>
-          </a>
-          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Sera_Monastery" target="_blank" rel="noopener">
-          <div class="highlight">
-            <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Sera_Mey.jpg/500px-Sera_Mey.jpg" alt="Sera Monastery debates" loading="lazy">
-            <div class="highlight-icon">Cultural</div>
-            <h5>Monks debating in the courtyard at Sera</h5>
-          </div>
-          </a>
-          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Mount_Everest" target="_blank" rel="noopener">
-          <div class="highlight">
-            <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Mount_Everest_North_Face.jpg/500px-Mount_Everest_North_Face.jpg" alt="Everest North Face" loading="lazy">
-            <div class="highlight-icon">Landscape</div>
-            <h5>First light on Everest from Rongbuk</h5>
-          </div>
-          </a>
-      </div>
-    </div>
-
-    <div class="practical">
-      <h4>Practical · Lhasa and Everest</h4>
-      <div class="practical-grid">
-        <div class="practical-item">
-          <dt>Tour &amp; permit</dt>
-          <dd>A guide and a booked tour are required the whole time. The agency needs your passports at least 20 days ahead and delivers the permit to your Chengdu hotel.</dd>
-        </div>
-        <div class="practical-item">
-          <dt>Closures</dt>
-          <dd>Tibet usually closes to foreigners in February and March. By mid-May it should be open again, but confirm before paying.</dd>
-        </div>
-        <div class="practical-item">
-          <dt>Altitude</dt>
-          <dd>Pack Diamox; get it from your Hausarzt.</dd>
-        </div>
-      </div>
-    </div>
-
-    <div class="plans-box">
-      <h4>If plans change · Tibet</h4>
-      <dl class="plans-grid">
-        <div class="plans-item">
-          <dt>Plan A, now the plan</dt>
-          <dd>Fly Kathmandu to Chengdu on your own L visa and join the Tibet tour there. You stay free to travel on to Xinjiang alone.</dd>
-        </div>
-        <div class="plans-item">
-          <dt>Plan B</dt>
-          <dd>If the Kyirong border reopens and China extends visa-free entry into 2027, take the original eight days overland from Kathmandu. Avoid the group visa sold in Kathmandu: it cancels your L visa and ties you to the group&#x27;s exit.</dd>
-        </div>
-        <div class="plans-item">
-          <dt>Plan C</dt>
-          <dd>If Tibet is closed, go overland from Chengdu through western Sichuan (Kangding, Tagong, Litang) or visit Rebkong and Labrang near Xining, then rejoin the route at Xining.</dd>
-        </div>
+    <section class="jr-plans" aria-label="If plans change">
+      <h3>If plans change</h3>
+      <dl>
+        <div><dt>Plan A, now the plan</dt><dd>Fly Kathmandu to Chengdu on your own L visa and join the Tibet tour there. You stay free to travel on to Xinjiang alone.</dd></div>
+        <div><dt>Plan B</dt><dd>If the Kyirong border reopens and China extends visa-free entry into 2027, take the original eight days overland from Kathmandu. Avoid the group visa sold in Kathmandu: it cancels your L visa and ties you to the group&#x27;s exit.</dd></div>
+        <div><dt>Plan C</dt><dd>If Tibet is closed, go overland from Chengdu through western Sichuan (Kangding, Tagong, Litang) or visit Rebkong and Labrang near Xining, then rejoin the route at Xining.</dd></div>
       </dl>
+    </section>
+    <div class="jr-hls" aria-label="Don't miss">
+      <a class="jr-hl" href="https://en.wikipedia.org/wiki/Jokhang" target="_blank" rel="noopener">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/ab/Jokhang_Temple_in_Tibet.jpg" alt="The Jokhang at dawn" loading="lazy">
+        <span class="jr-hl-kind">Cultural</span>
+        <span class="jr-hl-title">The Jokhang at dawn with the pilgrims</span>
+      </a>
+      <a class="jr-hl" href="https://en.wikipedia.org/wiki/Sera_Monastery" target="_blank" rel="noopener">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Sera_Mey.jpg/500px-Sera_Mey.jpg" alt="Sera Monastery debates" loading="lazy">
+        <span class="jr-hl-kind">Cultural</span>
+        <span class="jr-hl-title">Monks debating in the courtyard at Sera</span>
+      </a>
+      <a class="jr-hl" href="https://en.wikipedia.org/wiki/Mount_Everest" target="_blank" rel="noopener">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Mount_Everest_North_Face.jpg/500px-Mount_Everest_North_Face.jpg" alt="Everest North Face" loading="lazy">
+        <span class="jr-hl-kind">Landscape</span>
+        <span class="jr-hl-title">First light on Everest from Rongbuk</span>
+      </a>
     </div>
-
   </div>
 </section>
 
 <!-- ============= CHAPTER 12 ============= -->
-<section class="chapter" id="ch12">
+<section class="chapter jr-chapter" id="ch12">
   <div class="container">
-    <header class="chapter-header">
-      <div class="chapter-number"><span>Chapter Twelve</span>XII.</div>
-      <div>
+    <header class="chapter-header jr-head">
+      <div class="chapter-number" aria-hidden="true">XII</div>
+      <div class="jr-titles">
+        <p class="jr-meta">Chapter twelve · China · Days 149–150 · 28–29 May</p>
         <div class="chapter-title-wrap">
-          <h2 class="chapter-title">The <em>Sky Train</em></h2>
-          <button class="locate-btn" onclick="flyToChapter('ch12')"><span>Map</span></button>
+          <h2 class="chapter-title">The Sky Train</h2>
+          <button class="locate-btn" type="button" onclick="flyToChapter('ch12')"><span>Map</span></button>
         </div>
-        <p class="chapter-subtitle">Lhasa to Xining. 21 hours over the Tanggula Pass at 5,072 m.</p>
+        <p class="chapter-subtitle">Lhasa to Xining · up to 5,072 m</p>
       </div>
     </header>
+  </div>
 
-    <div class="chapter-hero gradient-skytrain">
-      <img class="scene" src="images/qinghai_tibet_railway.jpg" alt="Qinghai-Tibet Railway across the plateau" loading="lazy">
-      <div class="chapter-hero-quote">
-        <div class="quote-text">“A herd of wild ass running beside the train for half a minute, then gone.”</div>
-        <div class="quote-attr">Days 149–150 · 28–29 May · up to 5,072 m</div>
+  <figure class="jr-photo">
+    <div class="jr-photo-frame"><img src="images/qinghai_tibet_railway.jpg" alt="Qinghai-Tibet Railway across the plateau" loading="lazy"></div>
+    <figcaption>“A herd of wild ass running beside the train for half a minute, then gone.”</figcaption>
+  </figure>
+
+  <div class="container">
+    <div class="jr-cols">
+      <div class="jr-text">
+        <p class="jr-lede">Twenty-one hours on the highest railway in the world, with oxygen at every berth. Over the Tanggula Pass in the afternoon, across Hoh Xil at dusk, into Xining at dawn.</p>
+      </div>
+      <div class="practical jr-prac">
+        <h4>Practical</h4>
+        <dl class="practical-grid">
+          <div class="practical-item"><dt>The right train</dt><dd>Z8982 leaves at 09:50 and arrives at 06:21 (October 2026 timetable; it may be seasonal, so recheck in April).</dd></div>
+          <div class="practical-item"><dt>Tickets</dt><dd>Tickets go on sale 15 days ahead on Trip.com or 12306. Take soft sleeper: four berths and a door, about ¥780 each.</dd></div>
+        </dl>
       </div>
     </div>
 
-    <div class="chapter-body chapter-body--stacked">
-      <div class="chapter-text">
-        <p>Twenty-one hours on the highest railway in the world, with oxygen at every berth. Over the Tanggula Pass in the afternoon, across Hoh Xil at dusk, into Xining at dawn.</p>
-      </div>
-      <div class="highlights highlights--row">
-          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Tanggula_Mountain_Pass" target="_blank" rel="noopener">
-          <div class="highlight">
-            <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Amdo%2C_Nagqu%2C_Tibet%2C_China_-_panoramio.jpg/500px-Amdo%2C_Nagqu%2C_Tibet%2C_China_-_panoramio.jpg" alt="Tanggula Pass" loading="lazy">
-            <div class="highlight-icon">Landscape</div>
-            <h5>Tanggula Pass, around 16:00</h5>
-          </div>
-          </a>
-          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Hoh_Xil" target="_blank" rel="noopener">
-          <div class="highlight">
-            <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Tsonag_Lake%2C_Tibet.jpg/500px-Tsonag_Lake%2C_Tibet.jpg" alt="Hoh Xil &amp; Cona Lake" loading="lazy">
-            <div class="highlight-icon">Landscape</div>
-            <h5>Antelope and wild ass on the Hoh Xil plain</h5>
-          </div>
-          </a>
-          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Qiangtang" target="_blank" rel="noopener">
-          <div class="highlight">
-            <img class="highlight-image" src="images/qiangtang_grasslands_highlight.jpg" alt="Qiangtang Grasslands" loading="lazy">
-            <div class="highlight-icon">Landscape</div>
-            <h5>The Qiangtang grasslands from the corridor window</h5>
-          </div>
-          </a>
-      </div>
+    <div class="jr-hls" aria-label="Don't miss">
+      <a class="jr-hl" href="https://en.wikipedia.org/wiki/Tanggula_Mountain_Pass" target="_blank" rel="noopener">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Amdo%2C_Nagqu%2C_Tibet%2C_China_-_panoramio.jpg/500px-Amdo%2C_Nagqu%2C_Tibet%2C_China_-_panoramio.jpg" alt="Tanggula Pass" loading="lazy">
+        <span class="jr-hl-kind">Landscape</span>
+        <span class="jr-hl-title">Tanggula Pass, around 16:00</span>
+      </a>
+      <a class="jr-hl" href="https://en.wikipedia.org/wiki/Hoh_Xil" target="_blank" rel="noopener">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Tsonag_Lake%2C_Tibet.jpg/500px-Tsonag_Lake%2C_Tibet.jpg" alt="Hoh Xil &amp; Cona Lake" loading="lazy">
+        <span class="jr-hl-kind">Landscape</span>
+        <span class="jr-hl-title">Antelope and wild ass on the Hoh Xil plain</span>
+      </a>
+      <a class="jr-hl" href="https://en.wikipedia.org/wiki/Qiangtang" target="_blank" rel="noopener">
+        <img src="images/qiangtang_grasslands_highlight.jpg" alt="Qiangtang Grasslands" loading="lazy">
+        <span class="jr-hl-kind">Landscape</span>
+        <span class="jr-hl-title">The Qiangtang grasslands from the corridor window</span>
+      </a>
     </div>
-
-    <div class="practical">
-      <h4>Practical · The Sky Train</h4>
-      <div class="practical-grid">
-        <div class="practical-item">
-          <dt>The right train</dt>
-          <dd>Z8982 leaves at 09:50 and arrives at 06:21 (October 2026 timetable; it may be seasonal, so recheck in April).</dd>
-        </div>
-        <div class="practical-item">
-          <dt>Tickets</dt>
-          <dd>Tickets go on sale 15 days ahead on Trip.com or 12306. Take soft sleeper: four berths and a door, about ¥780 each.</dd>
-        </div>
-      </div>
-    </div>
-
   </div>
 </section>
 
 <!-- ============= CHAPTER 13 ============= -->
-<section class="chapter" id="ch13">
+<section class="chapter jr-chapter" id="ch13">
   <div class="container">
-    <header class="chapter-header">
-      <div class="chapter-number"><span>Chapter Thirteen</span>XIII.</div>
-      <div>
+    <header class="chapter-header jr-head">
+      <div class="chapter-number" aria-hidden="true">XIII</div>
+      <div class="jr-titles">
+        <p class="jr-meta">Chapter thirteen · China · Days 151–162 · 30 May – 10 June</p>
         <div class="chapter-title-wrap">
-          <h2 class="chapter-title">The <em>Hexi Corridor</em></h2>
-          <button class="locate-btn" onclick="flyToChapter('ch13')"><span>Map</span></button>
+          <h2 class="chapter-title">The Hexi Corridor</h2>
+          <button class="locate-btn" type="button" onclick="flyToChapter('ch13')"><span>Map</span></button>
         </div>
-        <p class="chapter-subtitle">Xining, Zhangye, Jiayuguan. Bullet trains and rainbow mountains.</p>
+        <p class="chapter-subtitle">Xining, Zhangye, Jiayuguan · 1,500–2,300 m</p>
       </div>
     </header>
+  </div>
 
-    <div class="chapter-hero gradient-hexi">
-      <img class="scene" src="images/zhangye_danxia.jpg" alt="Zhangye Danxia rainbow mountains" loading="lazy">
-      <div class="chapter-hero-quote">
-        <div class="quote-text">“Striped hills at sunset. The colours don&#x27;t make sense; you stop trying.”</div>
-        <div class="quote-attr">Days 151–162 · 30 May – 10 June · 1,500–2,300 m</div>
+  <figure class="jr-photo">
+    <div class="jr-photo-frame"><img src="images/zhangye_danxia.jpg" alt="Zhangye Danxia rainbow mountains" loading="lazy"></div>
+    <figcaption>“Striped hills at sunset. The colours don&#x27;t make sense; you stop trying.”</figcaption>
+  </figure>
+
+  <div class="container">
+    <div class="jr-cols">
+      <div class="jr-text">
+        <p class="jr-lede">The Silk Road&#x27;s narrow passage between the Tibetan plateau and the Gobi, now at 250 km/h. Kumbum monastery near Xining, the striped Danxia hills at Zhangye, the western end of the Ming wall at Jiayuguan.</p>
+      </div>
+      <div class="practical jr-prac">
+        <h4>Practical</h4>
+        <dl class="practical-grid">
+          <div class="practical-item"><dt>Trains</dt><dd>High-speed rail throughout; Xining to Zhangye is about 2.5 hours.</dd></div>
+          <div class="practical-item"><dt>Language</dt><dd>English is rare. Keep hotel addresses in Chinese and an offline translator.</dd></div>
+        </dl>
       </div>
     </div>
 
-    <div class="chapter-body chapter-body--stacked">
-      <div class="chapter-text">
-        <p>The Silk Road&#x27;s narrow passage between the Tibetan plateau and the Gobi, now at 250 km/h. Kumbum monastery near Xining, the striped Danxia hills at Zhangye, the western end of the Ming wall at Jiayuguan.</p>
-      </div>
-      <div class="highlights highlights--row">
-          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Zhangye_National_Geopark" target="_blank" rel="noopener">
-          <div class="highlight">
-            <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Zhangye_National_Geopark_5.jpg/500px-Zhangye_National_Geopark_5.jpg" alt="Zhangye Danxia" loading="lazy">
-            <div class="highlight-icon">Landscape</div>
-            <h5>Zhangye&#x27;s Danxia hills in late light</h5>
-          </div>
-          </a>
-          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Jiayu_Pass" target="_blank" rel="noopener">
-          <div class="highlight">
-            <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Jiayu_Guan_2014.01.01_11-03-14.jpg/500px-Jiayu_Guan_2014.01.01_11-03-14.jpg" alt="Jiayuguan Fort" loading="lazy">
-            <div class="highlight-icon">Historical</div>
-            <h5>Jiayuguan fort</h5>
-          </div>
-          </a>
-          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Kumbum" target="_blank" rel="noopener">
-          <div class="highlight">
-            <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Qinghai_Tibet_Railway_Tibet_China_%E8%A5%BF%E8%97%8F_%E9%9D%92%E8%97%8F%E9%93%81%E8%B7%AF_-_panoramio_%284%29.jpg/500px-Qinghai_Tibet_Railway_Tibet_China_%E8%A5%BF%E8%97%8F_%E9%9D%92%E8%97%8F%E9%93%81%E8%B7%AF_-_panoramio_%284%29.jpg" alt="Kumbum Monastery (Ta'er Si)" loading="lazy">
-            <div class="highlight-icon">Cultural</div>
-            <h5>Kumbum&#x27;s butter sculptures</h5>
-          </div>
-          </a>
-      </div>
+    <div class="jr-hls" aria-label="Don't miss">
+      <a class="jr-hl" href="https://en.wikipedia.org/wiki/Zhangye_National_Geopark" target="_blank" rel="noopener">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Zhangye_National_Geopark_5.jpg/500px-Zhangye_National_Geopark_5.jpg" alt="Zhangye Danxia" loading="lazy">
+        <span class="jr-hl-kind">Landscape</span>
+        <span class="jr-hl-title">Zhangye&#x27;s Danxia hills in late light</span>
+      </a>
+      <a class="jr-hl" href="https://en.wikipedia.org/wiki/Jiayu_Pass" target="_blank" rel="noopener">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Jiayu_Guan_2014.01.01_11-03-14.jpg/500px-Jiayu_Guan_2014.01.01_11-03-14.jpg" alt="Jiayuguan Fort" loading="lazy">
+        <span class="jr-hl-kind">Historical</span>
+        <span class="jr-hl-title">Jiayuguan fort</span>
+      </a>
+      <a class="jr-hl" href="https://en.wikipedia.org/wiki/Kumbum" target="_blank" rel="noopener">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Qinghai_Tibet_Railway_Tibet_China_%E8%A5%BF%E8%97%8F_%E9%9D%92%E8%97%8F%E9%93%81%E8%B7%AF_-_panoramio_%284%29.jpg/500px-Qinghai_Tibet_Railway_Tibet_China_%E8%A5%BF%E8%97%8F_%E9%9D%92%E8%97%8F%E9%93%81%E8%B7%AF_-_panoramio_%284%29.jpg" alt="Kumbum Monastery (Ta'er Si)" loading="lazy">
+        <span class="jr-hl-kind">Cultural</span>
+        <span class="jr-hl-title">Kumbum&#x27;s butter sculptures</span>
+      </a>
     </div>
-
-    <div class="practical">
-      <h4>Practical · The Hexi Corridor</h4>
-      <div class="practical-grid">
-        <div class="practical-item">
-          <dt>Trains</dt>
-          <dd>High-speed rail throughout; Xining to Zhangye is about 2.5 hours.</dd>
-        </div>
-        <div class="practical-item">
-          <dt>Language</dt>
-          <dd>English is rare. Keep hotel addresses in Chinese and an offline translator.</dd>
-        </div>
-      </div>
-    </div>
-
   </div>
 </section>
 
 <!-- ============= CHAPTER 14 ============= -->
-<section class="chapter" id="ch14">
+<section class="chapter jr-chapter" id="ch14">
   <div class="container">
-    <header class="chapter-header">
-      <div class="chapter-number"><span>Chapter Fourteen</span>XIV.</div>
-      <div>
+    <header class="chapter-header jr-head">
+      <div class="chapter-number" aria-hidden="true">XIV</div>
+      <div class="jr-titles">
+        <p class="jr-meta">Chapter fourteen · China · Days 163–167 · 11–15 June</p>
         <div class="chapter-title-wrap">
-          <h2 class="chapter-title">Dunhuang, where the desert <em>meets the Buddha</em></h2>
-          <button class="locate-btn" onclick="flyToChapter('ch14')"><span>Map</span></button>
+          <h2 class="chapter-title">Dunhuang, where the desert meets the Buddha</h2>
+          <button class="locate-btn" type="button" onclick="flyToChapter('ch14')"><span>Map</span></button>
         </div>
-        <p class="chapter-subtitle">Mogao caves, Crescent Lake. A thousand years of cave painting and a lake in the dunes.</p>
+        <p class="chapter-subtitle">Mogao caves, Crescent Lake · 1,140 m</p>
       </div>
     </header>
+  </div>
 
-    <div class="chapter-hero gradient-dunhuang">
-      <img class="scene" src="images/dunhuang_crescent_lake.jpg" alt="Crescent Lake and Singing Sand Dunes, Dunhuang" loading="lazy">
-      <div class="chapter-hero-quote">
-        <div class="quote-text">“Top of the dune, the lake in shadow below, the sand humming.”</div>
-        <div class="quote-attr">Days 163–167 · 11–15 June · 1,140 m</div>
+  <figure class="jr-photo">
+    <div class="jr-photo-frame"><img src="images/dunhuang_crescent_lake.jpg" alt="Crescent Lake and Singing Sand Dunes, Dunhuang" loading="lazy"></div>
+    <figcaption>“Top of the dune, the lake in shadow below, the sand humming.”</figcaption>
+  </figure>
+
+  <div class="container">
+    <div class="jr-cols">
+      <div class="jr-text">
+        <p class="jr-lede">An oasis at the edge of the Gobi. The Mogao caves hold a thousand years of Buddhist painting; outside town a crescent-shaped spring sits between hundred-metre dunes.</p>
+      </div>
+      <div class="practical jr-prac">
+        <h4>Practical</h4>
+        <dl class="practical-grid">
+          <div class="practical-item"><dt>Mogao tickets</dt><dd>Book Mogao about 30 days ahead. The official site often needs a Chinese phone number, so use Trip.com or an agency.</dd></div>
+          <div class="practical-item"><dt>Heat &amp; sand</dt><dd>Mid-June days pass 30 °C. Climb the dunes at sunrise or after 18:00, with a buff for the sand.</dd></div>
+        </dl>
       </div>
     </div>
 
-    <div class="chapter-body chapter-body--stacked">
-      <div class="chapter-text">
-        <p>An oasis at the edge of the Gobi. The Mogao caves hold a thousand years of Buddhist painting; outside town a crescent-shaped spring sits between hundred-metre dunes.</p>
-      </div>
-      <div class="highlights highlights--row">
-          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Mogao_Caves" target="_blank" rel="noopener">
-          <div class="highlight">
-            <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Mogao_Caves_%2854376969262%29.jpg/500px-Mogao_Caves_%2854376969262%29.jpg" alt="Mogao Caves" loading="lazy">
-            <div class="highlight-icon">Cultural</div>
-            <h5>Mogao caves on the English tour</h5>
-          </div>
-          </a>
-          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Crescent_Lake_(Dunhuang)" target="_blank" rel="noopener">
-          <div class="highlight">
-            <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Crescent_Lake_from_the_Singing_Sand_Dunes_%2820230918101214%29.jpg/500px-Crescent_Lake_from_the_Singing_Sand_Dunes_%2820230918101214%29.jpg" alt="Crescent Lake &amp; Mingsha" loading="lazy">
-            <div class="highlight-icon">Landscape</div>
-            <h5>Mingsha dunes and Crescent Lake at sunset</h5>
-          </div>
-          </a>
-          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Yumen_Pass" target="_blank" rel="noopener">
-          <div class="highlight">
-            <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Dunhuang.yumenguan.jpg/1280px-Dunhuang.yumenguan.jpg" alt="Yumen Pass &amp; the Jade Gate" loading="lazy">
-            <div class="highlight-icon">Historical</div>
-            <h5>Yumen Pass, where Han China ended</h5>
-          </div>
-          </a>
-      </div>
+    <div class="jr-hls" aria-label="Don't miss">
+      <a class="jr-hl" href="https://en.wikipedia.org/wiki/Mogao_Caves" target="_blank" rel="noopener">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Mogao_Caves_%2854376969262%29.jpg/500px-Mogao_Caves_%2854376969262%29.jpg" alt="Mogao Caves" loading="lazy">
+        <span class="jr-hl-kind">Cultural</span>
+        <span class="jr-hl-title">Mogao caves on the English tour</span>
+      </a>
+      <a class="jr-hl" href="https://en.wikipedia.org/wiki/Crescent_Lake_(Dunhuang)" target="_blank" rel="noopener">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Crescent_Lake_from_the_Singing_Sand_Dunes_%2820230918101214%29.jpg/500px-Crescent_Lake_from_the_Singing_Sand_Dunes_%2820230918101214%29.jpg" alt="Crescent Lake &amp; Mingsha" loading="lazy">
+        <span class="jr-hl-kind">Landscape</span>
+        <span class="jr-hl-title">Mingsha dunes and Crescent Lake at sunset</span>
+      </a>
+      <a class="jr-hl" href="https://en.wikipedia.org/wiki/Yumen_Pass" target="_blank" rel="noopener">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Dunhuang.yumenguan.jpg/1280px-Dunhuang.yumenguan.jpg" alt="Yumen Pass &amp; the Jade Gate" loading="lazy">
+        <span class="jr-hl-kind">Historical</span>
+        <span class="jr-hl-title">Yumen Pass, where Han China ended</span>
+      </a>
     </div>
-
-    <div class="practical">
-      <h4>Practical · Dunhuang</h4>
-      <div class="practical-grid">
-        <div class="practical-item">
-          <dt>Mogao tickets</dt>
-          <dd>Book Mogao about 30 days ahead. The official site often needs a Chinese phone number, so use Trip.com or an agency.</dd>
-        </div>
-        <div class="practical-item">
-          <dt>Heat &amp; sand</dt>
-          <dd>Mid-June days pass 30 °C. Climb the dunes at sunrise or after 18:00, with a buff for the sand.</dd>
-        </div>
-      </div>
-    </div>
-
   </div>
 </section>
 
 <!-- ============= CHAPTER 15 ============= -->
-<section class="chapter" id="ch15">
+<section class="chapter jr-chapter" id="ch15">
   <div class="container">
-    <header class="chapter-header">
-      <div class="chapter-number"><span>Chapter Fifteen</span>XV.</div>
-      <div>
+    <header class="chapter-header jr-head">
+      <div class="chapter-number" aria-hidden="true">XV</div>
+      <div class="jr-titles">
+        <p class="jr-meta">Chapter fifteen · China · Days 168–176 · 16–24 June</p>
         <div class="chapter-title-wrap">
-          <h2 class="chapter-title">Turpan, the <em>oasis of fire</em></h2>
-          <button class="locate-btn" onclick="flyToChapter('ch15')"><span>Map</span></button>
+          <h2 class="chapter-title">Turpan, the oasis of fire</h2>
+          <button class="locate-btn" type="button" onclick="flyToChapter('ch15')"><span>Map</span></button>
         </div>
-        <p class="chapter-subtitle">Turpan, Ürümqi. Below sea level, green with vines. The trip turns Uyghur.</p>
+        <p class="chapter-subtitle">Turpan, Ürümqi · −154 m</p>
       </div>
     </header>
+  </div>
 
-    <div class="chapter-hero gradient-turpan">
-      <img class="scene" src="images/turpan_flaming_mountains.jpg" alt="Flaming Mountains, Turpan" loading="lazy">
-      <div class="chapter-hero-quote">
-        <div class="quote-text">“Cold yoghurt under a vine trellis, nothing to do for an hour.”</div>
-        <div class="quote-attr">Days 168–176 · 16–24 June · −154 m</div>
+  <figure class="jr-photo">
+    <div class="jr-photo-frame"><img src="images/turpan_flaming_mountains.jpg" alt="Flaming Mountains, Turpan" loading="lazy"></div>
+    <figcaption>“Cold yoghurt under a vine trellis, nothing to do for an hour.”</figcaption>
+  </figure>
+
+  <div class="container">
+    <div class="jr-cols">
+      <div class="jr-text">
+        <p class="jr-lede">Below sea level, ringed by the Flaming Mountains, and green with vines fed by hand-dug karez channels. This is where the trip turns Uyghur: lamb, nan, laghman, the call to prayer.</p>
+      </div>
+      <div class="practical jr-prac">
+        <h4>Practical</h4>
+        <dl class="practical-grid">
+          <div class="practical-item"><dt>Heat</dt><dd>June highs average about 37 °C and often pass 40 °C. Go out early and late.</dd></div>
+          <div class="practical-item"><dt>Xinjiang rules</dt><dd>Foreigners may only stay in licensed hotels. Carry your passport for frequent checkpoints, and don&#x27;t fly drones.</dd></div>
+          <div class="practical-item"><dt>Time zones</dt><dd>Xinjiang time runs two hours behind Beijing time. Check which one a ticket uses.</dd></div>
+        </dl>
       </div>
     </div>
 
-    <div class="chapter-body chapter-body--stacked">
-      <div class="chapter-text">
-        <p>Below sea level, ringed by the Flaming Mountains, and green with vines fed by hand-dug karez channels. This is where the trip turns Uyghur: lamb, nan, laghman, the call to prayer.</p>
-      </div>
-      <div class="highlights highlights--row">
-          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Jiaohe_ruins" target="_blank" rel="noopener">
-          <div class="highlight">
-            <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Turpan-jiaohe-ruinas-d28.jpg/500px-Turpan-jiaohe-ruinas-d28.jpg" alt="Jiaohe Ruins" loading="lazy">
-            <div class="highlight-icon">Historical</div>
-            <h5>Jiaohe ruins at sunrise</h5>
-          </div>
-          </a>
-          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Grape_Valley" target="_blank" rel="noopener">
-          <div class="highlight">
-            <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Valley_of_Grapes_Turpan_%2810%29.jpg/500px-Valley_of_Grapes_Turpan_%2810%29.jpg" alt="Grape Valley" loading="lazy">
-            <div class="highlight-icon">Landscape</div>
-            <h5>Grape Valley under the trellises</h5>
-          </div>
-          </a>
-          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Laghman_(food)" target="_blank" rel="noopener">
-          <div class="highlight">
-            <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/7/74/%D0%9B%D0%B0%D0%B3%D0%BC%D0%B0%D0%BD.jpg" alt="Laghman, polo, nan" loading="lazy">
-            <div class="highlight-icon">Culinary</div>
-            <h5>A walk down into a karez</h5>
-          </div>
-          </a>
-      </div>
+    <div class="jr-hls" aria-label="Don't miss">
+      <a class="jr-hl" href="https://en.wikipedia.org/wiki/Jiaohe_ruins" target="_blank" rel="noopener">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Turpan-jiaohe-ruinas-d28.jpg/500px-Turpan-jiaohe-ruinas-d28.jpg" alt="Jiaohe Ruins" loading="lazy">
+        <span class="jr-hl-kind">Historical</span>
+        <span class="jr-hl-title">Jiaohe ruins at sunrise</span>
+      </a>
+      <a class="jr-hl" href="https://en.wikipedia.org/wiki/Grape_Valley" target="_blank" rel="noopener">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Valley_of_Grapes_Turpan_%2810%29.jpg/500px-Valley_of_Grapes_Turpan_%2810%29.jpg" alt="Grape Valley" loading="lazy">
+        <span class="jr-hl-kind">Landscape</span>
+        <span class="jr-hl-title">Grape Valley under the trellises</span>
+      </a>
+      <a class="jr-hl" href="https://en.wikipedia.org/wiki/Laghman_(food)" target="_blank" rel="noopener">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/74/%D0%9B%D0%B0%D0%B3%D0%BC%D0%B0%D0%BD.jpg" alt="Laghman, polo, nan" loading="lazy">
+        <span class="jr-hl-kind">Culinary</span>
+        <span class="jr-hl-title">A walk down into a karez</span>
+      </a>
     </div>
-
-    <div class="practical">
-      <h4>Practical · Turpan &amp; Ürümqi</h4>
-      <div class="practical-grid">
-        <div class="practical-item">
-          <dt>Heat</dt>
-          <dd>June highs average about 37 °C and often pass 40 °C. Go out early and late.</dd>
-        </div>
-        <div class="practical-item">
-          <dt>Xinjiang rules</dt>
-          <dd>Foreigners may only stay in licensed hotels. Carry your passport for frequent checkpoints, and don&#x27;t fly drones.</dd>
-        </div>
-        <div class="practical-item">
-          <dt>Time zones</dt>
-          <dd>Xinjiang time runs two hours behind Beijing time. Check which one a ticket uses.</dd>
-        </div>
-      </div>
-    </div>
-
   </div>
 </section>
 
 <!-- ============= CHAPTER 16 ============= -->
-<section class="chapter" id="ch16">
+<section class="chapter jr-chapter" id="ch16">
   <div class="container">
-    <header class="chapter-header">
-      <div class="chapter-number"><span>Chapter Sixteen</span>XVI.</div>
-      <div>
+    <header class="chapter-header jr-head">
+      <div class="chapter-number" aria-hidden="true">XVI</div>
+      <div class="jr-titles">
+        <p class="jr-meta">Chapter sixteen · China · Days 177–183 · 25 June – 1 July</p>
         <div class="chapter-title-wrap">
-          <h2 class="chapter-title">Kashgar, the <em>last city of China</em></h2>
-          <button class="locate-btn" onclick="flyToChapter('ch16')"><span>Map</span></button>
+          <h2 class="chapter-title">Kashgar, the last city of China</h2>
+          <button class="locate-btn" type="button" onclick="flyToChapter('ch16')"><span>Map</span></button>
         </div>
-        <p class="chapter-subtitle">Kashgar, Karakul Lake. The Old Town, the Sunday market and Karakul Lake.</p>
+        <p class="chapter-subtitle">Kashgar, Karakul Lake · 1,290 m, Karakul 3,600 m</p>
       </div>
     </header>
+  </div>
 
-    <div class="chapter-hero gradient-kashgar">
-      <img class="scene" src="images/kashgar_market.jpg" alt="Sunday Livestock Market, Kashgar" loading="lazy">
-      <div class="chapter-hero-quote">
-        <div class="quote-text">“Karakul like black glass, Muztagh Ata catching the sun first.”</div>
-        <div class="quote-attr">Days 177–183 · 25 June – 1 July · 1,290 m, Karakul 3,600 m</div>
+  <figure class="jr-photo">
+    <div class="jr-photo-frame"><img src="images/kashgar_market.jpg" alt="Sunday Livestock Market, Kashgar" loading="lazy"></div>
+    <figcaption>“Karakul like black glass, Muztagh Ata catching the sun first.”</figcaption>
+  </figure>
+
+  <div class="container">
+    <div class="jr-cols">
+      <div class="jr-text">
+        <p class="jr-lede">The old crossroads of the southern Silk Road. Samsa from the tonur ovens of the Old Town, the Sunday livestock bazaar on 27 June, then a night at Karakul Lake under Muztagh Ata.</p>
+      </div>
+      <div class="practical jr-prac">
+        <h4>Practical</h4>
+        <dl class="practical-grid">
+          <div class="practical-item"><dt>Border permit</dt><dd>The Karakoram Highway needs a border permit. It&#x27;s free and takes about 30 minutes at the Kashgar airport desk; get it even if Karakul alone may not need it.</dd></div>
+          <div class="practical-item"><dt>Karakul</dt><dd>A private driver to Karakul and back costs about €80.</dd></div>
+        </dl>
       </div>
     </div>
 
-    <div class="chapter-body chapter-body--stacked">
-      <div class="chapter-text">
-        <p>The old crossroads of the southern Silk Road. Samsa from the tonur ovens of the Old Town, the Sunday livestock bazaar on 27 June, then a night at Karakul Lake under Muztagh Ata.</p>
-      </div>
-      <div class="highlights highlights--row">
-          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Kashgar" target="_blank" rel="noopener">
-          <div class="highlight">
-            <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/5/57/The_Moorish_Bazaar.jpg" alt="Sunday Livestock Bazaar" loading="lazy">
-            <div class="highlight-icon">Cultural</div>
-            <h5>The Sunday livestock market, busiest from 10 to 11</h5>
-          </div>
-          </a>
-          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Id_Kah_Mosque" target="_blank" rel="noopener">
-          <div class="highlight">
-            <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/7/7d/H%C3%ABytgah_Mosque%2C_Kashi_%2820230923100109%29.jpg" alt="Old Town &amp; Id Kah" loading="lazy">
-            <div class="highlight-icon">Cultural</div>
-            <h5>Id Kah mosque on Friday afternoon</h5>
-          </div>
-          </a>
-          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Karakul_(China)" target="_blank" rel="noopener">
-          <div class="highlight">
-            <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/c/c5/Mt_Kongur_Lake_Karakul_Xinjiang_China.jpg" alt="Karakul Lake &amp; Muztagh Ata" loading="lazy">
-            <div class="highlight-icon">Landscape</div>
-            <h5>A yurt night at Karakul</h5>
-          </div>
-          </a>
-      </div>
+    <div class="jr-hls" aria-label="Don't miss">
+      <a class="jr-hl" href="https://en.wikipedia.org/wiki/Kashgar" target="_blank" rel="noopener">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/57/The_Moorish_Bazaar.jpg" alt="Sunday Livestock Bazaar" loading="lazy">
+        <span class="jr-hl-kind">Cultural</span>
+        <span class="jr-hl-title">The Sunday livestock market, busiest from 10 to 11</span>
+      </a>
+      <a class="jr-hl" href="https://en.wikipedia.org/wiki/Id_Kah_Mosque" target="_blank" rel="noopener">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7d/H%C3%ABytgah_Mosque%2C_Kashi_%2820230923100109%29.jpg" alt="Old Town &amp; Id Kah" loading="lazy">
+        <span class="jr-hl-kind">Cultural</span>
+        <span class="jr-hl-title">Id Kah mosque on Friday afternoon</span>
+      </a>
+      <a class="jr-hl" href="https://en.wikipedia.org/wiki/Karakul_(China)" target="_blank" rel="noopener">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c5/Mt_Kongur_Lake_Karakul_Xinjiang_China.jpg" alt="Karakul Lake &amp; Muztagh Ata" loading="lazy">
+        <span class="jr-hl-kind">Landscape</span>
+        <span class="jr-hl-title">A yurt night at Karakul</span>
+      </a>
     </div>
-
-    <div class="practical">
-      <h4>Practical · Kashgar</h4>
-      <div class="practical-grid">
-        <div class="practical-item">
-          <dt>Border permit</dt>
-          <dd>The Karakoram Highway needs a border permit. It&#x27;s free and takes about 30 minutes at the Kashgar airport desk; get it even if Karakul alone may not need it.</dd>
-        </div>
-        <div class="practical-item">
-          <dt>Karakul</dt>
-          <dd>A private driver to Karakul and back costs about €80.</dd>
-        </div>
-      </div>
-    </div>
-
   </div>
 </section>
 
 <!-- ============= CHAPTER 17 ============= -->
-<section class="chapter" id="ch17">
+<section class="chapter jr-chapter" id="ch17">
   <div class="container">
-    <header class="chapter-header">
-      <div class="chapter-number"><span>Chapter Seventeen</span>XVII.</div>
-      <div>
+    <header class="chapter-header jr-head">
+      <div class="chapter-number" aria-hidden="true">XVII</div>
+      <div class="jr-titles">
+        <p class="jr-meta">Chapter seventeen · Border · Days 184–186 · 2–4 July</p>
         <div class="chapter-title-wrap">
-          <h2 class="chapter-title">Across the <em>Irkeshtam</em></h2>
-          <button class="locate-btn" onclick="flyToChapter('ch17')"><span>Map</span></button>
+          <h2 class="chapter-title">Across the Irkeshtam</h2>
+          <button class="locate-btn" type="button" onclick="flyToChapter('ch17')"><span>Map</span></button>
         </div>
-        <p class="chapter-subtitle">Kashgar to Sary-Tash to Osh. The quiet back door out of China, over the Alay valley.</p>
+        <p class="chapter-subtitle">Kashgar to Sary-Tash to Osh · Sary-Tash 3,170 m</p>
       </div>
     </header>
+  </div>
 
-    <div class="chapter-hero gradient-osh">
-      <img class="scene" src="images/pamir_mountains.jpg" alt="Pamir mountains and lake" loading="lazy">
-      <div class="chapter-hero-quote">
-        <div class="quote-text">“Sary-Tash at sunrise, the Pamir wall pink, China behind you.”</div>
-        <div class="quote-attr">Days 184–186 · 2–4 July · Sary-Tash 3,170 m</div>
+  <figure class="jr-photo">
+    <div class="jr-photo-frame"><img src="images/pamir_mountains.jpg" alt="Pamir mountains and lake" loading="lazy"></div>
+    <figcaption>“Sary-Tash at sunrise, the Pamir wall pink, China behind you.”</figcaption>
+  </figure>
+
+  <div class="container">
+    <div class="jr-cols">
+      <div class="jr-text">
+        <p class="jr-lede">The quiet back door out of China. The exit stamp at Ulugqat, a long no-man&#x27;s-land, then the Alay valley opens with the Pamirs along one side. A cold night in Sary-Tash, then down to Osh.</p>
+      </div>
+      <div class="practical jr-prac">
+        <h4>Practical</h4>
+        <dl class="practical-grid">
+          <div class="practical-item"><dt>Border hours</dt><dd>Open Monday to Friday only, closed roughly 13:00–16:00 and on Chinese holidays. You reach it on Friday 2 July, so cross that morning or a day early. Any delay means waiting until Monday.</dd></div>
+          <div class="practical-item"><dt>Logistics</dt><dd>Arrange the Chinese side through an agency; shared taxis alone are unreliable for foreigners.</dd></div>
+          <div class="practical-item"><dt>Kyrgyz visa</dt><dd>Kyrgyzstan: 60 days visa-free.</dd></div>
+        </dl>
       </div>
     </div>
 
-    <div class="chapter-body chapter-body--stacked">
-      <div class="chapter-text">
-        <p>The quiet back door out of China. The exit stamp at Ulugqat, a long no-man&#x27;s-land, then the Alay valley opens with the Pamirs along one side. A cold night in Sary-Tash, then down to Osh.</p>
-      </div>
-      <div class="highlights highlights--row">
-          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Alay_Valley" target="_blank" rel="noopener">
-          <div class="highlight">
-            <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Alai_Valley_1.jpg/500px-Alai_Valley_1.jpg" alt="The Alay Valley" loading="lazy">
-            <div class="highlight-icon">Landscape</div>
-            <h5>The Alay valley</h5>
-          </div>
-          </a>
-          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Sulaiman-Too" target="_blank" rel="noopener">
-          <div class="highlight">
-            <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Osh_03-2016_img06_Sulayman_Mountain.jpg/500px-Osh_03-2016_img06_Sulayman_Mountain.jpg" alt="Sulaiman-Too" loading="lazy">
-            <div class="highlight-icon">Historical</div>
-            <h5>Sulaiman-Too above Osh at sunset</h5>
-          </div>
-          </a>
-          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Osh" target="_blank" rel="noopener">
-          <div class="highlight">
-            <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Osh_03-2016_img27_view_from_Sulayman_Mountain.jpg/500px-Osh_03-2016_img27_view_from_Sulayman_Mountain.jpg" alt="Osh's Jayma Bazaar" loading="lazy">
-            <div class="highlight-icon">Cultural</div>
-            <h5>Jayma bazaar in Osh</h5>
-          </div>
-          </a>
-      </div>
+    <div class="jr-hls" aria-label="Don't miss">
+      <a class="jr-hl" href="https://en.wikipedia.org/wiki/Alay_Valley" target="_blank" rel="noopener">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Alai_Valley_1.jpg/500px-Alai_Valley_1.jpg" alt="The Alay Valley" loading="lazy">
+        <span class="jr-hl-kind">Landscape</span>
+        <span class="jr-hl-title">The Alay valley</span>
+      </a>
+      <a class="jr-hl" href="https://en.wikipedia.org/wiki/Sulaiman-Too" target="_blank" rel="noopener">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Osh_03-2016_img06_Sulayman_Mountain.jpg/500px-Osh_03-2016_img06_Sulayman_Mountain.jpg" alt="Sulaiman-Too" loading="lazy">
+        <span class="jr-hl-kind">Historical</span>
+        <span class="jr-hl-title">Sulaiman-Too above Osh at sunset</span>
+      </a>
+      <a class="jr-hl" href="https://en.wikipedia.org/wiki/Osh" target="_blank" rel="noopener">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Osh_03-2016_img27_view_from_Sulayman_Mountain.jpg/500px-Osh_03-2016_img27_view_from_Sulayman_Mountain.jpg" alt="Osh's Jayma Bazaar" loading="lazy">
+        <span class="jr-hl-kind">Cultural</span>
+        <span class="jr-hl-title">Jayma bazaar in Osh</span>
+      </a>
     </div>
-
-    <div class="practical">
-      <h4>Practical · Across the Irkeshtam</h4>
-      <div class="practical-grid">
-        <div class="practical-item">
-          <dt>Border hours</dt>
-          <dd>Open Monday to Friday only, closed roughly 13:00–16:00 and on Chinese holidays. You reach it on Friday 2 July, so cross that morning or a day early. Any delay means waiting until Monday.</dd>
-        </div>
-        <div class="practical-item">
-          <dt>Logistics</dt>
-          <dd>Arrange the Chinese side through an agency; shared taxis alone are unreliable for foreigners.</dd>
-        </div>
-        <div class="practical-item">
-          <dt>Kyrgyz visa</dt>
-          <dd>Kyrgyzstan: 60 days visa-free.</dd>
-        </div>
-      </div>
-    </div>
-
   </div>
 </section>
 
 <!-- ============= CHAPTER 18 ============= -->
-<section class="chapter" id="ch18">
+<section class="chapter jr-chapter" id="ch18">
   <div class="container">
-    <header class="chapter-header">
-      <div class="chapter-number"><span>Chapter Eighteen</span>XVIII.</div>
-      <div>
+    <header class="chapter-header jr-head">
+      <div class="chapter-number" aria-hidden="true">XVIII</div>
+      <div class="jr-titles">
+        <p class="jr-meta">Chapter eighteen · Central Asia · Days 187–204 · 5–22 July</p>
         <div class="chapter-title-wrap">
-          <h2 class="chapter-title"><em>Kyrgyzstan</em></h2>
-          <button class="locate-btn" onclick="flyToChapter('ch18')"><span>Map</span></button>
+          <h2 class="chapter-title">Kyrgyzstan</h2>
+          <button class="locate-btn" type="button" onclick="flyToChapter('ch18')"><span>Map</span></button>
         </div>
-        <p class="chapter-subtitle">Bishkek, Karakol, Altyn Arashan, Song Kol. Alpine meadows, hot springs and yurts.</p>
+        <p class="chapter-subtitle">Bishkek, Karakol, Altyn Arashan, Song Kol · Song Kol 3,016 m</p>
       </div>
     </header>
+  </div>
 
-    <div class="chapter-hero gradient-kyrgyzstan">
-      <img class="scene" src="images/kyrgyzstan_song_kol.jpg" alt="Song Kol Lake with yurts and horses, Kyrgyzstan" loading="lazy">
-      <div class="chapter-hero-quote">
-        <div class="quote-text">“Two in the morning outside the yurt, stars doubled in the lake.”</div>
-        <div class="quote-attr">Days 187–204 · 5–22 July · Song Kol 3,016 m</div>
+  <figure class="jr-photo">
+    <div class="jr-photo-frame"><img src="images/kyrgyzstan_song_kol.jpg" alt="Song Kol Lake with yurts and horses, Kyrgyzstan" loading="lazy"></div>
+    <figcaption>“Two in the morning outside the yurt, stars doubled in the lake.”</figcaption>
+  </figure>
+
+  <div class="container">
+    <div class="jr-cols">
+      <div class="jr-text">
+        <p class="jr-lede">After weeks of checkpoints, open country. Bishkek, then east to Karakol and up to the Altyn Arashan hot springs, then Song Kol: a lake at 3,016 m, summer pastures, a few nights in a yurt.</p>
+      </div>
+      <div class="practical jr-prac">
+        <h4>Practical</h4>
+        <dl class="practical-grid">
+          <div class="practical-item"><dt>Song Kol</dt><dd>July is high season at Song Kol; book the yurt camp and horses ahead through a community tourism office.</dd></div>
+          <div class="practical-item"><dt>Cash</dt><dd>Carry small notes for minibuses and homestays.</dd></div>
+        </dl>
       </div>
     </div>
 
-    <div class="chapter-body chapter-body--stacked">
-      <div class="chapter-text">
-        <p>After weeks of checkpoints, open country. Bishkek, then east to Karakol and up to the Altyn Arashan hot springs, then Song Kol: a lake at 3,016 m, summer pastures, a few nights in a yurt.</p>
-      </div>
-      <div class="highlights highlights--row">
-          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Altyn_Arashan" target="_blank" rel="noopener">
-          <div class="highlight">
-            <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Altyn_Arashan_resort%2C_Kyrgyzstan_2.jpg/500px-Altyn_Arashan_resort%2C_Kyrgyzstan_2.jpg" alt="Altyn Arashan Hot Springs" loading="lazy">
-            <div class="highlight-icon">Landscape</div>
-            <h5>Hot springs at Altyn Arashan</h5>
-          </div>
-          </a>
-          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Song_Kol_Lake" target="_blank" rel="noopener">
-          <div class="highlight">
-            <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Song-K%C3%B6l.jpg/500px-Song-K%C3%B6l.jpg" alt="Song Kol Lake" loading="lazy">
-            <div class="highlight-icon">Landscape</div>
-            <h5>Horseback to Song Kol</h5>
-          </div>
-          </a>
-          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Yurt" target="_blank" rel="noopener">
-          <div class="highlight">
-            <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/SK_yurt_camp_%281_of_1%29-8.jpg/500px-SK_yurt_camp_%281_of_1%29-8.jpg" alt="Yurt Camp Nights" loading="lazy">
-            <div class="highlight-icon">Cultural</div>
-            <h5>A night sky with no light in it</h5>
-          </div>
-          </a>
-      </div>
+    <div class="jr-hls" aria-label="Don't miss">
+      <a class="jr-hl" href="https://en.wikipedia.org/wiki/Altyn_Arashan" target="_blank" rel="noopener">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Altyn_Arashan_resort%2C_Kyrgyzstan_2.jpg/500px-Altyn_Arashan_resort%2C_Kyrgyzstan_2.jpg" alt="Altyn Arashan Hot Springs" loading="lazy">
+        <span class="jr-hl-kind">Landscape</span>
+        <span class="jr-hl-title">Hot springs at Altyn Arashan</span>
+      </a>
+      <a class="jr-hl" href="https://en.wikipedia.org/wiki/Song_Kol_Lake" target="_blank" rel="noopener">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Song-K%C3%B6l.jpg/500px-Song-K%C3%B6l.jpg" alt="Song Kol Lake" loading="lazy">
+        <span class="jr-hl-kind">Landscape</span>
+        <span class="jr-hl-title">Horseback to Song Kol</span>
+      </a>
+      <a class="jr-hl" href="https://en.wikipedia.org/wiki/Yurt" target="_blank" rel="noopener">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/SK_yurt_camp_%281_of_1%29-8.jpg/500px-SK_yurt_camp_%281_of_1%29-8.jpg" alt="Yurt Camp Nights" loading="lazy">
+        <span class="jr-hl-kind">Cultural</span>
+        <span class="jr-hl-title">A night sky with no light in it</span>
+      </a>
     </div>
-
-    <div class="practical">
-      <h4>Practical · Kyrgyzstan</h4>
-      <div class="practical-grid">
-        <div class="practical-item">
-          <dt>Song Kol</dt>
-          <dd>July is high season at Song Kol; book the yurt camp and horses ahead through a community tourism office.</dd>
-        </div>
-        <div class="practical-item">
-          <dt>Cash</dt>
-          <dd>Carry small notes for minibuses and homestays.</dd>
-        </div>
-      </div>
-    </div>
-
   </div>
 </section>
 
 <!-- ============= CHAPTER 19 ============= -->
-<section class="chapter" id="ch19">
+<section class="chapter jr-chapter" id="ch19">
   <div class="container">
-    <header class="chapter-header">
-      <div class="chapter-number"><span>Chapter Nineteen</span>XIX.</div>
-      <div>
+    <header class="chapter-header jr-head">
+      <div class="chapter-number" aria-hidden="true">XIX</div>
+      <div class="jr-titles">
+        <p class="jr-meta">Chapter nineteen · Uzbekistan · Days 205–219 · 23 July – 6 August</p>
         <div class="chapter-title-wrap">
-          <h2 class="chapter-title">The <em>Silk Road Cities</em></h2>
-          <button class="locate-btn" onclick="flyToChapter('ch19')"><span>Map</span></button>
+          <h2 class="chapter-title">The Silk Road Cities</h2>
+          <button class="locate-btn" type="button" onclick="flyToChapter('ch19')"><span>Map</span></button>
         </div>
-        <p class="chapter-subtitle">Tashkent, Samarkand, Bukhara. Domes of turquoise tile, by fast train.</p>
+        <p class="chapter-subtitle">Tashkent, Samarkand, Bukhara · 220–700 m</p>
       </div>
     </header>
+  </div>
 
-    <div class="chapter-hero gradient-uzbekistan">
-      <img class="scene" src="images/uzbekistan_samarkand.jpg" alt="Registan Square at golden hour, Samarkand" loading="lazy">
-      <div class="chapter-hero-quote">
-        <div class="quote-text">“Tea under the mulberries at Lyab-i-Hauz as the walls turn orange.”</div>
-        <div class="quote-attr">Days 205–219 · 23 July – 6 August · 220–700 m</div>
+  <figure class="jr-photo">
+    <div class="jr-photo-frame"><img src="images/uzbekistan_samarkand.jpg" alt="Registan Square at golden hour, Samarkand" loading="lazy"></div>
+    <figcaption>“Tea under the mulberries at Lyab-i-Hauz as the walls turn orange.”</figcaption>
+  </figure>
+
+  <div class="container">
+    <div class="jr-cols">
+      <div class="jr-text">
+        <p class="jr-lede">The Silk Road&#x27;s architecture at full scale. Fast Afrosiyob trains between Tashkent, Samarkand and Bukhara; tiled madrasas, covered bazaars, tea by the Lyab-i-Hauz pool.</p>
+      </div>
+      <div class="practical jr-prac">
+        <h4>Practical</h4>
+        <dl class="practical-grid">
+          <div class="practical-item"><dt>Heat</dt><dd>Late July highs often pass 40 °C. Plan for mornings and evenings.</dd></div>
+          <div class="practical-item"><dt>Trains</dt><dd>Book the Afrosiyob the day sales open on the railway.uz app; it sells out.</dd></div>
+          <div class="practical-item"><dt>Visa</dt><dd>30 days visa-free; hotels register you.</dd></div>
+        </dl>
       </div>
     </div>
 
-    <div class="chapter-body chapter-body--stacked">
-      <div class="chapter-text">
-        <p>The Silk Road&#x27;s architecture at full scale. Fast Afrosiyob trains between Tashkent, Samarkand and Bukhara; tiled madrasas, covered bazaars, tea by the Lyab-i-Hauz pool.</p>
-      </div>
-      <div class="highlights highlights--row">
-          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Registan" target="_blank" rel="noopener">
-          <div class="highlight">
-            <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Registan_square_Samarkand.jpg/500px-Registan_square_Samarkand.jpg" alt="The Registan, Samarkand" loading="lazy">
-            <div class="highlight-icon">Historical</div>
-            <h5>The Registan at 6 a.m.</h5>
-          </div>
-          </a>
-          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Shah-i-Zinda" target="_blank" rel="noopener">
-          <div class="highlight">
-            <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Shah-i-Zinda%2C_Samarkand_%28Shohi-Zinda_majmuasi%2C_Samarqand%2C_%D0%A8%D0%B0%D1%85%D0%B8_%D0%97%D0%B8%D0%BD%D0%B4%D0%B0%29.jpg/500px-Shah-i-Zinda%2C_Samarkand_%28Shohi-Zinda_majmuasi%2C_Samarqand%2C_%D0%A8%D0%B0%D1%85%D0%B8_%D0%97%D0%B8%D0%BD%D0%B4%D0%B0%29.jpg" alt="Shah-i-Zinda Necropolis" loading="lazy">
-            <div class="highlight-icon">Historical</div>
-            <h5>Shah-i-Zinda&#x27;s blue tilework</h5>
-          </div>
-          </a>
-          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Bukhara" target="_blank" rel="noopener">
-          <div class="highlight">
-            <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/2012_Bukhara_7515821196_cropped.jpg/500px-2012_Bukhara_7515821196_cropped.jpg" alt="Bukhara Old City" loading="lazy">
-            <div class="highlight-icon">Cultural</div>
-            <h5>Bukhara&#x27;s trading domes</h5>
-          </div>
-          </a>
-      </div>
+    <div class="jr-hls" aria-label="Don't miss">
+      <a class="jr-hl" href="https://en.wikipedia.org/wiki/Registan" target="_blank" rel="noopener">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Registan_square_Samarkand.jpg/500px-Registan_square_Samarkand.jpg" alt="The Registan, Samarkand" loading="lazy">
+        <span class="jr-hl-kind">Historical</span>
+        <span class="jr-hl-title">The Registan at 6 a.m.</span>
+      </a>
+      <a class="jr-hl" href="https://en.wikipedia.org/wiki/Shah-i-Zinda" target="_blank" rel="noopener">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Shah-i-Zinda%2C_Samarkand_%28Shohi-Zinda_majmuasi%2C_Samarqand%2C_%D0%A8%D0%B0%D1%85%D0%B8_%D0%97%D0%B8%D0%BD%D0%B4%D0%B0%29.jpg/500px-Shah-i-Zinda%2C_Samarkand_%28Shohi-Zinda_majmuasi%2C_Samarqand%2C_%D0%A8%D0%B0%D1%85%D0%B8_%D0%97%D0%B8%D0%BD%D0%B4%D0%B0%29.jpg" alt="Shah-i-Zinda Necropolis" loading="lazy">
+        <span class="jr-hl-kind">Historical</span>
+        <span class="jr-hl-title">Shah-i-Zinda&#x27;s blue tilework</span>
+      </a>
+      <a class="jr-hl" href="https://en.wikipedia.org/wiki/Bukhara" target="_blank" rel="noopener">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/2012_Bukhara_7515821196_cropped.jpg/500px-2012_Bukhara_7515821196_cropped.jpg" alt="Bukhara Old City" loading="lazy">
+        <span class="jr-hl-kind">Cultural</span>
+        <span class="jr-hl-title">Bukhara&#x27;s trading domes</span>
+      </a>
     </div>
-
-    <div class="practical">
-      <h4>Practical · The Silk Road Cities</h4>
-      <div class="practical-grid">
-        <div class="practical-item">
-          <dt>Heat</dt>
-          <dd>Late July highs often pass 40 °C. Plan for mornings and evenings.</dd>
-        </div>
-        <div class="practical-item">
-          <dt>Trains</dt>
-          <dd>Book the Afrosiyob the day sales open on the railway.uz app; it sells out.</dd>
-        </div>
-        <div class="practical-item">
-          <dt>Visa</dt>
-          <dd>30 days visa-free; hotels register you.</dd>
-        </div>
-      </div>
-    </div>
-
   </div>
 </section>
 
 <!-- ============= CHAPTER 20 ============= -->
-<section class="chapter" id="ch20">
+<section class="chapter jr-chapter" id="ch20">
   <div class="container">
-    <header class="chapter-header">
-      <div class="chapter-number"><span>Chapter Twenty</span>XX.</div>
-      <div>
+    <header class="chapter-header jr-head">
+      <div class="chapter-number" aria-hidden="true">XX</div>
+      <div class="jr-titles">
+        <p class="jr-meta">Chapter twenty · Georgia · Days 220–240 · 7–27 August</p>
         <div class="chapter-title-wrap">
-          <h2 class="chapter-title">Georgia, <em>wine and the Caucasus</em></h2>
-          <button class="locate-btn" onclick="flyToChapter('ch20')"><span>Map</span></button>
+          <h2 class="chapter-title">Georgia, wine and the Caucasus</h2>
+          <button class="locate-btn" type="button" onclick="flyToChapter('ch20')"><span>Map</span></button>
         </div>
-        <p class="chapter-subtitle">Tbilisi, Kazbegi, Kakheti. Sulphur baths, Caucasus peaks and amber wine.</p>
+        <p class="chapter-subtitle">Tbilisi, Kazbegi, Kakheti · 380–2,170 m</p>
       </div>
     </header>
+  </div>
 
-    <div class="chapter-hero gradient-georgia">
-      <img class="scene" src="images/georgia_tbilisi.jpg" alt="Tbilisi old town at dusk, Georgia" loading="lazy">
-      <div class="chapter-hero-quote">
-        <div class="quote-text">“Amber wine on the last night, tracing the line back to Colombo.”</div>
-        <div class="quote-attr">Days 220–240 · 7–27 August · 380–2,170 m</div>
+  <figure class="jr-photo">
+    <div class="jr-photo-frame"><img src="images/georgia_tbilisi.jpg" alt="Tbilisi old town at dusk, Georgia" loading="lazy"></div>
+    <figcaption>“Amber wine on the last night, tracing the line back to Colombo.”</figcaption>
+  </figure>
+
+  <div class="container">
+    <div class="jr-cols">
+      <div class="jr-text">
+        <p class="jr-lede">Three weeks to land softly. Sulphur baths in Tbilisi, Gergeti Trinity church under Mount Kazbek, and a supra in Kakheti with amber wine from clay qvevri.</p>
+      </div>
+      <div class="practical jr-prac">
+        <h4>Practical</h4>
+        <dl class="practical-grid">
+          <div class="practical-item"><dt>Getting there</dt><dd>Uzbekistan Airways flies Tashkent to Tbilisi direct. August is hot in Tbilisi; Kazbegi stays cool.</dd></div>
+          <div class="practical-item"><dt>Entry</dt><dd>Visa-free for a year, but since January 2026 travel health insurance is mandatory: at least GEL 30,000 for the whole stay. Carry proof.</dd></div>
+          <div class="practical-item"><dt>Transport</dt><dd>Bolt for rides in Tbilisi, GoTrip for drivers between towns.</dd></div>
+        </dl>
       </div>
     </div>
 
-    <div class="chapter-body chapter-body--stacked">
-      <div class="chapter-text">
-        <p>Three weeks to land softly. Sulphur baths in Tbilisi, Gergeti Trinity church under Mount Kazbek, and a supra in Kakheti with amber wine from clay qvevri.</p>
-      </div>
-      <div class="highlights highlights--row">
-          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Abanotubani" target="_blank" rel="noopener">
-          <div class="highlight">
-            <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/2014_Tbilisi%2C_%C5%81a%C5%BAnie_siarkowe_w_Abanotubani_%2804%29.jpg/500px-2014_Tbilisi%2C_%C5%81a%C5%BAnie_siarkowe_w_Abanotubani_%2804%29.jpg" alt="Tbilisi Sulfur Baths" loading="lazy">
-            <div class="highlight-icon">Experience</div>
-            <h5>A private room in the Abanotubani baths</h5>
-          </div>
-          </a>
-          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Gergeti_Trinity_Church" target="_blank" rel="noopener">
-          <div class="highlight">
-            <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Gergeti_Trinity_Church_09.23.jpg/500px-Gergeti_Trinity_Church_09.23.jpg" alt="Gergeti Trinity Church" loading="lazy">
-            <div class="highlight-icon">Landscape</div>
-            <h5>Gergeti Trinity church</h5>
-          </div>
-          </a>
-          <a class="highlight-link" href="https://en.wikipedia.org/wiki/Supra_(feast)" target="_blank" rel="noopener">
-          <div class="highlight">
-            <img class="highlight-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Dinner_at_Kopala%2C_Tbilisi.jpg/500px-Dinner_at_Kopala%2C_Tbilisi.jpg" alt="A Georgian Supra" loading="lazy">
-            <div class="highlight-icon">Culinary</div>
-            <h5>A supra in Kakheti</h5>
-          </div>
-          </a>
-      </div>
+    <div class="jr-hls" aria-label="Don't miss">
+      <a class="jr-hl" href="https://en.wikipedia.org/wiki/Abanotubani" target="_blank" rel="noopener">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/2014_Tbilisi%2C_%C5%81a%C5%BAnie_siarkowe_w_Abanotubani_%2804%29.jpg/500px-2014_Tbilisi%2C_%C5%81a%C5%BAnie_siarkowe_w_Abanotubani_%2804%29.jpg" alt="Tbilisi Sulfur Baths" loading="lazy">
+        <span class="jr-hl-kind">Experience</span>
+        <span class="jr-hl-title">A private room in the Abanotubani baths</span>
+      </a>
+      <a class="jr-hl" href="https://en.wikipedia.org/wiki/Gergeti_Trinity_Church" target="_blank" rel="noopener">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Gergeti_Trinity_Church_09.23.jpg/500px-Gergeti_Trinity_Church_09.23.jpg" alt="Gergeti Trinity Church" loading="lazy">
+        <span class="jr-hl-kind">Landscape</span>
+        <span class="jr-hl-title">Gergeti Trinity church</span>
+      </a>
+      <a class="jr-hl" href="https://en.wikipedia.org/wiki/Supra_(feast)" target="_blank" rel="noopener">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Dinner_at_Kopala%2C_Tbilisi.jpg/500px-Dinner_at_Kopala%2C_Tbilisi.jpg" alt="A Georgian Supra" loading="lazy">
+        <span class="jr-hl-kind">Culinary</span>
+        <span class="jr-hl-title">A supra in Kakheti</span>
+      </a>
     </div>
-
-    <div class="practical">
-      <h4>Practical · Georgia</h4>
-      <div class="practical-grid">
-        <div class="practical-item">
-          <dt>Getting there</dt>
-          <dd>Uzbekistan Airways flies Tashkent to Tbilisi direct. August is hot in Tbilisi; Kazbegi stays cool.</dd>
-        </div>
-        <div class="practical-item">
-          <dt>Entry</dt>
-          <dd>Visa-free for a year, but since January 2026 travel health insurance is mandatory: at least GEL 30,000 for the whole stay. Carry proof.</dd>
-        </div>
-        <div class="practical-item">
-          <dt>Transport</dt>
-          <dd>Bolt for rides in Tbilisi, GoTrip for drivers between towns.</dd>
-        </div>
-      </div>
-    </div>
-
   </div>
 </section>
 
