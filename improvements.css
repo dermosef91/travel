@@ -1,0 +1,345 @@
+/* ==========================================================================
+   Improvements, October 2026 review. Loaded after styles.css.
+   ========================================================================== */
+
+/* --- 10. Anchors land below the sticky tracker ---------------------------- */
+html { scroll-padding-top: 96px; }
+.chapter, .epilogue { scroll-margin-top: 96px; }
+@media (max-width: 600px) {
+  html { scroll-padding-top: 76px; }
+  .chapter, .epilogue { scroll-margin-top: 76px; }
+}
+
+/* --- 7. Readable hero figures -------------------------------------------- */
+.hero-meta {
+  background: rgba(244, 237, 224, 0.88);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(31, 26, 20, 0.12);
+  border-radius: 2px;
+  padding: 16px 36px;
+  gap: 44px;
+  box-shadow: 0 12px 30px -16px rgba(31, 26, 20, 0.45);
+  position: relative;
+  z-index: 3;
+}
+.hero-meta-label { color: var(--maroon); }
+.hero-meta-value { color: var(--ink); }
+@media (max-width: 600px) {
+  .hero-meta { padding: 16px 20px; gap: 16px 20px; }
+}
+
+/* --- 1. Chapter layout: text full width, highlights in a row ------------- */
+.chapter-body--stacked { display: block; }
+.chapter-text { max-width: 720px; }
+.chapter-text p:last-child { margin-bottom: 0; }
+
+.highlights--row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  margin-top: 44px;
+}
+.highlights--row a.highlight-link { height: 100%; }
+.highlights--row .highlight {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  height: 100%;
+  padding: 0 0 18px;
+  background: rgba(255, 252, 245, 0.55);
+}
+.highlights--row .highlight-image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border: 0;
+  border-radius: 2px 2px 0 0;
+  margin-bottom: 16px;
+}
+.highlights--row .highlight-icon,
+.highlights--row .highlight h5 { padding: 0 18px; }
+.highlights--row .highlight-icon { order: 2; margin: 0 0 6px; }
+.highlights--row .highlight h5 { order: 3; font-size: 21px; margin: 0; }
+.highlights--row .highlight-image { order: 1; }
+.highlights--row a.highlight-link::after {
+  top: 10px; right: 10px;
+  background: rgba(31, 26, 20, 0.6);
+  color: var(--paper);
+  width: 26px; height: 26px; line-height: 26px;
+  text-align: center; border-radius: 50%;
+}
+
+@media (max-width: 880px) {
+  /* swipe row on tablets and phones */
+  .highlights--row {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 14px;
+    margin: 32px -24px 0;
+    padding: 0 24px 8px;
+    scrollbar-width: none;
+  }
+  .highlights--row::-webkit-scrollbar { display: none; }
+  .highlights--row a.highlight-link { flex: 0 0 min(72%, 300px); scroll-snap-align: start; }
+}
+@media (max-width: 600px) {
+  .highlights--row { margin: 28px -16px 0; padding: 0 16px 8px; scroll-padding-left: 16px; }
+  .highlights--row .highlight h5 { font-size: 19px; }
+}
+
+/* --- 2. The moment line on the photo ------------------------------------- */
+.chapter-hero::after {
+  background: linear-gradient(to top, rgba(18, 14, 10, 0.86) 0%, rgba(18, 14, 10, 0.45) 38%, rgba(0, 0, 0, 0.08) 70%, rgba(0, 0, 0, 0.05) 100%);
+}
+.chapter-hero-quote .quote-text {
+  text-shadow: 0 1px 14px rgba(0, 0, 0, 0.45);
+  max-width: 760px;
+}
+.chapter-hero-quote .quote-attr {
+  font-size: 12px;
+  opacity: 0.92;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
+}
+@media (max-width: 600px) {
+  .chapter-hero { aspect-ratio: 4 / 5; }
+  .chapter-hero-quote .quote-text { font-size: 21px; line-height: 1.28; }
+  .chapter-hero-quote .quote-attr { font-size: 10px; letter-spacing: 0.2em; line-height: 1.6; }
+}
+
+/* --- 9. Compact check notices --------------------------------------------- */
+.check-note {
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  gap: 14px;
+  margin: 28px 0 0;
+  padding: 16px 20px;
+  background: rgba(164, 74, 63, 0.07);
+  border: 1px solid rgba(110, 42, 34, 0.22);
+  border-radius: 2px;
+}
+.check-note-mark {
+  width: 26px; height: 26px;
+  border-radius: 50%;
+  background: var(--maroon);
+  color: var(--paper);
+  display: grid; place-items: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 700;
+  font-size: 17px;
+  margin-top: 2px;
+}
+.check-note-label {
+  display: block;
+  font-family: 'Cormorant Unicase', serif;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-size: 10px;
+  color: var(--maroon);
+  margin-bottom: 2px;
+}
+.chapter-body .check-note p {
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--ink-soft);
+  margin: 0;
+}
+.chapter-body .check-note p::first-letter {
+  font-size: inherit; float: none; margin: 0; color: inherit; font-family: inherit; line-height: inherit;
+}
+
+/* --- 10. Tibet plans: a light box instead of a second dark one ------------ */
+.plans-box {
+  margin-top: 20px;
+  padding: 28px 32px 24px;
+  border: 1px solid rgba(110, 42, 34, 0.25);
+  border-top: 3px solid var(--maroon);
+  background: var(--paper-warm);
+  border-radius: 2px;
+}
+.plans-box h4 {
+  font-family: 'Cormorant Unicase', serif;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  font-size: 12px;
+  color: var(--maroon);
+  margin-bottom: 18px;
+}
+.plans-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+.plans-item dt { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 17px; color: var(--maroon); margin-bottom: 4px; }
+.plans-item dd { font-size: 16px; line-height: 1.5; color: var(--ink-soft); }
+@media (max-width: 880px) {
+  .plans-grid { grid-template-columns: 1fr; gap: 16px; }
+  .plans-box { padding: 22px 18px; }
+}
+
+/* --- 8. Timeline strip ----------------------------------------------------- */
+.timeline { margin-top: 48px; }
+.timeline-head {
+  display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+  font-family: 'Cormorant Unicase', serif; text-transform: uppercase;
+  letter-spacing: 0.25em; font-size: 10px; color: var(--ink-fade);
+  margin-bottom: 12px;
+}
+.timeline-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; padding-top: 10px; }
+.timeline-inner { min-width: 640px; }
+.timeline-track { display: flex; gap: 2px; height: 46px; }
+.tl-seg {
+  position: relative;
+  flex-basis: 0;
+  min-width: 0;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--paper);
+  text-decoration: none;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 14px;
+  border-radius: 2px;
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+.tl-seg:hover, .tl-seg:focus-visible { transform: translateY(-3px); filter: brightness(1.12); }
+.tl-seg.is-current { outline: 2px solid var(--gold); outline-offset: 2px; }
+.tl-narrow .tl-num { display: none; }
+.tl-flag, .tl-flag-key {
+  position: absolute; top: -9px; right: 2px;
+  width: 17px; height: 17px; border-radius: 50%;
+  background: var(--gold); color: var(--ink);
+  font: 700 11px/17px 'Cormorant Garamond', serif; text-align: center;
+  box-shadow: 0 0 0 2px var(--paper);
+}
+.tl-flag-key { position: static; display: inline-block; box-shadow: none; margin-right: 6px; }
+.tl-lk { background: #4a7256; }
+.tl-in { background: #1f4754; }
+.tl-split { background: linear-gradient(90deg, #1f4754, #1a2740); }
+.tl-np { background: #1a2740; }
+.tl-tb { background: #6e2a22; }
+.tl-cn { background: #a8803f; }
+.tl-kg { background: #b96a4d; }
+.tl-uz { background: #2e7d7a; }
+.tl-ge { background: #7a3b5c; }
+.timeline-months { position: relative; height: 26px; border-top: 1px solid rgba(31, 26, 20, 0.2); margin-top: 8px; }
+.timeline-months span {
+  position: absolute; top: 0; padding-top: 6px; padding-left: 4px;
+  border-left: 1px solid rgba(31, 26, 20, 0.25);
+  font-family: 'Cormorant Unicase', serif; font-size: 10px; letter-spacing: 0.15em;
+  text-transform: uppercase; color: var(--ink-fade);
+}
+.timeline-key {
+  display: flex; flex-wrap: wrap; gap: 8px 18px; margin-top: 12px;
+  font-size: 14px; color: var(--ink-fade);
+}
+.timeline-key span { display: inline-flex; align-items: center; }
+.timeline-key i { display: inline-block; width: 14px; height: 10px; border-radius: 2px; margin-right: 6px; }
+
+/* route list: open decisions, epilogue without a number */
+.route-open {
+  align-self: flex-start;
+  margin-top: 4px;
+  font-family: 'Cormorant Unicase', serif;
+  text-transform: uppercase; letter-spacing: 0.16em; font-size: 10px;
+  color: var(--ink);
+  background: rgba(184, 137, 64, 0.22);
+  border-radius: 100px;
+  padding: 3px 10px 3px 8px;
+}
+.route-open::before { content: "! "; font-weight: 700; color: var(--maroon); }
+.route-list li.route-epilogue { counter-increment: none; }
+.route-list li.route-epilogue a.route-link::before { content: "✦"; font-style: normal; font-size: 22px; }
+
+/* --- 5. Elevation key ------------------------------------------------------ */
+.elevation-legend { align-items: center; gap: 12px; }
+.elev-key { display: inline-flex; align-items: center; gap: 8px; }
+.elev-key i { display: inline-block; width: 26px; border-top: 2px dotted var(--maroon); }
+
+/* --- 4. Map legend --------------------------------------------------------- */
+.map-legend {
+  background: rgba(244, 237, 224, 0.94);
+  border: 1px solid rgba(31, 26, 20, 0.15);
+  border-radius: 2px;
+  padding: 8px 12px;
+  font-family: 'Crimson Pro', serif;
+  font-size: 13px;
+  color: var(--ink-soft);
+  line-height: 1.7;
+  box-shadow: 0 4px 12px -6px rgba(31, 26, 20, 0.3);
+}
+.map-legend svg { vertical-align: middle; margin-right: 8px; }
+.map-major-marker > div { transition: transform 0.25s ease; }
+
+/* --- 6. Back to chapter ---------------------------------------------------- */
+.back-to-chapter {
+  position: fixed;
+  left: 50%;
+  bottom: calc(24px + env(safe-area-inset-bottom, 0px));
+  transform: translateX(-50%);
+  z-index: 1001;
+  background: var(--ink);
+  color: var(--paper);
+  border: 1px solid var(--gold);
+  border-radius: 100px;
+  padding: 11px 22px;
+  font-family: 'Crimson Pro', serif;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+  max-width: calc(100% - 32px);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.back-to-chapter:hover { background: var(--maroon-deep); }
+.back-to-chapter:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+.map-popup-actions { display: flex; flex-wrap: wrap; gap: 4px 14px; margin-top: 4px; }
+
+/* --- 9. Budget table ------------------------------------------------------- */
+.ref-card--wide { grid-column: 1 / -1; }
+.budget-table { width: 100%; border-collapse: collapse; font-size: 15px; color: rgba(244, 237, 224, 0.9); }
+.budget-table th, .budget-table td {
+  text-align: left; padding: 10px 16px 10px 0;
+  border-bottom: 1px solid rgba(244, 237, 224, 0.08);
+  vertical-align: middle; font-weight: 400;
+}
+.budget-table thead th {
+  font-family: 'Cormorant Unicase', serif; text-transform: uppercase;
+  letter-spacing: 0.2em; font-size: 10px; color: var(--gold);
+  border-bottom: 1px solid rgba(244, 237, 224, 0.2);
+}
+.budget-table tbody th { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 18px; color: var(--paper); }
+.budget-table tbody th span { display: block; font-family: 'Crimson Pro', serif; font-style: normal; font-size: 13px; color: rgba(244, 237, 224, 0.55); }
+.budget-table .bt-num { white-space: nowrap; font-variant-numeric: tabular-nums; text-align: right; padding-right: 28px; }
+.budget-table .bt-barcell { width: 42%; }
+.bt-bar { position: relative; height: 8px; background: rgba(244, 237, 224, 0.08); border-radius: 4px; }
+.bt-bar span { position: absolute; top: 0; bottom: 0; background: var(--gold); border-radius: 4px; min-width: 3px; }
+.budget-table .bt-sub th {
+  padding-top: 26px;
+  font-family: 'Cormorant Unicase', serif; font-style: normal; text-transform: uppercase;
+  letter-spacing: 0.2em; font-size: 10px; color: var(--gold);
+}
+.budget-table tfoot th, .budget-table tfoot td {
+  border-top: 2px solid var(--gold); border-bottom: 0; padding-top: 16px;
+  font-size: 20px; color: var(--paper);
+}
+.budget-table tfoot th { font-family: 'Cormorant Garamond', serif; }
+.budget-table tfoot .bt-barcell { font-size: 15px; color: rgba(244, 237, 224, 0.75); }
+.bt-foot { margin-top: 16px; font-size: 15px; color: rgba(244, 237, 224, 0.65); max-width: 720px; }
+@media (max-width: 700px) {
+  .budget-table thead { display: none; }
+  .budget-table tbody tr, .budget-table tfoot tr {
+    display: grid; grid-template-columns: 1fr auto; gap: 4px 12px;
+    padding: 10px 0; border-bottom: 1px solid rgba(244, 237, 224, 0.08);
+  }
+  .budget-table th, .budget-table td { border: 0; padding: 0; }
+  .budget-table .bt-num { padding-right: 0; }
+  .budget-table .bt-barcell { grid-column: 1 / -1; width: auto; }
+  .budget-table .bt-sub { display: block; padding-top: 22px; }
+  .budget-table tfoot tr { border-top: 2px solid var(--gold); border-bottom: 0; padding-top: 14px; }
+  .budget-table tfoot th, .budget-table tfoot td { border: 0; padding-top: 0; font-size: 18px; }
+  .budget-table tfoot .bt-barcell { font-size: 14px; }
+}
+
+/* --- Phone tweaks for the map and the altitude chart ---------------------- */
+@media (max-width: 600px) {
+  .route-map-label { display: none; }
+  .map-legend { font-size: 11px; line-height: 1.55; padding: 5px 8px; }
+  .map-legend svg { width: 20px; margin-right: 5px; }
+  .elevation-legend { flex-wrap: wrap; row-gap: 6px; }
+  .elev-key { order: 3; width: 100%; justify-content: center; }
+}

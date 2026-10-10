@@ -68,7 +68,7 @@ var stops = [
   { lat: 7.2906, lng: 80.6337, name: 'Kandy', sub: 'Temple of the Tooth', ch: '', target: 'ch2' },
   { lat: 7.9570, lng: 80.7603, name: 'Sigiriya', sub: 'Lion Rock fortress', ch: 'II', target: 'ch2' },
   // III. Spice Coast
-  { lat: 9.9312, lng: 76.2673, name: 'Kochi', sub: 'Kerala · Spice Coast', ch: 'III', target: 'ch3' },
+  { lat: 9.9312, lng: 76.2673, name: 'Kochi', sub: 'Kerala · Spice Coast', ch: 'III', target: 'ch3' , mode: 'flight' },
   { lat: 10.0889, lng: 77.0595, name: 'Munnar', sub: 'Tea estates · 1,532 m', ch: '', target: 'ch3' },
   // IV. Ashram
   { lat: 8.5300, lng: 77.1500, name: 'Neyyar Dam', sub: 'Sivananda Ashram · 90 m', ch: 'IV', target: 'ch4' },
@@ -80,19 +80,19 @@ var stops = [
   // VII. Goa
   { lat: 15.0100, lng: 74.0239, name: 'Palolem', sub: 'South Goa · quiet shore', ch: 'VII', target: 'ch7' },
   // VIII. Holy Cities
-  { lat: 25.3176, lng: 83.0068, name: 'Varanasi', sub: 'Ganges · oldest city', ch: '', target: 'ch8' },
+  { lat: 25.3176, lng: 83.0068, name: 'Varanasi', sub: 'Ganges · oldest city', ch: '', target: 'ch8' , mode: 'flight' },
   { lat: 30.0869, lng: 78.2676, name: 'Rishikesh', sub: 'Yoga capital · Ganges', ch: '', target: 'ch8' },
   { lat: 31.6200, lng: 74.8765, name: 'Amritsar', sub: 'Golden Temple', ch: 'VIII', target: 'ch8' },
   // IX. Diverging Paths
   { lat: 30.1262, lng: 78.3230, name: 'Tapovan', sub: 'Breathwork · Rishikesh', ch: '', target: 'ch9' },
-  { lat: 28.2300, lng: 84.3800, name: 'Besisahar', sub: 'Annapurna Circuit start', ch: '', target: 'ch9' },
-  { lat: 28.6650, lng: 84.0150, name: 'Manang', sub: 'Annapurna Circuit · 3,540 m', ch: '', target: 'ch9' },
-  { lat: 28.7994, lng: 83.8722, name: 'Thorong La', sub: 'Pass · 5,416 m', ch: 'IX', target: 'ch9' },
+  { lat: 28.2300, lng: 84.3800, name: 'Besisahar', sub: 'Annapurna Circuit start', ch: '', target: 'ch9' , mode: 'flight' },
+  { lat: 28.6650, lng: 84.0150, name: 'Manang', sub: 'Annapurna Circuit · 3,540 m', ch: '', target: 'ch9' , mode: 'trek' },
+  { lat: 28.7994, lng: 83.8722, name: 'Thorong La', sub: 'Pass · 5,416 m', ch: 'IX', target: 'ch9' , mode: 'trek' },
   // X. Kathmandu
   { lat: 27.7172, lng: 85.3240, name: 'Kathmandu', sub: 'Threshold · Nepal · 1,400 m', ch: 'X', target: 'ch10' },
   // XI. Lhasa and Everest
-  { lat: 30.5728, lng: 104.0668, name: 'Chengdu', sub: 'Tibet permit pick-up · flight from Kathmandu', ch: '', target: 'ch11' },
-  { lat: 29.6500, lng: 91.1000, name: 'Lhasa', sub: 'The holy city · 3,656 m', ch: 'XI', target: 'ch11' },
+  { lat: 30.5728, lng: 104.0668, name: 'Chengdu', sub: 'Tibet permit pick-up · flight from Kathmandu', ch: '', target: 'ch11' , mode: 'flight' },
+  { lat: 29.6500, lng: 91.1000, name: 'Lhasa', sub: 'The holy city · 3,656 m', ch: 'XI', target: 'ch11' , mode: 'flight' },
   { lat: 29.0000, lng: 90.6000, name: 'Yamdrok Lake', sub: 'Sacred lake · Karo La', ch: '', target: 'ch11' },
   { lat: 28.9108, lng: 89.6000, name: 'Gyantse', sub: 'Kumbum Stupa', ch: '', target: 'ch11' },
   { lat: 29.2644, lng: 88.8877, name: 'Shigatse', sub: 'Tashilhunpo Monastery', ch: '', target: 'ch11' },
@@ -124,7 +124,7 @@ var stops = [
   { lat: 39.6542, lng: 66.9597, name: 'Samarkand', sub: 'Registan · Timur legacy', ch: '', target: 'ch19' },
   { lat: 39.7681, lng: 64.4556, name: 'Bukhara', sub: 'Living Silk Road city', ch: 'XIX', target: 'ch19' },
   // XX. Georgia
-  { lat: 41.6934, lng: 44.8015, name: 'Tbilisi', sub: 'Georgia · sulfur baths', ch: '', target: 'ch20' },
+  { lat: 41.6934, lng: 44.8015, name: 'Tbilisi', sub: 'Georgia · sulfur baths', ch: '', target: 'ch20' , mode: 'flight' },
   { lat: 42.6593, lng: 44.6388, name: 'Kazbegi', sub: 'Gergeti Trinity · 2,170 m', ch: '', target: 'ch20' },
   { lat: 41.6168, lng: 45.9285, name: 'Sighnaghi', sub: 'Kakheti wine region', ch: 'XX', target: 'ch20' }
 ];
@@ -136,42 +136,126 @@ var routeCoords = stops.map(function(s) { return [s.lat, s.lng]; });
 var overviewMap = L.map('overview-map', {
   scrollWheelZoom: false,
   zoomControl: true,
-  attributionControl: true
+  attributionControl: true,
+  zoomSnap: 0.25,
+  zoomDelta: 0.5
 });
+window.overviewMap = overviewMap;
 L.tileLayer(tileUrl, { attribution: tileAttr, maxZoom: 12 }).addTo(overviewMap);
 
-// Route polyline
-L.polyline(routeCoords, {
-  color: '#6e2a22',
-  weight: 2.5,
-  opacity: 0.7,
-  dashArray: '8, 6',
-  lineCap: 'round'
-}).addTo(overviewMap);
+// Legs drawn by how you travel: solid overland, arcs for flights, dots for Mo's trek
+function arcPoints(a, b) {
+  var pts = [], lat1 = a[0], lng1 = a[1], lat2 = b[0], lng2 = b[1];
+  var mLat = (lat1 + lat2) / 2, mLng = (lng1 + lng2) / 2;
+  var dLat = lat2 - lat1, dLng = lng2 - lng1;
+  var cLat = mLat + dLng * 0.18, cLng = mLng - dLat * 0.18;
+  for (var t = 0; t <= 1.0001; t += 0.05) {
+    var u = 1 - t;
+    pts.push([u * u * lat1 + 2 * u * t * cLat + t * t * lat2, u * u * lng1 + 2 * u * t * cLng + t * t * lng2]);
+  }
+  return pts;
+}
+var LEG_STYLE = {
+  land:   { color: '#6e2a22', weight: 2.6, opacity: 0.85, lineCap: 'round', lineJoin: 'round' },
+  flight: { color: '#8c6328', weight: 1.6, opacity: 0.9, dashArray: '6, 7', lineCap: 'round' },
+  trek:   { color: '#6e2a22', weight: 3, opacity: 0.9, dashArray: '1, 7', lineCap: 'round' }
+};
+var landRun = [];
+function flushLand() {
+  if (landRun.length > 1) L.polyline(landRun, LEG_STYLE.land).addTo(overviewMap);
+  landRun = [];
+}
+for (var li = 1; li < stops.length; li++) {
+  var from = [stops[li - 1].lat, stops[li - 1].lng], to = [stops[li].lat, stops[li].lng];
+  var mode = stops[li].mode || 'land';
+  if (mode === 'land') {
+    if (!landRun.length) landRun.push(from);
+    landRun.push(to);
+  } else {
+    flushLand();
+    L.polyline(mode === 'flight' ? arcPoints(from, to) : [from, to], LEG_STYLE[mode]).addTo(overviewMap);
+  }
+}
+flushLand();
 
-// Major stop markers (chapter-start cities)
-var majorIndices = [];
-stops.forEach(function(s, i) {
-  if (s.ch) majorIndices.push(i);
+// Legend
+var legend = L.control({ position: 'bottomleft' });
+legend.onAdd = function() {
+  var div = L.DomUtil.create('div', 'map-legend');
+  div.innerHTML =
+    '<div><svg width="30" height="6"><line x1="1" y1="3" x2="29" y2="3" stroke="#6e2a22" stroke-width="2.6" stroke-linecap="round"/></svg>Overland</div>' +
+    '<div><svg width="30" height="6"><line x1="1" y1="3" x2="29" y2="3" stroke="#8c6328" stroke-width="1.6" stroke-dasharray="6 7" stroke-linecap="round"/></svg>Flight</div>' +
+    '<div><svg width="30" height="6"><line x1="1" y1="3" x2="29" y2="3" stroke="#6e2a22" stroke-width="3" stroke-dasharray="1 7" stroke-linecap="round"/></svg>Mo\'s trek</div>';
+  return div;
+};
+legend.addTo(overviewMap);
+
+// Markers: chapter numbers always, small stops only when zoomed in
+var chapterNames = {};
+document.querySelectorAll('.chapter').forEach(function(sec) {
+  var t = sec.querySelector('.chapter-title');
+  if (t) chapterNames[sec.id] = t.textContent.trim();
 });
-
-stops.forEach(function(s, i) {
+function popupHtml(s) {
+  return '<strong>' + s.name + '</strong><em>' + s.sub + '</em><br>' +
+    '<span class="map-popup-actions"><a href="#' + s.target + '" class="map-popup-link" data-target="' + s.target + '">Read chapter →</a></span>';
+}
+var minorLayer = L.layerGroup();
+var majorMarkers = [];
+stops.forEach(function(s) {
   if (s.noMarker) return;
-  var isMajor = majorIndices.indexOf(i) > -1;
-  var icon = isMajor ? stopIcon(s.ch || '●', '#6e2a22') : smallIcon('#b88940');
-  var marker = L.marker([s.lat, s.lng], { icon: icon })
-    .bindPopup('<strong>' + s.name + '</strong><em>' + s.sub + '</em><br><a href="#' + s.target + '" class="map-popup-link" onclick="event.preventDefault(); document.getElementById(\'' + s.target + '\').scrollIntoView({behavior:\'smooth\', block:\'start\'});">Read chapter →</a>')
-    .addTo(overviewMap);
+  if (s.ch) {
+    var m = L.marker([s.lat, s.lng], { icon: stopIcon(s.ch, '#6e2a22'), zIndexOffset: 1000, title: s.name }).bindPopup(popupHtml(s));
+    m.addTo(overviewMap);
+    majorMarkers.push(m);
+    L.marker([s.lat, s.lng], { icon: smallIcon('#6e2a22'), interactive: false, keyboard: false }).addTo(overviewMap);
+  } else {
+    minorLayer.addLayer(L.marker([s.lat, s.lng], { icon: smallIcon('#b88940'), title: s.name }).bindPopup(popupHtml(s)));
+  }
 });
+function syncMinor() {
+  if (overviewMap.getZoom() >= 4.75) minorLayer.addTo(overviewMap);
+  else overviewMap.removeLayer(minorLayer);
+}
 
-// Add cursor pointer to all map markers
-document.addEventListener("DOMContentLoaded", function() {
-  document.querySelectorAll('#overview-map .leaflet-marker-icon').forEach(function(el) {
-    el.style.cursor = 'pointer';
+// Push overlapping chapter numbers apart so every one stays visible and clickable
+function declutter() {
+  var R = 32, pts = majorMarkers.map(function(m) {
+    var p = overviewMap.latLngToLayerPoint(m.getLatLng());
+    return { x: p.x, y: p.y, ox: p.x, oy: p.y };
+  });
+  for (var it = 0; it < 60; it++) {
+    for (var i = 0; i < pts.length; i++) for (var j = i + 1; j < pts.length; j++) {
+      var dx = pts[j].x - pts[i].x, dy = pts[j].y - pts[i].y, d = Math.sqrt(dx * dx + dy * dy) || 0.01;
+      if (d < R) {
+        var push = (R - d) / 2, ux = dx / d, uy = dy / d;
+        pts[i].x -= ux * push; pts[i].y -= uy * push;
+        pts[j].x += ux * push; pts[j].y += uy * push;
+      }
+    }
+  }
+  majorMarkers.forEach(function(m, i) {
+    var el = m.getElement();
+    if (!el || !el.firstChild) return;
+    el.classList.add('map-major-marker');
+    el.firstChild.style.transform = 'translate(' + (pts[i].x - pts[i].ox).toFixed(1) + 'px,' + (pts[i].y - pts[i].oy).toFixed(1) + 'px)';
+  });
+}
+overviewMap.on('zoomend', function() { syncMinor(); declutter(); });
+overviewMap.on('popupopen', function(e) {
+  var a = e.popup.getElement().querySelector('.map-popup-link');
+  if (!a) return;
+  a.addEventListener('click', function(ev) {
+    ev.preventDefault();
+    hideBackButton();
+    var el = document.getElementById(a.getAttribute('data-target'));
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
 });
 
-overviewMap.fitBounds(routeCoords, { padding: [40, 40] });
+overviewMap.fitBounds(routeCoords, { padding: [24, 24] });
+syncMinor();
+declutter();
 
 // ===== SCROLL REVEAL =====
 function initScrollReveal() {
@@ -295,136 +379,119 @@ function initElevation() {
   var vline = document.getElementById('elev-line');
   if (!svg) return;
 
-  // Full route elevation data — Colombo to Tbilisi
-  var elevData = [
-    { name: 'Colombo', alt: 10, km: 0, day: 1 },
-    { name: 'Galle', alt: 12, km: 110, day: 4 },
-    { name: 'Unawatuna', alt: 5, km: 110, day: 6 },
-    { name: 'Mirissa', alt: 8, km: 130, day: 10 },
-    { name: 'Ella', alt: 1041, km: 260, day: 11 },
-    { name: 'Kandy', alt: 465, km: 320, day: 15 },
-    { name: 'Sigiriya', alt: 349, km: 400, day: 18 },
-    { name: 'Kochi', alt: 10, km: 940, day: 20 },
-    { name: 'Munnar', alt: 1532, km: 1030, day: 23 },
-    { name: 'Neyyar Dam', alt: 90, km: 1200, day: 27 },
-    { name: 'Varkala', alt: 15, km: 1250, day: 58 },
-    { name: 'Alleppey', alt: 5, km: 1350, day: 62 },
-    { name: 'Hampi', alt: 467, km: 2000, day: 65 },
-    { name: 'Palolem', alt: 10, km: 2260, day: 73 },
-    { name: 'Varanasi', alt: 80, km: 3740, day: 87 },
-    { name: 'Rishikesh', alt: 340, km: 4450, day: 94 },
-    { name: 'Amritsar', alt: 234, km: 4810, day: 100 },
-    { name: 'Besisahar', alt: 760, km: 5800, day: 107 },
-    { name: 'Manang', alt: 3540, km: 5860, day: 112 },
-    { name: 'Thorong La', alt: 5416, km: 5880, day: 117 },
-    { name: 'Kathmandu', alt: 1400, km: 6070, day: 126 },
-    { name: 'Chengdu', alt: 500, km: 7920, day: 133 },
-    { name: 'Lhasa', alt: 3656, km: 9170, day: 134 },
-    { name: 'Yamdrok Lake', alt: 4441, km: 9250, day: 139 },
-    { name: 'Gyantse', alt: 4040, km: 9350, day: 140 },
-    { name: 'Shigatse', alt: 3840, km: 9430, day: 141 },
-    { name: 'Rongbuk', alt: 5000, km: 9670, day: 143 },
-    { name: 'Tanggula Pass', alt: 5072, km: 10490, day: 149 },
-    { name: 'Hoh Xil', alt: 4600, km: 10900, day: 149 },
-    { name: 'Xining', alt: 2275, km: 11530, day: 150 },
-    { name: 'Zhangye', alt: 1474, km: 11810, day: 155 },
-    { name: 'Jiayuguan', alt: 1735, km: 12020, day: 160 },
-    { name: 'Dunhuang', alt: 1139, km: 12330, day: 163 },
-    { name: 'Turpan', alt: -154, km: 12880, day: 168 },
-    { name: 'Kashgar', alt: 1289, km: 14050, day: 177 },
-    { name: 'Irkeshtam Pass', alt: 3005, km: 14240, day: 184 },
-    { name: 'Sary-Tash', alt: 3170, km: 14290, day: 185 },
-    { name: 'Osh', alt: 960, km: 14390, day: 186 },
-    { name: 'Bishkek', alt: 800, km: 14690, day: 187 },
-    { name: 'Karakol', alt: 1770, km: 15000, day: 191 },
-    { name: 'Song Kol', alt: 3016, km: 15280, day: 198 },
-    { name: 'Tashkent', alt: 455, km: 15770, day: 205 },
-    { name: 'Samarkand', alt: 702, km: 16040, day: 210 },
-    { name: 'Bukhara', alt: 225, km: 16250, day: 215 },
-    { name: 'Tbilisi', alt: 380, km: 17920, day: 220 },
-    { name: 'Kazbegi', alt: 1740, km: 18030, day: 228 },
-    { name: 'Sighnaghi', alt: 790, km: 18190, day: 236 }
+  // Altitude by day. Day 1 = 31 Dec 2026.
+  var main = [
+    { name: 'Colombo', alt: 10, day: 1 }, { name: 'Galle', alt: 12, day: 4 }, { name: 'Mirissa', alt: 8, day: 9 },
+    { name: 'Ella', alt: 1041, day: 12 }, { name: 'Kandy', alt: 465, day: 15 }, { name: 'Sigiriya', alt: 349, day: 18 },
+    { name: 'Kochi', alt: 10, day: 20 }, { name: 'Munnar', alt: 1532, day: 23 }, { name: 'Kochi', alt: 10, day: 26 },
+    { name: 'Neyyar Dam', alt: 90, day: 27 }, { name: 'Neyyar Dam', alt: 90, day: 57 },
+    { name: 'Varkala', alt: 15, day: 58 }, { name: 'Alleppey', alt: 5, day: 62 },
+    { name: 'Hampi', alt: 467, day: 65 }, { name: 'Hampi', alt: 467, day: 72 }, { name: 'Palolem', alt: 10, day: 73 }, { name: 'Palolem', alt: 10, day: 86 },
+    { name: 'Varanasi', alt: 80, day: 87 }, { name: 'Rishikesh', alt: 340, day: 94 }, { name: 'Amritsar', alt: 234, day: 100 },
+    { name: 'Tapovan', alt: 350, day: 104 }, { name: 'Tapovan', alt: 350, day: 125 },
+    { name: 'Kathmandu', alt: 1400, day: 126 }, { name: 'Kathmandu', alt: 1400, day: 132 },
+    { name: 'Chengdu', alt: 500, day: 133 }, { name: 'Lhasa', alt: 3656, day: 134 }, { name: 'Lhasa', alt: 3656, day: 138 },
+    { name: 'Yamdrok Lake', alt: 4441, day: 139 }, { name: 'Gyantse', alt: 4040, day: 140 }, { name: 'Shigatse', alt: 3840, day: 141 },
+    { name: 'Rongbuk', alt: 5000, day: 143 }, { name: 'Shigatse', alt: 3840, day: 145 }, { name: 'Lhasa', alt: 3656, day: 147 },
+    { name: 'Tanggula Pass', alt: 5072, day: 149 }, { name: 'Xining', alt: 2275, day: 150 },
+    { name: 'Zhangye', alt: 1474, day: 155 }, { name: 'Jiayuguan', alt: 1735, day: 160 }, { name: 'Dunhuang', alt: 1139, day: 163 },
+    { name: 'Turpan', alt: -154, day: 168 }, { name: 'Ürümqi', alt: 800, day: 173 }, { name: 'Kashgar', alt: 1289, day: 177 },
+    { name: 'Karakul Lake', alt: 3600, day: 180 }, { name: 'Kashgar', alt: 1289, day: 182 },
+    { name: 'Irkeshtam Pass', alt: 3005, day: 184 }, { name: 'Sary-Tash', alt: 3170, day: 185 }, { name: 'Osh', alt: 960, day: 186 },
+    { name: 'Bishkek', alt: 800, day: 188 }, { name: 'Karakol', alt: 1770, day: 191 }, { name: 'Altyn Arashan', alt: 2600, day: 193 },
+    { name: 'Kochkor', alt: 1800, day: 196 }, { name: 'Song Kol', alt: 3016, day: 198 }, { name: 'Song Kol', alt: 3016, day: 201 },
+    { name: 'Bishkek', alt: 800, day: 204 }, { name: 'Tashkent', alt: 455, day: 205 }, { name: 'Samarkand', alt: 702, day: 210 },
+    { name: 'Bukhara', alt: 225, day: 215 }, { name: 'Tashkent', alt: 455, day: 219 },
+    { name: 'Tbilisi', alt: 380, day: 220 }, { name: 'Kazbegi', alt: 1740, day: 227 }, { name: 'Gergeti', alt: 2170, day: 228 },
+    { name: 'Tbilisi', alt: 380, day: 231 }, { name: 'Sighnaghi', alt: 790, day: 235 }, { name: 'Tbilisi', alt: 380, day: 240 }
   ];
+  var trek = [
+    { name: 'Tapovan', alt: 350, day: 104 }, { name: 'Kathmandu', alt: 1400, day: 105 }, { name: 'Besisahar', alt: 760, day: 107 },
+    { name: 'Chame', alt: 2670, day: 109 }, { name: 'Manang', alt: 3540, day: 112 }, { name: 'High Camp', alt: 4850, day: 116 },
+    { name: 'Thorong La', alt: 5416, day: 117 }, { name: 'Muktinath', alt: 3710, day: 117.6 }, { name: 'Jomsom', alt: 2720, day: 119 },
+    { name: 'Pokhara', alt: 822, day: 122 }, { name: 'Kathmandu', alt: 1400, day: 126 }
+  ];
+  var labels = [['Munnar', 23], ['Thorong La', 117], ['Rongbuk', 143], ['Tanggula Pass', 149], ['Turpan', 168], ['Song Kol', 198]];
+  var months = [['Jan', 2], ['Feb', 33], ['Mar', 61], ['Apr', 92], ['May', 122], ['Jun', 153], ['Jul', 183], ['Aug', 214]];
 
-  var maxKm = 18190;
-  var minAlt = -300;
-  var maxAlt = 5600;
-  var padTop = 20;
-  var padBot = 10;
+  var maxDay = 240, minAlt = -300, maxAlt = 5900, padTop = 22, padBot = 18;
+  var start = new Date(2026, 11, 31);
+  var MON = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  function dateOf(day) { var d = new Date(start); d.setDate(d.getDate() + Math.round(day) - 1); return d.getDate() + ' ' + MON[d.getMonth()]; }
 
   function render() {
     var rect = svg.getBoundingClientRect();
-    if(rect.width === 0) return;
-    var w = rect.width;
-    var h = rect.height;
-    var drawH = h - padTop - padBot;
-
-    function x(km) { return (km / maxKm) * w; }
+    if (rect.width === 0) return;
+    var w = rect.width, h = rect.height, drawH = h - padTop - padBot;
+    function x(day) { return ((day - 1) / (maxDay - 1)) * w; }
     function y(alt) { return padTop + drawH - ((alt - minAlt) / (maxAlt - minAlt)) * drawH; }
+    function path(arr) { return 'M' + arr.map(function(d) { return x(d.day).toFixed(1) + ',' + y(d.alt).toFixed(1); }).join(' L'); }
 
-    var points = elevData.map(function(d) { return x(d.km) + ',' + y(d.alt); });
-    var pathD = 'M' + points.join(' L');
-    var areaD = pathD + ' L' + x(maxKm) + ',' + (h - padBot) + ' L0,' + (h - padBot) + ' Z';
-
-    var gridAlts = [0, 1000, 2000, 3000, 4000, 5000];
-    var gridLines = gridAlts.map(function(a) {
+    var grid = (w < 600 ? [0, 2500, 5000] : [0, 1000, 2000, 3000, 4000, 5000]).map(function(a) {
       var yy = y(a);
-      return '<line x1="0" y1="' + yy + '" x2="' + w + '" y2="' + yy + '" stroke="rgba(31,26,20,0.08)" stroke-width="1" stroke-dasharray="4,4"/>'
-        + '<text x="4" y="' + (yy - 4) + '" fill="rgba(31,26,20,0.3)" font-family="Cormorant Unicase, serif" font-size="9" letter-spacing="0.1em">' + (a > 0 ? a/1000 + 'k' : a) + 'm</text>';
+      return '<line x1="0" y1="' + yy + '" x2="' + w + '" y2="' + yy + '" stroke="rgba(31,26,20,0.08)" stroke-dasharray="4,4"/>' +
+        '<text x="4" y="' + (yy - 4) + '" fill="rgba(31,26,20,0.45)" font-family="Cormorant Unicase, serif" font-size="10" letter-spacing="0.08em">' + (a ? a.toLocaleString('en') + ' m' : 'sea level') + '</text>';
+    }).join('');
+    var mticks = months.map(function(m) {
+      var xx = x(m[1]);
+      return '<line x1="' + xx + '" y1="' + padTop + '" x2="' + xx + '" y2="' + (h - padBot + 4) + '" stroke="rgba(31,26,20,0.10)"/>' +
+        '<text x="' + (xx + 4) + '" y="' + (h - 3) + '" fill="rgba(31,26,20,0.55)" font-family="Cormorant Unicase, serif" font-size="10" letter-spacing="0.12em">' + m[0].toUpperCase() + '</text>';
+    }).join('');
+    var mainD = path(main);
+    var area = mainD + ' L' + x(maxDay) + ',' + (h - padBot) + ' L0,' + (h - padBot) + ' Z';
+    var narrowChart = w < 600;
+    var anchors = { 'Rongbuk': 'end', 'Tanggula Pass': 'start' };
+    var notes = labels.filter(function(l) {
+      return !narrowChart || l[0] === 'Thorong La' || l[0] === 'Tanggula Pass';
+    }).map(function(l) {
+      var src = l[0] === 'Thorong La' ? trek : main;
+      var d = src.filter(function(p) { return p.name === l[0]; })[0];
+      var xx = x(d.day), yy = y(d.alt);
+      var anchor = anchors[l[0]] || (xx < 40 ? 'start' : (xx > w - 40 ? 'end' : 'middle'));
+      if (anchors[l[0]] === 'end') xx -= 4;
+      if (anchors[l[0]] === 'start') xx += 4;
+      var below = d.alt < 500;
+      return '<text x="' + xx + '" y="' + (below ? yy + 14 : yy - 9) + '" text-anchor="' + anchor + '" fill="#6e2a22" font-family="Cormorant Garamond, serif" font-style="italic" font-size="12">' + (l[0] === 'Thorong La' ? 'Thorong La (Mo)' : l[0]) + '</text>';
     }).join('');
 
-    var dots = elevData.map(function(d, i) {
-      var majorNames = ['Colombo','Mirissa','Sigiriya','Kochi','Neyyar Dam','Alleppey','Hampi','Palolem','Amritsar','Thorong La','Kathmandu','Lhasa','Rongbuk','Tanggula Pass','Zhangye','Dunhuang','Turpan','Kashgar','Sary-Tash','Song Kol','Bukhara','Sighnaghi'];
-      var isMajor = majorNames.indexOf(d.name) > -1;
-      var r = isMajor ? 4 : 2.5;
-      var fill = isMajor ? '#6e2a22' : '#b88940';
-      return '<circle cx="' + x(d.km) + '" cy="' + y(d.alt) + '" r="' + r + '" fill="' + fill + '" stroke="#f4ede0" stroke-width="1.5"/>';
-    }).join('');
-
-    svg.innerHTML = gridLines
-      + '<path d="' + areaD + '" fill="url(#elevGrad)" />'
-      + '<path d="' + pathD + '" fill="none" stroke="#6e2a22" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>'
-      + '<defs><linearGradient id="elevGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#b88940" stop-opacity="0.25"/><stop offset="100%" stop-color="#b88940" stop-opacity="0.02"/></linearGradient></defs>'
-      + dots;
+    svg.innerHTML = '<defs><linearGradient id="elevGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#b88940" stop-opacity="0.28"/><stop offset="100%" stop-color="#b88940" stop-opacity="0.03"/></linearGradient></defs>' +
+      grid + mticks +
+      '<path d="' + area + '" fill="url(#elevGrad)"/>' +
+      '<path d="' + mainD + '" fill="none" stroke="#6e2a22" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>' +
+      '<path d="' + path(trek) + '" fill="none" stroke="#6e2a22" stroke-width="2.2" stroke-dasharray="1.5,5" stroke-linecap="round"/>' +
+      notes;
   }
 
   render();
   window.addEventListener('resize', render);
 
-  // Hover interaction
-  svg.addEventListener('mousemove', function(e) {
+  function show(clientX) {
     var rect = svg.getBoundingClientRect();
-    if(rect.width === 0) return;
-    var mx = e.clientX - rect.left;
-    var w = rect.width;
-    var h = rect.height;
-    var drawH = h - padTop - padBot;
-    var hoverKm = (mx / w) * maxKm;
-
-    var nearest = elevData.reduce(function(best, d) {
-      var dist = Math.abs(d.km - hoverKm);
-      return dist < best.dist ? { d: d, dist: dist } : best;
-    }, { d: elevData[0], dist: Infinity });
-
-    var d = nearest.d;
-    var px = (d.km / maxKm) * w;
-    var py = padTop + drawH - ((d.alt - minAlt) / (maxAlt - minAlt)) * drawH;
-
-    tooltip.innerHTML = '<strong>' + d.name + '</strong>' + d.alt.toLocaleString() + ' m · km ' + d.km.toLocaleString() + ' · Day ' + d.day;
+    if (rect.width === 0) return;
+    var w = rect.width, h = rect.height, drawH = h - padTop - padBot;
+    var hoverDay = 1 + ((clientX - rect.left) / w) * (maxDay - 1);
+    var best = main.reduce(function(b, d) { var dist = Math.abs(d.day - hoverDay); return dist < b.dist ? { d: d, dist: dist } : b; }, { d: main[0], dist: Infinity }).d;
+    if (hoverDay > 104.5 && hoverDay < 125.5) {
+      best = trek.reduce(function(b, d) { var dist = Math.abs(d.day - hoverDay); return dist < b.dist ? { d: d, dist: dist } : b; }, { d: trek[0], dist: Infinity }).d;
+    }
+    var px = ((best.day - 1) / (maxDay - 1)) * w;
+    var py = padTop + drawH - ((best.alt - minAlt) / (maxAlt - minAlt)) * drawH;
+    var who = (hoverDay > 104.5 && hoverDay < 125.5) ? ' · Mo, while Micky is in Tapovan' : '';
+    tooltip.innerHTML = '<strong>' + best.name + '</strong>' + best.alt.toLocaleString('en') + ' m · Day ' + Math.round(best.day) + ' · ' + dateOf(best.day) + who;
     tooltip.classList.add('show');
-    tooltip.style.left = px + 'px';
+    tooltip.style.left = Math.min(Math.max(px, 90), w - 90) + 'px';
     tooltip.style.bottom = (h - py + 12) + 'px';
-
     vline.classList.add('show');
     vline.style.left = px + 'px';
     vline.style.top = py + 'px';
     vline.style.height = (h - padBot - py) + 'px';
-  });
-
-  svg.addEventListener('mouseleave', function() {
-    tooltip.classList.remove('show');
-    vline.classList.remove('show');
-  });
+  }
+  function hide() { tooltip.classList.remove('show'); vline.classList.remove('show'); }
+  svg.addEventListener('mousemove', function(e) { show(e.clientX); });
+  svg.addEventListener('mouseleave', hide);
+  svg.addEventListener('touchstart', function(e) { show(e.touches[0].clientX); }, { passive: true });
+  svg.addEventListener('touchmove', function(e) { show(e.touches[0].clientX); }, { passive: true });
+  svg.addEventListener('touchend', function() { setTimeout(hide, 1500); });
 }
 document.addEventListener("DOMContentLoaded", initElevation);
 
@@ -553,6 +620,10 @@ function initScrollTracker() {
         if (region) {
           setActiveRegion(region);
         }
+        document.querySelectorAll('.tl-seg').forEach(function(seg) {
+          seg.classList.toggle('is-current', seg.getAttribute('href') === '#' + current.id);
+        });
+        if (window.backTarget && window.backTarget === current.id) hideBackButton();
       }
 
       // Dynamic Day Tracker
@@ -576,7 +647,15 @@ function initScrollTracker() {
          trackerPct.textContent = pct + '%';
       }
     } else {
-      trackerPct.textContent = pct + '%';
+      if (lastActive !== 'overview') {
+        lastActive = 'overview';
+        trackerChapter.textContent = 'The Route at a Glance';
+        trackerDetail.textContent = '31 Dec 2026 – 27 Aug 2027  ·  240 days';
+        regionBtns.forEach(function(btn) { btn.classList.remove('active'); });
+        lastActiveRegion = null;
+        document.querySelectorAll('.tl-seg.is-current').forEach(function(seg) { seg.classList.remove('is-current'); });
+      }
+      trackerPct.textContent = '20 chapters';
     }
   }
 
@@ -723,33 +802,56 @@ function initClimateWidgets() {
 document.addEventListener("DOMContentLoaded", initClimateWidgets);
 
 // ===== FLY TO CHAPTER (LOCATE ON MAP) =====
+// ===== BACK TO CHAPTER =====
+window.backTarget = null;
+function hideBackButton() {
+  var btn = document.getElementById('back-to-chapter');
+  if (btn) btn.hidden = true;
+  window.backTarget = null;
+}
+function showBackButton(targetId) {
+  var btn = document.getElementById('back-to-chapter');
+  var sec = document.getElementById(targetId);
+  if (!btn || !sec) return;
+  var num = sec.querySelector('.chapter-number');
+  var roman = num ? num.lastChild.textContent.trim().replace(/\.$/, '') : '';
+  var title = sec.querySelector('.chapter-title');
+  btn.textContent = '↓ Back to ' + roman + '. ' + (title ? title.textContent.trim() : 'the chapter');
+  btn.hidden = false;
+  window.backTarget = targetId;
+}
+document.addEventListener('DOMContentLoaded', function() {
+  var btn = document.getElementById('back-to-chapter');
+  if (!btn) return;
+  btn.addEventListener('click', function() {
+    var id = window.backTarget;
+    hideBackButton();
+    var el = id && document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
+
+// ===== FLY TO CHAPTER (LOCATE ON MAP) =====
 window.flyToChapter = function(targetId) {
-  var stop = stops.find(function(s) { return s.target === targetId; });
-  if (stop && window.overviewMap) {
-    // Scroll to the map container smoothly
-    var mapContainer = document.getElementById('overview-map');
-    if (mapContainer) {
-      // Calculate top position with some padding
-      var y = mapContainer.getBoundingClientRect().top + window.scrollY - 120;
-      window.scrollTo({ top: y, behavior: 'smooth' });
-      
-      // Wait for scroll to somewhat finish, then fly map
-      setTimeout(function() {
-        overviewMap.flyTo([stop.lat, stop.lng], 7, {
-          animate: true,
-          duration: 1.5
-        });
-        
-        // Open the corresponding popup
-        overviewMap.eachLayer(function(layer) {
-          if (layer instanceof L.Marker) {
-            var latLng = layer.getLatLng();
-            if (latLng.lat === stop.lat && latLng.lng === stop.lng) {
-              layer.openPopup();
-            }
-          }
-        });
-      }, 500);
+  var inChapter = stops.filter(function(s) { return s.target === targetId && !s.noMarker; });
+  var stop = inChapter.filter(function(s) { return s.ch; })[0] || inChapter[0];
+  if (!stop || !window.overviewMap) return;
+  var mapContainer = document.getElementById('overview-map');
+  if (!mapContainer) return;
+  var y = mapContainer.getBoundingClientRect().top + window.scrollY - 140;
+  window.scrollTo({ top: y, behavior: 'smooth' });
+  showBackButton(targetId);
+  setTimeout(function() {
+    if (inChapter.length > 1) {
+      overviewMap.flyToBounds(inChapter.map(function(s) { return [s.lat, s.lng]; }), { padding: [60, 60], maxZoom: 8, duration: 1.5 });
+    } else {
+      overviewMap.flyTo([stop.lat, stop.lng], 7, { animate: true, duration: 1.5 });
     }
-  }
+    overviewMap.once('moveend', function() {
+      majorMarkers.forEach(function(m) {
+        var ll = m.getLatLng();
+        if (ll.lat === stop.lat && ll.lng === stop.lng) m.openPopup();
+      });
+    });
+  }, 500);
 };
