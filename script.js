@@ -66,6 +66,7 @@ var stops = [
   { lat: 5.9485, lng: 80.4543, name: 'Mirissa', sub: 'Blue whale season', ch: 'I', target: 'ch1' },
   // II. Hill Country
   { lat: 6.8667, lng: 81.0466, name: 'Ella', sub: 'Hill country · 1,041 m', ch: '', target: 'ch2' },
+  { lat: 6.8096, lng: 80.4994, name: "Adam's Peak", sub: 'Sri Pada · 2,243 m · night climb for sunrise', ch: '', target: 'ch2' },
   { lat: 7.2906, lng: 80.6337, name: 'Kandy', sub: 'Temple of the Tooth', ch: '', target: 'ch2' },
   { lat: 7.9570, lng: 80.7603, name: 'Sigiriya', sub: 'Lion Rock fortress', ch: 'II', target: 'ch2' },
   // III. Spice Coast
@@ -383,7 +384,7 @@ function initElevation() {
   // Altitude by day. Day 1 = 31 Dec 2026.
   var main = [
     { name: 'Colombo', alt: 10, day: 1 }, { name: 'Galle', alt: 12, day: 4 }, { name: 'Mirissa', alt: 8, day: 9 },
-    { name: 'Ella', alt: 1041, day: 12 }, { name: 'Kandy', alt: 465, day: 15 }, { name: 'Sigiriya', alt: 349, day: 18 },
+    { name: 'Ella', alt: 1041, day: 12 }, { name: 'Hatton', alt: 1270, day: 13 }, { name: "Adam's Peak", alt: 2243, day: 14 }, { name: 'Kandy', alt: 465, day: 15 }, { name: 'Sigiriya', alt: 349, day: 18 },
     { name: 'Kochi', alt: 10, day: 20 }, { name: 'Munnar', alt: 1532, day: 23 }, { name: 'Kochi', alt: 10, day: 26 },
     { name: 'Neyyar Dam', alt: 90, day: 27 }, { name: 'Neyyar Dam', alt: 90, day: 57 },
     { name: 'Varkala', alt: 15, day: 58 }, { name: 'Alleppey', alt: 5, day: 62 },
@@ -412,7 +413,7 @@ function initElevation() {
     { name: 'Thorong La', alt: 5416, day: 117 }, { name: 'Muktinath', alt: 3710, day: 117.6 }, { name: 'Jomsom', alt: 2720, day: 119 },
     { name: 'Pokhara', alt: 822, day: 122 }, { name: 'Kathmandu', alt: 1400, day: 126 }
   ];
-  var labels = [['Munnar', 23], ['Thorong La', 117], ['Rongbuk', 143], ['Tanggula Pass', 149], ['Turpan', 168], ['Song Kol', 198]];
+  var labels = [["Adam's Peak", 14], ['Thorong La', 117], ['Rongbuk', 143], ['Tanggula Pass', 149], ['Turpan', 168], ['Song Kol', 198]];
   var months = [['Jan', 2], ['Feb', 33], ['Mar', 61], ['Apr', 92], ['May', 122], ['Jun', 153], ['Jul', 183], ['Aug', 214]];
 
   var maxDay = 240, minAlt = -300, maxAlt = 5900, padTop = 22, padBot = 18;
@@ -508,7 +509,7 @@ function initScrollTracker() {
   // Chapter metadata for the tracker — all 20 chapters
   var chapters = [
     { id: 'ch1', title: 'The Southern Coast', day: '1–10', alt: 'Sea level', num: 'I' },
-    { id: 'ch2', title: 'The Hill Country', day: '11–19', alt: '465–1,041 m', num: 'II' },
+    { id: 'ch2', title: 'The Hill Country', day: '11–19', alt: '465–2,243 m', num: 'II' },
     { id: 'ch3', title: 'The Spice Coast', day: '20–26', alt: '10–1,532 m', num: 'III' },
     { id: 'ch4', title: 'The Ashram', day: '27–57', alt: '90 m', num: 'IV' },
     { id: 'ch5', title: 'The Backwaters', day: '58–64', alt: 'Sea level', num: 'V' },

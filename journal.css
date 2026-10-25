@@ -278,3 +278,9 @@ body::before { display: none; }
 /* Map tiles: OpenStreetMap, muted to sit on the journal paper */
 .leaflet-tile-pane .journal-tiles { filter: grayscale(0.85) sepia(0.18) contrast(0.92) brightness(1.04); }
 .leaflet-container { background: var(--paper-warm); }
+
+/* chapters with four highlights */
+@media (min-width: 861px) {
+  .jr-hls:has(> :nth-child(4)) { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; }
+  .jr-hls:has(> :nth-child(4)) .jr-hl-title { font-size: 20px; }
+}
