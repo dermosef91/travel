@@ -274,3 +274,7 @@ body::before { display: none; }
 @media (max-width: 600px) {
   .tracker-chapter { max-width: 52vw; font-size: 16px; }
 }
+
+/* Map tiles: OpenStreetMap, muted to sit on the journal paper */
+.leaflet-tile-pane .journal-tiles { filter: grayscale(0.85) sepia(0.18) contrast(0.92) brightness(1.04); }
+.leaflet-container { background: var(--paper-warm); }

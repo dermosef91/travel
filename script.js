@@ -18,8 +18,9 @@ if (heroMountains) {
 }
 
 // ===== MAP SETUP =====
-const tileUrl = 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png';
-const tileAttr = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/">CARTO</a>';
+// OpenStreetMap's own tiles: no API key needed (CARTO started requiring one in Aug 2026)
+const tileUrl = 'https://tile.openstreetmap.org/{z}/{x}/{y}.png';
+const tileAttr = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
 
 // Custom marker icon factory
 function stopIcon(label, color) {
@@ -141,7 +142,7 @@ var overviewMap = L.map('overview-map', {
   zoomDelta: 0.5
 });
 window.overviewMap = overviewMap;
-L.tileLayer(tileUrl, { attribution: tileAttr, maxZoom: 12 }).addTo(overviewMap);
+L.tileLayer(tileUrl, { attribution: tileAttr, maxZoom: 12, className: 'journal-tiles' }).addTo(overviewMap);
 
 // Legs drawn by how you travel: solid overland, arcs for flights, dots for Mo's trek
 function arcPoints(a, b) {
